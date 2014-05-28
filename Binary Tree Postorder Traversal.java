@@ -14,6 +14,7 @@ public class Solution {
     public ArrayList<Integer> postorderTraversal(TreeNode root) {
         if(root==null) return rntList;
        
+	    //order: left-child, right-child, parent
         if(root.left!=null) postorderTraversal(root.left);
         if(root.right!=null) postorderTraversal(root.right);
        
