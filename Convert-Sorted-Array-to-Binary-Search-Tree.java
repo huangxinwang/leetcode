@@ -14,13 +14,18 @@ public class Solution {
         
         int mid = num.length/2;
         TreeNode trn = new TreeNode(num[mid]);
+		
+		//recursive call left, right tree
         trn.left = subArrayToBST(0,mid-1,num);
-        trn.right = subArrayToBST(mid+1,num.length,num);
+        trn.right = subArrayToBST(mid+1,num.length-1,num);
         
         return trn;
         
     }
     
+	/*
+	 * recursive sub-procedure
+	 */
     public TreeNode subArrayToBST(int left, int right, int[] num)
     {
         if(left>right) return null;
