@@ -15,40 +15,42 @@ public class Solution {
         //cutNum[i] stores the min cutNum for substring s(1..i)
         int[] cutNum = new int[s.length()+1];
         
-        cutNum[0] = 0;
-        for(int i=1; i<=s.length(); i++)
+        //status[i][j] keep status of whether s(i..j) is palindrome
+        boolean[][] status = new boolean[s.length()][s.length()];
+       
+        //initialization 
+        for(int i=0; i<s.length(); i++)
         {
-            cutNum[i] = s.length();
+            status[i][i] = true;
         }
         
-        for(int i=1; i<= s.length(); i++)
+        cutNum[0] = -1;
+        
+        for(int i=1; i<=s.length(); i++)
         {
-            for(int j=1; j<=i; j++)
+            cutNum[i] = i-1;
+        }
+        
+        //dynamic programming
+        for(int i=0; i<s.length(); i++)
+        {
+            for(int j=i-1; j>=0; j--)
             {
-                if(isPalindrome(s.substring(j-1,i)))
+                //judge whether s(i..j) is palindrome
+                if( (s.charAt(i)==s.charAt(j)) &&(i-j<=2 || status[j+1][i-1]))
                 {
-                    int tmp = cutNum[j-1]+1;
-                    if(cutNum[i] > tmp)
-                    {   
-                        cutNum[i] = tmp;
-                        break;
-                    }
+                    //update min cut number
+                    cutNum[i+1] = Math.min(cutNum[i+1],cutNum[j]+1);
+                    status[j][i] = true;
                 }
+                
+                cutNum[i+1] = Math.min(cutNum[i]+1,cutNum[i+1]);
             }
+            
         }
         
         return cutNum[s.length()];
         
     }
     
-    public boolean isPalindrome(String s)
-    {
-        for(int i=0; i<s.length()/2; i++)
-        {
-            if(s.charAt(i)!=s.charAt(s.length()-1-i))
-            return false;
-        }
-        
-        return true;
-    }
 }
