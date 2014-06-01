@@ -23,8 +23,10 @@ public class Solution {
             int h = rnt.size();
             for(int j=h-1; j>=0; j--)
             {
-                //using h or rnt.get(j) to create the sequence
-                rnt.add(h | rnt.get(j));
+                //use h or rnt.get(j) to create the sequence
+                //Note: we should put convert rnt.get(j) to int, because the type of rnt.get(j) is object
+                //otherwise, we will get "bad operand types for binary operator '|'"
+                rnt.add(h | (int)rnt.get(j));
             }
         }
         
