@@ -23,6 +23,7 @@ public class Solution {
             int h = rnt.size();
             for(int j=h-1; j>=0; j--)
             {
+                //using h or rnt.get(j) to create the sequence
                 rnt.add(h | rnt.get(j));
             }
         }
