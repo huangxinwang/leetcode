@@ -4,6 +4,10 @@
  *  Integers in each row are sorted from left to right.
  *  The first integer of each row is greater than the last integer of the previous row.
  */
+ 
+ /*
+  * reference: http://blog.csdn.net/fightforyourdream/article/details/14220921
+  */
 
 public class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
