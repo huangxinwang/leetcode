@@ -8,32 +8,23 @@
 public class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         
-        if(matrix.length==0) return false;
-        
-        int row =0;
-        row = searchRow(matrix,target,0,matrix.length);
-        if(row==-1) return false;
-        return searchCol(matrix[row],target,0,matrix[row].length);
+       //special case
+       if(matrix.length==0) return false;
+       
+       //value of current row and col index while searching
+       int row = 0;
+       int col = matrix[0].length-1;
+       
+       //compare with matrix[row][col], and adjust value of row or col according to the relative value of matrix[row][col] and target
+       while(row < matrix.length && col >= 0 && col < matrix[0].length){
+           if(matrix[row][col]==target) return true;
+           if(matrix[row][col]>target) col--;
+           else row++;
+       }
+       
+       return false;
         
     }
     
-    public boolean searchCol(int[] matrix, int target, int small, int big){
-        if(small>=big && matrix[small]!=target) return false;
-        if(small>=big && matrix[small]==target) return true;
-        int mid = (small+big)/2;
-        if(matrix[mid]>=target) return searchCol(matrix,target,small,mid);
-        else return searchCol(matrix,target,mid,big);
-        
-    }
-    public int searchRow(int[][] matrix, int target, int small, int big){
-        
-        if(small>=big){
-            if(matrix[small][0]<=target) return small;
-            else return -1;
-        }
-        
-        int mid = (small+big)/2;
-        if(matrix[mid][0]>=target) return searchRow(matrix,target,small,mid);
-        else return searchRow(matrix,target,mid,big);
-    }
+    
 }
