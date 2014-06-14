@@ -11,6 +11,18 @@
   * Reference
   * http://www.shaoqun.com/a/82569.aspx
   */
+  
+  /**
+   * Solution
+   * Use HashMap to find CacheNode by key in O(1) time
+   * Use double linked list to maintain the LRU logic
+   *    the last element in the list is the least recently used element
+   */
+  
+  /**
+   * Comments
+   * This problem practice to design and use data structure
+   */
  
 public class LRUCache {
     
@@ -23,7 +35,7 @@ public class LRUCache {
     public int get(int key) {
         CacheNode node = cacheMap.get(key);
         if(node==null) return -1;
-        shiftToFirst(node);
+        cacheList.shiftToFirst(node);
         return node.val;
     }
     
@@ -33,20 +45,20 @@ public class LRUCache {
         if(cacheMap.containsKey(key)){
             CacheNode node = cacheMap.get(key);
             node.val = val;
-            shiftToFirst(node);
+            cacheList.shiftToFirst(node);
         }
         else{
             
             //Case2: does not contain key and size is full
             //remove last node
             if(cacheMap.size()==capacity){
-                CacheNode toRemoveNode = RemoveLast();
+                CacheNode toRemoveNode = cacheList.removeLast();
                 cacheMap.remove(toRemoveNode.key);
             }
             
             //create and insert new node
             CacheNode node = new CacheNode(key,val);
-            insertToFirst(node);
+            cacheList.insertToFirst(node);
             cacheMap.put(key,node);
         }
     }
@@ -59,6 +71,7 @@ public class LRUCache {
     private int capacity;
     private CacheList cacheList;
     private HashMap<Integer, CacheNode> cacheMap;
+    
     
     //double linked list
     private class CacheList{
@@ -74,7 +87,7 @@ public class LRUCache {
         }
         
         
-        private void insertToFirt(CacheNode node){
+        private void insertToFirst(CacheNode node){
             node.next = head.next;
             head.next.prev = node;
             node.prev = head;
