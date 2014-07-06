@@ -1,4 +1,16 @@
 /**
+ * Problem Statement: Remove Duplicates from Sorted List II 
+ * Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
+ */
+ 
+ 
+  /**
+  * Reference: http://blog.csdn.net/disappearedgod/article/details/24017313
+  * 
+  */
+
+
+/**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -9,6 +21,10 @@
  *     }
  * }
  */
+ 
+
+  
+  
 public class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         
@@ -42,10 +58,7 @@ public class Solution {
         }
         
         pre.next = p;
-        return dummyHead.next;
-        
-     
-        
+        return dummyHead.next;   
         
     }
 }
