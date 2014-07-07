@@ -1,5 +1,6 @@
 /**
  * Problem Statement: Pascal's Triangle 
+ * Link: https://oj.leetcode.com/problems/pascals-triangle/
  *
  * 
  * Given numRows, generate the first numRows of Pascal's triangle.
