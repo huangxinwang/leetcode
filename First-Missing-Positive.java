@@ -3,7 +3,8 @@
  * Link: https://oj.leetcode.com/problems/first-missing-positive/
  * Time: 356 ms
  * Ref: http://fisherlei.blogspot.com/2012/12/leetcode-first-missing-positive.html
- * 
+ * Hardness: *****
+ *
  * For example,
  * Given [1,2,0] return 3,
  * and [3,4,-1,1] return 2.
