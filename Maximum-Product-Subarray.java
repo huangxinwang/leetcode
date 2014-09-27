@@ -1,6 +1,7 @@
 /**
  * Problem Statement: Maximum Product Subarray 
  * Link: https://oj.leetcode.com/problems/maximum-product-subarray/
+ * Time: 384 ms
  * Hardness: **
  * 
  * Find the contiguous subarray within an array (containing at least one number) which has the largest product.
