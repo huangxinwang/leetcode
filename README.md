@@ -5,7 +5,7 @@ Record the source code for solutions of Leetcode problems. File is named using t
 
 ### Problem summary
 - [Summary by Solution Strategy](./summary_solution.md)
-- [Summary by Types](./summary_types.md)
+- [Summary by Types](./summary-types.md)
 - [Problem List]()
 
 
