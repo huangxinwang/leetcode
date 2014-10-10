@@ -1,10 +1,13 @@
 Leetcode
 ========
 
-Record the source code for solutions of Leetcode problems.
+Record the source code for solutions of Leetcode problems. File is named using the name of problems.
 
-File is named using the name of problems.
+### Problem summary
+- [Summary by Solution Strategy]()
+- [Problem List]()
 
 
-#### Answer reference
-[http://answer.ninechapter.com/](http://answer.ninechapter.com/)
+#### Reference
+- [http://answer.ninechapter.com/](http://answer.ninechapter.com/)
+- [fisherlei.blogspot](http://fisherlei.blogspot.com/)
