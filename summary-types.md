@@ -7,3 +7,7 @@
 - [Soduku Solver](./code/Sudoku-Solver.java)
 - [Permutation-1](./code/Permutations.java),[Permutation-II](./code/Permutations-II.java)
 
+
+### Binary Search
+- [Find Minimum in Rotated Sorted Array](./code/Find-Minimum-in-Rotated-Sorted-Array.java)
+
