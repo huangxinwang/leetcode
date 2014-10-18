@@ -14,4 +14,4 @@
 
 ### Logic
 - One pass traverse, but keep update the target value
- - [Jump Game](./code/Jump-Game.java)
+ - [Jump Game](./code/JumpGame.java)
