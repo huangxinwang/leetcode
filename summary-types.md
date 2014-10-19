@@ -12,6 +12,9 @@
 - [Find Minimum in Rotated Sorted Array](./code/Find-Minimum-in-Rotated-Sorted-Array.java)
   * different from general binary search, you need to analyze whether to continue on left or right part.
 
+### 1D Dynamic Programming
+- [Jump Game II](./code/Jump-Game-II.java)
+
 ### Logic
 - One pass traverse, but keep update the target value
  - [Jump Game](./code/JumpGame.java)
