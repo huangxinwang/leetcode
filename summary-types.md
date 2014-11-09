@@ -11,6 +11,8 @@
 ### Binary Search
 - [Find Minimum in Rotated Sorted Array](./code/Find-Minimum-in-Rotated-Sorted-Array.java)
   * different from general binary search, you need to analyze whether to continue on left or right part.
+- [Find Minimum in Rotated Sorted Array II](./code/Find-Minimum-in-Rotated-Sorted-Array-II.java)
+ - consider duplications
 
 ### 1D Dynamic Programming
 - [Jump Game II](./code/Jump-Game-II.java)
