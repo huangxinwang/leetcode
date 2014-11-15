@@ -17,6 +17,7 @@
 ### Stack
 - [Min Stack](./code/Min-Stack.java)
  - maintain two stacks, one for keep tracking for min value
+ 
 ### 1D Dynamic Programming
 - [Jump Game II](./code/Jump-Game-II.java)
 
