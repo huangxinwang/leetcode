@@ -14,6 +14,9 @@
 - [Find Minimum in Rotated Sorted Array II](./code/Find-Minimum-in-Rotated-Sorted-Array-II.java)
  - consider duplications
 
+### Stack
+- [Min Stack](./code/Min-Stack.java)
+ - maintain two stacks, one for keep tracking for min value
 ### 1D Dynamic Programming
 - [Jump Game II](./code/Jump-Game-II.java)
 
