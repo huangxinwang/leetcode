@@ -39,5 +39,5 @@
 - [[Spiral Matrix ]](./code/Spiral-Matrix.java)
 
 ### Sliding window
-- [Substring with Concatenation of All Words ](./code/Substring-with-Concatenation-of-All-Words.java)
+- [[Substring with Concatenation of All Words]](./code/Substring-with-Concatenation-of-All-Words.java)
   - use hashMap to contain words in current window
