@@ -1,74 +1,72 @@
 /**
  * Problem Statement: Word Ladder II 
+ * Link: https://oj.leetcode.com/problems/word-ladder-ii/
+ * Hardness: *****
  * 
- * Given two words (start and end), and a dictionary, find all shortest transformation sequence(s) from start to end, such that:
- * Only one letter can be changed at a time
- * Each intermediate word must exist in the dictionary
+ * State: exceed time limit
  * 
- * For example,
- * Given:
- * start = "hit"
- * end = "cog"
- * dict = ["hot","dot","dog","lot","log"]
- * Return
- * [
- *  ["hit","hot","dot","dog","cog"],
- *  ["hit","hot","lot","log","cog"]
- * ]
- * 
- * 
- * Note:
- * All words have the same length.
- * All words contain only lowercase alphabetic characters.
- */
-
-
-
-
-/**
- * Reference
- * http://www.blogjava.net/menglee/archive/2014/01/02/408381.html
  */
 
 
 public class Solution {
     public ArrayList<ArrayList<String>> findLadders(String start, String end, Set<String> dict) {
         
-        ArrayList<ArrayList<String>> rnt = new ArrayList<ArrayList<String>>();
+        int min = 0;
+        int max = 10;
         
-        LinkedList<String> wordQueue = new LinkedList<String>();
-        LinkedList<Integer> distanceQueue = new LinkedList<Integer>();
-        
-        wordQueue.add(start);
-        distanceQueue.add(1);
-        
-        int min_distance = -1;
-        
-        while(!wordQueue.isEmpty()){
+        while(min<=max){
+            ArrayList<ArrayList<String>> answer = new ArrayList<ArrayList<String>>();
+            ArrayList<String> currList = new ArrayList<String>();
+            currList.add(start);
+            Set<String> traversed = new HashSet<String>();
+            traversed.add(start);
+            int mid = (min+max)/2;
+            dfs(start, end, dict, mid, currList, answer, traversed);
+            if(min==max) return answer;
             
-            String currWord = wordQueue.pop();
-            int distance = distanceQueue.pop();
+            if(answer.size()>0) {
+                max = mid;
+                if(min==mid) return answer;
+            }
+            else min = mid+1;
             
-            if(currWord.equals(end))
-                min_distance = distance;
-                
-            else{
-                char[] currWordArray = currWord.toCharArray();
-                
-                for(char c = 'a'; c<='z'; c++){
-                    currWordArray[i] = c;
-                    
-                    String newWord = new String(currWordArray);
-                    if(dict.contains(newWord)){
-                        wordQueue.add(newWord);
-                        distanceQueue.add(distance+1);
-                        dict.remove(newWord);
-                        
-                    }
-                }
-                
+        }
+
+        return new ArrayList<ArrayList<String>>();
+    }
+    
+    //DFS
+    public void dfs(String curr, String end, Set<String> dict, int depth, ArrayList<String> currList,ArrayList<ArrayList<String>> answer,Set<String> traversed){
+        
+        if(depth<=0) {
+        
+            if(curr.equals(end)){
+                ArrayList<String> cloneList = new ArrayList<String>(currList);
+                //cloneList.add(end);
+                answer.add(cloneList);
                 
             }
+            
+            return;
+        
         }
+        
+        for(int i=0; i<curr.length(); i++){
+            for(int j=0; j<26; j++){
+                
+                char[] newWordArray = curr.toCharArray();
+                newWordArray[i] = (char)('a'+j);
+                String newWord = String.valueOf(newWordArray);
+               
+                if(dict.contains(newWord) && !newWord.equals(curr) && !traversed.contains(newWord)){
+                    currList.add(newWord);
+                    traversed.add(newWord);
+                    dfs(newWord, end, dict, depth-1, currList, answer,traversed );
+                    currList.remove(currList.size()-1);
+                    traversed.remove(newWord);
+                }
+            }
+        }
+        
     }
 }
