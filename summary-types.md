@@ -24,7 +24,7 @@
 ### Logic
 - One pass traverse, but keep update the target value
  - [[Jump Game]](./code/JumpGame.java)
-
+- [[3 Sum Closest]](code/3Sum-Closest.java)
 
 ### String
 - [[Roman to Integer]](./code/Roman-to-Integer.java), [[Integer to Roman]](./code/Integer-to-Roman.java)
