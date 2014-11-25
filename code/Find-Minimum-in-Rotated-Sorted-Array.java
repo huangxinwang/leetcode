@@ -42,3 +42,34 @@ public class Solution {
         else return help(left,mid,num);
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Round 2, 11/25/2014
+public class Solution {
+    public int findMin(int[] num) {
+        
+        //terminate case
+        if(num.length == 0) return num[0];
+        
+        return binarySearch(0, num.length-1, num);
+        
+    }
+    
+    public int binarySearch(int left, int right, int[] num){
+        
+        //terminate cases
+        if(left >= right) return num[left];
+        if(left+1 == right) return Math.min(num[left], num[right]);
+        
+        
+        int mid = (left+right)/2;
+        
+        //binary search
+        //different from normal binary search, we search the left part only when left< mid && mid>right 
+        if(num[left] < num[mid] && num[mid] > num[right]){
+            return binarySearch(mid, right, num);
+        }else
+            return binarySearch(left, mid, num);
+    }
+}
