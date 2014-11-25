@@ -50,3 +50,31 @@ class MinStack {
         return minStack.get(minStack.size()-1);
     }
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Round 2, 11/25/2014
+class MinStack {
+    
+    //maintain two stacks, stack for all elements, minStack or elements that could be minimum
+    Stack<Integer> stack = new Stack<Integer>();
+    Stack<Integer> minStack = new Stack<Integer>();
+    
+    //push an element to minStack only when it is not larger than current min
+    public void push(int x) {
+        stack.push(x);
+        if(minStack.empty() || !(x > minStack.peek()))minStack.push(x);
+    }
+
+    //pop an element from minStack if current poped out element is equal to min
+    public void pop() {
+        if(stack.pop().equals(minStack.peek())) minStack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int getMin() {
+         return minStack.peek();
+    }
+}
