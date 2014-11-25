@@ -44,3 +44,41 @@ public class Solution {
         return max;
     }
 }
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2, 11/25/2014
+//time complexity: O(n)
+
+public class Solution {
+    public int maxProduct(int[] A) {
+        
+        //maintain current local max/min and global max
+        int globalMax = A[0];
+        int localMin = A[0];
+        int localMax = A[0];
+        
+        //update local max/min based on whether A[i] is larger, equal or smaller than 0
+        for(int i=1; i<A.length; i++){
+            
+            if(A[i] > 0){
+                localMax = Math.max(localMax*A[i], A[i]);
+                localMin = Math.min(localMin*A[i], A[i]); 
+            }else if(A[i]<0){
+                int tmpLocalMax = Math.max(A[i], localMin*A[i]);
+                localMin = Math.min(A[i], localMax*A[i]);
+                localMax = tmpLocalMax;
+            }
+            else{
+                localMax = 0;
+                localMin = 0;
+            }
+            
+            //update globalmax
+            if(localMax > globalMax) globalMax = localMax;
+        }
+        
+        return globalMax;
+    }
+}
