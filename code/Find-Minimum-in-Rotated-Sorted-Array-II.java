@@ -36,3 +36,34 @@ public class Solution {
         else return binarySearch(leftIndex, midIndex, num); 
     }
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2, 11/25/2014
+//Time complexity O(n)
+
+public class Solution {
+    public int findMin(int[] num) {
+        
+        if(num.length==1) return num[0];
+        return binarySearch(0, num.length-1, num);
+    }
+    
+    public int binarySearch(int left, int right, int[] num){
+        //terminate case
+        if(left >= right) return num[left];
+        if(left+1 == right) return Math.min(num[left], num[right]);
+        
+        int mid = (left + right)/2;
+        
+        //recursive, 3 cases of num[mid] and num[right]
+        //note that when num[mid] == num[right], neither side can be discarded
+        if(num[mid] < num[right])
+            return binarySearch(left, mid, num);
+        else if(num[mid] > num[right])
+            return binarySearch(mid, right, num);
+        else return 
+            Math.min( binarySearch(left, mid, num), binarySearch(mid, right, num));
+    }
+}
