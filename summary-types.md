@@ -29,9 +29,7 @@
 ### String
 - [[Roman to Integer]](./code/Roman-to-Integer.java), [[Integer to Roman]](./code/Integer-to-Roman.java)
 - StrinbBuilder: [[Reverse Words in a String]](./code/Reverse-Words-in-a-String.java)
-
-### String Buffer
-- [[ZigZag Conversion]](./code/ZigZag-Conversion.java)
+- String Buffer: [[ZigZag Conversion]](./code/ZigZag-Conversion.java)
 
 ### Recursive call
 - [[Regular-Expression-Matching]](./code/Regular-Expression-Matching.java)
