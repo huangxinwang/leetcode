@@ -32,3 +32,32 @@ public class Solution {
 
     
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2, 11/25/2014
+//complexity: one pass
+
+public class Solution {
+    public String reverseWords(String s) {
+        
+       if(s==null || s.length() ==0) return s;
+       
+       String[] items = s.split(" ");
+       
+       //split by " "
+       //scan from tail to front
+       //use StringBuilder to maintain
+       StringBuilder sb = new StringBuilder();
+       for(int i=items.length-1; i>=0; i--){
+           if(!items[i].equals("")){
+               sb.append(items[i]).append(" ");
+           }
+       }
+       
+       if(sb.length()==0) return "";
+       //skip last " "
+       else return sb.substring(0, sb.length()-1);
+       
+       }
+}
