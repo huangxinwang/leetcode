@@ -55,3 +55,42 @@ public class Solution {
      
     }
 }
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/28/2014
+//Time complexity: O(1)
+
+public class Solution {
+    
+    public int evalRPN(String[] tokens) {
+        
+        //maintain a stack to process each tokens
+        Stack<Integer> stack = new Stack<Integer>();
+        for(int i=0; i<tokens.length; i++){
+            
+            //if current token is operator, then pop numbers from stack to do calculation, and push the result to the stack
+            if(tokens[i].equals("+") || tokens[i].equals("-") || tokens[i].equals("*") || tokens[i].equals("/")){
+                int num2 = (int)stack.pop();
+                int num1 = (int)stack.pop();
+                int result = 0;
+                switch(tokens[i]){
+                    case "+": result = num1+num2; break;
+                    case "-": result = num1-num2; break;
+                    case "*": result = num1 * num2; break;
+                    case "/": result = num1/num2; break;
+                }
+                stack.push(result);
+            }
+            //else just push the number to the stack
+            else{
+                int curr = Integer.parseInt(tokens[i]);
+                stack.push(curr);
+            }
+        }
+        
+        //return final result
+        return (int)stack.pop();
+    }
+}
