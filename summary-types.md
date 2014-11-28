@@ -17,7 +17,8 @@
 ### Stack
 - [[Min Stack]](./code/Min-Stack.java)
  - maintain two stacks, one for keep tracking for min value
- 
+- [Evaluate Reverse Polish Notation](./code/Evaluate-Reverse-Polish-Notation.java)
+
 ### 1D Dynamic Programming
 - [[Jump Game II]](./code/Jump-Game-II.java)
 
