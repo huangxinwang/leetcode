@@ -73,3 +73,68 @@ public class Solution {
         return global_max+1;
     }
 }
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Ronud 2: 11/28/2014
+//time comlexity O(n^2)
+
+
+/**
+ * Definition for a point.
+ * class Point {
+ *     int x;
+ *     int y;
+ *     Point() { x = 0; y = 0; }
+ *     Point(int a, int b) { x = a; y = b; }
+ * }
+ */
+public class Solution {
+    public int maxPoints(Point[] points) {
+        
+        //keep track of global max number
+        int globalMax = 0;
+        
+        //for each point, enumerate each other points that are in the same line with it
+        for(int i=0; i<points.length; i++){
+            //use hashmap to maintain each possible line (define by point2.y-point1.y)/(point2.x-point1.x)
+            HashMap<Double, Integer> map = new HashMap<Double, Integer>();
+            int same_x = 1;
+            //keep track of same vertex, since they will not be keep in the map (since we cannot calculate the slope)
+            int same_xy = 0;
+            
+            for(int j=0; j<points.length; j++){
+                //skip same point
+                if(j==i) continue;
+                
+                //if slope is not 0, calculate slope, update map
+                if (points[j].x != points[i].x){
+                    double k = (double)(points[j].y - points[i].y)/(points[j].x - points[i].x);
+                    if(map.containsKey(k))
+                        map.put(k, map.get(k)+1);
+                    else map.put(k, 2);
+                }
+                //if slop is zero, keep track of same x, and same vertex
+                else{
+                    same_x ++;
+                    if(points[j].y == points[i].y) same_xy++;
+                    
+                } 
+
+            }
+            
+            //note that when calculate the number of vertex in the same line, we need to plus the same vertex number
+            //as we mentioned, same vertex is not tracked in the map
+            for(double key: map.keySet()){
+                if(map.get(key) +same_xy > globalMax)
+                    globalMax = map.get(key) + same_xy;
+            }
+            
+            if(same_x > globalMax) globalMax = same_x;
+
+        }
+        
+        return globalMax;
+    }
+}
