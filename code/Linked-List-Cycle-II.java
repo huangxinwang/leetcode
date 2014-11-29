@@ -60,3 +60,53 @@ public class Solution {
         return slow;
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/29/2014
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ * 
+ * Analysis: denote the node where the cycle begins as b, then denote dist(head-b)= x; dist(fast&&slow meet - b) = k, 
+ * denote y as the cycle lenth
+ * 
+ * Fast: x + my + k; slow: (x+ny+k)*2 ==> x = wy -k where w is an integer
+ * 
+ * Tmp: x; slow = cy-k ==> when tmp and slow meets, we have x = cy -k, c=w
+ */
+ 
+ 
+ 
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        
+        //meeting at k after start point
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast!=null && fast.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) break;
+        }
+        
+        if(fast==null || fast.next== null) return null;
+        
+        //meeting at start point
+        ListNode tmp = head;
+        while(tmp!=slow){
+            tmp = tmp.next;
+            slow = slow.next;
+        }
+        
+        return tmp;
+    }
+}
