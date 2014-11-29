@@ -42,3 +42,7 @@
 ### Sliding window
 - [[Substring with Concatenation of All Words]](./code/Substring-with-Concatenation-of-All-Words.java)
   - use hashMap to contain words in current window
+
+
+### Sort
+- Merge Sort: [Sort List](./code/Sort-List.java)
