@@ -47,3 +47,38 @@ public class Solution {
         
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/29/2014
+
+//time complexity: O(1)
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        
+        //use fast and slow pointer to decide
+        //first fast and slow meet with each other, then it contains cycle
+        ListNode fast = head;
+        ListNode slow = head;
+        
+        while(fast!=null && fast.next!=null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) return true;
+        }
+        
+        return false;
+    }
+}
