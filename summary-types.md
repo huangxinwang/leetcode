@@ -19,8 +19,8 @@
  - maintain two stacks, one for keep tracking for min value
 - [[Evaluate Reverse Polish Notation]](./code/Evaluate-Reverse-Polish-Notation.java)
 
-### 1D Dynamic Programming
-- [[Jump Game II]](./code/Jump-Game-II.java)
+### Dynamic Programming
+- 1D: [[Jump Game II]](./code/Jump-Game-II.java), [[Word Break II]](./code/Word-Break-II.java)
 
 ### Logic
 - One pass traverse, but keep update the target value
