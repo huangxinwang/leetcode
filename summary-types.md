@@ -52,4 +52,4 @@
 - Double Link: [[LRU Cache]](./code/LRU-Cache.java)
 
 ### Binary Tree
-- Traversal: [[Binary Tree Postorder Traversal]](./code/Binary-Tree-Postorder-Traversal.java)
+- Traversal: [[Binary Tree Postorder Traversal]](./code/Binary-Tree-Postorder-Traversal.java), [[Binary Tree Preorder Traversal]](./code/Binary-Tree-Preorder-Traversal.java)
