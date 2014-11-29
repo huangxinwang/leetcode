@@ -45,4 +45,4 @@
 
 
 ### Sort
-- Merge Sort: [Sort List](./code/Sort-List.java)
+- Merge Sort: [[Sort List]](./code/Sort-List.java)
