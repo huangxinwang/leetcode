@@ -128,3 +128,107 @@ public class LRUCache {
 }
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/29/2014
+
+//time complexity: get, set both O(1)
+public class LRUCache {
+    
+    
+    private int capacity;
+    //create double link to check least recently used; latest used is in head; least used is in tail
+    private cacheList cacheList;
+    //hashmap to store key cacheNode pair
+    private HashMap<Integer, cacheNode> cacheMap;
+    
+    //init
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+        cacheList = new cacheList();
+        cacheMap = new HashMap<Integer, cacheNode>();
+    }
+    
+    //get key, update recently used
+    public int get(int key) {
+        if(cacheMap.containsKey(key)){
+            cacheList.shiftToFirst(cacheMap.get(key));
+            return cacheMap.get(key).value;
+        }
+        else return -1;
+    }
+    
+    //set key value, remove if reach capacity; 
+    public void set(int key, int value) {
+        if(cacheMap.containsKey(key)){
+            cacheNode node = cacheMap.get(key);
+            node.setVal(value);
+            cacheList.shiftToFirst(node);
+        }else{
+           if(cacheMap.size() >= capacity){
+               int toremoveKey = cacheList.removeTail();
+               cacheMap.remove(toremoveKey);
+           }
+           
+            cacheNode newNode = new cacheNode(key, value);
+            cacheList.insertToFirst(newNode);
+            cacheMap.put(key, newNode);
+        }
+    }
+    
+    
+    //node to store key, value, prev, next pointer
+    public class cacheNode{
+        private int key;
+        private int value;
+        private cacheNode prev;
+        private cacheNode next;
+        
+        public cacheNode(int key, int value){
+            this.key = key;
+            this.value = value;
+            this.prev = null;
+            this.next = null;
+        }
+        
+        public void setVal(int value){
+            this.value = value;
+        }
+    }
+    
+    //double link
+    public class cacheList{
+        private cacheNode head;
+        private cacheNode tail;
+        
+        public cacheList(){
+            head = new cacheNode(-1,-1);
+            tail = new cacheNode(-1,-1);
+            head.next = tail;
+            tail.prev = head;
+        }
+        
+        public void shiftToFirst(cacheNode node){
+            node.prev.next = node.next;
+            node.next.prev = node.prev;
+            
+            insertToFirst(node);
+            
+        }
+        
+        public void insertToFirst(cacheNode node){
+           node.next = head.next;
+           head.next.prev = node;
+           node.prev = head;
+           head.next = node;
+        }
+        
+        public int removeTail(){
+            cacheNode toremove = tail.prev;
+            toremove.prev.next = tail;
+            tail.prev = toremove.prev;
+            return toremove.key;
+        }
+    }
+}
+
+
