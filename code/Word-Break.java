@@ -37,3 +37,29 @@ public class Solution {
         return dp[length];
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/29/2014
+public class Solution {
+    public boolean wordBreak(String s, Set<String> dict) {
+        
+        //dynamic programming
+        //f[i] denote if s[0..i-1] can be broke
+        boolean[] f = new boolean[s.length()+1];
+        f[0] = true;
+        
+        //dynamic programming update f value
+        for(int i=1; i<=s.length(); i++){
+            for(int j=0; j<i; j++){
+                String word = s.substring(j, i);
+                if(f[j] && dict.contains(word)){
+                    f[i]=true;
+                    break;
+                }
+            }
+        }
+        
+        return f[s.length()];
+    }
+}
