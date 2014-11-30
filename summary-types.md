@@ -48,7 +48,7 @@
 - Merge Sort: [[Sort List]](./code/Sort-List.java)
 
 ### Linked List
-- Single Link: [[Insertion Sort List]](./code/Insertion-Sort-List.java), [[Reorder List]](./code/ReorderList.java)
+- Single Link: [[Insertion Sort List]](./code/Insertion-Sort-List.java), [[Reorder List]](./code/ReorderList.java), [[Intersection of Two Linked Lists]](./code/Intersection-of-Two-Linked-Lists.java)
 - Double Link: [[LRU Cache]](./code/LRU-Cache.java)
 - Cycle Link: [[Linked List Cycle]](./code/Linked-List-Cycle.java), [[Linked List Cycle II]](./code/Linked-List-Cycle-II.java)
 - Random Link: [[Copy List with Random Pointer]](./code/Copy-List-with-Random-Pointer.java)
