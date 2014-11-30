@@ -52,3 +52,42 @@ public class Solution {
         return -1;
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/30/2014
+
+//time complexity: O(n)
+
+public class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        
+        //if sum of diff >0, then exist a path
+        int[] diff = new int[gas.length];
+        
+        for(int i=0; i<gas.length; i++){
+            diff[i] = gas[i] - cost[i];
+        }
+        
+        int leftgas = 0;
+        for(int i=0; i<diff.length; i++){
+            leftgas += diff[i];
+        }
+        if(leftgas < 0) return -1;
+        
+        //find the path
+        //find the start point, that the diff sumup from (start,n) is larger than 0
+        else{
+            int start = 0;
+            leftgas = 0;
+            for(int i=0; i<diff.length; i++){
+                leftgas += diff[i];
+                if(leftgas<0){
+                    start = i+1;
+                    leftgas = 0;
+                }
+            }
+            return start;
+        }
+    }
+}
