@@ -76,3 +76,82 @@ public class Solution {
         return rnt;
     }
 }
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/29/2014
+
+/**
+ * Definition for singly-linked list with a random pointer.
+ * class RandomListNode {
+ *     int label;
+ *     RandomListNode next, random;
+ *     RandomListNode(int x) { this.label = x; }
+ * };
+ */
+public class Solution {
+    public RandomListNode copyRandomList(RandomListNode head) {
+        
+        if(head==null) return head;
+        duplicateList(head);
+        setRandom(head);
+        return splitList(head);
+        
+    }
+    
+    //duplicate list
+    //e.g., originally we have a->b->c->d->...
+    //after duplicating, we have a->a'->b->b'->c->c'->...
+    public void duplicateList(RandomListNode head){
+        
+        RandomListNode ori = head;
+        
+        while(ori!=null){
+            RandomListNode newnode = new RandomListNode(ori.label);
+            newnode.next = ori.next;
+            ori.next = newnode;
+            ori = newnode.next;
+        }
+        
+       
+    }
+    
+    //set random pointer
+    //e.g., a->a'->....>r->r'
+    //if a random pointe to r, then a' random point to r'
+    public void setRandom(RandomListNode head){
+        RandomListNode ori = head;
+        RandomListNode cpy = head.next;
+        while(ori!=null){
+            RandomListNode rnd = ori.random;
+            if(rnd!=null){
+                cpy.random = rnd.next;
+            }else 
+                cpy.random = null;
+                
+            ori = cpy.next;
+            if(ori!=null) cpy = ori.next;
+        }
+    }
+    
+    //split two linked list
+    public RandomListNode splitList(RandomListNode head){
+         
+        RandomListNode ori = head;
+        RandomListNode cpy = head.next;
+        RandomListNode rnt = head.next;
+        while(ori!=null){
+            ori.next = cpy.next;
+            ori = ori.next;
+            if(ori!=null) {
+                cpy.next = ori.next;
+                cpy=cpy.next;
+            }
+        }
+        
+        return rnt;
+    }
+    
+    
+}
