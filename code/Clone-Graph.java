@@ -59,4 +59,57 @@ public class Solution {
         
         }
     }
-h
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/30/2014
+
+//time complexity: O(E), when E is the total number of edges
+/**
+ * Definition for undirected graph.
+ * class UndirectedGraphNode {
+ *     int label;
+ *     List<UndirectedGraphNode> neighbors;
+ *     UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
+ * };
+ */
+public class Solution {
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        
+        if(node==null) return node;
+        
+        //use hashmap to maintain the corresponding node of originlist and copylist
+        HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap<UndirectedGraphNode,UndirectedGraphNode>();
+        
+        //use BFS to traverse node
+        LinkedList<UndirectedGraphNode> queue = new LinkedList<UndirectedGraphNode>();
+        
+        //init
+        queue.push(node);
+        UndirectedGraphNode head = new UndirectedGraphNode(node.label);
+        map.put(node, head);
+        
+        while(!queue.isEmpty()){
+            UndirectedGraphNode curr = queue.pop();
+            List<UndirectedGraphNode> currneighbor = curr.neighbors;;
+            
+            //traverse the neighbor of a node
+            for(int i=0; i<currneighbor.size(); i++){
+                UndirectedGraphNode ori = currneighbor.get(i);
+                //if current neighbor is not in map, put it in map and in queue
+                if(!map.containsKey(ori)){
+                    UndirectedGraphNode cpy = new UndirectedGraphNode(ori.label);
+                    map.put(ori, cpy);
+                    queue.push(ori);
+                    
+                }
+                
+                //copy the neighbor
+                map.get(curr).neighbors.add(map.get(ori));
+                
+            }
+        }
+        
+        return map.get(node);
+    }
+}
