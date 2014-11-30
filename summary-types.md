@@ -27,6 +27,7 @@
  - [[Jump Game]](./code/JumpGame.java)
 - [[3 Sum Closest]](code/3Sum-Closest.java)
 - [[Maximum Product Subarray]](./code/Maximum-Product-Subarray.java)
+- [[Candy]](./code/Candy.java)
 
 ### String
 - [[Roman to Integer]](./code/Roman-to-Integer.java), [[Integer to Roman]](./code/Integer-to-Roman.java)
