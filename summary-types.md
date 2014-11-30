@@ -51,6 +51,7 @@
 - Single Link: [[Insertion Sort List]](./code/Insertion-Sort-List.java), [[Reorder List]](./code/ReorderList.java)
 - Double Link: [[LRU Cache]](./code/LRU-Cache.java)
 - Cycle Link: [[Linked List Cycle]](./code/Linked-List-Cycle.java), [[Linked List Cycle II]](./code/Linked-List-Cycle-II.java)
+- Random Link: [[Copy List with Random Pointer]](./code/Copy-List-with-Random-Pointer.java)
 
 ### Binary Tree
 - Traversal: [[Binary Tree Postorder Traversal]](./code/Binary-Tree-Postorder-Traversal.java), [[Binary Tree Preorder Traversal]](./code/Binary-Tree-Preorder-Traversal.java)
