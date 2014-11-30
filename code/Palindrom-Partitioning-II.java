@@ -54,3 +54,38 @@ public class Solution {
     }
     
 }
+
+
+////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/30/2014
+public class Solution {
+    public int minCut(String s) {
+        
+        
+        //let minnum[i] denote the mincut of s[0...i]
+        int[] minnum = new int[s.length()+1];
+        for(int i=1; i<minnum.length; i++)
+            minnum[i] = i-1;
+        //init
+        minnum[0] = -1;
+    
+        //let ispar[i][j] denote whether s[j...i] is parlindrome
+        boolean[][] ispar = new boolean[s.length()][s.length()];
+        for(int i=0; i<s.length(); i++)
+            ispar[i][i] = true;
+         
+        //dynamic update ispar and minnum   
+        for(int i=0; i<s.length(); i++){
+            for(int j=i-1; j>=0; j--){
+                if(s.charAt(i)==s.charAt(j) && (i-j<=2 || ispar[j+1][i-1])){
+                    ispar[j][i] = true;
+                    minnum[i+1] = Math.min(minnum[j] + 1, minnum[i+1]);
+                }
+            }
+            
+            minnum[i+1] = Math.min(minnum[i]+1, minnum[i+1]);
+        }
+        
+        return minnum[s.length()];
+    }
+}
