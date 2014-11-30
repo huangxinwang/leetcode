@@ -61,3 +61,51 @@ public class Solution {
         return true;
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/30/2014
+
+public class Solution {
+    public ArrayList<ArrayList<String>> partition(String s) {
+        
+
+        ArrayList<ArrayList<String>> rnt = new ArrayList<ArrayList<String>>();
+        ArrayList<String> tmp = new ArrayList<String>();
+        
+        dfs(s, 0, tmp, rnt);
+        
+        return rnt;
+        
+    }
+    
+    
+    //dfs find all possible solution
+    public void dfs(String s, int start, ArrayList<String> tmp, ArrayList<ArrayList<String>> rnt){
+        
+        if(start >= s.length()){
+            //need to copy, because tmp may be modified later
+            rnt.add(new ArrayList<String>(tmp));
+        }
+        
+        //dfs
+        for(int i=start; i<s.length(); i++){
+            if(ispar(s.substring(start,i+1))){
+                tmp.add(s.substring(start,i+1));
+                dfs(s, i+1, tmp, rnt);
+                tmp.remove(tmp.size()-1);
+            }
+        }
+    }
+    
+    //judge whether a string is palindrome
+    public boolean ispar(String s){
+      
+        for(int i=0; i<s.length()/2; i++){
+            if(s.charAt(i)!=s.charAt(s.length()-1-i))
+                return false;
+        }
+        
+        return true;
+    }
+}
