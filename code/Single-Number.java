@@ -21,3 +21,20 @@ public class Solution {
         return rnt;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/30/2014
+
+//time complexity O(n)
+public class Solution {
+    public int singleNumber(int[] A) {
+        
+        int rnt = 0;
+        for(int i=0; i<A.length; i++){
+            rnt = rnt^A[i];
+        }
+        
+        return rnt;
+    }
+}
