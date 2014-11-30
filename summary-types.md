@@ -59,3 +59,6 @@
 
 ### DFS
 - [[Word Break II]](./code/Word-Break-II.java)
+
+### Bit Operator
+- [[Single Number II]](./code/Single-Number-II.java)
