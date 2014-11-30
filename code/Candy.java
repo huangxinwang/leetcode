@@ -61,3 +61,39 @@ public class Solution {
         
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/30/2014
+//time complexity: O(n)
+public class Solution {
+    public int candy(int[] ratings) {
+        
+        int[] assign = new int[ratings.length];
+        
+        //scan from left to right, assign candies, 
+        //note in this round, we only ensure increasing order, 
+        //but may exist the case rate(a) > rate(b), assign(a)<assign(b)
+        assign[0] = 1;
+        for(int i=1; i<ratings.length; i++){
+            if(ratings[i] > ratings[i-1])
+                assign[i] = assign[i-1] + 1;
+            else 
+                assign[i] = 1;
+        }
+        
+        //scan from right to left, deal with case rate(a) > rate(b), assign(a)<assign(b)
+        for(int i=ratings.length-1; i>0; i--){
+            if(ratings[i-1] > ratings[i] && assign[i-1] <= assign[i]){
+                assign[i-1] = assign[i]+1;
+            }
+        }
+        
+        //sum up assigned candies
+        int sum = 0;
+        for(int i=0; i<assign.length; i++)
+            sum += assign[i];
+        
+        return sum;
+    }
+}
