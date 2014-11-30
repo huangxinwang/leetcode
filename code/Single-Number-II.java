@@ -26,3 +26,33 @@ public class Solution {
         return 0;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 11/29/2014
+
+//No extra memeory, linear runtime complexity
+
+public class Solution {
+    public int singleNumber(int[] A) {
+        
+        int rnt = 0;
+        
+        for(int i=0; i<32; i++){
+            int sum = 0;
+            //shift left by i to create mask
+            int mask = 1 << i;
+            //sum up the i-th index of each numbers in A(in binary format)
+            for(int j=0; j<A.length; j++){
+                if((mask & A[j]) != 0)
+                    sum++;
+            }
+            //if the sum cannot be divided by 3, then this digit appears in the single number
+            if(sum%3 != 0)
+                //modify rnt to reflect above finding
+                rnt |= mask;
+        }
+        
+        return rnt;
+    }
+}
