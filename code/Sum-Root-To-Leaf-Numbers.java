@@ -58,3 +58,37 @@ public class Solution {
     
    
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/03/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int sumNumbers(TreeNode root) {
+        if(root==null) return 0;
+        ArrayList<Integer> rnt = new ArrayList<Integer>();
+        dfs(root, String.valueOf(root.val), rnt);
+        
+        int sum = 0;
+        for(int i=0; i<rnt.size(); i++)
+            sum += rnt.get(i);
+        return sum;
+    }
+    
+    public void dfs(TreeNode root, String curr, ArrayList<Integer> rnt){
+        if(root.left==null && root.right==null)
+            rnt.add(Integer.parseInt(curr));
+        if(root.left!=null)
+            dfs(root.left, curr+root.left.val, rnt);
+        if(root.right!=null)
+            dfs(root.right, curr+root.right.val, rnt);
+    }
+}
