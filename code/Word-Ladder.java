@@ -73,3 +73,44 @@ public class Solution {
             return 0;
         }
     }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/03/2014
+
+public class Solution {
+    public int ladderLength(String start, String end, Set<String> dict) {
+        Set<String> visited = new HashSet<String>();
+        LinkedList<String> curr = new LinkedList<String>();
+        LinkedList<String> next = new LinkedList<String>();
+        curr.add(start);
+        visited.add(start);
+        int len = 1;
+        if(start.equals(end)) return len+1;
+        
+        while(!curr.isEmpty()){
+            
+            while(!curr.isEmpty()){
+                String word = curr.poll();
+    
+                for(int i=0; i<word.length(); i++){
+                    for(char j='a'; j<='z'; j++){
+                         char[] cr = word.toCharArray();
+                         cr[i] = j;
+                         String newstring = String.valueOf(cr);
+                         if(newstring.equals(end)) return len+1;
+                         if(!visited.contains(newstring))
+                            next.add(newstring);
+                         
+                    }
+                }
+            }
+            
+            curr = next;
+            next = new LinkedList<>();
+            len++;
+        }
+        
+        return 0;
+    }
+}
