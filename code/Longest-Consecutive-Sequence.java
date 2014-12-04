@@ -54,3 +54,50 @@ public class Solution {
         return max;
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/03/2014
+//time complexity O(n)
+
+public class Solution {
+    public int longestConsecutive(int[] num) {
+        
+        //use hashmap to track each element
+        HashMap<Integer> map = new HashMap<Integer>();
+        
+        for(int i=0; i<num.length; i++)
+            map.add(i);
+           
+        //use an array to keep track of whether the ith element is visited 
+        int[] visited = new int[num.length];
+        int maxLen = 0;
+        
+        for(int i=0; i<num.length; i++){
+            if(visited[i]) continue;
+            visited[i] = 0;
+            int len = 1;
+            int index = num[i] - 1;
+            
+            //look downside
+            while(map.contains(num[index])){
+                len++;
+                visited[index] =1;
+                index--;
+            }
+            
+            //look upside
+            index = num[i] + 1;
+            while(map.contains(num[index])){
+                len++;
+                visited[index] = 1;
+                index++;
+            }
+            
+            //update result
+            maxLen = maxLen > len? maxLen: len;
+        }
+        
+        return maxLen;
+    }
+}
