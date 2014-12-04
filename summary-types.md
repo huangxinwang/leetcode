@@ -25,7 +25,7 @@
 
 ### Logic
 - One pass traverse, but keep update the target value
- - [[Jump Game]](./code/JumpGame.java), [[Longest Consecutive Sequence]](./code/Longest-Consecutive-Sequence.java)
+ - [[Jump Game]](./code/JumpGame.java), [[Longest Consecutive Sequence]](./code/Longest-Consecutive-Sequence.java), [[Valid Palindrome]](./code/Valid-Palindrome.java)
 - [[3 Sum Closest]](code/3Sum-Closest.java)
 - [[Maximum Product Subarray]](./code/Maximum-Product-Subarray.java)
 - [[Candy]](./code/Candy.java)
