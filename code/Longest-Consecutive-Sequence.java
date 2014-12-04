@@ -60,7 +60,6 @@ public class Solution {
 //Round 2: 12/03/2014
 //time complexity O(n)
 
-//time complexity O(n)
 
 public class Solution {
     public int longestConsecutive(int[] num) {
