@@ -78,36 +78,50 @@ public class Solution {
 /////////////////////////////////////////////////////////////////////////////////////////
 //Round 2: 12/03/2014
 
+//BFS
+
 public class Solution {
     public int ladderLength(String start, String end, Set<String> dict) {
         Set<String> visited = new HashSet<String>();
+        
+        //use two queues, one for current layer, the other for next layer
         LinkedList<String> curr = new LinkedList<String>();
         LinkedList<String> next = new LinkedList<String>();
+        
+        //init 
         curr.add(start);
         visited.add(start);
         int len = 1;
         if(start.equals(end)) return len+1;
         
+        //while current layer is not null
         while(!curr.isEmpty()){
             
+            //keep polling elements from current layers, and enqueue leaves to next layers
             while(!curr.isEmpty()){
                 String word = curr.poll();
     
                 for(int i=0; i<word.length(); i++){
+                    
+                    char[] cr = word.toCharArray();
                     for(char j='a'; j<='z'; j++){
-                         char[] cr = word.toCharArray();
                          cr[i] = j;
                          String newstring = String.valueOf(cr);
                          if(newstring.equals(end)) return len+1;
-                         if(!visited.contains(newstring))
+                         //add leave to next queue, only when it hasn't been visited and it is in the dict
+                         if(!visited.contains(newstring) && dict.contains(newstring)){
                             next.add(newstring);
+                            visited.add(newstring);
+                         }
                          
                     }
                 }
             }
             
-            curr = next;
-            next = new LinkedList<>();
+            //update current layer
+            curr = new LinkedList<String>(next);
+            next = new LinkedList<String>();
+            //record layer number
             len++;
         }
         
