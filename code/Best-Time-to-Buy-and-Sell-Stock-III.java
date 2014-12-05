@@ -54,3 +54,46 @@ public class Solution {
         return profit;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/04/2014
+//Time complexity O(n)
+
+public class Solution {
+    public int maxProfit(int[] prices) {
+        
+        if(prices.length <=1 ) return 0;
+        //let A[i] denote the maximum profit achieved from 0 to i-the day
+        int[] A = new int[prices.length];
+        int min = prices[0];
+        A[0] = 0;
+        for(int i=1; i<prices.length; i++){
+            if(prices[i] < min)
+                min = prices[i];
+            A[i] = prices[i] - min;
+        }
+        
+        //Let B[i] denote the maximum profit achieved from i-the day to len
+        int[] B = new int[prices.length];
+        int max = prices[prices.length-1];
+        B[prices.length-1] = 0;
+        for(int i=prices.length-2; i>=0; i--){
+            if(max < prices[i])
+                max = prices[i];
+            B[i] = Math.max(max - prices[i], B[i+1]);
+        }
+        
+        //sum up
+        int maxProfit = 0;
+        for(int i=0; i<prices.length; i++){
+            if(maxProfit < A[i] + B[i])
+                maxProfit = A[i] + B[i];
+        }
+        
+        return maxProfit;
+        
+    }
+    
+    
+}
