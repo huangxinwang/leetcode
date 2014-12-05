@@ -23,3 +23,26 @@ public class Solution {
         return profit;
     }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/04/2014
+//time complexity O(n)
+
+
+public class Solution {
+    public int maxProfit(int[] prices) {
+        
+        if(prices.length <=1) return 0;
+        int maxpro = 0;
+
+        //sell the stock whenever it is possible to make profits
+        for(int i=1; i<prices.length; i++){
+            if(prices[i] > prices[i-1])
+                maxpro += prices[i] - prices[i-1];
+            else continue;
+        }
+        
+        return maxpro;
+        
+    }
+}
