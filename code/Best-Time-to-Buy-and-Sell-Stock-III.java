@@ -59,6 +59,7 @@ public class Solution {
 ///////////////////////////////////////////////////////////////////////////////
 //Round 2: 12/04/2014
 //Time complexity O(n)
+//My question: what if the constraints is k times of buy and sell?
 
 public class Solution {
     public int maxProfit(int[] prices) {
