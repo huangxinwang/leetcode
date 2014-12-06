@@ -48,3 +48,47 @@ public class Solution {
     
     
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/06/2014
+//DFS
+
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int maxPathSum(TreeNode root) {
+        
+        //use an one element array to store the largest number
+        int[] max  = new int[1];
+        max[0] = Integer.MIN_VALUE;
+        findMax(root, max);
+        return max[0];
+    }
+    
+    public int findMax(TreeNode root, int[] max){
+        if(root==null)
+            return 0;
+        
+        int left = 0;
+        if(root.left!=null)
+            left = Math.max(findMax(root.left, max), 0);
+        int right = 0;
+        if(root.right!=null)
+            right = Math.max(findMax(root.right, max), 0);
+        
+        //keep track maximum single path end at root.val, both left and right 
+        int curr = Math.max(root.val, Math.max(root.val+left, root.val+right));
+        
+        //joint left and right, to update maximum path
+        max[0] = Math.max(max[0], Math.max(curr, root.val+left+right));
+        
+        return curr;
+    }
+}
