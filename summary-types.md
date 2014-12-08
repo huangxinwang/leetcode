@@ -20,6 +20,7 @@
 - [[Evaluate Reverse Polish Notation]](./code/Evaluate-Reverse-Polish-Notation.java)
 
 ### Dynamic Programming
+- simple: [[Pascal Triangle]](./code/Pascal-Triangle.java)
 - 1D: [[Jump Game II]](./code/Jump-Game-II.java), [[Word Break]](./code/Word-Break.java),  [[Word Break II]](./code/Word-Break-II.java), [[Triangle]](./code/Triangle.java)
 - 2D: [[Palindrom Partitioning II]](./code/Palindrom-Partitioning-II.java)
 
@@ -72,3 +73,4 @@
 
 ### Bit Operator
 - [[Single Number]](./code/Single-Number.java), [[Single Number II]](./code/Single-Number-II.java)
+
