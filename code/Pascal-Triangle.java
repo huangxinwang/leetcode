@@ -47,3 +47,40 @@ public class Solution {
         return rnt;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/08/2014
+//add terminate
+
+public class Solution {
+    public ArrayList<ArrayList<Integer>> generate(int numRows) {
+        
+        //special case
+        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
+        if(numRows==0) return rnt;
+        
+        //initialize tmp
+        ArrayList<Integer> tmp = new ArrayList<Integer>();
+        tmp.add(1);
+        rnt.add(tmp);
+        
+        //use the last arraylist to construct the next arraylist
+        for(int i=1; i<numRows; i++){
+            ArrayList<Integer> last = rnt.get(i-1);
+            ArrayList<Integer> next = new ArrayList<Integer>();
+            //left
+            next.add(last.get(0));
+            //mid
+            for(int j=0; j<last.size()-1;j++)
+                next.add(last.get(j)+last.get(j+1));
+            //right
+            next.add(last.get(last.size()-1));
+            rnt.add(next);
+        }
+        
+        return rnt;
+        
+        
+    }
+}
