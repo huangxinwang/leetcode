@@ -39,3 +39,34 @@ public class Solution {
        }
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/10/2014
+public class Solution {
+    public void flatten(TreeNode root) {
+        
+        if(root==null) return;
+        
+        //keep track of right sub-tree
+        TreeNode currRight = root.right;
+        
+        //flatten left tree
+        if(root.left!=null){
+            flatten(root.left);
+            root.right = root.left;
+            //note that rmb to put left tree as empty
+            root.left = null;
+        }
+        else{
+            flatten(root.right);
+            return;
+        }
+        
+        //flaten right tree and put it in
+        TreeNode newHead = root;
+        while(newHead.right!=null)
+            newHead = newHead.right;
+        flatten(currRight);
+        newHead.right = currRight;
+    }
+}
