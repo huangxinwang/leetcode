@@ -67,3 +67,56 @@ public class Solution {
         }
     }
 }
+
+
+
+//////////////////////////////////////////////////////////////////////
+//Round 2: 12/11/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    
+    public ArrayList<ArrayList<Integer>> pathSum(TreeNode root, int sum) {
+        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
+        if(root==null) return rnt;
+        ArrayList<Integer> tmp = new ArrayList<Integer>();
+        dfs(rnt, tmp, root, sum);
+        return rnt;
+    }
+    
+    public void dfs(ArrayList<ArrayList<Integer>> rnt, ArrayList<Integer> tmp, TreeNode node, int sum){
+        
+        //special case
+        if(node==null) return;
+        
+        //staisfying result
+        if(node.left==null && node.right==null && sum-node.val==0){
+            tmp.add(node.val);
+            rnt.add(new ArrayList<Integer>(tmp));
+            tmp.remove(tmp.size()-1);
+        }
+        
+        //dfs left and right
+        tmp.add(node.val);
+        if(node.left!=null){
+            dfs(rnt, tmp, node.left, sum-node.val);
+           
+        }
+        
+        if(node.right!=null){
+            dfs(rnt, tmp, node.right, sum-node.val);
+           
+        }
+        
+        tmp.remove(tmp.size()-1);
+    }
+    
+   
+}
