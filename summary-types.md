@@ -41,6 +41,7 @@
 ### Recursive call
 - [[Regular-Expression-Matching]](./code/Regular-Expression-Matching.java)
 - [[Flateen-Binary-Tree-to-Linked-List]](./code/Flateen-Binary-Tree-to-Linked-List.java)
+- [[Convert-Sorted-List-to-Binary-Search-Tree]](./code/Convert-Sorted-List-to-Binary-Search-Tree.java)
 
 ### Boundary Condition
 - [[Spiral Matrix ]](./code/Spiral-Matrix.java)
