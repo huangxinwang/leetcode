@@ -43,3 +43,34 @@ public class Solution {
         return trn;
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/14/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode sortedArrayToBST(int[] num) {
+        if(num.length==0) return null;
+        return helper(num, 0, num.length-1);
+    }
+    
+    public TreeNode helper(int[] num, int lindex, int rindex){
+        //terminate cases
+        if(lindex > rindex) return null;
+        if(lindex == rindex) return new TreeNode(num[lindex]);
+        
+        //find mid point, and recursively build left and right subtree
+        int mid = (lindex+rindex)/2;
+        TreeNode root= new TreeNode(num[mid]);
+        root.left = helper(num, lindex, mid-1);
+        root.right = helper(num, mid+1, rindex);
+        return root;
+    }
+}
