@@ -49,3 +49,46 @@ public class Solution {
         
     }
 }
+
+/////////////////////////////////////////////////////
+//Round 2: 12/15/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ArrayList<ArrayList<Integer>> levelOrder(TreeNode root) {
+        
+        //BFS traverse
+        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
+        
+        //keep two layers to do the traverse
+        ArrayList<TreeNode> curr = new ArrayList<TreeNode>();
+        ArrayList<TreeNode> next = new ArrayList<TreeNode>();
+        if(root == null) return rnt;
+        curr.add(root);
+        
+        //use curr layer to build next layer
+        //extract the value in currvalue and add to rnt
+        while(curr.size()>0){
+            ArrayList<Integer> currVal = new ArrayList<Integer>();
+            for(int i=0; i<curr.size(); i++){
+                TreeNode node = curr.get(i);
+                currVal.add(node.val);
+                if(node.left!=null) next.add(node.left);
+                if(node.right!=null) next.add(node.right);
+            }
+            
+            rnt.add(new ArrayList<Integer>(currVal));
+            curr = new ArrayList<TreeNode>(next);
+            next = new ArrayList<TreeNode>();
+        }
+        
+        return rnt;
+    }
+}
