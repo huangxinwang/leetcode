@@ -65,3 +65,36 @@ public class Solution {
         return true;
     }
 }
+
+//////////////////////////////////////////////////////////
+//Round 2: 12/15/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        
+        if(root==null) return true;
+        return isSym(root.left, root.right);
+    }
+    
+    //recursively determine whether two subtree is symmetric
+    public boolean isSym(TreeNode left, TreeNode right){
+        if(left==null && right==null) return true;
+        if(left==null && right!=null) return false;
+        if(left!=null && right==null) return false;
+        if(left.val!=right.val) return false;
+        
+        if(!isSym(left.left, right.right)) return false;
+        if(!isSym(left.right, right.left)) return false;
+        
+        return true;
+        
+    }
+}
