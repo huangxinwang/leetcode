@@ -45,3 +45,46 @@ public class Solution {
     }
     
 }
+
+///////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/14/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        
+        int preleft = 0;
+        int preright = preorder.length-1;
+        int inleft = 0;
+        int inright = inorder.length-1;
+        return help(preleft, preright, inleft, inright, preorder, inorder);
+    }
+    
+    public TreeNode help(int preleft, int preright, int inleft, int inright, int[] preorder, int[] inorder){
+        
+        //terminate case
+        if(preleft > preright || inleft > inright) return null;
+        
+        //find root, it is at hte head of preorder, but need to find its position in in order
+        int midnode = preorder[preleft];
+        
+        int firstend = inleft;
+        for(firstend = inleft; firstend <=inright; firstend++){
+            if(inorder[firstend] == midnode) break;
+        }
+        
+        //recusively build left and right subtree
+        TreeNode rnt = new TreeNode(midnode);
+        rnt.left = help(preleft+1, preleft+firstend-inleft, inleft, firstend-1, preorder, inorder);
+        rnt.right = help(preleft+firstend-inleft+1, preright, firstend+1, inright, preorder, inorder);
+        
+        return rnt;
+    }
+}
