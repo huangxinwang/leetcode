@@ -44,6 +44,7 @@
 - [[Convert-Sorted-List-to-Binary-Search-Tree]](./code/Convert-Sorted-List-to-Binary-Search-Tree.java)
 - [[Convert-Sorted-Array-to-Binary-Search-Tree]](./code/Convert-Sorted-Array-to-Binary-Search-Tree.java)
 - [[Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal]](./code/Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal.java)
+- [[Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal]](./code/Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal.java)
 
 ### Boundary Condition
 - [[Spiral Matrix ]](./code/Spiral-Matrix.java)
