@@ -47,7 +47,7 @@
 - [[Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal]](./code/Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal.java)
 - [[Symmetric-Tree-Recursive]](./code/Symmetric-Tree-Recursive.java)
 - [[Same-Tree]](./code/Same-Tree.java)
-
+- [[Recover-Binary-Search-Tree]](./code/Recover-Binary-Search-Tree.java)
 
 ### Boundary Condition
 - [[Spiral Matrix ]](./code/Spiral-Matrix.java)
