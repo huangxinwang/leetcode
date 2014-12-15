@@ -45,3 +45,31 @@ public class Solution {
     
     
 }
+
+
+/////////////////////////////////////////////////////
+//Round 2: 12/15/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    
+    //recursive determine subtrees
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(p==null && q==null) return true;
+        if(p==null && q!=null) return false;
+        if(p!=null && q==null) return false;
+        if(p.val!=q.val) return false;
+        
+        if(!isSameTree(p.left, q.left)) return false;
+        if(!isSameTree(p.right, q.right)) return false;
+        
+        return true;
+    }
+}
