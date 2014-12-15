@@ -48,3 +48,49 @@ public class Solution {
         return rnt;
     }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/14/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        
+        if(inorder.length==0) return null;
+        
+        int inleft =0;
+        int inright = inorder.length-1;
+        int postleft = 0;
+        int postright = postorder.length-1;
+        return help(inleft, inright, postleft, postright, inorder, postorder);
+    }
+    
+    public TreeNode help(int inleft, int inright, int postleft, int postright, int[] inorder, int[] postorder){
+        
+        //terminate case
+        if(inleft > inright || postleft>postright) return  null;
+
+        //find root, it is at the end of post order, need to find its position in inorder array
+        int midnode = postorder[postright];
+        
+        int firstend = inleft;
+        for(firstend=inleft; firstend<=inright; firstend++){
+            if(inorder[firstend] == midnode)
+                break;
+        }
+        
+        //recursively construct left and right subtree
+        TreeNode rnt = new TreeNode(midnode);
+        rnt.left = help(inleft, firstend -1, postleft, postleft+firstend-1-inleft, inorder, postorder);
+        rnt.right = help(firstend+1, inright, postleft+firstend-inleft, postright-1, inorder, postorder);
+        return rnt;
+        
+    }
+}
