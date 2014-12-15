@@ -100,3 +100,38 @@ public class Solution {
     
     
 }
+
+
+///////////////////////////////////////////////////////////////////
+//Round 3: 12/15/2014
+//DFS
+
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int maxDepth(TreeNode root) {
+        
+        //terminate case
+        if(root==null) return 0;
+        if(root.left==null && root.right==null) return 1;
+        
+        //recursive find depth of left and right subtree
+        int depth =1; 
+        int leftDep = 0;
+        int rightDep = 0;
+       
+        if(root.left!=null)
+            leftDep = depth + maxDepth(root.left);
+        if(root.right!=null)
+            rightDep = depth + maxDepth(root.right);
+        return leftDep > rightDep ? leftDep : rightDep;
+        
+    }
+}
