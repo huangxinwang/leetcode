@@ -43,6 +43,7 @@
 - [[Flateen-Binary-Tree-to-Linked-List]](./code/Flateen-Binary-Tree-to-Linked-List.java)
 - [[Convert-Sorted-List-to-Binary-Search-Tree]](./code/Convert-Sorted-List-to-Binary-Search-Tree.java)
 - [[Convert-Sorted-Array-to-Binary-Search-Tree]](./code/Convert-Sorted-Array-to-Binary-Search-Tree.java)
+- [[Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal]](./code/Construct-Binary-Tree-from-Inorder-and-Postorder-Traversal.java)
 
 ### Boundary Condition
 - [[Spiral Matrix ]](./code/Spiral-Matrix.java)
