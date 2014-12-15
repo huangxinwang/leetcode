@@ -51,3 +51,73 @@ public class Solution {
         return true;
     }
 }
+
+
+////////////////////////////////////////////////////////////////////
+//Round 2: 12/15/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        
+        //BFS travserse the tree layer by layer
+        ArrayList<TreeNode> curr = new ArrayList<TreeNode>();
+        ArrayList<TreeNode> next = new ArrayList<TreeNode>();
+        if(root==null) return true;
+        curr.add(root);
+        
+        //use current layer to construct next layer
+        while(curr.size()>0){
+            if(!isSym(curr)) return false;
+            for(int i=0; i<curr.size(); i++){
+                TreeNode node = curr.get(i);
+                if(node.left!=null) next.add(node.left);
+                if(node.right!=null) next.add(node.right);
+            }
+            
+            curr = new ArrayList<TreeNode>(next);
+            next = new ArrayList<TreeNode>();
+        }
+        
+        return true;
+    }
+    
+    
+    //check whether the node in a layer is symmetric
+    public boolean isSym(ArrayList<TreeNode> list){
+        for(int i=0; i<=list.size()/2; i++){
+            TreeNode first = list.get(i);
+            TreeNode second = list.get(list.size()-1-i);
+            if(first.left==null){
+                if(second.right!=null) 
+                    return false;
+            }
+            else{
+                if(second.right==null) return false;
+                if(second.right.val != first.left.val)
+                    return false;
+            }
+            
+            if(first.right==null){
+                if(second.left!=null)
+                    return false;
+            }else{
+                if(second.left==null) return false;
+                if(second.left.val!=first.right.val)
+                    return false;
+            }
+            
+           
+        }
+        
+         return true;
+    }
+    
+}
