@@ -60,3 +60,49 @@ public class Solution {
         findWrongNode(root.right);
     }
 }
+
+////////////////////////////////////////////////////////////////////////
+//Round 2: 12/15/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    
+    TreeNode first;
+    TreeNode second;
+    TreeNode pre;
+    
+    public void recoverTree(TreeNode root) {
+        
+        if(root==null) return;
+        findWrongNode(root);
+        int tmp = second.val;
+        second.val = first.val;
+        first.val = tmp;
+        
+    }
+    
+    //in order traverse to find the wrong value
+    public void findWrongNode(TreeNode root){
+        
+        if(root==null) return;
+        
+        findWrongNode(root.left);
+        if(pre!=null && pre.val > root.val){
+            if(first==null)
+                first = pre;
+            //record wrong node
+            //note that when pre.val < root.val; for first, it is pre; for second, it is root
+            second = root;
+        }
+        
+        pre = root;
+        findWrongNode(root.right);
+    }
+}
