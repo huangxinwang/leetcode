@@ -53,3 +53,43 @@ public class Solution {
         return match[len1][len2];
     }
 }
+
+
+/////////////////////////////////////////////////////////////
+//Round 2: 12/15/2014
+public class Solution {
+    public boolean isInterleave(String s1, String s2, String s3) {
+        
+        int len1 = s1.length();
+        int len2 = s2.length();
+        int len3 = s3.length();
+        
+        boolean[][] match = new boolean[len1+1][len2+1];
+        if(len1+len2!=len3) return false;
+        
+        //dynamic programming 
+        //match[i+1[j+1] indicates whether s1(0...i) and s2(0...j) can interleave s3(0...i+j+1)
+        match[0][0] = true;
+        for(int i=0; i<len1; i++){
+            if(s1.charAt(i) == s3.charAt(i))
+                match[i+1][0] = true;
+        }
+        
+        for(int j=0; j<len2; j++){
+            if(s2.charAt(j) == s3.charAt(j))
+                match[0][j+1] = true;
+        }
+        
+        for(int i=0; i<len1; i++){
+            for(int j=0; j<len2; j++){
+                //note the index of s3 should be i+j+1
+                match[i+1][j+1] = (match[i][j+1] && s1.charAt(i) == s3.charAt(i+j+1)) ||
+                (match[i+1][j] && s2.charAt(j) == s3.charAt(i+j+1));
+            }
+        }
+        
+        return match[len1][len2];
+        
+        
+    }
+}
