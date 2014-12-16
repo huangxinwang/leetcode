@@ -21,7 +21,9 @@
 
 ### Dynamic Programming
 - simple: [[Pascal Triangle]](./code/Pascal-Triangle.java)
-- 1D: [[Jump Game II]](./code/Jump-Game-II.java), [[Word Break]](./code/Word-Break.java),  [[Word Break II]](./code/Word-Break-II.java), [[Triangle]](./code/Triangle.java)
+- 1D
+ - [[Jump Game II]](./code/Jump-Game-II.java), [[Word Break]](./code/Word-Break.java),  [[Word Break II]](./code/Word-Break-II.java), [[Triangle]](./code/Triangle.java)
+ - [[Unique-Binary-Search-Trees]](./code/Unique-Binary-Search-Trees.java)
 - 2D
  - [[Palindrom Partitioning II]](./code/Palindrom-Partitioning-II.java)
  - [[Interleaving-String]](./code/Interleaving-String.java)
@@ -35,6 +37,7 @@
 - [[Candy]](./code/Candy.java)
 - [[Gas Station]](./code/Gas-Station.java)
 - [[Best Time to Buy and Sell Stock II]](./code/Best-Time-to-Buy-and-Sell-Stock-II.java), [[Best Time to Buy and Sell Stock III]](./code/Best-Time-to-Buy-and-Sell-Stock-III.java)
+
 
 ### String
 - [[Roman to Integer]](./code/Roman-to-Integer.java), [[Integer to Roman]](./code/Integer-to-Roman.java)
