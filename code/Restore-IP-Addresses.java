@@ -53,3 +53,46 @@ public class Solution {
         }
     }
 }
+
+///////////////////////////////////////////////////////////////////////
+//Round 2: 12/17/2014
+public class Solution {
+    public List<String> restoreIpAddresses(String s) {
+        
+        ArrayList<String> rnt = new ArrayList<String>();
+        String tmp = new String();
+        dfs(0, 4, tmp, rnt, s);
+        return rnt;
+        
+    }
+    
+    public void dfs(int start, int depth, String tmp, ArrayList<String> rnt, String s){
+        
+        //terminate cases
+        if(start>=s.length()){
+            if(depth==0)
+                rnt.add(tmp);
+            return;
+        }
+        if(depth <0) return; 
+        
+        //dfs find all possible solution
+        for(int i=start; i<Math.min(s.length(), start+4); i++){
+            String curr = s.substring(start,i+1);
+            
+            if(testValid(curr)){
+                String newtmp = tmp.length()==0? curr : tmp+"."+curr;
+                dfs(i+1, depth-1, newtmp, rnt, s);
+            }
+        }
+    }
+    
+    //decide whether a string is valid to be one part of IP addresss
+    public boolean testValid(String s){
+        int val = Integer.parseInt(s);
+        if(val >255) return false;
+        if(val!=0 && val < Math.pow(10,s.length()-1)) return false;
+        if(val==0 && s.length()>1) return false;
+        return true;
+    }
+}
