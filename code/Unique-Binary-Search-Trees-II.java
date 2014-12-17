@@ -54,3 +54,49 @@ public class Solution {
         return rnt;
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/17/2014
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; left = null; right = null; }
+ * }
+ */
+public class Solution {
+    public List<TreeNode> generateTrees(int n) {
+        
+        return dfs(1,n);
+    }
+    
+    public ArrayList<TreeNode> dfs(int low, int high){
+        
+        ArrayList<TreeNode> rnt = new ArrayList<TreeNode>();
+        
+        //terminate condition
+        if(low > high){
+            rnt.add(null);
+            return rnt;
+        }
+        
+        //enumerate each possible combination of left and right tree
+        //construct each tree under different combinations
+        for(int i=low; i<=high; i++){
+            ArrayList<TreeNode> left = dfs(low, i-1);
+            ArrayList<TreeNode> right = dfs(i+1, high);
+            for(TreeNode l: left){
+                for(TreeNode r: right){
+                    TreeNode tmp = new TreeNode(i);
+                    tmp.left = l;
+                    tmp.right = r;
+                    rnt.add(tmp);
+                }
+            }
+        }
+        
+        return rnt;
+    }
+}
