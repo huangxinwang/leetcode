@@ -60,3 +60,62 @@ public class Solution {
         return dummyHead.next;
     }
 }
+
+
+//////////////////////////////////////////////////////////////
+//Round 2: 12/17/2014
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        
+        if(head==null || head.next==null)
+            return head;
+
+        
+        ListNode dummyHead = new ListNode(-1);
+        dummyHead.next = head;
+        
+                
+        ListNode firsttail = dummyHead;
+        ListNode secondtail = dummyHead;
+        
+        //divide list into 2 parts, first, (inversed+thrid parts)
+        for(int i=0; i<m-1; i++){
+            firsttail = firsttail.next;
+        }
+        
+        //second part start after first part
+        secondtail = firsttail.next;
+        
+        //pointer used for reverse list
+        ListNode tmptail = secondtail;
+        ListNode tmphead = tmptail.next;
+        
+        //reverse chain from m...n
+        for(int i=0; i<n-m; i++){
+            ListNode nexthead = tmphead.next;
+            //reverse
+            tmphead.next = tmptail;
+            //update tmptail and tmphead
+            tmptail = tmphead;
+            tmphead = nexthead;
+        }
+        
+        
+        //concate first, inversed, third part
+        firsttail.next = tmptail;
+        secondtail.next = tmphead;
+        
+        return dummyHead.next;
+    }
+}
