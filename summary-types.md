@@ -55,7 +55,7 @@
 - [[Same-Tree]](./code/Same-Tree.java)
 - [[Recover-Binary-Search-Tree]](./code/Recover-Binary-Search-Tree.java)
 - [[Validate-Binary-Search-Tree]](./code/Validate-Binary-Search-Tree.java)
-
+- [[Binary-Tree-Inorder-Traversal]](./code/Binary-Tree-Inorder-Traversal.java)
 
 
 ### Boundary Condition
