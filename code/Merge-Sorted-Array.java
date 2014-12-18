@@ -33,3 +33,43 @@ public class Solution {
         }
     }
 }
+
+/////////////////////////////////////////////////////////////
+//Round 2: 12/18/2014
+public class Solution {
+    public void merge(int A[], int m, int B[], int n) {
+        
+        int[] C = new int[m+n];
+        
+        //compare current value in two array and advance the pointer with the smaller one
+        int i=0; int j=0;
+        while(i<m && j<n){
+            if(A[i] <= B[j]){
+                C[i+j] = A[i];
+                i++;
+            } 
+            else{
+                C[i+j] = B[j];
+                j++;
+            }
+        }
+        
+        //advance the pointer to the end
+        while(i<m){
+            C[i+n] = A[i];
+            i++;
+        }
+        
+        while(j<n){
+            C[j+m] = B[j];
+            j++;
+        }
+        
+        //copy C to A
+        for(i=0; i<m+n; i++){
+            A[i] = C[i];
+        }
+        
+        
+    }
+}
