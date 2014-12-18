@@ -33,3 +33,28 @@ public class Solution {
         return rnt;
     }
 }
+
+
+////////////////////////////////////////////////////////////////////
+//Round 2: 12/18/2014
+
+//Ref: http://fisherlei.blogspot.com/2012/12/leetcode-gray-code.html
+
+public class Solution {
+    public List<Integer> grayCode(int n) {
+        
+        ArrayList<Integer> rnt = new ArrayList<Integer>();
+        rnt.add(0);
+        
+        //when n =k
+        //the gray code is those in n=k-1 plus 1<<n, in reverse order
+        for(int i=0; i<n; i++){
+            int highbit = 1<<i;
+            for(int j=rnt.size()-1; j>=0; j--){
+                rnt.add(highbit + (int)rnt.get(j));
+            }
+        }
+        
+        return rnt;
+    }
+}
