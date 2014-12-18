@@ -24,6 +24,7 @@
 - 1D
  - [[Jump Game II]](./code/Jump-Game-II.java), [[Word Break]](./code/Word-Break.java),  [[Word Break II]](./code/Word-Break-II.java), [[Triangle]](./code/Triangle.java)
  - [[Unique-Binary-Search-Trees]](./code/Unique-Binary-Search-Trees.java)
+ - [[Decode-Ways]](./code/Decode-Ways.java)
 - 2D
  - [[Palindrom Partitioning II]](./code/Palindrom-Partitioning-II.java)
  - [[Interleaving-String]](./code/Interleaving-String.java)
