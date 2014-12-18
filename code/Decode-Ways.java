@@ -48,3 +48,38 @@ public class Solution {
         
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/17/2014
+public class Solution {
+    public int numDecodings(String s) {
+        
+        if(s.length()==0) return 0;
+        
+        //ways[i]: number of ways to decode [0...i-1]
+        int[] ways = new int[s.length()+1];
+        
+        //initialize
+        ways[0] = 1;
+        if(s.charAt(0)<='9' && s.charAt(0)>'0')
+            ways[1] = 1;
+
+        
+        //dynamic build array ways
+        for(int i=1; i<s.length(); i++){
+            int c1 = Character.getNumericValue(s.charAt(i-1));
+            int c2 = Character.getNumericValue(s.charAt(i));
+            int sum = c1*10+c2;
+            //c1 should not be 0 in order to combine c1&c2 as a group
+            if(c1!=0 && 1<=sum && sum<=26){
+                ways[i+1] += ways[i-1];
+            }
+            //c2 alone
+            if(1<=c2 && c2<=9)
+                ways[i+1] += ways[i];
+        }
+        
+        return ways[s.length()];
+    }
+}
