@@ -39,37 +39,21 @@ public class Solution {
 public class Solution {
     public void merge(int A[], int m, int B[], int n) {
         
-        int[] C = new int[m+n];
-        
-        //compare current value in two array and advance the pointer with the smaller one
-        int i=0; int j=0;
-        while(i<m && j<n){
-            if(A[i] <= B[j]){
-                C[i+j] = A[i];
-                i++;
-            } 
-            else{
-                C[i+j] = B[j];
-                j++;
+        //advance pointer from end to start in order not to override
+        while(m>0 && n>0){
+            if(A[m-1]<B[n-1]){
+                A[m+n-1] = B[n-1];
+                n--;
+            }else{
+                A[m+n-1] = A[m-1];
+                m--;
             }
         }
         
-        //advance the pointer to the end
-        while(i<m){
-            C[i+n] = A[i];
-            i++;
+        
+        while(n>0){
+            A[m+n-1] = B[n-1];
+            n--;
         }
-        
-        while(j<n){
-            C[j+m] = B[j];
-            j++;
-        }
-        
-        //copy C to A
-        for(i=0; i<m+n; i++){
-            A[i] = C[i];
-        }
-        
-        
     }
 }
