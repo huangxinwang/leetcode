@@ -43,3 +43,38 @@ public class Solution {
         return canScramble[0][0][len];
     }
 }
+
+///////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/19/2014
+public class Solution {
+    public boolean isScramble(String s1, String s2) {
+        
+        int len = s1.length();
+        if(len != s2.length()) return false;
+        
+        //whether s1[0..i] s2[0..j] is scramble
+        boolean[][][] match = new boolean[len][len][len+1];
+        
+        //initialize
+        for(int i=0; i<len; i++){
+            for(int j=0; j<len; j++)
+                match[i][j][1] = s1.charAt(i)==s2.charAt(j);
+        }
+        match[0][0][0] = true;
+       
+         
+        //dynamic programming build the table
+        for(int m=2; m<=len; m++){
+                for(int k=1; k<m; k++){
+                          for(int i=0; i<=len-m; i++){
+                                for(int j=0; j<=len-m; j++){
+                                //the second term is inversed (e.g., ab and ba)
+                                match[i][j][m] |= (match[i][j][k] && match[i+k][j+k][m-k]) || (match[i][j+m-k][k] && match[i+k][j][m-k]);
+                    }
+                }
+            }
+        }
+        
+        return match[0][0][len];
+    }
+}
