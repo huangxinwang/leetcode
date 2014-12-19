@@ -50,3 +50,49 @@ public class Solution {
         return head1.next;
     }
 }
+
+//////////////////////////////////////////////////////////////
+//Round 2: 12/19/2014
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode partition(ListNode head, int x) {
+        
+        //keep for large number
+        ListNode large = new ListNode(-1);
+        ListNode largetail = large;
+        
+        //keep for small number
+        ListNode dummyHead = new ListNode(-1);
+        ListNode smalltail = dummyHead;
+        
+        //traverse the list, and assign number to large/small list
+        while(head!=null){
+            ListNode tmp = head;
+            if(head.val < x){
+                smalltail.next = head;
+                smalltail = smalltail.next;
+            }else{
+                largetail.next = head;
+                largetail = largetail.next;
+            }
+            tmp = head.next;
+            head.next = null;
+            head = tmp;
+        }
+        
+        //cancate two list together
+        smalltail.next = large.next;
+        return dummyHead.next;
+        
+    }
+}
