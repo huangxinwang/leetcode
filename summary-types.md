@@ -28,7 +28,8 @@
 - 2D
  - [[Palindrom Partitioning II]](./code/Palindrom-Partitioning-II.java)
  - [[Interleaving-String]](./code/Interleaving-String.java)
-
+- 3D
+ - [[Scramble-String]](./code/Scramble-String.java)
 
 ### Logic
 - One pass traverse, but keep update the target value
