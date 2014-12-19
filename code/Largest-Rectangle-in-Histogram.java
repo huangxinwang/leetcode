@@ -41,3 +41,37 @@ public class Solution {
         
     }
 }
+
+////////////////////////////////////////////////////////////////////////
+//Round 2: 12/19/2014
+/**
+ * http://fisherlei.blogspot.com/2012/12/leetcode-largest-rectangle-in-histogram.html
+ * 
+ */
+
+
+public class Solution {
+    public int largestRectangleArea(int[] height) {
+        
+        //append 0 to the end of the array
+        int[] h = Arrays.copyOf(height, height.length+1);
+        int maxArea = 0;
+        Stack<Integer> stk = new Stack<Integer>();
+        
+        for(int i=0; i<h.length; i++){
+            //if h[i] is larger than current largest number, then push in
+            if(stk.isEmpty() || h[i] >h[stk.peek()])
+                stk.push(i);
+            //otherwise, calculate the max before h[i]
+            else{
+                int index = stk.pop();
+                maxArea = Math.max(maxArea,stk.isEmpty()==true ? h[index]*i : (i-stk.peek()-1)*h[index]);
+                //re examing the i-th element
+                i--;
+            }
+        }
+        
+        return maxArea;
+        
+    }
+}
