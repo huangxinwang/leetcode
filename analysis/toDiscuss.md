@@ -9,3 +9,6 @@
 
 ### DFS
 - [[SubsetsII]](../code/SubsetsII.java)
+
+### Logic
+- [[Largest-Rectangle-in-Histogram]](./code/Largest-Rectangle-in-Histogram.java)
