@@ -48,3 +48,36 @@ public class Solution {
         else return binarySearch(A, mid+1, right, target);
     }
 }
+
+
+/////////////////////////////////////////////////////////
+//Round 2: 12/19/2014
+public class Solution {
+    public boolean search(int[] A, int target) {
+        
+        return subsearch(A, target, 0, A.length-1);
+    }
+    
+    public boolean subsearch(int[] A, int target, int left, int right){
+        if(left>right) return false;
+        if(left==right) return target == A[left];
+        
+        int mid = (left+right)/2;
+        if(A[mid]==target) return true;
+        
+        //search one side
+        if(A[left]<A[mid] && A[mid] < A[right]){
+            if(target<A[mid])
+                return subsearch(A, target, left, mid-1);
+            else 
+                return subsearch(A, target, mid+1, right);
+        }
+        //search both side
+        else{
+            if(subsearch(A,target, left, mid-1)) return true;
+            else return subsearch(A, target, mid+1, right);
+        }
+    }
+    
+    
+}
