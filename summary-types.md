@@ -43,6 +43,8 @@
 - [[Best Time to Buy and Sell Stock II]](./code/Best-Time-to-Buy-and-Sell-Stock-II.java), [[Best Time to Buy and Sell Stock III]](./code/Best-Time-to-Buy-and-Sell-Stock-III.java)
 - [[Gray-Code]](./code/Gray-Code.java)
 - [[Largest-Rectangle-in-Histogram]](./code/Largest-Rectangle-in-Histogram.java)
+- [[Remove-Duplicates-from-Sorted-Array-II]](./code/Remove-Duplicates-from-Sorted-Array-II.java)
+
 
 ### String
 - [[Roman to Integer]](./code/Roman-to-Integer.java), [[Integer to Roman]](./code/Integer-to-Roman.java)
