@@ -80,3 +80,64 @@ public class Solution {
         return state[tx][ty]==0;
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////
+//Round 2: 12/20/2014
+public class Solution {
+    
+    int[] dx;
+    int[] dy;
+    boolean[][] state;
+    boolean found;
+    int row;
+    int col;
+    
+    public boolean exist(char[][] board, String word) {
+        
+        row = board.length;
+        col = board[0].length;
+        dx = new int[]{0,0,-1,1};
+        dy = new int[]{1,-1,0,0};
+        int len = word.length();
+        
+        found = false;
+        state = new boolean[row][col];
+        
+        for(int i=0; i<board.length; i++){
+            for(int j=0; j<board[0].length; j++){
+                if(board[i][j]==word.charAt(0))
+                    dfs(board, word, i, j, 0);
+                if(found) return true;
+            }
+        }
+        return found;
+    }
+    
+    //dfs found possible move
+    public void dfs(char[][] board, String word, int x, int y, int depth){
+        
+        if(depth==word.length()-1) {
+            found = true;
+            return;
+        }
+        
+        state[x][y] = true;
+        
+        for(int i=0; i<dx.length; i++){
+                if(canMove(x+dx[i], y+dy[i]) && board[x+dx[i]][y+dy[i]] == word.charAt(depth+1))
+                    dfs(board, word, x+dx[i], y+dy[i], depth+1);
+                if(found) return;
+        }
+        
+        state[x][y] = false;
+        
+
+    }
+    
+    //decide whether a move is within the position of the board, or whether the position is traversed
+    public boolean canMove(int x, int y){
+        if(x<0 || x>=row || y<0 || y>=col) return false;
+        return state[x][y]==false;
+    }
+}
