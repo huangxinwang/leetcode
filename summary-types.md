@@ -13,6 +13,7 @@
   * different from general binary search, you need to analyze whether to continue on left or right part.
 - [[Find Minimum in Rotated Sorted Array II]](./code/Find-Minimum-in-Rotated-Sorted-Array-II.java)
  - consider duplications
+- [[Search-in-Rotated-Sorted-Array-II]](./code/Search-in-Rotated-Sorted-Array-II.java)
 
 ### Stack
 - [[Min Stack]](./code/Min-Stack.java)
