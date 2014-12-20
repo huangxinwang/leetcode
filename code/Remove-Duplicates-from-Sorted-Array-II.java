@@ -51,3 +51,42 @@ public class Solution {
             
         }
     }
+
+
+/////////////////////////////////////////////////////////////////
+//Round 2: 12/19/2014
+public class Solution {
+    public int removeDuplicates(int[] A) {
+        
+        //the right place to put A[i]
+        int index = 0;
+        
+        int i =0;
+        
+        while(i<=A.length-1){
+            if(i==A.length-1){
+                A[index] = A[i];
+                index++;
+                break;
+            }
+            //at most allow 2
+            if(A[i]==A[i+1]){
+                int val = A[i];
+                A[index] = A[i];
+                index++;
+                A[index] = A[i];
+                index++;
+                while(i<=A.length-1 && A[i]==val)
+                    i++;
+            }
+            //no duplicate
+            else{
+                A[index] = A[i];
+                index++;
+                i++;
+            }
+        }
+
+        return index;
+    }
+}
