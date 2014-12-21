@@ -42,3 +42,26 @@ public class Solution {
         }
     }
 }
+
+///////////////////////////////////////////////////////////////////////////
+//Round 2: 12/20/2014
+public class Solution {
+    public ArrayList<ArrayList<Integer>> subsets(int[] S) {
+        
+        Arrays.sort(S);
+        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
+        rnt.add(new ArrayList<Integer>());
+        
+        //for each elements in S, using existing subset + S[i] to create new subset
+        for(int i=0; i<S.length; i++){
+            int currsize = rnt.size();
+            for(int j=0; j<currsize; j++){
+                ArrayList<Integer> curr = new ArrayList<Integer>(rnt.get(j));
+                curr.add(S[i]);
+                rnt.add(curr);
+            }
+        }
+        
+        return rnt;
+    }
+}
