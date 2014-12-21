@@ -72,3 +72,59 @@ public class Solution {
 		return res;
 	}
 }
+
+
+///////////////////////////////////////////////////////////////////////
+//Round 2: 12/21/2014
+public class Solution {
+    public String minWindow(String S, String T) {
+        
+        //initialize hash map to count characeters appear in String T
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        for(int i=0; i<T.length(); i++){
+            char c = T.charAt(i);
+            if(map.containsKey(c))
+                map.put(c, map.get(c)+1);
+            else
+                map.put(c,1);
+        }
+        
+        //i and start are the pre and end pointer of current window in String s respectively
+        int i = 0; int start = 0;
+        int found = 0; //record the valid characters in current window
+        int min = S.length();
+        String rnt = "";
+        
+        for(i=0; i<S.length(); i++){
+            char curr = S.charAt(i);
+            if(map.containsKey(curr)){
+                map.put(curr, map.get(curr)-1);
+                if(map.get(curr)>=0) found++;
+                
+                //evict invalid or excessive character out of the window in order
+                if(found == T.length()){
+                    while(start<=i){
+                        char s = S.charAt(start);
+                        if(!map.containsKey(s) || map.containsKey(s) && map.get(s)<0)
+                            start++;
+                        else break;
+                    }
+                    
+                    if(min > i-start+1){
+                        min = i-start+1;
+                        rnt = S.substring(start, i+1);
+                    }
+
+                    
+                    if(map.containsKey(S.charAt(start))){
+                        map.put(S.charAt(start), map.get(S.charAt(start)+1));
+                        found--;
+                        start++;
+                    }
+                }
+            }
+        }
+        
+        return rnt;
+    }
+}
