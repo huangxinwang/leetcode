@@ -53,6 +53,9 @@
 - StrinbBuilder: [[Reverse Words in a String]](./code/Reverse-Words-in-a-String.java)
 - String Buffer: [[ZigZag Conversion]](./code/ZigZag-Conversion.java)
 
+### HashMap
+- [[Minimum-Window-Substring]](./code/Minimum-Window-Substring.java)
+
 ### Recursive call
 - [[Regular-Expression-Matching]](./code/Regular-Expression-Matching.java)
 - [[Flateen-Binary-Tree-to-Linked-List]](./code/Flateen-Binary-Tree-to-Linked-List.java)
