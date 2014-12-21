@@ -44,3 +44,32 @@ public class Solution {
         }
     }
 }
+
+////////////////////////////////////////////////////////////////////////
+//Round 2: 12/21/2014
+public class Solution {
+    public ArrayList<ArrayList<Integer>> combine(int n, int k) {
+        
+        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> tmp = new ArrayList<Integer>();
+        
+        dfs(1, k, n, rnt, tmp);
+        
+        return rnt;
+    }
+    
+    //dfs find all possible solution
+    public void dfs(int start, int depth, int n, ArrayList<ArrayList<Integer>> rnt, ArrayList<Integer> tmp){
+        if(depth==0){
+            rnt.add(new ArrayList<Integer>(tmp));
+            return;
+        }
+        if(start>n) return;
+        
+        for(int i=start; i<=n; i++){
+            tmp.add(i);
+            dfs(i+1, depth-1, n, rnt, tmp);
+            tmp.remove(tmp.size()-1);
+        }
+    }
+}
