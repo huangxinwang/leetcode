@@ -79,7 +79,6 @@ public class Solution {
 public class Solution {
     public String minWindow(String S, String T) {
         
-        //initialize hash map to count characeters appear in String T
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         for(int i=0; i<T.length(); i++){
             char c = T.charAt(i);
@@ -89,38 +88,47 @@ public class Solution {
                 map.put(c,1);
         }
         
-        //i and start are the pre and end pointer of current window in String s respectively
-        int i = 0; int start = 0;
-        int found = 0; //record the valid characters in current window
-        int min = S.length();
+        //i and start are pre and end pointer of current window
+        int i=0; int start = 0;
+        //min is the min-length of valid window so far, rnt is the string
+        int min = S.length()+1;
         String rnt = "";
+        //found is the number of valid characters in current window
+        int found = 0;
         
-        for(i=0; i<S.length(); i++){
-            char curr = S.charAt(i);
-            if(map.containsKey(curr)){
-                map.put(curr, map.get(curr)-1);
-                if(map.get(curr)>=0) found++;
-                
-                //evict invalid or excessive character out of the window in order
+        //traverse S string
+        //1. update map when meet with valid char (char in the map, and is necessary for the count)
+        //2. when found == T.length, examine from the begining of the window to evict char that is not necessary 
+        //3. update window
+        //4. advance window
+        for(i = 0; i<S.length(); i++){
+            char s = S.charAt(i);
+            if(map.containsKey(s)){
+                map.put(s, map.get(s)-1);
+                if(map.get(s)>=0) found++;
                 if(found == T.length()){
-                    while(start<=i){
-                        char s = S.charAt(start);
-                        if(!map.containsKey(s) || map.containsKey(s) && map.get(s)<0)
+                    
+                    //3. evict unnecessary char
+                    while(start<i){
+                        char curr = S.charAt(start);
+                        if(!map.containsKey(curr) || map.get(curr)<0){
+                            if(map.containsKey(curr)) map.put(curr, map.get(curr)+1);
                             start++;
+                        }
                         else break;
                     }
                     
-                    if(min > i-start+1){
+                    //3. update window
+                    if(i-start+1<min){
                         min = i-start+1;
                         rnt = S.substring(start, i+1);
                     }
-
                     
-                    if(map.containsKey(S.charAt(start))){
-                        map.put(S.charAt(start), map.get(S.charAt(start)+1));
-                        found--;
-                        start++;
-                    }
+                    //4. advance window
+                    char laststart = S.charAt(start);
+                    if(map.containsKey(laststart)) map.put(laststart, map.get(laststart)+1);
+                    found--;
+                    start++;
                 }
             }
         }
