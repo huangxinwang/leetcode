@@ -110,6 +110,9 @@
 - [[Restore-IP-Addresses]](./code/Restore-IP-Addresses.java)
 - [[SubsetsII]](./code/SubsetsII.java)
 - [[Word-Search]](./code/Word-Search.java)
+- [[Combinations]](./code/Combinations.java)
+
+
 
 ### Bit Operator
 - [[Single Number]](./code/Single-Number.java), [[Single Number II]](./code/Single-Number-II.java)
