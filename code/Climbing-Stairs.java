@@ -29,3 +29,22 @@ public class Solution {
         return step[n];
     }
 }
+
+
+////////////////////////////////////////////////////////////////////
+//Round 2: 12/22/2014
+public class Solution {
+    public int climbStairs(int n) {
+        
+        //fibonacci f(n) = f(n-1)+f(n-2)
+        int first = 1;
+        int second = 1;
+        for(int i=2; i<=n; i++){
+            int tmp = second;
+            second = first+second;
+            first = tmp;
+        }
+        
+        return second;
+    }
+}
