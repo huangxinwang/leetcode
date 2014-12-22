@@ -123,3 +123,7 @@
 
 ### Sort
 - [[Merge-Sorted-Array]](./code/Merge-Sorted-Array.java)
+
+
+### Integer Manipulate
+- [[Excel-Sheet-Column-Title]](./code/Excel-Sheet-Column-Title.java)
