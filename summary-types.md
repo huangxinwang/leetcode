@@ -44,6 +44,7 @@
 - [[Gray-Code]](./code/Gray-Code.java)
 - [[Largest-Rectangle-in-Histogram]](./code/Largest-Rectangle-in-Histogram.java)
 - [[Remove-Duplicates-from-Sorted-Array-II]](./code/Remove-Duplicates-from-Sorted-Array-II.java)
+- [[Majority-Element]](./code/Majority-Element.java)
 
 ### Iteration
 - [[Subsets]](./code/Subsets.java)
