@@ -35,3 +35,26 @@ public class Solution {
         }
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/22/2014
+public class Solution {
+    public int[] plusOne(int[] digits) {
+        int carry = 1;
+        
+        //add one, traverse the digits
+        for(int i=digits.length-1; i>=0; i--){
+            int sum = digits[i]+carry;
+            digits[i] = sum%10;
+            carry = sum/10;
+        }
+        
+        if(carry==0) return digits;
+        //need add one bit to the head of the array
+        int[] rnt = new int[digits.length+1];
+        System.arraycopy( digits, 0, rnt, 1, digits.length );
+        rnt[0] = 1;
+        return rnt;
+    }
+}
