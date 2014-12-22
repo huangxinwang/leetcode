@@ -16,6 +16,7 @@
 - [[Find Minimum in Rotated Sorted Array II]](./code/Find-Minimum-in-Rotated-Sorted-Array-II.java)
  - consider duplications
 - [[Search-in-Rotated-Sorted-Array-II]](./code/Search-in-Rotated-Sorted-Array-II.java)
+- [[Sqrt(x)]](./code/Sqrt(x).java)
 
 ### Stack
 - [[Min Stack]](./code/Min-Stack.java)
