@@ -28,3 +28,23 @@ public class Solution {
         else return binarySearch(low, mid-1, x);
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/22/2014
+public class Solution {
+    public int sqrt(int x) {
+        
+        //binary search
+        return (int)bs(0, x, x);
+    }
+    
+    public long bs(long low, long high, int x){
+        if(low >=high) return low;
+        long mid = (low+high)/2;
+        if(mid*mid ==x) return mid;
+        if(mid*mid<x && (mid+1)*(mid+1)>x) return mid;
+        if(mid*mid<x && (mid+1)*(mid+1)<=x) return bs(mid+1, high, x);
+        else return bs(low, mid, x);
+    }
+}
