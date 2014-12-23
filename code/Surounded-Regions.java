@@ -106,3 +106,84 @@ public class Solution {
         }
     }
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/23/2014
+public class Solution {
+    int[] px;
+    int[] py;
+    
+    public void solve(char[][] board) {
+        px = new int[]{0,0,-1,1};
+        py = new int[]{1,-1,0,0};
+        int row = board.length;
+        if(row==0) return;
+        int col = board[0].length;
+        
+        //first mark the 'O' in the border as Y
+        for(int i=0; i<row; i++){
+            if(board[i][0] == 'O')
+                board[i][0] = 'Y';
+            if(board[i][col-1] == 'O')
+                board[i][col-1] = 'Y';
+        }
+        
+        for(int i=0; i<col; i++){
+            if(board[0][i] == 'O')
+                board[0][i] = 'Y';
+            if(board[row-1][i] == 'O')
+                board[row-1][i] = 'Y';
+        }
+        
+        
+        //propogate from Y, make each 'O' as 'Y' it can reach
+         for(int i=0; i<row; i++){
+           propogate(board, i, 0);
+           propogate(board, i, col-1);
+        }
+        
+        for(int i=0; i<col; i++){
+           propogate(board, 0, i);
+           propogate(board, row-1, i);
+        }
+        
+        //update the unreached 'O' as 'X'
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++)
+                if(board[i][j] == 'O')
+                    board[i][j] = 'X';
+        }
+        
+        //change 'Y' back to 'O'
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++)
+                if(board[i][j] == 'Y')
+                    board[i][j] = 'O';
+        }
+    }
+    
+    
+    //propate 'Y' to other 'O'
+    public void propogate(char[][] board, int x, int y){
+        if(board[x][y] != 'Y') return;
+        for(int i=0; i<4; i++){
+            int cx = x+px[i];
+            int cy = y+py[i];
+            if(isValid(board, cx, cy)){
+                board[cx][cy] = 'Y';
+                propogate(board, cx, cy);
+            }
+        }
+    }
+    
+    //check whether a new position can be propagate
+    //stop if current position is not 'O', or has already been propogated as 'Y'
+    public boolean isValid(char[][] board, int x, int y){
+        if(x<0 || x>=board.length) return false;
+        if(y<0 || y>=board[0].length) return false;
+        if(board[x][y]=='X' || board[x][y]=='Y') return false;
+        return true;
+    }
+}
