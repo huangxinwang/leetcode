@@ -35,3 +35,25 @@ public class Solution {
         return tmpLength==0?lastLength:tmpLength;
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public int lengthOfLastWord(String s) {
+        
+        int len = 0;
+        //scan from tail to head
+        for(int i=s.length()-1; i>=0; i--){
+            char c = s.charAt(i);
+            //if current character is alphabeta, then len++
+            if((c>='a' && c<='z') || (c>='A' && c<= 'Z'))
+                len++;
+            //otherwise, if len>0, then the last word found
+            //else, keep finding
+            else if(len>0) break;
+        }
+        
+        return len;
+    }
+}
