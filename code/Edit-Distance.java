@@ -41,3 +41,45 @@ public class Solution {
         return C[len1][len2];
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public int minDistance(String word1, String word2) {
+        
+        //special case
+        if(word1.length()==0) return word2.length();
+        if(word2.length()==0) return word1.length();
+        
+        //define dynamic table
+        //len[i+1][j+1] represents the minumum edit distance oc word1(0...i) and word2(0...j)
+        int[][] len = new int[word1.length()+1][word2.length()+1];
+        len[0][0] = 0;
+        
+        //intialize the table
+        for(int i=0; i<word1.length(); i++)
+            len[i+1][0] = i+1;
+        for(int i=0; i<word2.length(); i++)
+            len[0][i+1] = i+1;
+        
+        //dynamic build the table
+        for(int i=0; i<word1.length(); i++){
+            for(int j=0; j<word2.length(); j++){
+                if(word1.charAt(i)==word2.charAt(j)){
+                    //case 1
+                    len[i+1][j+1] = Math.min(len[i][j], len[i+1][j]+1);
+                    len[i+1][j+1] = Math.min(len[i+1][j+1], len[i][j+1]+1);
+                }
+                else{
+                    //case 2
+                    len[i+1][j+1] = Math.min(len[i+1][j]+1,len[i][j+1]+1);
+                    len[i+1][j+1] = Math.min(len[i][j]+1, len[i+1][j+1]);
+                }
+            }
+        }
+        
+        return len[word1.length()][word2.length()];
+        
+    }
+}
