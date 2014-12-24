@@ -32,3 +32,38 @@ public class Solution {
     
     
 }
+
+
+
+///////////////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        
+        //2D binary search
+        return searchRow(0, matrix.length-1, matrix, target);
+        
+    }
+    
+    //binary search row
+    public boolean searchRow(int low, int high, int[][] matrix, int target){
+        if(low>high) return false;
+        int mid = (low+high)/2;
+        
+        if(searchCol(mid, 0, matrix[mid].length-1, matrix, target)) return true;
+        if(matrix[mid][0]<target) return searchRow(mid+1, high, matrix, target);
+        else return searchRow(low, mid-1, matrix, target);
+    }
+    
+    //for a specific row, binary search col
+    public boolean searchCol(int row, int low, int high, int[][] matrix, int target){
+        if(low>high) return false;
+        int mid = (low+high)/2;
+        int val = matrix[row][mid];
+        
+        if(val==target) return true;
+        if(val < target) return searchCol(row, mid+1, high, matrix, target);
+        else return searchCol(row, low, mid-1, matrix, target);
+        
+    }
+}
