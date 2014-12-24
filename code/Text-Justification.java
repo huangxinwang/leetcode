@@ -112,3 +112,84 @@ public class Solution {
         return rnt;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public ArrayList<String> fullJustify(String[] words, int L) {
+        
+       ArrayList<String> rnt = new ArrayList<String>();
+       
+       int start = 0;
+       int end = start;
+       while(start<words.length){
+           
+           //find the words in a line
+           end = start;
+           int sum = words[start].length();
+           int rawsum = words[start].length();
+           
+           while(sum<L && start<words.length-1){
+               if(end==words.length-1) break;
+               end++;
+               if(sum + words[end].length()+1<=L){
+                   sum++;
+                   sum = sum + words[end].length();
+                   rawsum = rawsum + words[end].length();
+               }
+               else{
+                   end--;
+                   break;
+               }
+           }
+           
+           //assign space, space represent the general space between two words, extraspace represents the extra space
+           int space = 0;
+           int extraspace = 0;
+ 
+           if(end==start) space = L - words[start].length();
+           else{
+               space = (L-rawsum)/(end-start);
+               extraspace = L - rawsum - space*(end-start);
+           } 
+           
+           //in the last line, the space should at most be 1
+           if(end==words.length-1){
+               space = Math.min(space,1);
+               extraspace = 0;
+           }
+           
+           
+           //put the words and space in a string, and add to return list
+           StringBuffer currstr = new StringBuffer();
+           
+           int index = 0;
+           for(int i=start; i<=end; i++){
+               for(int j=0; j<words[i].length(); j++){
+                   currstr.append(words[i].charAt(j));
+               }
+               
+               if(i==start || i!=end){
+                   for(int k=0; k<space; k++){
+                        currstr.append(' ');
+                       
+                   }
+                   if(extraspace > 0){
+                            currstr.append(' ');
+                            extraspace--;
+                   }
+               }
+           }
+           
+           while(currstr.length() < L){
+               currstr.append(' ');
+           }
+           
+           rnt.add(currstr.toString());
+           start = end+1;
+       }
+       
+       return rnt;
+    }
+}
