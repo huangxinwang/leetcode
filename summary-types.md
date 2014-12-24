@@ -134,4 +134,4 @@
 ### Integer Manipulate
 - [[Excel-Sheet-Column-Title]](./code/Excel-Sheet-Column-Title.java)
 - [[Plus-One]](./code/Plus-One.java)
-- [[Add-Binary]](./code/Add-Binary.java)
+- [[Add-Binary]](./code/Add-Binary.java): note how to convert int to char!
