@@ -26,6 +26,7 @@
 - [[Min Stack]](./code/Min-Stack.java)
  - maintain two stacks, one for keep tracking for min value
 - [[Evaluate Reverse Polish Notation]](./code/Evaluate-Reverse-Polish-Notation.java)
+- [[Simplify-Path]](./code/Simplify-Path.java)
 
 ### Dynamic Programming
 - simple: [[Pascal Triangle]](./code/Pascal-Triangle.java)
