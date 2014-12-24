@@ -41,3 +41,36 @@ public class Solution {
         }
 }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public void setZeroes(int[][] matrix) {
+        
+        HashMap<Integer, Integer> rowMap = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> colMap = new HashMap<Integer, Integer>();
+        
+        //find the row and col to set as 0
+        for(int i=0; i<matrix.length; i++){
+            for(int j=0; j<matrix[0].length; j++){
+                if(matrix[i][j]==0){
+                    rowMap.put(i,1);
+                    colMap.put(j,1);
+                }
+            }
+        }
+        
+        //set target row as 0
+        for(int row: rowMap.keySet()){
+            for(int i=0; i<matrix[0].length; i++)
+                matrix[row][i] = 0;
+        }
+        
+        //set target col as 0
+        for(int col : colMap.keySet()){
+            for(int i=0; i<matrix.length; i++)
+                matrix[i][col] = 0;
+        }
+    }
+}
