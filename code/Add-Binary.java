@@ -60,3 +60,59 @@ public class Solution {
         
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public String addBinary(String a, String b) {
+        
+        //use an array to keep up the sum
+        char[] rnt = new char[Math.max(a.length(),b.length())];
+        
+        int carry = 0;
+        
+        int i =a.length()-1;
+        int j = b.length()-1;
+        int index = rnt.length-1;
+        
+        //sum up a and b
+        while(i>=0 && j>=0){
+            int num1 = Character.getNumericValue(a.charAt(i));
+            int num2 = Character.getNumericValue(b.charAt(j));
+            int sum = num1 + num2 + carry;
+            carry = sum/2;
+            sum = sum%2;
+            rnt[index] = (char)(sum+'0');
+            index--;
+            i--;
+            j--;
+        }
+        
+        //remain parts
+        while(i>=0){
+            int num1 = Character.getNumericValue(a.charAt(i));
+            int sum = num1 + carry;
+            carry = sum/2;
+            sum = sum%2;
+            rnt[index] = (char)(sum+'0');
+            index--;
+            i--;
+        }
+        
+        while(j>=0){
+            int num1 = Character.getNumericValue(b.charAt(j));
+            int sum = num1 + carry;
+            carry = sum/2;
+            sum = sum%2;
+            rnt[index] = (char)(sum+'0');
+            index--;
+            j--;
+        }
+        
+        //return
+        String curr = new String(rnt);
+        if(carry==0) return curr;
+        else return "1"+curr;
+    }
+}
