@@ -19,7 +19,9 @@
  - consider duplications
 - [[Search-in-Rotated-Sorted-Array-II]](./code/Search-in-Rotated-Sorted-Array-II.java)
 - [[Sqrt(x)]](./code/Sqrt(x).java)
-
+- 2D:
+ - [Search-a-2D-Matrix](./code/Search-a-2D-Matrix.java)
+ 
 ### Stack
 - [[Min Stack]](./code/Min-Stack.java)
  - maintain two stacks, one for keep tracking for min value
