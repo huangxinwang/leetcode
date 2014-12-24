@@ -38,6 +38,7 @@
  - [[Interleaving-String]](./code/Interleaving-String.java)
  - [[Maximal-Rectangle]](./code/Maximal-Rectangle.java)
  - [[Distinct-Subsequence]](./code/Distinct-Subsequence.java)
+ - [[Edit-Distance]](./code/Edit-Distance.java)
 - 3D
  - [[Scramble-String]](./code/Scramble-String.java)
 
