@@ -64,3 +64,48 @@ public class Solution {
         }
         
 }
+
+////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        
+        //dummyhead, keep the head of the list
+        ListNode dummyhead = new ListNode(-1);
+        //curr denote current traver pointer
+        ListNode curr = dummyhead;
+        
+        while(l1!=null && l2!=null){
+            //if l1 is smaller than l2, than advance pointer of l1
+            if(l1.val <= l2.val){
+                curr.next = l1;
+                l1 = l1.next;
+            }else{
+                //else advance pointer of lb
+                curr.next = l2;
+                l2 = l2.next;
+            }
+            
+            curr = curr.next;
+            curr.next = null;
+        }
+        
+        //add the untraversed parts
+        if(l1!=null)
+            curr.next = l1;
+        if(l2!=null)
+            curr.next = l2;
+        return dummyhead.next;
+    }
+}
