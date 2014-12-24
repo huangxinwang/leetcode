@@ -52,3 +52,49 @@ public class Solution {
         
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public String simplifyPath(String path) {
+        
+        int start = 0;
+        Stack<String> stk = new Stack<String>();
+        
+        while(start<path.length()){
+            
+            //find first non "/", index as start
+            while(start <path.length() && path.charAt(start) == '/')
+                start++;
+            //not found
+            if(start==path.length()) break;
+            //find first "/" from start, index as end
+            int end = start;
+            while(end< path.length() && path.charAt(end)!='/')
+                end++;
+
+            //process string between start and end
+            String str = path.substring(start,end);
+            //case 1
+            if(str.equals("..")){
+                if(!stk.isEmpty())
+                    stk.pop(); 
+            } 
+            //case 2
+            else if(!str.equals(".")) stk.push(str);
+            //update
+            start = end+1;
+        }
+        
+        //output
+        if(stk.isEmpty()) return "/";
+        String rnt = "";
+        for(int i=0; i<stk.size(); i++){
+            rnt = rnt + "/" + stk.get(i);
+        }
+        
+        return rnt;
+        
+    }
+}
