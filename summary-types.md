@@ -2,6 +2,7 @@
 
 ### Just Coding
 - [[Sort-Colors]](./code/Sort-Colors.java)
+- [[Text-Justification]](./code/Text-Justification.java)
 
 ### NP-hard
 - [[N-Queens-1]](./code/N-Queens.java),[[N-Queens-2]](./code/N-Queens-II.java)
