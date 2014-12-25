@@ -5,6 +5,7 @@
 - [[Text-Justification]](./code/Text-Justification.java)
 - [[Length-of-Last-Word]](./code/Length-of-Last-Word.java)
 - [[Count-and-Say]](./code/Count-and-Say.java)
+- [[Valid-Sudoku]](./code/Valid-Sudoku.java)
 
 ### NP-hard
 - [[N-Queens-1]](./code/N-Queens.java),[[N-Queens-2]](./code/N-Queens-II.java)
