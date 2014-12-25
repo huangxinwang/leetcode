@@ -59,3 +59,55 @@ public class Solution {
         return true;
     }
 }
+
+/////////////////////////////////////////////////////////////////////////
+//Round 2： 12/25/2014
+public class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        
+        int row = board.length;
+        if(row!=9) return false;
+        int col = board[0].length;
+        if(col!=9) return false;
+        
+        //check row
+        for(int i=0; i<row; i++){
+            HashMap<Character, Integer> map = new HashMap<Character,Integer>();
+            for(int j=0; j<col; j++){
+                if(board[i][j]!='.' && (board[i][j]<='0' || board[i][j]>'9')) return false;
+                if(board[i][j]=='.') continue;
+                if(!map.containsKey(board[i][j]))
+                    map.put(board[i][j],1);
+                else return false;
+            }
+        }
+        
+        //check column
+        for(int i=0; i<col; i++){
+            HashMap<Character, Integer> map = new HashMap<Character,Integer>();
+            for(int j=0; j<row; j++){
+                if(board[j][i]=='.') continue;
+                if(!map.containsKey(board[j][i]))
+                    map.put(board[j][i],1);
+                else return false;
+            }
+        }
+        
+        //check 9 sub-square
+        for(int i=0; i<row; i+=3){
+            for(int j=0; j<col; j+=3){
+                HashMap<Character, Integer> map = new HashMap<Character,Integer>();
+                for(int m=i; m<i+3; m++){
+                    for(int n=j; n<j+3; n++){
+                        if(board[m][n]=='.') continue;
+                        if(!map.containsKey(board[m][n]))
+                            map.put(board[m][n],1);
+                        else return false;
+                    }
+                }
+            }
+        }
+        
+        return true;
+    }
+}
