@@ -30,3 +30,36 @@ public class Solution {
         return grid[m-1][n-1];
     }
 }
+
+
+//////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public int minPathSum(int[][] grid) {
+        
+        int row = grid.length;
+        int col = grid[0].length;
+        
+        //define table, dist[i][j] represents the dist from start point to grid[i][j]
+        int[][] dist = new int[row][col];
+        
+        //initialize
+        dist[0][0] = grid[0][0];
+        
+        for(int i=1; i<row; i++){
+            dist[i][0] = dist[i-1][0] + grid[i][0];
+        }
+
+        for(int i=1; i<col; i++)
+            dist[0][i] = dist[0][i-1] + grid[0][i];
+         
+        //dynamic build the table   
+        for(int i=1; i<row; i++){
+            for(int j=1; j<col; j++){
+                dist[i][j] = Math.min(dist[i-1][j]+grid[i][j], dist[i][j-1]+ grid[i][j]);
+            }
+        }
+        
+        return dist[row-1][col-1];
+    }
+}
