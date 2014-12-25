@@ -60,3 +60,42 @@ public class Solution {
             return rnt;
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public String countAndSay(int n) {
+        
+        String laststr = "1";
+         
+        int i=0;
+        //outer loop
+        while(i<n-1){
+            
+            String nextstr = new String();
+            int index =0;
+            
+            //innerloop
+            while(index<laststr.length()){
+                //count how many "curr" char
+                int count = 0;
+                char curr = laststr.charAt(index);
+                
+                while(index<laststr.length() && laststr.charAt(index)==curr){
+                    count++;
+                    index++;
+                }
+                //be careful of int to string!
+                nextstr += ((count + "") + curr);
+            }
+            
+            //update laststr
+            laststr = nextstr;
+            i++;
+  
+        }
+        
+        return laststr;
+    }
+}
