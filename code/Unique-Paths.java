@@ -34,3 +34,27 @@ public class Solution {
         return num[m-1][n-1];
     }
 }
+
+////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+public class Solution {
+    public int uniquePaths(int m, int n) {
+        
+        //define dynamic table, path[i][j] denotes the number of ways to go from start to (i+1)(j+1)
+        int[][] path = new int[m][n];
+        
+        //initialize the table
+        for(int i=0; i<m; i++)
+            path[i][0] = 1;
+        for(int i=0; i<n; i++)
+            path[0][i] = 1;
+            
+        //dynamic build the table
+        for(int i=1; i<m; i++){
+            for(int j=1; j<n; j++)
+                path[i][j] = path[i-1][j] + path[i][j-1];
+        }
+        
+        return path[m-1][n-1];
+    }
+}
