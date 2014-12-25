@@ -59,3 +59,56 @@ public class Solution {
         
     }
 }
+
+///////////////////////////////////////////////////////////////////////
+//Round 2: 12/24/2014
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode rotateRight(ListNode head, int n) {
+        
+        //special case
+        if(head==null) return head;
+        
+        //create dymmyhead
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = head;
+        
+        //count length of list
+        ListNode curr = dummyhead;
+        int len=0;
+        while(curr.next!=null){
+            curr = curr.next;
+            len++;
+        }
+        
+        //find slit point
+        int start = 0;
+        curr = dummyhead;
+        n = n%len;
+        while(start<len-n){
+            curr = curr.next;
+            start++;
+        }
+        
+        //split list, the second list (nexthead) act as head right now
+        ListNode nexthead = curr.next;
+        if(nexthead==null) return dummyhead.next;
+        curr.next = null;
+        ListNode tail = nexthead;
+        while(tail.next!=null)
+            tail = tail.next;
+        tail.next = dummyhead.next;
+        
+        return nexthead;
+    }
+}
