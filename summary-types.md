@@ -42,6 +42,7 @@
  - [[Edit-Distance]](./code/Edit-Distance.java)
  - [[Minimum-Path-Sum]](./code/Minimum-Path-Sum.java)
  - [[Unique-Paths]](./code/Unique-Paths.java)
+ - [[Unique-Paths-II]](./code/Unique-Paths-II.java)
 - 3D
  - [[Scramble-String]](./code/Scramble-String.java)
 
