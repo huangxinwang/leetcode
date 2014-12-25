@@ -41,6 +41,7 @@
  - [[Distinct-Subsequence]](./code/Distinct-Subsequence.java)
  - [[Edit-Distance]](./code/Edit-Distance.java)
  - [[Minimum-Path-Sum]](./code/Minimum-Path-Sum.java)
+ - [[Unique-Paths]](./code/Unique-Paths.java)
 - 3D
  - [[Scramble-String]](./code/Scramble-String.java)
 
