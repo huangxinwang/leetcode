@@ -30,3 +30,24 @@ public class Solution {
         else return -rntVal;
     }
 }
+
+///////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/26/2014
+public class Solution {
+    public int reverse(int x) {
+        
+        //since overflow may happen, thus we denote the variable as long type
+        long rnt = 0; long remain = 0;
+        
+        while(x!=0){
+            remain = x%10;
+            rnt = rnt*10+remain;
+            x = x/10;
+        }
+        
+        //decide if overflow, if yes, return 0
+        if(rnt >= Integer.MAX_VALUE ||  rnt<=Integer.MIN_VALUE) return 0;
+        
+        return (int)rnt;
+    }
+}
