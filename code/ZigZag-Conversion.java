@@ -49,3 +49,43 @@ public class Solution {
         return sb[0].toString();
     }
 }
+
+
+////////////////////////////////////////////////////////////////
+//Round 2: 12/27/2014
+public class Solution {
+    public String convert(String s, int nRows) {
+        
+        //create n String in Arraylist represent nRows
+        ArrayList<String> rnt = new ArrayList<String>();
+        for(int i=0; i<nRows; i++)
+            rnt.add(new String());
+        boolean incr = true;
+        
+        //put s in these n Strings in the array
+        int index = 0;
+        for(int i=0; i<s.length(); i++){
+            rnt.set(index,rnt.get(index) + s.substring(i,i+1));
+            if(incr) index++;
+            else index--;
+            if(index==nRows){
+                //careful with the edge condition
+                index = Math.max(0,nRows-2);
+                incr = false;
+            }
+            if(index==-1){
+                //careful with the edge condition, nrows may be 1
+                index = Math.min(1, nRows-1);
+                incr = true;
+            }
+        }
+        
+        //concate String in the arrayList
+        String rntstr = new String();
+        for(int i=0; i<nRows; i++){
+            rntstr += rnt.get(i);
+        }
+        
+        return rntstr;
+    }
+}
