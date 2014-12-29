@@ -59,3 +59,60 @@ public class Solution {
       
     }
 }
+
+////////////////////////////////////////////////////////////
+//Round 2； 12/29/2014
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+public class Solution {
+    
+    public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+        
+        //special case
+        if(intervals.size()==0){
+            intervals.add(newInterval);
+            return intervals;
+        }
+        
+        //define return
+        ArrayList<Interval> rnt = new ArrayList<Interval>();
+        
+        for(int i=0; i<intervals.size(); i++){
+            Interval curr = intervals.get(i);
+            //case 1: insert newInterval
+            if(newInterval.end < curr.start){
+                rnt.add(newInterval);
+                newInterval = curr;
+            }
+            //case2: cancate 2 interval
+            else if(newInterval.end == curr.start){
+                newInterval.end = curr.end;
+            }
+            //case3:
+            else{
+                //insert curr
+                 if(newInterval.start > curr.end){
+                     rnt.add(curr);
+                 }
+                 //cancate 2 interval
+                 else{
+                     newInterval.start = Math.min(curr.start, newInterval.start);
+                     newInterval.end = Math.max(curr.end, newInterval.end);
+                 }
+            }
+        }
+        
+        //need to deal with last one
+        rnt.add(newInterval);
+        
+        return rnt;
+        
+    }
+}
