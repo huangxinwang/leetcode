@@ -148,7 +148,8 @@
 - [[Word-Search]](./code/Word-Search.java)
 - [[Combinations]](./code/Combinations.java)
 - [[Surounded-Regions]](./code/Surounded-Regions.java)
-- [[N-Queens]](./code/N-Queens.java)
+- [[N-Queens]](./code/N-Queens.java), [[N-Queens-II]](./code/N-Queens-II.java)
+
 
 ### Bit Operator
 - [[Single Number]](./code/Single-Number.java), [[Single Number II]](./code/Single-Number-II.java)
