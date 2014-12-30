@@ -29,3 +29,24 @@ public class Solution {
     return false;
     }
 }
+
+//////////////////////////////////////////////////////////////////////////
+//Round 2; 12/29/2014
+public class Solution {
+    public boolean canJump(int[] A) {
+        
+        //define max-cover
+        int maxCover = A[0];
+        
+        //traverse A constrainted by maxCover
+        for(int start=0; start<A.length && start<=maxCover; start++){
+            //update maxCover if further distance can be reached
+            if(start+A[start] > maxCover)
+                maxCover = start+A[start];
+                
+            //check terminate condition
+            if(maxCover>=A.length-1) return true;
+        }
+        return false;
+    }
+}
