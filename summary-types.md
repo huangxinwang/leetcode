@@ -147,7 +147,7 @@
 
 ### Sort
 - [[Merge-Sorted-Array]](./code/Merge-Sorted-Array.java)
-- [Merge-Intervals](./code/Merge-Intervals.java)
+- [[Merge-Intervals]](./code/Merge-Intervals.java)
 
 ### Integer Manipulate
 - [[Excel-Sheet-Column-Title]](./code/Excel-Sheet-Column-Title.java)
