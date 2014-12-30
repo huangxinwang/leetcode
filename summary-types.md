@@ -64,6 +64,7 @@
 - [[Largest-Rectangle-in-Histogram]](./code/Largest-Rectangle-in-Histogram.java)
 - [[Remove-Duplicates-from-Sorted-Array-II]](./code/Remove-Duplicates-from-Sorted-Array-II.java)
 - [[Majority-Element]](./code/Majority-Element.java)
+- [[JumpGame]](./code/JumpGame.java)
 
 ### Iteration
 - [[Subsets]](./code/Subsets.java)
