@@ -11,6 +11,9 @@
 - [[Insert-Interval]](./code/Insert-Interval.java)
 - [[Excel-Sheet-Column-Number]](./code/Excel-Sheet-Column-Number.java)
 
+### Detail Oriented
+- [[Spiral-Matrix]](./code/Spiral-Matrix.java)
+
 ### NP-hard
 - [[N-Queens-1]](./code/N-Queens.java),[[N-Queens-2]](./code/N-Queens-II.java)
 - [[Combination Sum-1]](./code/Combination-Sum.java),[[Combination Sum-II]](./code/Combination-Sum-II.java)
