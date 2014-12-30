@@ -69,7 +69,9 @@
 - [[Remove-Duplicates-from-Sorted-Array-II]](./code/Remove-Duplicates-from-Sorted-Array-II.java)
 - [[Majority-Element]](./code/Majority-Element.java)
 - [[JumpGame]](./code/JumpGame.java)
-
+- Easy
+ - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
+ 
 ### Iteration
 - [[Subsets]](./code/Subsets.java)
 - [[Climbing-Stairs]](./code/Climbing-Stairs.java)
