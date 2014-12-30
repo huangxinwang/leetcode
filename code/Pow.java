@@ -40,3 +40,24 @@ public class Solution {
         return halfSum*halfSum*leftSum*currSum;
     }
 }
+
+//////////////////////////////////////////////////////
+//Round 2: 12/30/2014
+public class Solution {
+    public double pow(double x, int n) {
+        
+        if(x==0) return 0;
+        
+        if(n<0)
+            return subPow(1/x, n);
+        else return subPow(x,n);
+    }
+    
+    //divide and conque
+    public double subPow(double x, int n){
+        if(n==0) return 1;
+        double half = subPow(x,n/2);
+        if(n%2==0) return half*half;
+        else return half*half*x;
+    }
+}
