@@ -9,6 +9,7 @@
 - [[ZigZag-Conversion]](./code/ZigZag-Conversion.java)
 - [[Palindrome-Number]](./code/Palindrome-Number.java)
 - [[Insert-Interval]](./code/Insert-Interval.java)
+- [[Excel-Sheet-Column-Number]](./code/Excel-Sheet-Column-Number.java)
 
 ### NP-hard
 - [[N-Queens-1]](./code/N-Queens.java),[[N-Queens-2]](./code/N-Queens-II.java)
