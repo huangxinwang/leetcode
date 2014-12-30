@@ -61,3 +61,49 @@ public class Solution {
         return rnt;
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/30/2014
+public class Solution {
+    
+    public int totalNQueens(int n) {
+        
+        int curr = 0;
+        int[] loc = new int[n];
+        
+        return helper(curr, loc, n);
+        
+    }
+    
+    //dfs find all solutions
+    public int helper(int curr, int[] loc, int n){
+        
+        int count = 0;
+        
+        if(curr==n){
+            return 1;
+        }
+        
+        for(int i=0; i<n; i++){
+            loc[curr] = i;
+            if(checkValid(curr, loc, n)){
+                 count = count + helper(curr+1, loc, n);
+            }
+            loc[curr] = 0;
+        }
+        
+        return count;
+    }
+    
+    //check if current allocation is valid 
+    public boolean checkValid(int curr, int[] loc, int n){
+        
+        for(int i=0; i<curr; i++){
+            if(loc[i] == loc[curr]) return false;
+            if(Math.abs(loc[i]-loc[curr]) == Math.abs(i-curr)) return false;
+        }
+        
+        return true;
+    }
+}
