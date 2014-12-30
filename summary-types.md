@@ -165,4 +165,5 @@
 - [[Reverse-Integer]](./code/Reverse-Integer.java)
 
 
-
+### Divide and Conquer
+- [[Pow]](./code/Pow.java)
