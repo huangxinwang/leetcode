@@ -36,3 +36,24 @@ public class Solution {
         return global_max;
     }
 }
+
+//////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/30/2014
+public class Solution {
+    public int maxSubArray(int[] A) {
+        
+        int max = A[0];
+        int sum = A[0];
+        
+        //one round traverse
+        //if current sum <0; then set it to 0
+        //update max value
+        for(int i=1; i<A.length; i++){
+            if(sum<0) sum = 0;
+            sum = sum+A[i];
+            if(sum>max) max = sum;
+        }
+        
+        return max;
+    }
+}
