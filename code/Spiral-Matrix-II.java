@@ -65,3 +65,50 @@ public class Solution {
         return rnt;
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/30/2014
+public class Solution {
+    public int[][] generateMatrix(int n) {
+        
+        int[][] rnt = new int[n][n];
+        
+        //file array by layer
+        int layer = 0;
+        
+        int curr = 1;
+        
+        for(layer=0; layer<=n/2; layer++){
+            //top
+            for(int i=layer; i<n-layer; i++){
+                rnt[layer][i] = curr;
+                curr++;
+            }
+            
+            //right
+            for(int i=layer+1; i<n-layer-1; i++){
+                rnt[i][n-layer-1] = curr;
+                curr++;
+            }
+            
+            //bottom
+            if(layer!=n-layer-1){
+                for(int i=n-layer-1; i>=layer; i--){
+                    rnt[n-layer-1][i] = curr;
+                    curr++;
+                }
+            }
+            
+            //left
+            if(layer!=n-layer-1){
+                for(int i=n-layer-2; i>=layer+1; i--){
+                    rnt[i][layer] = curr;
+                    curr++;
+                }
+            }
+        }
+        
+        return rnt;
+    }
+}
