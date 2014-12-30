@@ -56,3 +56,51 @@ public class Solution {
         }
     }
 }
+
+/////////////////////////////////////////////////////////////////////
+//Round 2; 12/29/2014
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+public class Solution {
+    public List<Interval> merge(List<Interval> intervals) {
+        
+        //special case
+        if(intervals.size()<=1) return intervals;
+        
+        //sort intervals
+        Collections.sort(intervals, new ComparatorIntervel());
+        
+        //define return
+        ArrayList<Interval> rnt = new ArrayList<Interval>();
+        Interval curr = intervals.get(0);
+        
+        //merge intervals
+        for(int i=1; i<intervals.size(); i++){
+            Interval next = intervals.get(i);
+            if(curr.end < next.start){
+                rnt.add(curr);
+                curr = next;
+            }
+            else{
+                curr.end = Math.max(curr.end, next.end);
+            }
+        }
+        
+        rnt.add(curr);
+        return rnt;
+    }
+    
+    //comparator: sort intervals in non-decreasing order of interval start
+    public class ComparatorIntervel implements Comparator<Interval>{
+        public int compare(Interval a, Interval b){
+           return a.start - b.start;
+        }
+    }
+}
