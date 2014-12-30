@@ -111,3 +111,71 @@ public class Solution {
     
     
 }
+
+/////////////////////////////////////////////////////////////////////////
+//Round 2: 12/30/2014
+/**
+ * Ref: http://blog.csdn.net/u011095253/article/details/9158473
+ * 
+ */
+
+public class Solution {
+    public List<String[]> solveNQueens(int n) {
+        
+        int curr = 0;
+        int[] loc = new int[n];
+        ArrayList<String[]> rnt = new ArrayList<String[]>();
+        
+        helper(curr, n, loc, rnt);
+        
+        return rnt;
+    }
+    
+    //dfs find all possible solution
+    public void helper(int curr, int n,  int[] loc, ArrayList<String[]> rnt){
+        
+        if(curr == n){
+            String[] result = printBoard(loc,n);
+            rnt.add(result);
+            return;
+        }
+        
+        for(int i=0; i<n; i++){
+            if(checkValid(curr, i, loc, n)){
+                loc[curr] = i;
+                helper(curr+1, n, loc, rnt);
+                loc[curr] = 0;
+            }
+        }
+        
+    }
+    
+    //check whether current allocation is valid
+    public boolean checkValid(int curr, int col, int[] loc, int n){
+        for(int i=0; i<curr; i++){
+            if(loc[i] == col) return false;
+            if(Math.abs(loc[i]-col) == Math.abs(i-curr)) return false;
+        }
+        
+        return true;
+    }
+    
+    //print board to string[]
+    public String[] printBoard(int[] loc, int n){
+        
+        String[] rnt = new String[n];
+        for(int i=0; i<n; i++){
+            StringBuffer sb = new StringBuffer();
+            for(int j=0; j<n; j++){
+                if(loc[i]==j)
+                    sb.append('Q');
+                else sb.append('.');
+            }
+            rnt[i] = sb.toString();
+        }
+        
+        return rnt;
+    }
+    
+    
+}
