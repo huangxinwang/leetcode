@@ -71,6 +71,7 @@
 - [[Remove-Duplicates-from-Sorted-Array-II]](./code/Remove-Duplicates-from-Sorted-Array-II.java)
 - [[Majority-Element]](./code/Majority-Element.java)
 - [[Rotate-Image]](./code/Rotate-Image.java)
+- [[Trapping-Rain-Water]](./code/Trapping-Rain-Water.java)
 - Easy
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
  
