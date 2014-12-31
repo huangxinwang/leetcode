@@ -38,6 +38,7 @@
  - maintain two stacks, one for keep tracking for min value
 - [[Evaluate Reverse Polish Notation]](./code/Evaluate-Reverse-Polish-Notation.java)
 - [[Simplify-Path]](./code/Simplify-Path.java)
+- [[Binary-Search-Tree-Iterator]](./code/Binary-Search-Tree-Iterator.java)
 
 ### Dynamic Programming
 - simple: [[Pascal Triangle]](./code/Pascal-Triangle.java)
