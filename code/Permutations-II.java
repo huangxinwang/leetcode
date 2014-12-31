@@ -44,3 +44,41 @@ public class Solution {
         }
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/30/2014
+public class Solution {
+    public ArrayList<ArrayList<Integer>> permuteUnique(int[] num) {
+        
+        //sort the array
+        Arrays.sort(num);
+        
+        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> tmp = new ArrayList<Integer>();
+        int[] used = new int[num.length];
+        int depth = num.length;
+        dfs(num, used, depth, tmp, rnt);
+        return rnt;
+    }
+    
+    public void dfs(int[] num, int[] used, int depth, ArrayList<Integer> tmp, ArrayList<ArrayList<Integer>> rnt){
+        if(depth==0){
+            rnt.add(new ArrayList<Integer>(tmp));
+            return;
+        }
+        
+        for(int i=0; i<num.length; i++){
+            
+            //for duplicate numbers, if previous elements is not used, then skip current elements
+            if(i>0 && num[i-1]==num[i] && used[i-1]==0) continue;
+            if(used[i]==1) continue;
+            
+            used[i]=1;
+            tmp.add(num[i]);
+            dfs(num, used, depth-1, tmp, rnt);
+            used[i]=0;
+            tmp.remove(tmp.size()-1);
+        }
+    }
+}
