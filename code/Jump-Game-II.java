@@ -47,3 +47,44 @@ public class Solution {
         return Integer.MAX_VALUE;
     }
 }
+
+//////////////////////////////////////////////////////////////////////
+//Round 2: 12/30/2014
+public class Solution {
+    public int jump(int[] A) {
+        
+        //special case
+        if(A.length==0) return Integer.MAX_VALUE;
+        if(A.length==1) return 0;
+        
+        //define minStep[i] as the minimum step to reach index i
+        int[] minStep = new int[A.length];
+        
+        //initialize 
+        int maxCover = Math.min(A.length-1,A[0]);
+        for(int i=1; i<=maxCover; i++){
+            minStep[i] = 1;
+        }
+        
+        //traverse A
+        //update maxCover
+        for(int i=0; i<A.length && i<=maxCover; i++){
+            if(i+A[i]>maxCover){
+                int newCover = Math.min(A.length-1,i+A[i]);
+                //only new extend cover are updated
+                for(int j=maxCover+1; j<=newCover; j++){
+                    minStep[j] = minStep[i]+1;
+                }
+                //update maxCover
+                maxCover = newCover;
+            }
+
+        
+        //terminate condition
+        if(maxCover==A.length-1)    
+            return minStep[A.length-1];
+        }
+    
+    return Integer.MAX_VALUE;
+    }
+}
