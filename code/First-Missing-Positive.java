@@ -35,3 +35,34 @@ public class Solution {
         return A.length+1;
     }
 }
+
+
+/////////////////////////////////////////////////////////////////
+//Round 2: 12/30/2014
+public class Solution {
+    public int firstMissingPositive(int[] A) {
+        
+    
+        //do in place swap to put A[i] in index A[i]-1
+        for(int i=0; i<A.length; i++){
+            if(A[i]!=i+1){
+                if(A[i]<=0 || A[i]>A.length-1 || A[i]==A[A[i]-1]) continue;
+                else{
+                    int tmp = A[i];
+                    A[i] = A[tmp-1];
+                    A[tmp-1] = tmp;
+                    //need to check i again, since A[i] has been changed by swapping
+                    i--;
+                }
+            }
+        }
+        
+        //find the first element A[i]!=i+1
+        for(int i=0; i<A.length; i++){
+            if(A[i]!=i+1)
+                return i+1;
+        }
+        
+        return A.length+1;
+    }
+}
