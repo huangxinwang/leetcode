@@ -57,3 +57,56 @@ public class Solution {
      
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/30/2014
+public class Solution {
+    public int trap(int[] A) {
+        
+        //special case
+        if(A.length<=1) return 0;
+        
+        
+        //traverse from left to right, sum up waters if currentMax is smaller than A[i]
+        int sum = 0;
+        int tmpSum = 0;
+        int leftMax = 0;
+        int leftIndex = 0;
+        for(int i=0; i<A.length; i++){
+            if(A[i] >= leftMax){
+                sum = sum + tmpSum;
+                tmpSum = 0;
+                leftMax = A[i];
+                leftIndex = i;
+            }
+            else
+                tmpSum = tmpSum + (leftMax -A[i]);
+        }
+        
+        
+        //traverse from right to leftIndex, sum up waters if currentMax is smaller than A[i]
+        int rightMax = 0;
+        int rightIndex = A.length-1;
+        tmpSum = 0;
+        for(int i=A.length-1; i>=leftIndex; i--){
+            if(A[i]>=rightMax){
+                sum += tmpSum;
+                tmpSum = 0;
+                rightMax = A[i];
+                rightIndex = i;
+            }
+            else
+                tmpSum += (rightMax - A[i]);
+        }
+        
+        
+        //sum up waters between leftIndex and rightIndex
+        int height = Math.min(A[leftIndex],A[rightIndex]);
+        for(int i=leftIndex+1; i<rightIndex; i++){
+            sum += (height-A[i]);
+        }
+        
+        return sum;
+    }
+}
