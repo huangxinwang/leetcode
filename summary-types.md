@@ -41,6 +41,7 @@
 - [[Evaluate Reverse Polish Notation]](./code/Evaluate-Reverse-Polish-Notation.java)
 - [[Simplify-Path]](./code/Simplify-Path.java)
 - [[Binary-Search-Tree-Iterator]](./code/Binary-Search-Tree-Iterator.java)
+- [[Longest-Valid-Parentheses]](./code/Longest-Valid-Parentheses.java)
 
 ### Dynamic Programming
 - simple: [[Pascal Triangle]](./code/Pascal-Triangle.java)
