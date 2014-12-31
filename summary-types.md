@@ -77,6 +77,7 @@
 - [[Trapping-Rain-Water]](./code/Trapping-Rain-Water.java)
 - [[First-Missing-Positive]](./code/First-Missing-Positive.java)
 - [[Search-for-a-Range]](./code/Search-for-a-Range.java)
+- [[Next-Permutation]](./code/Next-Permutation.java)
 - Easy
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
  
