@@ -57,3 +57,46 @@ public class Solution {
         
     }
 }
+
+///////////////////////////////////////////////////////////////
+//Round 2: 12/31/2014
+/**
+ * Ref: http://fisherlei.blogspot.com/2012/12/leetcode-next-permutation.html
+ * 
+ */
+
+public class Solution {
+    public void nextPermutation(int[] num) {
+        
+        //from right to left, find first index that break the increasing rule
+        //call this index as paritionIndex
+        int partitionIndex = num.length-1;
+        while(true & partitionIndex>=0){
+            if(partitionIndex>0 && num[partitionIndex] > num[partitionIndex-1]){
+                partitionIndex--;
+                break;
+            }
+            else partitionIndex--;
+        }
+        
+        //from right to left, find the first element to swap with the partition element
+        if(partitionIndex>=0){
+            for(int i=num.length-1; i>=0; i--){
+                if(num[i]>num[partitionIndex]){
+                    int tmp = num[i];
+                    num[i] = num[partitionIndex];
+                    num[partitionIndex] = tmp;
+                    break;
+                }
+            }
+        }
+        
+        //reverse the string in the righthand-side of the partition number
+        for(int i=partitionIndex+1; i<=(partitionIndex+num.length)/2; i++){
+            int tmp = num[i];
+            num[i] = num[partitionIndex+num.length-i];
+            num[partitionIndex+num.length-i] = tmp;
+        }
+        
+    }
+}
