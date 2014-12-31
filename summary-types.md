@@ -11,6 +11,7 @@
 - [[Insert-Interval]](./code/Insert-Interval.java)
 - [[Excel-Sheet-Column-Number]](./code/Excel-Sheet-Column-Number.java)
 - [[Spiral-Matrix-II]](./code/Spiral-Matrix-II.java)
+- [[Find-Peak-Element]](./code/Find-Peak-Element.java)
 
 ### Detail Oriented
 - [[Spiral-Matrix]](./code/Spiral-Matrix.java)
