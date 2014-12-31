@@ -31,6 +31,7 @@
 - [[Search-in-Rotated-Sorted-Array-II]](./code/Search-in-Rotated-Sorted-Array-II.java)
 - [[Sqrt(x)]](./code/Sqrt(x).java)
 - [[Search-Insert-Position]](./code/Search-Insert-Position.java)
+- [[Search-in-Rotated-Sorted-Array]](./code/Search-in-Rotated-Sorted-Array.java)
 - 2D:
  - [[Search-a-2D-Matrix]](./code/Search-a-2D-Matrix.java)
  
