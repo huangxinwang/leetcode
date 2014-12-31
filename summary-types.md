@@ -72,6 +72,7 @@
 - [[Majority-Element]](./code/Majority-Element.java)
 - [[Rotate-Image]](./code/Rotate-Image.java)
 - [[Trapping-Rain-Water]](./code/Trapping-Rain-Water.java)
+- [[First-Missing-Positive]](./code/First-Missing-Positive.java)
 - Easy
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
  
