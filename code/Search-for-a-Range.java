@@ -43,3 +43,37 @@ public class Solution {
         
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////
+//Round 2: 12/31/2014
+public class Solution {
+    public int[] searchRange(int[] A, int target) {
+        
+        int left = binarySearch(A, target, 0, A.length-1);
+        int right = binarySearch(A, target+1, 0, A.length-1);
+        
+        int[] rnt = new int[2];
+        if(left==right){
+            rnt[0] = -1;
+            rnt[1] = -1;
+        }
+        else{
+            rnt[0] = left;
+            rnt[1] = right-1;
+        }
+        return rnt;
+    }
+    
+    public int binarySearch(int[] A, int target, int left, int right){
+        //if target value not found, will return target_right+1
+        if(left>right) return left;
+        if(A[left]==target) return left;
+        
+        int mid = (left+right)/2;
+        if(A[mid]>=target)
+            //find the leftmost index for value target
+            return binarySearch(A, target, left, mid-1);
+        else
+            return binarySearch(A, target, mid+1, right);
+    }
+}
