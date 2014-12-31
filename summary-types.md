@@ -69,6 +69,7 @@
 - [[Remove-Duplicates-from-Sorted-Array-II]](./code/Remove-Duplicates-from-Sorted-Array-II.java)
 - [[Majority-Element]](./code/Majority-Element.java)
 - [[JumpGame]](./code/JumpGame.java)
+- [[Rotate-Image]](./code/Rotate-Image.java)
 - Easy
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
  
