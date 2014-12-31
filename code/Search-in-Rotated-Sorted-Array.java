@@ -56,3 +56,38 @@ public class Solution {
         }
     }
 }
+
+///////////////////////////////////////////////////////////
+//Round 2: 12/31/2014
+public class Solution {
+    public int search(int[] A, int target) {
+        
+        return rotateSearch(A, target, 0, A.length-1);
+    }
+    
+    public int rotateSearch(int[] A, int target, int left, int right){
+        //terminate cases
+        if(left>right) return -1;
+        if(A[left]==target) return left;
+        
+        int mid = (left+right)/2;
+        if(A[mid]==target) return mid;
+        
+        //Case 1: not rated, binary search
+        if(A[left]<A[mid] && A[mid]<A[right]){
+            if(A[mid]>target)
+                return rotateSearch(A, target, left, mid-1);
+            else
+                return rotateSearch(A, target, mid+1, right);
+        }
+        //Case 2: roated, search both sides
+        else{
+            int rnt1 = rotateSearch(A, target, left, mid-1);
+            if(rnt1!=-1)
+                return rnt1;
+            else 
+                return rotateSearch(A, target, mid+1, right);
+                
+        }
+    }
+}
