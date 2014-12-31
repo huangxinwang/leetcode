@@ -48,3 +48,42 @@ public class Solution {
         return maxLen;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////
+//Round 2: 12/31/2014
+public class Solution {
+    public int longestValidParentheses(String s) {
+        
+        //I tried 2D dynamic programming, but time limit exceeds
+        
+        //Thus, I tried using stack, and only do one round traverse
+        Stack<Integer> stack = new Stack<Integer>();
+        int maxLen = 0;
+        int start = 0;
+        for(int i=0; i<s.length();i++){
+            //push to stack
+            if(s.charAt(i)=='(')
+                stack.push(i);
+            else{
+                //current valid start point change to i+1
+                if(stack.isEmpty()){
+                    start = i+1;
+                }
+                else{
+                    
+                    stack.pop();
+                    
+                    //if after pop, there are no other element, then it means current valid start point is start
+                    if(stack.size()==0)
+                        maxLen = Math.max(maxLen, i-start+1);
+                    //otherwise, the current valid point could be stack.peek()
+                    else
+                        maxLen = Math.max(maxLen, i - stack.peek());
+                }
+            }
+        }
+        
+        return maxLen;
+    }
+}
