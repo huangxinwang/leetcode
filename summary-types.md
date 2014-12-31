@@ -44,6 +44,7 @@
  - [[Jump Game II]](./code/Jump-Game-II.java), [[Word Break]](./code/Word-Break.java),  [[Word Break II]](./code/Word-Break-II.java), [[Triangle]](./code/Triangle.java)
  - [[Unique-Binary-Search-Trees]](./code/Unique-Binary-Search-Trees.java)
  - [[Decode-Ways]](./code/Decode-Ways.java)
+ - [[Jump-Game-II]](./code/Jump-Game-II.java)
 - 2D
  - [[Palindrom Partitioning II]](./code/Palindrom-Partitioning-II.java)
  - [[Interleaving-String]](./code/Interleaving-String.java)
@@ -58,7 +59,7 @@
 
 ### Logic
 - One pass traverse, but keep update the target value
- - [[Jump Game]](./code/JumpGame.java), [[Longest Consecutive Sequence]](./code/Longest-Consecutive-Sequence.java), [[Valid Palindrome]](./code/Valid-Palindrome.java)
+ - [[Jump Game]](./code/JumpGame.java), [[Jump-Game-II]](./code/Jump-Game-II.java), [[Longest Consecutive Sequence]](./code/Longest-Consecutive-Sequence.java), [[Valid Palindrome]](./code/Valid-Palindrome.java)
 - [[3 Sum Closest]](code/3Sum-Closest.java)
 - [[Maximum Product Subarray]](./code/Maximum-Product-Subarray.java)
 - [[Candy]](./code/Candy.java)
@@ -68,7 +69,6 @@
 - [[Largest-Rectangle-in-Histogram]](./code/Largest-Rectangle-in-Histogram.java)
 - [[Remove-Duplicates-from-Sorted-Array-II]](./code/Remove-Duplicates-from-Sorted-Array-II.java)
 - [[Majority-Element]](./code/Majority-Element.java)
-- [[JumpGame]](./code/JumpGame.java)
 - [[Rotate-Image]](./code/Rotate-Image.java)
 - Easy
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
