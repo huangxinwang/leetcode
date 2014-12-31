@@ -74,6 +74,7 @@
 - [[Rotate-Image]](./code/Rotate-Image.java)
 - [[Trapping-Rain-Water]](./code/Trapping-Rain-Water.java)
 - [[First-Missing-Positive]](./code/First-Missing-Positive.java)
+- [[Search-for-a-Range]](./code/Search-for-a-Range.java)
 - Easy
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
  
