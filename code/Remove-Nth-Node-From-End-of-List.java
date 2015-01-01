@@ -56,3 +56,47 @@ public class Solution {
         return dummyHead.next;
     }
 }
+
+
+//////////////////////////////////////////////////////////
+//Round 2: 1/1/2015
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+       
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = head;
+        ListNode p1 = dummyhead;
+        ListNode p2 = dummyhead;
+        
+        //let p1 walks n-step ahead of p2
+        int i=0;
+        while(i<n && p1.next!=null){
+            p1 = p1.next;
+            i++;
+        }
+        
+        //p1 and p2 walk together
+        while(p1.next!=null){
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        
+        //delete nodes
+        if(p2.next!=null)
+            p2.next = p2.next.next;
+        
+        return dummyhead.next;
+    }
+}
