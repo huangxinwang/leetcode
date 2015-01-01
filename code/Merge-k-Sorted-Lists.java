@@ -64,3 +64,58 @@ public class Solution {
         return dummyHead.next;
     }
 }
+
+//////////////////////////////////////////////////////
+//Round 2: 1/1/2015
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode mergeKLists(List<ListNode> lists) {
+        
+        if(lists.size()==0) return null;
+        if(lists.size()==1) return lists.get(0);
+        
+        return recursiveMerge(lists, 0, lists.size()-1);
+    }
+    
+    //recursive merge every two list
+    public ListNode recursiveMerge(List<ListNode> lists, int left, int right){
+        if(left==right) return lists.get(left);
+        int mid = (left+right)/2;
+        return merge(recursiveMerge(lists, left, mid), recursiveMerge(lists, mid+1, right));
+    }
+    
+    //merge two list
+    public ListNode merge(ListNode p, ListNode q){
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = p;
+        ListNode curr = dummyhead;
+        
+        while(p!=null && q!=null){
+            if(p.val < q.val){
+                p = p.next;
+            }
+            else{
+                ListNode tmp = q.next;
+                curr.next = q;
+                q.next = p;
+                q = tmp;
+            }
+            curr = curr.next;
+        }
+        
+        if(q!=null)
+            curr.next = q;
+        return dummyhead.next;
+    }
+    
+}
