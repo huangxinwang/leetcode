@@ -79,6 +79,7 @@
 - [[First-Missing-Positive]](./code/First-Missing-Positive.java)
 - [[Search-for-a-Range]](./code/Search-for-a-Range.java)
 - [[Next-Permutation]](./code/Next-Permutation.java)
+- [[Remove-Duplicates-from-Sorted-Array]](./code/Remove-Duplicates-from-Sorted-Array.java)
 - Easy
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
  - [[Remove-Element]](./code/Remove-Element.java)
