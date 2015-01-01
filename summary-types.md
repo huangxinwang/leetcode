@@ -81,6 +81,7 @@
 - [[Next-Permutation]](./code/Next-Permutation.java)
 - Easy
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
+ - [[Remove-Element]](./code/Remove-Element.java)
  
 ### Iteration
 - [[Subsets]](./code/Subsets.java)
