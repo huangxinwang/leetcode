@@ -72,3 +72,59 @@ public class Solution {
         return last;
     }
 }
+
+
+/////////////////////////////////////////////////////////////
+//Round: 1/1/2015
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        
+        if(head==null || k==1) return head;
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = head;
+        ListNode pre = dummyhead;
+        
+        int i=0;
+        //traverse list, reverse every k nodes
+        while(head!=null){
+            i++;
+            if(i%k==0){
+                pre = reverseNode(pre, head.next);
+                head = pre.next;
+            }
+            else head = head.next;
+        }
+        
+        return dummyhead.next;
+        
+    }
+    
+    //reverse nodes between (pre, tail), return tail of the reverse string
+    //which points to the head of next list
+    public ListNode reverseNode(ListNode pre, ListNode tail){
+        
+        ListNode last = pre.next;
+        ListNode curr = last.next;
+        
+        while(curr!=tail){
+            last.next = curr.next;
+            curr.next = pre.next;
+            pre.next = curr;
+            curr = last.next;
+            
+        }
+        
+        return last;
+    }
+}
