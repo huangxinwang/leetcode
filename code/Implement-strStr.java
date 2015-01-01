@@ -33,3 +33,24 @@ public class Solution {
         return null;
     }
 }
+
+////////////////////////////////////////////////
+//Round 2: 12/31/2014
+//complexity O(m*n)
+//better solution: KMP
+public class Solution {
+    public int strStr(String haystack, String needle) {
+        
+        for(int i=0; i<=haystack.length()-needle.length(); i++){
+            int j=0;
+            for(; j<needle.length(); j++){
+                if(haystack.charAt(i+j)!=needle.charAt(j))
+                    break;
+            }
+            
+            if(j==needle.length())
+                return i;
+        }
+        return -1;
+    }
+}
