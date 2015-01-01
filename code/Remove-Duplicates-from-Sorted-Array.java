@@ -34,3 +34,30 @@ public class Solution {
         return newIndx;
     }
 }
+
+
+/////////////////////////////////////////////////////
+//Round 2: 1/1/2015
+public class Solution {
+    public int removeDuplicates(int[] A) {
+        
+        if(A.length==0) return 0;
+        int index = 1;
+        for(int i=1; i<A.length; ){
+    
+            if(A[i]!=A[i-1]){
+                A[index] = A[i];
+                index++;
+                i++;
+            }
+            //skip all duplicates
+            else{
+                int num = A[i-1];
+                while(i<A.length && A[i]==num)
+                    i++;
+            }
+        }
+        
+        return index;
+    }
+}
