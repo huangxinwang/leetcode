@@ -37,3 +37,42 @@ public class Solution {
        
     }
 }
+
+//////////////////////////////////////////////
+//Round 2: 1/1/2015
+public class Solution {
+    public boolean isValid(String s) {
+        
+        Stack<String> stack = new Stack<String>();
+        
+        //push leftside, when meet rightside, pop from stack to see leftside match
+        for(int i=0; i<s.length(); i++){
+            String c = s.substring(i,i+1);
+            switch(c){
+                case "(":
+                    stack.push(c);
+                    break;
+                case "{":
+                    stack.push(c);
+                    break;
+                case "[":
+                    stack.push(c);
+                    break;
+                case ")":
+                    if(stack.isEmpty()) return false;
+                    if(!stack.pop().equals("(")) return false;
+                    break;
+                case "}":
+                    if(stack.isEmpty()) return false;
+                    if(!stack.pop().equals("{")) return false;
+                    break;
+                case "]":
+                    if(stack.isEmpty()) return false;
+                    if(!stack.pop().equals("[")) return false;
+                    break;
+            }
+        }
+        
+        return stack.isEmpty();
+    }
+}
