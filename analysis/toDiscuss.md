@@ -18,3 +18,6 @@
 
 ### Boundary
 - [[Rotate-Image]](../code/Rotate-Image.java)
+
+### Solution
+- KMP [[Implement-strStr]](../code/Implement-strStr.java)
