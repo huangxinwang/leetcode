@@ -43,3 +43,37 @@ public class Solution {
         return optValue;
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////
+//Round 2: 1/2/2015
+public class Solution {
+    public int threeSumClosest(int[] num, int target) {
+        
+        //maintain two set
+        //setOne used to hold value of single number
+        //setTwp used to hold values of two numbers
+        Set<Integer> setOne = new HashSet<Integer>();
+        Set<Integer> setTwo = new HashSet<Integer>();
+        int minDist = Integer.MAX_VALUE;
+        int val = Integer.MAX_VALUE;
+        
+        for(int i=0; i<num.length; i++){
+            for(Integer j: setTwo){
+                int sum = num[i] + j;
+                if(Math.abs(target-sum) < minDist){
+                    minDist = Math.abs(target-sum);
+                    val = sum;
+                }
+            }
+            
+            for(Integer k: setOne){
+                setTwo.add(k+num[i]);
+            }
+            
+            setOne.add(num[i]);
+        }
+        
+        return val;
+    }
+}
