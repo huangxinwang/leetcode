@@ -86,6 +86,7 @@
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
  - [[Remove-Element]](./code/Remove-Element.java)
  - [[Remove-Nth-Node-From-End-of-List]](./code/Remove-Nth-Node-From-End-of-List.java)
+ - [[Three-Sum]](./code/Three-Sum.java)
  
 ### Iteration
 - [[Subsets]](./code/Subsets.java)
