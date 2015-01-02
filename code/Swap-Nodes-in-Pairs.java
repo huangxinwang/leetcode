@@ -54,3 +54,44 @@ public class Solution {
         
     }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+//Round 2: 1/1/2015
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode swapPairs(ListNode head) {
+        
+        if(head==null || head.next==null) return head;
+        
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = head;
+        
+        //swap two nodes
+        ListNode curr = dummyhead;
+        ListNode tmp1= curr.next;
+        ListNode tmp2 = tmp1.next;
+        while(tmp2!=null){
+            curr.next = tmp2;
+            tmp1.next = tmp2.next;
+            tmp2.next = tmp1;
+            curr = tmp1;
+            tmp1 = curr.next;
+            if(tmp1!=null)
+                tmp2 = tmp1.next;
+            else tmp2 = null;
+        }
+        
+        return dummyhead.next;
+        
+    }
+}
