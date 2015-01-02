@@ -143,6 +143,7 @@
 - [[Merge-Two-Sorted-Lists]](./code/Merge-Two-Sorted-Lists.java)
 - [[RotateList]](./code/RotateList.java)
 - [[Reverse-Nodes-in-k-Group]](./code/Reverse-Nodes-in-k-Group.java)
+- [[Swap-Nodes-in-Pairs]](./code/Swap-Nodes-in-Pairs.java)
 
 ### Binary Tree
 - Traversal: [[Binary Tree Postorder Traversal]](./code/Binary-Tree-Postorder-Traversal.java), [[Binary Tree Preorder Traversal]](./code/Binary-Tree-Preorder-Traversal.java)
