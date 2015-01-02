@@ -43,3 +43,37 @@ public class Solution {
         }
     }
 }
+
+/////////////////////////////////////////////////////////////
+//Round 2: 1/1/2015
+public class Solution {
+    public ArrayList<String> letterCombinations(String digits) {
+        String[] letters = new String[]{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        int index = 0;
+        ArrayList<String> rnt = new ArrayList<String>();
+        String tmp = new String();
+        dfs(letters, digits, index, tmp, rnt);
+        return rnt;
+    }
+    
+    //dfs get all combination
+    public void dfs(String[] letters, String digits, int index, String tmp, ArrayList<String> rnt){
+        if(index==digits.length()){
+            rnt.add(tmp);
+            return;
+        }
+        
+        int num = digits.charAt(index) - '0';
+        String curr = letters[num];
+        //case 1: current length is 0   
+        if(curr.length()==0)
+            dfs(letters, digits, index+1, tmp, rnt);
+        //case 2: not 0, try all combinations
+        else{
+            for(int i=0; i<curr.length(); i++){
+                String newtmp = tmp + curr.charAt(i);
+                dfs(letters, digits, index+1, newtmp, rnt);
+            }
+        }
+    }
+}
