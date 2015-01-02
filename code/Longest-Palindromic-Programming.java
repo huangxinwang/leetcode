@@ -48,3 +48,50 @@ public class Solution {
         
     }
 }
+
+
+////////////////////////////////////////////////////////////
+//Round 2: 1/1/2015
+public class Solution {
+    public String longestPalindrome(String s) {
+        
+        int len = s.length();
+        boolean[][] palin = new boolean[len][len];
+        
+        int maxLen = 1;
+        int maxStart = 0;
+        
+        //length=1
+        for(int i=0; i<len; i++)
+            palin[i][i] = true;
+          
+        //length=2  
+        for(int i=0; i<len-1; i++){
+            if(s.charAt(i)==s.charAt(i+1)){
+                if(maxLen<2){
+                    maxLen = 2;
+                    maxStart = i;
+                }
+                palin[i][i+1] = true;
+            }
+        }
+        
+        
+       //different from the one that only return maxLength
+       //we build the table by considering different length of the palindrome
+       for(int step=3; step<=len; step++){
+           for(int i=0; i<=len-step; i++){
+               int j = i+step-1;
+               if(s.charAt(i)==s.charAt(j) && palin[i+1][j-1]){
+                   palin[i][j] = true;
+                   if(step>maxLen){
+                       maxLen = step;
+                       maxStart = i;
+                   }
+               }
+           }
+       }
+        
+        return s.substring(maxStart, maxStart+maxLen);
+    }
+}
