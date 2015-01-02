@@ -74,3 +74,47 @@
         
       
 }
+
+
+////////////////////////////////////////////////////////////////////////
+//Round 2: 1/1/2015
+public class Solution {
+    public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
+        
+        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
+        if(num.length<3) return rnt;
+        
+        Arrays.sort(num);
+        
+        for(int i=0; i<num.length-2; i++){
+            
+            //avoid duplication
+            if(i==0 || num[i]>num[i-1]){
+                
+            //sort array and find combinations that sums up to remain
+            int remain = -num[i];
+            int start = i+1;
+            int end = num.length-1;
+            while(start<end){
+                int currSum = num[start]+num[end];
+                if(currSum==remain){
+                    ArrayList<Integer> tmp = new ArrayList<Integer>();
+                    tmp.add(num[i]);
+                    tmp.add(num[start]);
+                    tmp.add(num[end]);
+                    rnt.add(tmp);
+                    start++;
+                    end--;
+                    while(start<=end && num[start-1]==num[start]) start++;
+                    while(start<=end && num[end] == num[end+1]) end--;
+                }
+                else if(currSum < remain)
+                    start++;
+                else end--;
+            }
+            }
+        }
+        
+        return rnt;
+    }
+}
