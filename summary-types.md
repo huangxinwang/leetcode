@@ -106,6 +106,9 @@
 - [[Substring-with-Concatenation-of-All-Words]](./code/Substring-with-Concatenation-of-All-Words.java)
 - [[Two-Sum]](./code/Two-Sum.java)
 
+### HashSet
+- [[3Sum-Closest]](./code/3Sum-Closest.java)
+
 ### Recursive call
 - [[Regular-Expression-Matching]](./code/Regular-Expression-Matching.java)
 - [[Flateen-Binary-Tree-to-Linked-List]](./code/Flateen-Binary-Tree-to-Linked-List.java)
