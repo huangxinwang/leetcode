@@ -44,3 +44,43 @@ public class Solution {
     }
     
 }
+
+
+///////////////////////////////////////////////////////////
+//round 2: 1/3/2015
+public class Solution {
+    public int atoi(String str) {
+        
+        long rnt = 0;
+        int pos = 0;
+        int neg = 0;
+        int idx = 0;
+        int validbit = 0;
+        
+        while(idx<str.length()){
+            char c = str.charAt(idx);
+            if(c=='\0') break;
+            else if(c=='+') pos++;
+            else if(c=='-') neg++;
+            else if(c>='0' && c<='9'){ 
+                rnt = 10*rnt + (c-'0');
+                validbit++;
+            }
+            else if(c==' ') {if(neg>0 || pos>0 ||rnt>0) break;}
+            else break;
+            
+            idx++;
+            //avoid being larger than long
+            if(validbit>12) break;
+            
+        }
+        
+        if(pos+neg>1) return 0;
+        if(neg==1) rnt = -rnt;
+        
+        if(rnt>Integer.MAX_VALUE) return Integer.MAX_VALUE;
+        if(rnt<Integer.MIN_VALUE) return Integer.MIN_VALUE;
+        
+        return (int)rnt;
+    }
+}
