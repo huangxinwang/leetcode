@@ -137,6 +137,7 @@
 
 ### Sort
 - Merge Sort: [[Sort List]](./code/Sort-List.java)
+- Bucket Sort: [[Maximum-Gap]](./code/Maximum-Gap.java)
 
 ### Linked List
 - Single Link: [[Insertion Sort List]](./code/Insertion-Sort-List.java), [[Reorder List]](./code/ReorderList.java), [[Intersection of Two Linked Lists]](./code/Intersection-of-Two-Linked-Lists.java)
