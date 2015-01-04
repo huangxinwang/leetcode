@@ -37,3 +37,38 @@ public class Solution {
         return max;
     }
 }
+
+
+///////////////////////////////////////////////////
+//Round 2: 1/4/2015
+public class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        
+        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+        
+        int start = 0;
+        int max = 0;
+        
+        for(int i=0; i<s.length(); i++){
+            char c = s.charAt(i);
+            //calculate length
+            //advance front of window to contain no duplicate characters
+            if(map.containsKey(c)){
+                int curr = i-start;
+                max = max>curr ? max : curr;
+                while(start<i && s.charAt(start)!=c){
+                    map.remove(s.charAt(start));
+                    start++;
+                }
+                start++;
+            }
+            else{
+                map.put(c,1);
+            }
+        }
+        
+        max = max >(s.length()-start) ? max: (s.length()-start);
+        
+        return max;
+    }
+}
