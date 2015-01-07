@@ -197,6 +197,7 @@
 - [[Reverse-Integer]](./code/Reverse-Integer.java)
 - [[String-to-Integer(atoi)]](./code/String-to-Integer(atoi).java)
 - [[Integer-to-Roman]](./code/Integer-to-Roman.java)
+- [[Roman-to-Integer]](./code/Roman-to-Integer.java)
 
 ### Divide and Conquer
 - [[Pow]](./code/Pow.java)
