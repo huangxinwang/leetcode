@@ -42,3 +42,36 @@ public class Solution {
         }
     }
 }
+
+///////////////////////////////////////////////////////////////////////////
+//Round 3: 1/7/2015
+public class Solution {
+    public int romanToInt(String s) {
+        
+        int rnt = 0;
+        //if in increasing order, then added ctoi(s.charAt(i)) -  2*ctoi(s.charAt(i-1))
+        //else add ctoi(s.charAt(i))
+        for(int i=0; i<s.length(); i++){
+            if(i>0 && ctoi(s.charAt(i)) > ctoi(s.charAt(i-1)) )
+                rnt += ctoi(s.charAt(i)) -  2*ctoi(s.charAt(i-1));
+            else rnt += ctoi(s.charAt(i));
+        }
+        
+        return rnt;
+    }
+    
+    
+    public int ctoi(char c){
+        switch(c){
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+            default:
+                return 0;
+        }
+    }
+}
