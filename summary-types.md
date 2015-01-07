@@ -196,6 +196,7 @@
 - [[Add-Binary]](./code/Add-Binary.java): note how to convert int to char!
 - [[Reverse-Integer]](./code/Reverse-Integer.java)
 - [[String-to-Integer(atoi)]](./code/String-to-Integer(atoi).java)
+- [[Integer-to-Roman]](./code/Integer-to-Roman.java)
 
 ### Divide and Conquer
 - [[Pow]](./code/Pow.java)
