@@ -51,3 +51,42 @@ public class Solution {
         }
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////
+//Round 2: 1/8/2015
+public class Solution {
+    public boolean isMatch(String s, String p) {
+        
+        return helper(s, p, 0, 0);
+    }
+    
+    public boolean helper(String s, String p, int sp, int pp){
+        
+        //case 1: terminate cases
+        if(pp>=p.length())
+            return sp==s.length();
+        
+        //case 2: ab
+        if(pp==p.length()-1 || p.charAt(pp+1)!='*'){
+            if(sp>=s.length()) return false;
+            if(s.charAt(sp)==p.charAt(pp) || p.charAt(pp)=='.')
+                return helper(s, p, sp+1, pp+1);
+            return false;
+        }
+        //Case 3: a*, or a
+        else{
+            
+            if(helper(s, p, sp, pp+2)) return true;
+            
+            int start = sp;
+            while(start<s.length() && (s.charAt(start)==p.charAt(pp) || p.charAt(pp)=='.')){
+
+                if(helper(s, p, start+1, pp+2)) return true;
+                start++;
+            }
+            
+            return false;
+        }
+    }
+}
