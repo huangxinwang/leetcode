@@ -68,3 +68,48 @@ public class Solution {
    
     }
 }
+
+/////////////////////////////////////////////////////////////////////////
+//Round 2: 1/8/2015
+public class Solution {
+    public ArrayList<ArrayList<Integer>> fourSum(int[] num, int target) {
+        
+        Arrays.sort(num);
+        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
+        
+        //first num
+        for(int i=0; i<num.length-3; i++){
+            //skip duplicate
+            if(i!=0 && num[i]==num[i-1]) continue;
+            
+            //second num
+            for(int j=i+1; j<num.length-2; j++){
+                if(j!=i+1 && num[j]==num[j-1]) continue; //skip duplicate
+                
+                //third and forth
+                int start = j+1;
+                int end = num.length-1;
+                
+                while(start<end){
+                    int curr = num[i] + num[j] + num[start] + num[end];
+                    if(curr<target)
+                        start++;
+                    else if(curr>target)
+                        end--;
+                    else{
+                        ArrayList<Integer> tmp = new ArrayList<Integer>();
+                        tmp.add(num[i]); tmp.add(num[j]); tmp.add(num[start]); tmp.add(num[end]);
+                        rnt.add(new ArrayList<Integer>(tmp));
+                        start++;
+                        end--;
+                        while(start<end && num[start]==num[start-1]) start++;
+                        while(start<end && num[end] == num[end+1]) end--;
+                    }
+                    
+            }
+        }
+    }
+    
+    return rnt;
+    }
+}
