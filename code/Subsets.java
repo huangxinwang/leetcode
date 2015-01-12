@@ -45,6 +45,8 @@ public class Solution {
 
 ///////////////////////////////////////////////////////////////////////////
 //Round 2: 12/20/2014
+//Time complexity: O(2^n)
+
 public class Solution {
     public ArrayList<ArrayList<Integer>> subsets(int[] S) {
         
