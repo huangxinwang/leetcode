@@ -144,7 +144,7 @@ public class Solution {
             if(checkValid(curr, i, loc, n)){
                 loc[curr] = i;
                 helper(curr+1, n, loc, rnt);
-                loc[curr] = 0;
+                //loc[curr] = 0; This line is not necessary
             }
         }
         
