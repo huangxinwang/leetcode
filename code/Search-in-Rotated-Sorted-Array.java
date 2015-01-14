@@ -91,3 +91,42 @@ public class Solution {
         }
     }
 }
+
+///////////////////////////////////////////////////////////////////
+//Round 3: 1/15/2015
+public class Solution {
+    public int search(int[] A, int target) {
+        return subsearch(A, 0, A.length-1, target);
+    }
+    
+    public int subsearch(int[] A, int left, int right, int target){
+        if(left>right) return -1;
+        if(A[left]==target) return left;
+        if(A[right]==target) return right;
+        
+        int mid = (left+right)/2;
+        if(A[mid]==target) return mid;
+        
+        //draw the figure of rotations, there are 3 cases, for each cases, only need to search one side
+        // leftval < midval < rightval
+        // leftval > midval, midval > rightVal
+        // leftval > midval, midval < rightVal
+        if(A[left] <= A[mid] && A[mid]<=A[right]){
+            if(target<A[mid])
+                return subsearch(A, left, mid-1, target);
+            else return subsearch(A, mid+1, right, target);
+        }
+        else if(A[left] <= A[mid] && A[mid] >= A[right]){
+            if(A[left] < target && target<A[mid])
+                return subsearch(A, left, mid-1, target);
+            else return subsearch(A, mid+1, right, target);
+        }
+        //else if(A[left] > A[mid] && A[mid] < A[right])
+        else
+        {
+            if(A[mid] < target && target<A[right])
+                return subsearch(A, mid+1, right, target);
+            else return subsearch(A, left, mid-1, target);
+        }
+    }
+}
