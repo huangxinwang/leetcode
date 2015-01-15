@@ -67,3 +67,41 @@ public class Solution {
         
     }
 }
+
+
+///////////////////////////////////////////////////////////
+//Round 3: 1/15/2015
+//time complexity: O(log m * log n)
+
+public class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        return searchRow(matrix, 0, matrix.length-1, target);
+    }
+    
+    //search for rows
+    public boolean searchRow(int[][] matrix, int left, int right, int target){
+        int len = matrix[0].length;
+        if(left>right) return false;
+        if(left==right)
+            //search current row
+            return searchCol(matrix, left, 0, len-1, target);
+        int mid = (left+right)/2;
+        if(searchCol(matrix, mid, 0, len-1, target)) return true;
+        if(matrix[mid][0]>target)
+            return searchRow(matrix, left, mid-1, target);
+        else if(matrix[mid][len-1] < target)
+            return searchRow(matrix, mid+1, right, target);
+        else return false;
+    }
+    
+    //search a row by column
+    public boolean searchCol(int[][] matrix, int row, int left, int right, int target){
+        if(left>right) return false;
+        int mid = (left+right)/2;
+        int midVal = matrix[row][mid];
+        if(midVal == target) return true;
+        if(midVal < target)
+            return searchCol(matrix, row, mid+1, right, target);
+        else return searchCol(matrix, row, left, mid-1, target);
+    }
+}
