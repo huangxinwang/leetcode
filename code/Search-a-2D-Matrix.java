@@ -71,7 +71,7 @@ public class Solution {
 
 ///////////////////////////////////////////////////////////
 //Round 3: 1/15/2015
-//time complexity: O(log m * log n)
+//time complexity: O(log m + log n)
 
 public class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
@@ -86,12 +86,15 @@ public class Solution {
             //search current row
             return searchCol(matrix, left, 0, len-1, target);
         int mid = (left+right)/2;
-        if(searchCol(matrix, mid, 0, len-1, target)) return true;
+        
+        //optimized: do not search column for each mid
+        //only search column when current column has probability to contain target
+        //if(searchCol(matrix, mid, 0, len-1, target)) return true;
         if(matrix[mid][0]>target)
             return searchRow(matrix, left, mid-1, target);
         else if(matrix[mid][len-1] < target)
             return searchRow(matrix, mid+1, right, target);
-        else return false;
+        else return searchCol(matrix, mid, 0, len-1, target);
     }
     
     //search a row by column
