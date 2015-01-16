@@ -80,6 +80,7 @@ public class Solution {
         dfs(board, 0, 0);
     }
     
+    //dfs find solution
     public boolean dfs(char[][] board, int row, int col){
         if(row==9) return true;
         if(col==9)
@@ -103,6 +104,7 @@ public class Solution {
         return false;
     }
     
+    //check if it is valid
     public boolean isValid(char[][] board, int row, int col, int num){
         for(int i=0; i<9; i++){
             if(board[row][i] == (char)('0'+num))
@@ -114,8 +116,8 @@ public class Solution {
                 return false;
         }
         
-        for(int i=(row/3)*3; i<=row/3*3+3; i++){
-            for(int j=(col/3)*3; j<=col/3*3+3; j++){
+        for(int i=(row/3)*3; i<row/3*3+3; i++){
+            for(int j=(col/3)*3; j<col/3*3+3; j++){
                 if(board[i][j] == (char)('0'+num))
                     return false;
             }
