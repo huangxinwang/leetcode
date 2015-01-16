@@ -69,3 +69,58 @@ public class Solution {
         return true;
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////
+//Round 2: 1/16/2015
+public class Solution {
+    public void solveSudoku(char[][] board) {
+        
+        if(board.length!=9 || board[0].length!=9) return;
+        dfs(board, 0, 0);
+    }
+    
+    public boolean dfs(char[][] board, int row, int col){
+        if(row==9) return true;
+        if(col==9)
+            return dfs(board, row+1, 0);
+            
+        if(board[row][col] == '.'){
+            
+            for(int i=1; i<=9; i++){
+                
+                if(isValid(board, row, col, i)){
+                    board[row][col] = (char)('0'+i);
+                    if(dfs(board, row, col+1))
+                        return true;
+                    board[row][col] = '.';
+                    
+                }
+            }
+        }
+        
+        else return dfs(board, row, col+1);
+        return false;
+    }
+    
+    public boolean isValid(char[][] board, int row, int col, int num){
+        for(int i=0; i<9; i++){
+            if(board[row][i] == (char)('0'+num))
+                return false;
+        }
+        
+        for(int i=0; i<9; i++){
+            if(board[i][col] == (char)('0'+num))
+                return false;
+        }
+        
+        for(int i=(row/3)*3; i<=row/3*3+3; i++){
+            for(int j=(col/3)*3; j<=col/3*3+3; j++){
+                if(board[i][j] == (char)('0'+num))
+                    return false;
+            }
+        }
+        
+        return true;
+    }
+}
