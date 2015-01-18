@@ -10,7 +10,7 @@ public class Solution {
     //  = W(I_(i-1), w)
     public int backPack(int m, int[] A) {
         // write your code here
-        Arrays.sort(A);
+        //Arrays.sort(A);
         
         int[][] size = new int[A.length][m+1];
         for(int i=0; i<A.length; i++){
