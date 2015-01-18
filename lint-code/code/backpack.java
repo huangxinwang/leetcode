@@ -33,6 +33,35 @@ public class Solution {
     }
     
 ////////////////////////////////////////// 
+public class Solution {
+    /**
+     * @param m: An integer m denotes the size of a backpack
+     * @param A: Given n items with size A[i]
+     * @return: The maximum size
+     */
+    public int backPack(int m, int[] A) {
+        // write your code here
+        
+        //use a boolean array to keep track of whether size m can be filled
+        boolean[] size = new boolean[m+1];
+        Arrays.fill(size, false);
+        size[0] = true;
+        
+        for(int i=0; i<A.length; i++){
+            for(int j=m; j>0; j--){
+                //filled using A[i], with filling j-A[i] using items in the first (i-1)
+                if(j - A[i] >=0 && size[j-A[i]])
+                    size[j] = size[j-A[i]];
+            }
+        }
+        
+        for(int i=m; i>=0; i--){
+            if(size[i]) return i;
+        }
+        
+        return 0;
+    }
+}
     
     
    
