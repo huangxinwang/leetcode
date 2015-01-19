@@ -50,7 +50,7 @@ public class Solution {
     public int findMin(int[] num) {
         
         //terminate case
-        if(num.length == 0) return num[0];
+        if(num.length == 1) return num[0];
         
         return binarySearch(0, num.length-1, num);
         
@@ -66,7 +66,7 @@ public class Solution {
         int mid = (left+right)/2;
         
         //binary search
-        //different from normal binary search, we search the left part only when left< mid && mid>right 
+        //different from normal binary search, we search the right part only when left< mid && mid>right 
         if(num[left] < num[mid] && num[mid] > num[right]){
             return binarySearch(mid, right, num);
         }else
