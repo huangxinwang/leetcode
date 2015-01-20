@@ -29,3 +29,31 @@ class Solution {
         else return help(nums, target, left, mid-1);
     }
 }
+
+//////////////////////////////////////////////////////
+//Approach 2: when num[mid] == target, then let high=mid unless left==mid
+class Solution {
+    /**
+     * @param nums: The integer array.
+     * @param target: Target to find.
+     * @return: The first position of target. Position starts from 0.
+     */
+    public int binarySearch(int[] nums, int target) {
+        //write your code here
+        return help(nums, target, 0, nums.length-1);
+    }
+    
+    //return (index+1) of the right most of the target value
+    public int help(int[] nums, int target, int left, int right){
+        if(left > right) return -1;
+        int mid = (left + right)/2;
+        
+        if(nums[mid] < target)
+            return help(nums, target, mid+1, right);
+        else if(nums[mid] > target)
+            return help(nums, target, left, mid-1);
+        else if(left != mid)
+            return help(nums, target, left, mid);
+        else return left;
+    }
+}
