@@ -16,3 +16,4 @@
 - [binary tree level order traversal](http://lintcode.com/en/problem/binary-tree-level-order-traversal/): [sol](./code/binary-tree-level-order-traversal.java)
 - [binary tree preorder traversal](http://lintcode.com/en/problem/binary-tree-preorder-traversal/): [sol](./code/binary-tree-preorder-traversal.java)
 - [binary tree postorder traversal](http://lintcode.com/en/problem/binary-tree-postorder-traversal/): [sol](./code/binary-tree-postorder-traversal.java): **Need discussion for iterative approach**
+- [binary tree Zigzag level order traversal](http://lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/): [sol](./code/binary-tree-zigzag-level-order-traversal.java)
