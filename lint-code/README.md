@@ -11,3 +11,7 @@
 
 ### Binary search
 - [binary search sorted array](http://lintcode.com/en/problem/binary-search/#): [sol](./code/binary-search.java)
+
+
+### Tree Traverse
+- [binary tree inorder traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/): [sol](./code/binary-tree-inorder-traversal.java)
