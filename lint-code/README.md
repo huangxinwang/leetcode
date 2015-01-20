@@ -10,4 +10,4 @@
   - [backpackII](http://lintcode.com/en/problem/backpack-ii/): [sol](./code/backpackII.java)
 
 ### Binary search
-- [binary search sorted array](): [sol]()
+- [binary search sorted array](http://lintcode.com/en/problem/binary-search/#): [sol](./code/binary-search.java)
