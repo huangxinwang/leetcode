@@ -18,4 +18,4 @@
 - [binary tree postorder traversal](http://lintcode.com/en/problem/binary-tree-postorder-traversal/): [sol](./code/binary-tree-postorder-traversal.java): **Need discussion for iterative approach**
 - [binary tree Zigzag level order traversal](http://lintcode.com/en/problem/binary-tree-zigzag-level-order-traversal/): [sol](./code/binary-tree-zigzag-level-order-traversal.java)
 - [binary tree level order traversal](http://lintcode.com/en/problem/binary-tree-level-order-traversal-ii/): [sol](./code/binary-tree-level-order-traversal-II.java)
-- [maximum depth of binary tree](http://lintcode.com/en/problem/maximum-depth-of-binary-tree/): [sol](./code/maximum-depth-of-binary-tree.java)
+- [maximum depth of binary tree](http://lintcode.com/en/problem/maximum-depth-of-binary-tree/): [sol](./code/maximum-depth-of-binary-tree.java) **Need discussion for iterative approach**
