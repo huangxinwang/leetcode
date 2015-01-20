@@ -8,3 +8,6 @@
   - [backpack](http://lintcode.com/en/problem/backpack/): [sol](./code/backpack.java)
 - 2D
   - [backpackII](http://lintcode.com/en/problem/backpack-ii/): [sol](./code/backpackII.java)
+
+### Binary search
+- [binary search sorted array](): [sol]()
