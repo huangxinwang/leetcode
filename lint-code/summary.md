@@ -15,3 +15,4 @@
 - [binary tree inorder traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/): [sol](./code/binary-tree-inorder-traversal.java)
 - [binary tree level order traversal](http://lintcode.com/en/problem/binary-tree-level-order-traversal/): [sol](./code/binary-tree-level-order-traversal.java)
 - [binary tree preorder traversal](http://lintcode.com/en/problem/binary-tree-preorder-traversal/): [sol](./code/binary-tree-preorder-traversal.java)
+- [binary tree postorder traversal](http://lintcode.com/en/problem/binary-tree-postorder-traversal/): [sol](./code/binary-tree-postorder-traversal.java)
