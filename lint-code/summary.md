@@ -21,5 +21,5 @@
 - [maximum depth of binary tree](http://lintcode.com/en/problem/maximum-depth-of-binary-tree/): [sol](./code/maximum-depth-of-binary-tree.java) **Need discussion for iterative approach**
 - [search range in binary search tree](http://lintcode.com/en/problem/search-range-in-binary-search-tree/): [sol](./code/search-range-in-binary-search-tree.java)
 - [validate binary search tree](http://lintcode.com/en/problem/validate-binary-search-tree/): [sol](./code/validate-binary-search-tree.java)
-- [lowest common ancestor](http://lintcode.com/en/problem/lowest-common-ancestor/): [sol](./code/lowest-common-ancestor.java)
+- [lowest common ancestor](http://lintcode.com/en/problem/lowest-common-ancestor/): [sol](./code/lowest-common-ancestor.java) **Need discussion of the logic**
 - [construct binary tree from inorder and postorder traversal](http://lintcode.com/en/problem/construct-binary-tree-from-inorder-and-postorder-traversal/): [sol](./code/construct-binary-tree-from-inorder-and-postorder-traversal.java)
