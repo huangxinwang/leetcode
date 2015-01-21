@@ -27,3 +27,33 @@ class Solution {
         return -1;
     }
 }
+
+
+///////////////////////////////////////////
+//Approach 2: O(log n)
+
+class Solution {
+    /**
+     * @param A: An integers array.
+     * @return: return any of peek positions.
+     */
+    public int findPeak(int[] A) {
+        // write your code here
+        return help(A, 0, A.length-1);
+    }
+    
+    public int help(int[] A, int l, int r){
+        int mid = (l+r)/2;
+        
+        //have peak
+        if( (mid==0 || A[mid-1] < A[mid]) && (mid==A.length-1 || A[mid] > A[mid+1]))
+            return mid;
+        
+        //if A[mid-1] > A[mid], then there must be a peak in the left part 
+        //Because: at first, it was increasing
+        if( mid>0 && A[mid-1] > A[mid])
+            return help(A, l, mid-1);
+        else return help(A, mid+1, r);
+    }
+}
+
