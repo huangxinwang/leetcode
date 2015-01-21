@@ -24,4 +24,4 @@
 - [lowest common ancestor](http://lintcode.com/en/problem/lowest-common-ancestor/): [sol](./code/lowest-common-ancestor.java) **Need discussion of the logic**
 - [construct binary tree from inorder and postorder traversal](http://lintcode.com/en/problem/construct-binary-tree-from-inorder-and-postorder-traversal/): [sol](./code/construct-binary-tree-from-inorder-and-postorder-traversal.java)
 - [construct binary tree from preordr and inorder traversal](http://lintcode.com/en/problem/construct-binary-tree-from-preorder-and-inorder-traversal/): [sol](./code/construct-binary-tree-from-preorder-and-inorder-traversal.java)
-- [serialization and deserialization of binary tree](http://lintcode.com/en/problem/serialization-and-deserialization-of-binary-tree/#): **Interesting!** [sol](./code/serialization-and-deserialization-of-binary-tree.java)
+- [serialization and deserialization of binary tree](http://lintcode.com/en/problem/serialization-and-deserialization-of-binary-tree/#):  [sol](./code/serialization-and-deserialization-of-binary-tree.java) **Interesting!**
