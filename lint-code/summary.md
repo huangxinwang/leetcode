@@ -25,3 +25,4 @@
 - [construct binary tree from inorder and postorder traversal](http://lintcode.com/en/problem/construct-binary-tree-from-inorder-and-postorder-traversal/): [sol](./code/construct-binary-tree-from-inorder-and-postorder-traversal.java)
 - [construct binary tree from preordr and inorder traversal](http://lintcode.com/en/problem/construct-binary-tree-from-preorder-and-inorder-traversal/): [sol](./code/construct-binary-tree-from-preorder-and-inorder-traversal.java)
 - [serialization and deserialization of binary tree](http://lintcode.com/en/problem/serialization-and-deserialization-of-binary-tree/#):  [sol](./code/serialization-and-deserialization-of-binary-tree.java) **Interesting!**
+- [implement iterator of binary search tree](http://lintcode.com/en/problem/implement-iterator-of-binary-search-tree/): [sol](./code/implement-iterator-of-binary-search-tree.java)
