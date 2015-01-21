@@ -12,6 +12,7 @@
 - [binary search sorted array](http://lintcode.com/en/problem/binary-search/#): [[sol]](./code/binary-search.java)
 - [sqrt](http://lintcode.com/en/problem/sqrtx/): [[sol]](./code/sqrt.java)
 - [find a peak](http://lintcode.com/en/problem/find-a-peak/): [[sol]](./code/find-a-peak.java)
+- [first bad version](http://lintcode.com/en/problem/first-bad-version/): [[sol]](./code/first-bad-version.java)
 
 ### Binary Tree
 - [binary tree inorder traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/): [[sol]](./code/binary-tree-inorder-traversal.java) **Need discussion for iterative approach**
