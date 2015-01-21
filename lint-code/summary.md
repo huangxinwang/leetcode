@@ -9,7 +9,7 @@
 
 ### Binary search
 - [binary search sorted array](http://lintcode.com/en/problem/binary-search/#): [[sol]](./code/binary-search.java)
-
+- [sqrt](http://lintcode.com/en/problem/sqrtx/): [[sol]](./code/sqrt.java)
 
 ### Binary Tree
 - [binary tree inorder traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/): [[sol]](./code/binary-tree-inorder-traversal.java) **Need discussion for iterative approach**
