@@ -4,6 +4,7 @@
 ### Dynamic Programming
 - 1D
   - [backpack](http://lintcode.com/en/problem/backpack/): [[sol]](./code/backpack.java)
+  - [longest increasing sequence](http://lintcode.com/en/problem/longest-increasing-subsequence/): [[sol]](./code/longest-increasing-sequence.java)
 - 2D
   - [backpackII](http://lintcode.com/en/problem/backpack-ii/): [[sol]](./code/backpackII.java)
 
