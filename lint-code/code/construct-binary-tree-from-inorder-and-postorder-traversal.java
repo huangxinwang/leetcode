@@ -1,4 +1,6 @@
 /**
+ * Problem Statement: Given inorder and postorder traversal of a tree, construct the binary tree.
+ * 
  * Definition of TreeNode:
  * public class TreeNode {
  *     public int val;
