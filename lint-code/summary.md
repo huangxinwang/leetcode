@@ -23,3 +23,4 @@
 - [validate binary search tree](http://lintcode.com/en/problem/validate-binary-search-tree/): [sol](./code/validate-binary-search-tree.java)
 - [lowest common ancestor](http://lintcode.com/en/problem/lowest-common-ancestor/): [sol](./code/lowest-common-ancestor.java) **Need discussion of the logic**
 - [construct binary tree from inorder and postorder traversal](http://lintcode.com/en/problem/construct-binary-tree-from-inorder-and-postorder-traversal/): [sol](./code/construct-binary-tree-from-inorder-and-postorder-traversal.java)
+- [construct binary tree from preordr and inorder traversal](http://lintcode.com/en/problem/construct-binary-tree-from-preorder-and-inorder-traversal/): [sol](./code/construct-binary-tree-from-preorder-and-inorder-traversal.java)
