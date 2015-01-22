@@ -2,7 +2,7 @@
 - [A+B problem](http://lintcode.com/en/problem/a-b-problem/): [sol](./code/a-b-problem.java)
 - [single number](http://lintcode.com/en/problem/single-number/): [[sol]](./code/single-number.java)
 - [single number ii](http://lintcode.com/en/problem/single-number-ii/): [[sol]](./code/single-num-ii.java)
-- [single number iii](): [[sol]](./code/single-number-iii.java)
+- [single number iii](http://lintcode.com/en/problem/single-number-iii/): [[sol]](./code/single-number-iii.java) **need discussion**
 
 ### Dynamic Programming
 - 1D
