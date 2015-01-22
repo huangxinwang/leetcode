@@ -8,6 +8,7 @@
 - [partition list](http://lintcode.com/en/problem/partition-list/): [[sol]](./code/partition-list.java)
 - [sort list](http://lintcode.com/en/problem/sort-list/): [[sol]](./code/sort-list.java)
 - [reverse linked list](http://lintcode.com/en/problem/reverse-linked-list/): [[sol]](./code/reverse-linked-list.java)
+- [reverse linked list ii](http://lintcode.com/en/problem/reverse-linked-list-ii/): [[sol]](./code/reverse-linked-list-ii.java)
 
 ### Recursive
 - [merge k sorted lists](http://lintcode.com/en/problem/merge-k-sorted-lists/): [[sol]](./code/merge-k-sorted-lists.java)
