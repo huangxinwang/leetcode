@@ -1,3 +1,3 @@
 ## Fundamental of Algorithms
 
-- ### Sorting
+### Sorting
