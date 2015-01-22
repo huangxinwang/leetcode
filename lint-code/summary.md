@@ -1,5 +1,8 @@
 ### Bit Operation
 - [A+B problem](http://lintcode.com/en/problem/a-b-problem/): [sol](./code/a-b-problem.java)
+- [single number](http://lintcode.com/en/problem/single-number/): [[sol]](./code/single-number.java)
+- [single number ii](http://lintcode.com/en/problem/single-number-ii/): [[sol]](./code/single-num-ii.java)
+- [single number iii](): [[sol]](./code/single-number-iii.java)
 
 ### Dynamic Programming
 - 1D
@@ -20,8 +23,7 @@
 - [search for a range](http://lintcode.com/en/problem/search-for-a-range/): [[sol]](./code/search-for-a-range.java)
 - [search insert position](http://lintcode.com/en/problem/search-insert-position/): [[sol]](./code/search-insert-position.java)
 - [search a 2D matrix](http://lintcode.com/en/problem/search-a-2d-matrix/): [[sol]](./code/search-a-2d-matrix.java)
-- [single number](http://lintcode.com/en/problem/single-number/): [[sol]](./code/single-number.java)
-- [single number ii](http://lintcode.com/en/problem/single-number-ii/): [[sol]](./code/single-num-ii.java)
+
 
 ### Binary Tree
 - [binary tree inorder traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/): [[sol]](./code/binary-tree-inorder-traversal.java) **Need discussion for iterative approach**
