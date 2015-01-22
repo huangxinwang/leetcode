@@ -7,6 +7,7 @@
 - [linked list cycle-ii](http://lintcode.com/en/problem/linked-list-cycle-ii/): [[sol]](./code/linked-list-cycle-ii.java)
 - [partition list](http://lintcode.com/en/problem/partition-list/): [[sol]](./code/partition-list.java)
 - [sort list](http://lintcode.com/en/problem/sort-list/): [[sol]](./code/sort-list.java)
+- [reverse linked list](http://lintcode.com/en/problem/reverse-linked-list/): [[sol]](./code/reverse-linked-list.java)
 
 ### Recursive
 - [merge k sorted lists](http://lintcode.com/en/problem/merge-k-sorted-lists/): [[sol]](./code/merge-k-sorted-lists.java)
