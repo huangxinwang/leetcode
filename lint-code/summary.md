@@ -19,6 +19,7 @@
 - [search in rotated sorted array ii](http://lintcode.com/en/problem/search-in-rotated-sorted-array-ii/): [[sol]](./code/search-in-rotated-sorted-array-ii.java)
 - [search for a range](http://lintcode.com/en/problem/search-for-a-range/): [[sol]](./code/search-for-a-range.java)
 - [search insert position](http://lintcode.com/en/problem/search-insert-position/): [[sol]](./code/search-insert-position.java)
+- [search a 2D matrix](): [[sol]]()
 
 ### Binary Tree
 - [binary tree inorder traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/): [[sol]](./code/binary-tree-inorder-traversal.java) **Need discussion for iterative approach**
