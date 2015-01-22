@@ -15,6 +15,7 @@
 - [first bad version](http://lintcode.com/en/problem/first-bad-version/): [[sol]](./code/first-bad-version.java)
 - [find minimum in rotated sorted array](http://lintcode.com/en/problem/find-minimum-in-rotated-sorted-array/): [[sol]](./code/find-minimum-in-rotated-sorted-array.java)
 - [find minimum in rotated sorted array ii](http://lintcode.com/en/problem/find-minimum-in-rotated-sorted-array-ii/): [[sol]](./code/find-minimum-in-rotated-sorted-array-ii.java)
+- [search in rotated sorted array](http://lintcode.com/en/problem/search-in-rotated-sorted-array/): [[sol]](./code/search-in-rotated-sorted-array.java)
 
 ### Binary Tree
 - [binary tree inorder traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/): [[sol]](./code/binary-tree-inorder-traversal.java) **Need discussion for iterative approach**
