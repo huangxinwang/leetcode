@@ -1,3 +1,7 @@
+### DFS
+- [permutations](http://lintcode.com/en/problem/permutations/): [[sol]](./code/permutations.java)
+
+
 ### LinkedList
 - [linked list cycle](http://lintcode.com/en/problem/linked-list-cycle/): [[sol]](./code/linked-list-cycle.java)
 - [linked list cycle-ii](http://lintcode.com/en/problem/linked-list-cycle-ii/): [[sol]](./code/linked-list-cycle-ii.java)
