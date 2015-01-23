@@ -16,6 +16,7 @@
 - [remove nth node from end of list](http://lintcode.com/en/problem/remove-nth-node-from-end-of-list/): [[sol]](./code/remove-nth-node-from-end-of-list.java)
 - [merge two sorted lists](http://lintcode.com/en/problem/merge-two-sorted-lists/): [[sol]](./code/merge-two-sorted-lists.java)
 - [remove duplicate from linked list](http://lintcode.com/en/problem/remove-duplicates-from-sorted-list/): [[sol]](./code/remove-duplicate-from-sorted-list.java)
+- [remove duplicates from sorted list ii](http://lintcode.com/en/problem/remove-duplicates-from-sorted-list-ii/): [[sol]](./code/remove-duplicates-from-sorted-list-ii.java)
 
 ### Recursive
 - [merge k sorted lists](http://lintcode.com/en/problem/merge-k-sorted-lists/): [[sol]](./code/merge-k-sorted-lists.java)
