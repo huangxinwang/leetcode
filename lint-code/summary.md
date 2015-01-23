@@ -1,3 +1,8 @@
+
+### Logic
+- [majority number](http://lintcode.com/en/problem/majority-number-iii/): [[sol]](/code/majority-number-iii.java)
+
+
 ### DFS
 - [permutations](http://lintcode.com/en/problem/permutations/): [[sol]](./code/permutations.java)
 - [unique permutations](http://lintcode.com/en/problem/unique-permutations/): [[sol]](./code/unique-permutations.java)
