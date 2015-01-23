@@ -9,6 +9,7 @@
 - [sort list](http://lintcode.com/en/problem/sort-list/): [[sol]](./code/sort-list.java)
 - [reverse linked list](http://lintcode.com/en/problem/reverse-linked-list/): [[sol]](./code/reverse-linked-list.java)
 - [reverse linked list ii](http://lintcode.com/en/problem/reverse-linked-list-ii/): [[sol]](./code/reverse-linked-list-ii.java)
+- [two lists sum](http://lintcode.com/en/problem/two-lists-sum/): [[sol]](./code/two-lists-sum.java)
 
 ### Recursive
 - [merge k sorted lists](http://lintcode.com/en/problem/merge-k-sorted-lists/): [[sol]](./code/merge-k-sorted-lists.java)
