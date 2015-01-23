@@ -64,3 +64,52 @@ public class Solution {
         
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////
+//Approach 2: use hash table
+/**
+ * Definition for singly-linked list with a random pointer.
+ * class RandomListNode {
+ *     int label;
+ *     RandomListNode next, random;
+ *     RandomListNode(int x) { this.label = x; }
+ * };
+ */
+public class Solution {
+    /**
+     * @param head: The head of linked list with a random pointer.
+     * @return: A new head of a deep copy of the list.
+     */
+    public RandomListNode copyRandomList(RandomListNode head) {
+        // write your code here
+        
+        if(head==null) return head;
+        
+        HashMap<RandomListNode, RandomListNode> map = new HashMap<RandomListNode, RandomListNode>();
+        
+        RandomListNode curr = head;
+        while(curr != null){
+            RandomListNode node = new RandomListNode(curr.label);
+            map.put(curr, node);
+            curr = curr.next;
+        }
+        
+        curr = head;
+        while(curr != null){
+            RandomListNode node = map.get(curr);
+            RandomListNode currnext = curr.next;
+            if(currnext == null) node.next = null;
+            else node.next = map.get(currnext);
+            
+            RandomListNode currrandom = curr.random;
+            if(currrandom == null) node.random = null;
+            else node.random = map.get(currrandom);
+            
+            curr = curr.next;
+        }
+        
+        return map.get(head);
+    }
+}
+
