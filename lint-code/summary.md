@@ -13,6 +13,7 @@
 - [rotate list](http://lintcode.com/en/problem/rotate-list/): [[sol]](./code/rotate-list.java)
 - [nth to last node in list](http://lintcode.com/en/problem/nth-to-last-node-in-list/): [[sol]](./code/nth-to-last-node-in-list.java)
 - [reorder list](http://lintcode.com/en/problem/reorder-list/): [[sol]](./code/reorder-list.java)
+- [remove nth node from end of list](http://lintcode.com/en/problem/remove-nth-node-from-end-of-list/): [[sol]](./code/remove-nth-node-from-end-of-list.java)
 
 ### Recursive
 - [merge k sorted lists](http://lintcode.com/en/problem/merge-k-sorted-lists/): [[sol]](./code/merge-k-sorted-lists.java)
