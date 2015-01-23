@@ -11,6 +11,7 @@
 - [reverse linked list ii](http://lintcode.com/en/problem/reverse-linked-list-ii/): [[sol]](./code/reverse-linked-list-ii.java)
 - [two lists sum](http://lintcode.com/en/problem/two-lists-sum/): [[sol]](./code/two-lists-sum.java)
 - [rotate list](http://lintcode.com/en/problem/rotate-list/): [[sol]](./code/rotate-list.java)
+- [nth to last node in list](http://lintcode.com/en/problem/nth-to-last-node-in-list/): [[sol]](./code/nth-to-last-node-in-list.java)
 
 ### Recursive
 - [merge k sorted lists](http://lintcode.com/en/problem/merge-k-sorted-lists/): [[sol]](./code/merge-k-sorted-lists.java)
