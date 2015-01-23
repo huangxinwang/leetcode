@@ -24,7 +24,7 @@
 - [remove duplicates from sorted list ii](http://lintcode.com/en/problem/remove-duplicates-from-sorted-list-ii/): [[sol]](./code/remove-duplicates-from-sorted-list-ii.java)
 - [copy list with random pointer](http://lintcode.com/en/problem/copy-list-with-random-pointer/): [[sol]](code/copy-list-with-random-pointer.java)
 - [convert sorted list to binary tree](http://lintcode.com/en/problem/convert-sorted-list-to-binary-search-tree/): [[sol]](./code/convert-sorted-list-to-binary-tree.java)
-- [LRU cache](): [[sol]](./) **exceed time limit, discuss**
+- [LRU cache](http://lintcode.com/en/problem/lru-cache/): [[sol]](./code/lru-cache.java) **exceed time limit, discuss**
 
 ### Recursive
 - [merge k sorted lists](http://lintcode.com/en/problem/merge-k-sorted-lists/): [[sol]](./code/merge-k-sorted-lists.java)
