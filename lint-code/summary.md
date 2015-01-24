@@ -5,6 +5,7 @@
 
 ### HashSet
 - [3 Sum Cloest](http://lintcode.com/en/problem/3-sum-closest/): [[sol]](./code/3sum-closest.java)
+- [subarrays sum closeset](http://lintcode.com/en/tag/sort/): [[sol]](./code/subarray-sum-closest.java): **need discussion**
 
 ### Logic
 - [majority number](http://lintcode.com/en/problem/majority-number-iii/): [[sol]](/code/majority-number-iii.java)
