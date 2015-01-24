@@ -1,6 +1,6 @@
 ### Sort
 - [partition array](http://lintcode.com/en/problem/partition-array/): [[sol]](./code/partition-array.java)
-- [sort letter by case](): [[sol]](./)
+- [sort letter by case](http://lintcode.com/en/problem/sort-letters-by-case/): [[sol]](./code/sort-letter-by-case.java)
 
 ### Logic
 - [majority number](http://lintcode.com/en/problem/majority-number-iii/): [[sol]](/code/majority-number-iii.java)
