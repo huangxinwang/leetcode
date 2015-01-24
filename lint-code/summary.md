@@ -1,3 +1,5 @@
+### Sort
+- [partition array](http://lintcode.com/en/problem/partition-array/): [[sol]](./code/partition-array.java)
 
 ### Logic
 - [majority number](http://lintcode.com/en/problem/majority-number-iii/): [[sol]](/code/majority-number-iii.java)
