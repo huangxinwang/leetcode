@@ -3,6 +3,9 @@
 - [majority number](http://lintcode.com/en/problem/majority-number-iii/): [[sol]](/code/majority-number-iii.java)
 
 
+### Divide and Conquer
+- [kth largest element](http://lintcode.com/en/problem/kth-largest-element/): [[sol]](./code/kth-largest-element.java)
+
 ### DFS
 - [permutations](http://lintcode.com/en/problem/permutations/): [[sol]](./code/permutations.java)
 - [unique permutations](http://lintcode.com/en/problem/unique-permutations/): [[sol]](./code/unique-permutations.java)
