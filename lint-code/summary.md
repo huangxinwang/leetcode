@@ -3,6 +3,7 @@
 ### Logic
 - [majority number](http://lintcode.com/en/problem/single-number/): [[sol]](./code/majority-number.java)
 - [majority number ii](http://lintcode.com/en/problem/majority-number-ii/): [[sol]](./code/majority-number-ii.java)
+- [jump game](http://lintcode.com/en/problem/jump-game/): [[sol]](./code/jump-game.java)
 
 ### In place manipulation
 - [partition array](http://lintcode.com/en/problem/partition-array/): [[sol]](./code/partition-array.java)
