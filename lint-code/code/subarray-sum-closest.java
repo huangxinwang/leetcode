@@ -4,63 +4,74 @@ public class Solution {
      * @return: A list of integers includes the index of the first number 
      *          and the index of the last number
      */
+    class Pair implements Comparable<Pair>{
+        int key;
+        int val;
+        
+        public Pair(int k, int v){
+            this.key = k;
+            this.val = v;
+        }
+        
+        @Override
+        public int compareTo(Pair other){
+            if(this.key < other.key) return -1;
+            else if(this.key == other.key) return 0;
+            else return 1;
+        }
+    } 
+    
     public ArrayList<Integer> subarraySumClosest(int[] nums) {
         // write your code here
-        HashMap<Integer, ArrayList<Integer>> map = new HashMap<Integer, ArrayList<Integer>>();
-        
-        for(int i=0; i<nums.length; i++){
-            
-            ArrayList<Integer> list = new ArrayList<Integer>();
-            if(map.containsKey(nums[i]))
-               list=  map.get(nums[i]);
        
-            list.add(i);
-            map.put(nums[i], list);
-       
-        }
-        
-        Arrays.sort(nums);
-       
-        int left = 0;
-        int right = nums.length-1;
-       
-        
-        int sum = nums[left] + nums[right];
-        int rnt1 = nums[left];
-        int rnt2 = nums[right];
-        int dist = Math.abs(sum-0);
-        
-        //get cloest sum
-        while(left<right){
-            if(sum<0 && left<right-1)
-                left++;
-            if(sum>0 && left<right-1)
-                right--;
-            if(left<right){
-                int curr = nums[left] + nums[right];
-                if(Math.abs(curr) <= dist){
-                   
-                    sum = curr;
-                    if(Math.abs(curr) < dist){
-                        dist = Math.abs(curr);
-                        rnt1 = nums[left];
-                        rnt2 = nums[right];
-                    }
-                   
-                }
-            }
-            if(sum==0) break;
-            if(left==right-1) break;
-        }
-        
-        //get index from hashMap
         ArrayList<Integer> rnt = new ArrayList<Integer>();
-        rnt.add(map.get(rnt1).get(0));
-        if(rnt1==rnt2)
-        rnt.add(map.get(rnt2).get(1));
-        else rnt.add(map.get(rnt2).get(0));
-        
-        return rnt;
-        
+        if(nums.length==1){
+            rnt.add(0);
+            rnt.add(0);
+            return rnt;
+        }
+       
+       //put <sum, index> pair to list
+       ArrayList<Pair> list = new ArrayList<Pair>();
+      
+       int curr = 0;
+       for(int i=0; i<nums.length; i++){
+           curr += nums[i];
+           Pair p = new Pair(curr, i);
+           list.add(p);
+       }
+       
+       //sort sum list
+       Collections.sort(list);
+       int rnt1 = 0;
+       int rnt2 = 0;
+       
+       
+       //the min value will happen in successive sum
+       int min = Integer.MAX_VALUE;
+       for(int i=0; i<list.size()-1; i++){
+           int diff = Math.abs(list.get(i+1).key - list.get(i).key);
+           if(diff <= min){
+               min = diff;
+               rnt1 = list.get(i).val;
+               rnt2 = list.get(i+1).val;
+           }
+       }
+       
+       //adjust the order of rnt1 and rnt2
+       //note that the smaller one need to advance index by 1
+       if(rnt1>rnt2){
+           int tmp = rnt1;
+           rnt1 = rnt2;
+           rnt2 = tmp;
+       }
+       rnt1++;
+       
+    
+       
+      
+       rnt.add(rnt1);
+       rnt.add(rnt2);
+       return rnt;
     }
 }
