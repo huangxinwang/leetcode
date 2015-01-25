@@ -1,7 +1,7 @@
 ### Sort
 
 ### Logic
-- [single number](http://lintcode.com/en/problem/single-number/): [[sol]](./code/single-number-1.java)
+- [majority number](http://lintcode.com/en/problem/single-number/): [[sol]](./code/majority-number.java)
 
 
 ### In place manipulation
