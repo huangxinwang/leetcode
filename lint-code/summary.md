@@ -1,7 +1,7 @@
 ### Sort
 - [partition array](http://lintcode.com/en/problem/partition-array/): [[sol]](./code/partition-array.java)
 - [sort letter by case](http://lintcode.com/en/problem/sort-letters-by-case/): [[sol]](./code/sort-letter-by-case.java)
-
+- [sort colors](http://lintcode.com/en/problem/sort-colors/): [[sol]](./code/sort-colors.java)
 
 ### HashSet
 - [3 Sum Cloest](http://lintcode.com/en/problem/3-sum-closest/): [[sol]](./code/3sum-closest.java)
