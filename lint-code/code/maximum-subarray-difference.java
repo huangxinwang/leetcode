@@ -1,3 +1,4 @@
+//Brute force O(n^2), time out
 public class Solution {
     /**
      * @param nums: A list of integers
