@@ -1,5 +1,8 @@
 ### Sort
 
+### Travese Array, Min, Max
+- [maximum subarray difference](http://lintcode.com/en/problem/maximum-subarray-difference/): [[sol]](./code/maximum-subarray-difference.java)
+
 ### Logic
 - [majority number](http://lintcode.com/en/problem/single-number/): [[sol]](./code/majority-number.java)
 - [majority number ii](http://lintcode.com/en/problem/majority-number-ii/): [[sol]](./code/majority-number-ii.java)
