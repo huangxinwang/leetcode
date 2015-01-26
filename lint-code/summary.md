@@ -7,7 +7,7 @@
 - [jump game ii](http://lintcode.com/en/problem/jump-game-ii/): [[sol]](./code/jump-game-ii.java)
 
 ### Greedy
-- [best time to buy stocks II](): [[sol]]()
+- [best time to buy and sell stocks II](): [[sol]](./code/best-time-to-buy-and-sell-stocks.java)
 
 ### In place manipulation
 - [partition array](http://lintcode.com/en/problem/partition-array/): [[sol]](./code/partition-array.java)
