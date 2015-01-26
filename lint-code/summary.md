@@ -58,6 +58,10 @@
 ### Recursive
 - [merge k sorted lists](http://lintcode.com/en/problem/merge-k-sorted-lists/): [[sol]](./code/merge-k-sorted-lists.java)
 
+
+### Iterative
+- [subsets](http://lintcode.com/en/problem/subsets/): [[sol]](./code/subsets.java)
+
 ### Bit Operation
 - [A+B problem](http://lintcode.com/en/problem/a-b-problem/): [sol](./code/a-b-problem.java)
 - [single number](http://lintcode.com/en/problem/single-number/): [[sol]](./code/single-number.java)
