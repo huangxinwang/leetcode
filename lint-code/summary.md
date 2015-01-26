@@ -6,6 +6,9 @@
 - [jump game](http://lintcode.com/en/problem/jump-game/): [[sol]](./code/jump-game.java)
 - [jump game ii](http://lintcode.com/en/problem/jump-game-ii/): [[sol]](./code/jump-game-ii.java)
 
+### Greedy
+- [best time to buy stocks II](): [[sol]]()
+
 ### In place manipulation
 - [partition array](http://lintcode.com/en/problem/partition-array/): [[sol]](./code/partition-array.java)
 - [sort letter by case](http://lintcode.com/en/problem/sort-letters-by-case/): [[sol]](./code/sort-letter-by-case.java)
