@@ -35,6 +35,7 @@
 ### DFS
 - [permutations](http://lintcode.com/en/problem/permutations/): [[sol]](./code/permutations.java)
 - [unique permutations](http://lintcode.com/en/problem/unique-permutations/): [[sol]](./code/unique-permutations.java)
+- [unique subset](): [[sol]](./code/unique-subsets.java) **Discuss about the recursion**
 
 ### LinkedList
 - [linked list cycle](http://lintcode.com/en/problem/linked-list-cycle/): [[sol]](./code/linked-list-cycle.java)
