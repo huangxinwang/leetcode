@@ -5,6 +5,9 @@
 - [maximum subarray](http://lintcode.com/en/problem/maximum-subarray/): [[sol]](./code/maximum-subarray.java)
 - [minimum subarray](http://lintcode.com/en/problem/minimum-subarray/): [[sol]](./code/minimum-subarray.java)
 
+### Graph
+- [topological sorting](http://lintcode.com/en/problem/topological-sorting/#): [[sol]](./code/topological-sorting.java)
+
 ### Logic
 - [majority number](http://lintcode.com/en/problem/single-number/): [[sol]](./code/majority-number.java)
 - [majority number ii](http://lintcode.com/en/problem/majority-number-ii/): [[sol]](./code/majority-number-ii.java)
