@@ -12,6 +12,7 @@
 - [maximum subarray difference](http://lintcode.com/en/problem/maximum-subarray-difference/): [[sol]](./code/maximum-subarray-difference.java) **need discussion about O(n) approach**
 - [maximum subarray](http://lintcode.com/en/problem/maximum-subarray/): [[sol]](./code/maximum-subarray.java)
 - [minimum subarray](http://lintcode.com/en/problem/minimum-subarray/): [[sol]](./code/minimum-subarray.java)
+- [3 Sum](http://lintcode.com/en/problem/3-sum/#): [[sol]](./code/3sum.java)
 
 ### Graph
 - [topological sorting](http://lintcode.com/en/problem/topological-sorting/#): [[sol]](./code/topological-sorting.java)
