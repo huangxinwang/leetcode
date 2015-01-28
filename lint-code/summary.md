@@ -4,6 +4,7 @@
 ### Char
 - [digit counts](http://lintcode.com/en/problem/digit-counts/): [[sol]](./code/digit-counts.java)
 - [strStr](http://lintcode.com/en/problem/strstr/): [[sol]](./code/strStr.java)
+- [compare string](http://lintcode.com/en/problem/compare-strings/): [[sol]](./code/compare-string.java)
 
 ### Travese Array, Min, Max
 - [maximum subarray difference](http://lintcode.com/en/problem/maximum-subarray-difference/): [[sol]](./code/maximum-subarray-difference.java) **need discussion about O(n) approach**
