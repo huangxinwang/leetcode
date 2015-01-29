@@ -106,6 +106,7 @@
   - [edit-distance](http://lintcode.com/en/problem/edit-distance/): [[sol]](./code/edit-distance.java)
   - [distinct-subsequences](http://lintcode.com/en/problem/distinct-subsequences/): [[sol]](./code/distinct-subsequence.java)
   - [interleaving string](http://lintcode.com/en/problem/interleaving-string/): [[sol]](./code/interleaving-string.java)
+  - [longest common subsequence](http://lintcode.com/en/problem/longest-common-subsequence/): [[sol]](./code/longest-common-subsequence.java)
   
 ### Binary search
 - [binary search sorted array](http://lintcode.com/en/problem/binary-search/#): [[sol]](./code/binary-search.java)
