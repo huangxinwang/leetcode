@@ -2,6 +2,7 @@
 
 ### Just Coding
 - [2sum](http://lintcode.com/en/problem/2-sum/): [[sol]](./code/2-sum.java)
+- [number triangle](http://lintcode.com/en/problem/number-triangle/): [[sol]](./code/number-triangle.java)
 
 ### Char
 - [digit counts](http://lintcode.com/en/problem/digit-counts/): [[sol]](./code/digit-counts.java)
