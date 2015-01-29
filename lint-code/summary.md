@@ -97,7 +97,7 @@
   - [climbing stairs](http://lintcode.com/en/problem/climbing-stairs/): [[sol]](./code/climbing-stairs.java)
   - [unique path](http://lintcode.com/en/problem/unique-paths/): [[sol]](./code/unique-path.java)
   - [word segmentation](http://lintcode.com/en/problem/word-segmentation/): [[sol]](./code/word-segmentation.java)
-  
+  - [unique binary search tree](http://lintcode.com/en/problem/unique-binary-search-trees/): [[sol]](./code/unique-binary-search-tree.java)
 - 2D
   - [backpackII](http://lintcode.com/en/problem/backpack-ii/): [[sol]](./code/backpackII.java)
   - [unique-path-ii](http://lintcode.com/en/problem/unique-paths-ii/){ [[sol]](./code/unique-path-ii.java)
