@@ -92,7 +92,7 @@
   - [longest increasing sequence](http://lintcode.com/en/problem/longest-increasing-subsequence/): [[sol]](./code/longest-increasing-sequence.java)
   - [climbing stairs](http://lintcode.com/en/problem/climbing-stairs/): [[sol]](./code/climbing-stairs.java)
   - [unique path](http://lintcode.com/en/problem/unique-paths/): [[sol]](./code/unique-path.java)
-  - [word segmentation](http://lintcode.com/en/problem/word-segmentation/): [[sol]](./code/word-segmentation.java）
+  - [word segmentation](http://lintcode.com/en/problem/word-segmentation/): [[sol]](./code/word-segmentation.java)
   
 - 2D
   - [backpackII](http://lintcode.com/en/problem/backpack-ii/): [[sol]](./code/backpackII.java)
