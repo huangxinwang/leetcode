@@ -99,6 +99,8 @@
   - [unique path](http://lintcode.com/en/problem/unique-paths/): [[sol]](./code/unique-path.java)
   - [word segmentation](http://lintcode.com/en/problem/word-segmentation/): [[sol]](./code/word-segmentation.java)
   - [unique binary search tree](http://lintcode.com/en/problem/unique-binary-search-trees/): [[sol]](./code/unique-binary-search-tree.java)
+  - [palindrome partitioning ii](http://lintcode.com/en/problem/palindrome-partitioning-ii/): [[sol]](./code/palindrome-partitioning-ii.java)
+  
 - 2D
   - [backpackII](http://lintcode.com/en/problem/backpack-ii/): [[sol]](./code/backpackII.java)
   - [unique-path-ii](http://lintcode.com/en/problem/unique-paths-ii/){ [[sol]](./code/unique-path-ii.java)
