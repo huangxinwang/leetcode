@@ -79,6 +79,7 @@
 
 ### Recursive
 - [merge k sorted lists](http://lintcode.com/en/problem/merge-k-sorted-lists/): [[sol]](./code/merge-k-sorted-lists.java)
+- [unique binary search trees ii](http://lintcode.com/en/problem/unique-binary-search-trees-ii/): [[sol]](./code/unique-binary-search-trees-ii.java)
 
 
 ### Iterative
