@@ -95,7 +95,7 @@
 - 2D
   - [backpackII](http://lintcode.com/en/problem/backpack-ii/): [[sol]](./code/backpackII.java)
   - [unique-path-ii](http://lintcode.com/en/problem/unique-paths-ii/){ [[sol]](./code/unique-path-ii.java)
-  
+  - [minimum-path-sum](http://lintcode.com/en/problem/minimum-path-sum/) :[[sol]](./code/minimum-path-sum.java)
 
 ### Binary search
 - [binary search sorted array](http://lintcode.com/en/problem/binary-search/#): [[sol]](./code/binary-search.java)
