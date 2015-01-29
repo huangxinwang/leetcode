@@ -98,6 +98,7 @@
   - [unique-path-ii](http://lintcode.com/en/problem/unique-paths-ii/){ [[sol]](./code/unique-path-ii.java)
   - [minimum-path-sum](http://lintcode.com/en/problem/minimum-path-sum/) :[[sol]](./code/minimum-path-sum.java)
   - [edit-distance](http://lintcode.com/en/problem/edit-distance/): [[sol]](./code/edit-distance.java)
+  - [distinct-subsequences](http://lintcode.com/en/problem/distinct-subsequences/): [[sol]](./code/distinct-subsequence.java)
   
 ### Binary search
 - [binary search sorted array](http://lintcode.com/en/problem/binary-search/#): [[sol]](./code/binary-search.java)
