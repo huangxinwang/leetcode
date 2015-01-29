@@ -57,6 +57,7 @@
 - [n queens](http://lintcode.com/en/problem/n-queens/): [[sol]](./http://lintcode.com/en/problem/n-queens/)
 - [n-queens-ii](http://lintcode.com/en/problem/n-queens-ii/): [[sol]](./code/n-queen-ii.java)
 - [k sum ii](http://lintcode.com/en/problem/k-sum-ii/#): [[sol]](./code/k-sum-ii.java)
+- [binary tree maximum path sum](http://lintcode.com/en/problem/binary-tree-maximum-path-sum/): [[sol]](./code/binary-tree-maximum-path-sum.java)
 
 ### LinkedList
 - [linked list cycle](http://lintcode.com/en/problem/linked-list-cycle/): [[sol]](./code/linked-list-cycle.java)
