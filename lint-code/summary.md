@@ -112,6 +112,7 @@
   - [interleaving string](http://lintcode.com/en/problem/interleaving-string/): [[sol]](./code/interleaving-string.java)
   - [longest common subsequence](http://lintcode.com/en/problem/longest-common-subsequence/): [[sol]](./code/longest-common-subsequence.java)
   - [minimum adjustment cost](http://lintcode.com/en/problem/minimum-adjustment-cost/): [[sol]](./code/minimum-adjustment-cost.java)
+  - [longest common substring](http://lintcode.com/en/problem/longest-common-substring/): [[sol]](./code/longest-common-substring.java)
   
 ### Binary search
 - [binary search sorted array](http://lintcode.com/en/problem/binary-search/#): [[sol]](./code/binary-search.java)
