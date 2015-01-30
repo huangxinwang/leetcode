@@ -1,3 +1,7 @@
+//Approach 1: dfs
+//Time limit exceed, because I didn't make good use of the constraints that all input are positive integers
+//Dynamic programming could be a good approach
+
 public class Solution {
     /**
      * @param A: an integer array.
