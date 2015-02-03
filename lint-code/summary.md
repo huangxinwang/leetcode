@@ -4,6 +4,9 @@
 - [2sum](http://lintcode.com/en/problem/2-sum/): [[sol]](./code/2-sum.java)
 - [number triangle](http://lintcode.com/en/problem/number-triangle/): [[sol]](./code/number-triangle.java)
 
+### Array, Index
+- [remove element](http://lintcode.com/en/problem/remove-element/): [[sol]](./code/remove-element.java)
+
 ### Sort
 - [Anagrams](http://lintcode.com/en/problem/anagrams/): [[sol]](./code/anagrams.java)
 - [two strings are anagrams](http://lintcode.com/en/problem/two-strings-are-anagrams/) :[[sol]](./code/two-strings-are-anagrams.java)
