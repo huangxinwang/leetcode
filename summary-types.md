@@ -87,13 +87,14 @@
 - [[Median-of-Two-Sorted-Arrays]](./code/Median-of-Two-Sorted-Arrays.java): find the k-th element in two sorted arrays
 - [[Container-With-Most-Water]](./code/Container-With-Most-Water.java)
 - [[4Sum]](./code/4Sum.java)
+- [[Missing-Range]](./code/missing-range.java)
 - Easy
  - [[Maximum-Subarray]](./code/Maximum-Subarray.java)
  - [[Remove-Element]](./code/Remove-Element.java)
  - [[Remove-Nth-Node-From-End-of-List]](./code/Remove-Nth-Node-From-End-of-List.java)
  - [[Three-Sum]](./code/Three-Sum.java)
  - [[Compare-Version-Number]](./code/Compare-Version-Number.java)
- - [[Missing-Range]](./code/missing-range.java)
+
  
 ### Iteration
 - [[Subsets]](./code/Subsets.java)
