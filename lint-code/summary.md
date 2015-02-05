@@ -4,6 +4,7 @@
 - [2sum](http://lintcode.com/en/problem/2-sum/): [[sol]](./code/2-sum.java)
 - [number triangle](http://lintcode.com/en/problem/number-triangle/): [[sol]](./code/number-triangle.java)
 - [unique characters](http://lintcode.com/en/problem/unique-characters/): [[sol]](./code/unique-chracters.java)
+- [reverse words in a string](http://lintcode.com/en/problem/reverse-words-in-a-string/): [[sol]](./code/reverse-words-in-a-string.java)
 
 ### Array, Index
 - [remove element](http://lintcode.com/en/problem/remove-element/): [[sol]](./code/remove-element.java)
