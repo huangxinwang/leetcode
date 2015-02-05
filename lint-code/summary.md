@@ -3,6 +3,7 @@
 ### Just Coding
 - [2sum](http://lintcode.com/en/problem/2-sum/): [[sol]](./code/2-sum.java)
 - [number triangle](http://lintcode.com/en/problem/number-triangle/): [[sol]](./code/number-triangle.java)
+- [unique characters](http://lintcode.com/en/problem/unique-characters/): [[sol]](./code/unique-chracters.java)
 
 ### Array, Index
 - [remove element](http://lintcode.com/en/problem/remove-element/): [[sol]](./code/remove-element.java)
