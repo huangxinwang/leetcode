@@ -37,6 +37,7 @@
 - [jump game](http://lintcode.com/en/problem/jump-game/): [[sol]](./code/jump-game.java)
 - [jump game ii](http://lintcode.com/en/problem/jump-game-ii/): [[sol]](./code/jump-game-ii.java)
 - [trailing zeros](http://lintcode.com/en/problem/trailing-zeros/): [[sol]](./code/trailing-zeros.java)
+- [rotate string](http://lintcode.com/en/problem/rotate-string/): [[sol]](./code/rotate-string.java)
 
 ### Greedy
 - [best time to buy and sell stocks II](): [[sol]](./code/best-time-to-buy-and-sell-stocks.java)
