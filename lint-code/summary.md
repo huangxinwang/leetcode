@@ -8,6 +8,7 @@
 
 ### Array, Index
 - [remove element](http://lintcode.com/en/problem/remove-element/): [[sol]](./code/remove-element.java)
+- [remove duplicates from sorted array](http://lintcode.com/en/problem/remove-duplicates-from-sorted-array/): [[sol]](./code/remove-duplicates-from-sorted-array.java)
 
 ### Sort
 - [Anagrams](http://lintcode.com/en/problem/anagrams/): [[sol]](./code/anagrams.java)
