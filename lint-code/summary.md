@@ -55,6 +55,7 @@
 ### Logic
 - [majority number](http://lintcode.com/en/problem/majority-number-iii/): [[sol]](/code/majority-number-iii.java)
 - [insert interval](http://lintcode.com/en/problem/insert-interval/): [[sol]](./code/insert-interval.java)
+- [next permutation](http://lintcode.com/en/problem/next-permuation/): [[sol]](./code/next-permutation.java)
 
 ### Divide and Conquer
 - [kth largest element](http://lintcode.com/en/problem/kth-largest-element/): [[sol]](./code/kth-largest-element.java)
