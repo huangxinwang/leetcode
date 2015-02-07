@@ -72,6 +72,7 @@
 - [binary tree maximum path sum](http://lintcode.com/en/problem/binary-tree-maximum-path-sum/): [[sol]](./code/binary-tree-maximum-path-sum.java)
 - [minimum depth of binary tree](http://lintcode.com/en/problem/minimum-depth-of-binary-tree/): [[sol]](./code/minimum-depth-of-binary-tree.java)
 - [combination sum](http://lintcode.com/en/problem/combination-sum/): [[sol]](./code/combination-sum.java)
+- [combination sum ii](http://lintcode.com/en/problem/combination-sum-ii/): [[sol]](./code/combination-sum-ii.java)
 
 ### LinkedList
 - [linked list cycle](http://lintcode.com/en/problem/linked-list-cycle/): [[sol]](./code/linked-list-cycle.java)
