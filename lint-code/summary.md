@@ -6,6 +6,9 @@
 - [unique characters](http://lintcode.com/en/problem/unique-characters/): [[sol]](./code/unique-chracters.java)
 - [reverse words in a string](http://lintcode.com/en/problem/reverse-words-in-a-string/): [[sol]](./code/reverse-words-in-a-string.java)
 
+### Principle
+- [fast power](http://lintcode.com/en/problem/fast-power/): [[sol]](./code/fast-power.java)
+
 ### Array, Index
 - [remove element](http://lintcode.com/en/problem/remove-element/): [[sol]](./code/remove-element.java)
 - [remove duplicates from sorted array](http://lintcode.com/en/problem/remove-duplicates-from-sorted-array/): [[sol]](./code/remove-duplicates-from-sorted-array.java)
