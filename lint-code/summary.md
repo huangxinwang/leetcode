@@ -7,6 +7,9 @@
 - [reverse words in a string](http://lintcode.com/en/problem/reverse-words-in-a-string/): [[sol]](./code/reverse-words-in-a-string.java)
 - [fizz buzz](http://lintcode.com/en/problem/fizz-buzz/): [[sol]](./code/fizz-buzz.java)
 
+### Overflow
+- [hash function](http://lintcode.com/en/problem/hash-function/): [[sol]](./code/hash-function.java)
+
 ### Principle
 - [fast power](http://lintcode.com/en/problem/fast-power/): [[sol]](./code/fast-power.java)
 
