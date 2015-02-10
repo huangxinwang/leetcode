@@ -19,7 +19,7 @@
 - [remove duplicates from sorted array](http://lintcode.com/en/problem/remove-duplicates-from-sorted-array/): [[sol]](./code/remove-duplicates-from-sorted-array.java)
 - [remove duplicates from sorted array ii](http://lintcode.com/en/problem/remove-duplicates-from-sorted-array-ii/): [[sol]](./code/remove-duplicates-from-sorted-array-ii.java)
 - [heapify](http://lintcode.com/en/problem/heapify/): [[sol]](./code/heapify.java)
-
+- [merge sorted array ii](http://lintcode.com/en/problem/merge-sorted-array-ii/): [[sol]](./code/merge-sorted-array-ii.java)
 
 ### Sort
 - [Anagrams](http://lintcode.com/en/problem/anagrams/): [[sol]](./code/anagrams.java)
