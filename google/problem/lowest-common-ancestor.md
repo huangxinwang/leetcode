@@ -32,7 +32,7 @@ class Ideone
 		TreeNode rnt = RecursivefindLCA(root, 10,14);
 		System.out.println("Recursive result "+rnt.val);
 		TreeNode rnt2 = IterativeFindLCA(root, 10, 14);
-			System.out.println("Iterative result "+rnt2.val);
+		System.out.println("Iterative result "+rnt2.val);
 	
 	}
 	
