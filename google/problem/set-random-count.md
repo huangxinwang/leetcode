@@ -1,7 +1,7 @@
-### Question:
+### Problem
 You are given an n*n array filled with '0' s, and you have to set randomly x number of '1' in that array.
 
-### Requirement:
+### Requirement
 All positions must have the same probability to get selected, and the array might be huge.
 
 
