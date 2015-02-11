@@ -32,12 +32,15 @@ class Ideone
 		int currMin = num[0];
 		int currMinIdex = 0;
 		int currMaxIdex = 0;
+		
 		for(int i=1; i<num.length; i++){
 			int diff = num[i] - currMin;
+			//update diff
 			if(diff > max){
 				max = diff;
 				currMaxIdex = i;
 			}
+			//update currMin
 			if(currMin>num[i]){ 
 				currMin = num[i];
 				currMinIdex = i;
