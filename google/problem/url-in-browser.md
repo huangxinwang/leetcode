@@ -6,6 +6,7 @@ What happens when you type in a URL in browser
 
 ### Answer
 We consider the simplest possible HTTP request
+```
 1. browser check cache; if requested object is in cache and is fresh, skip to #9
 2. browser asks OS for server's IP address
 3. OS makes a DNS lookup and replies the IP address to the browser
@@ -17,3 +18,4 @@ We consider the simplest possible HTTP request
 9. browser decodes response (e.g., if it is ziped)
 10. browswer determines what to do with response (e.g., is it a HTML page, is it an image ...)
 11. browser render response, of offers a download dialog for unrecognized types
+```
