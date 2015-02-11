@@ -29,17 +29,33 @@ class Ideone
 		root.left.right.right = new TreeNode(14);
 		root.right = new TreeNode(22);
 		
-		TreeNode rnt = findLCA(root, 10,14);
-		System.out.println(rnt.val);
+		TreeNode rnt = RecursivefindLCA(root, 10,14);
+		System.out.println("Recursive result "+rnt.val);
+		TreeNode rnt2 = IterativeFindLCA(root, 10, 14);
+			System.out.println("Iterative result "+rnt2.val);
 	
 	}
 	
-	public static TreeNode findLCA(TreeNode root, int num1, int num2){
+	public static TreeNode RecursivefindLCA(TreeNode root, int num1, int num2){
 		if(root==null) return root;
 		if(root.val > num1 && root.val >num2)
-			return findLCA(root.left, num1, num2);
+			return RecursivefindLCA(root.left, num1, num2);
 		if(root.val < num1 && root.val <num2)
-			return findLCA(root.right, num1, num2);
+			return RecursivefindLCA(root.right, num1, num2);
+		return root;
+	}
+	
+	public static TreeNode IterativeFindLCA(TreeNode root, int num1, int num2){
+		if(root==null) return root;
+		while(root!=null){
+			if(root.val < num1 && root.val < num2)
+				root = root.right;
+			else if(root.val > num1 && root.val > num2)
+				root = root.left;
+			else return root;
+			
+		}
+		
 		return root;
 	}
 }
@@ -52,4 +68,5 @@ class TreeNode{
 		this.val = val;
 	}
 }
+
 ```
