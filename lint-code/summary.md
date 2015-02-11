@@ -164,6 +164,9 @@
 - [search a 2D matrix](http://lintcode.com/en/problem/search-a-2d-matrix/): [[sol]](./code/search-a-2d-matrix.java)
 
 
+### Divide and Conquer
+- [median](http://lintcode.com/en/problem/median/): [[sol]](./code/median.java)
+
 ### Binary Tree
 - [binary tree inorder traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/): [[sol]](./code/binary-tree-inorder-traversal.java) **Need discussion for iterative approach**
 - [binary tree level order traversal](http://lintcode.com/en/problem/binary-tree-level-order-traversal/): [[sol]](./code/binary-tree-level-order-traversal.java)
