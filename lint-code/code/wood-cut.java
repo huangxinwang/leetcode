@@ -37,6 +37,7 @@ public class Solution {
         int rnt = 0;
         for(int i=0; i<L.length; i++){
             rnt += (L[i]/len);
+            //return when meet requirements, otherwise, may overflow
             if(rnt>=k) return true;
         }
         
