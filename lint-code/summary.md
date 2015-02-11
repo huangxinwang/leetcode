@@ -25,6 +25,7 @@
 - [merge sorted array ii](http://lintcode.com/en/problem/merge-sorted-array-ii/): [[sol]](./code/merge-sorted-array-ii.java)
 - [interleaving positive and negative numbers](http://lintcode.com/en/problem/interleaving-positive-and-negative-numbers/): [[sol]](./code/interleaving-positive-and-negative-numbers.java)
 
+
 ### Sort
 - [Anagrams](http://lintcode.com/en/problem/anagrams/): [[sol]](./code/anagrams.java)
 - [two strings are anagrams](http://lintcode.com/en/problem/two-strings-are-anagrams/) :[[sol]](./code/two-strings-are-anagrams.java)
@@ -166,6 +167,7 @@
 
 ### Divide and Conquer
 - [median](http://lintcode.com/en/problem/median/): [[sol]](./code/median.java)
+- [wood cut](http://lintcode.com/en/problem/wood-cut/): [[sol]](./code/wood-cut.java)
 
 ### Binary Tree
 - [binary tree inorder traversal](http://lintcode.com/en/problem/binary-tree-inorder-traversal/): [[sol]](./code/binary-tree-inorder-traversal.java) **Need discussion for iterative approach**
