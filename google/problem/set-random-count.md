@@ -6,7 +6,7 @@ All positions must have the same probability to get selected, and the array migh
 
 
 ### Code
-```
+```java
 /* package whatever; // don't place package name! */
 
 import java.util.*;
