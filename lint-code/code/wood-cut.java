@@ -6,6 +6,7 @@ public class Solution {
      */
     public int woodCut(int[] L, int k) {
         // write your code here
+        if(L.length==0) return 0;
         int len = 1;
         int maxLen = 0;
         
@@ -15,10 +16,14 @@ public class Solution {
         int step = (int)Math.log(maxLen);
         
         while(true){
-            if(canCut(L,k, len)){
-                len = Math.min(len+step, maxLen);
-            }
-            else break;
+            // if(len>maxLen-step){
+            //     len = maxLen;
+            //     break;
+            // } 
+            if(canCut(L,k,len)){
+                len += step;
+            }else break;
+            
         }
         
         for(int i = len-step+1; i<=len; i++){
@@ -32,8 +37,9 @@ public class Solution {
         int rnt = 0;
         for(int i=0; i<L.length; i++){
             rnt += (L[i]/len);
+            if(rnt>=k) return true;
         }
-        if(rnt>=k) return true;
+        
         return false;
     }
 }
