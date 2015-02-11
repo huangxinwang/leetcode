@@ -30,6 +30,7 @@ class Ideone
 		
 	}
 	
+	//Binary search
 	public static TreeNode getCloest(TreeNode root, int k){
 		if(root==null) return root;
 		if(root.left==null && root.right==null) return root;
