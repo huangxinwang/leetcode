@@ -2,8 +2,14 @@
 Return deepest node in binary tree
 If the tree is complete, having two same depth of node, return the rightmost node
 
+### Analysis
+- BFS traverse the tree
+	- Use two arraylsit to track current layer and next layer
+	- Thus, when next layer is empty, current layer then contains the deepest leaves
+
 ### Checked
 - not yet
+
 
 ### Code
 ```java
@@ -32,6 +38,8 @@ class Ideone
 		System.out.println(node.val);
 	}
 	
+	
+	//BFS traverse the tree
 	public static TreeNode deepestTreeLeaf(TreeNode root){
 		if(root == null) return root;
 		ArrayList<TreeNode> curr = new ArrayList<TreeNode>();
