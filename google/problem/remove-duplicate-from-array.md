@@ -5,6 +5,9 @@ Remove duplicates from an array in place
 Given input array A = [1,1,2],
 Your function should return length = 2, and A is now [1,2].
 
+### Analysis
+- use idx to keep track of current index to put the next valid number
+
 ### Code
 ```java
  public int removeDuplicates(int[] A) {
