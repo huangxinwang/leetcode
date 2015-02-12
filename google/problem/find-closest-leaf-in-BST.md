@@ -7,6 +7,7 @@ give a binary search tree and a target, find the closest number to the target
 
 ### Code
 - return object
+- time complexity O(logn logn)
 ```java
 /* package whatever; // don't place package name! */
 
@@ -69,6 +70,7 @@ class TreeNode{
 
 ### Code 
 - return target value
+- time complexity: O(logn), O(n) in the worst-case when the tree is not balanced
 ```java
 /* package whatever; // don't place package name! */
 
