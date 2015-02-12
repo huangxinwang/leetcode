@@ -6,6 +6,7 @@ give a binary search tree and a target, find the closest number to the target
 
 
 ### Code
+- return object
 ```java
 /* package whatever; // don't place package name! */
 
@@ -53,6 +54,59 @@ class Ideone
 		if(root.right!=null) return getMax(root.right);
 		else return root;
 	}
+}
+
+class TreeNode{
+	TreeNode left;
+	TreeNode right;
+	int val;
+	TreeNode(int val){
+		this.val = val;
+	}
+}
+```
+
+
+### Code 
+- return target value
+```
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(9);
+        root.right.left = new TreeNode(3);
+        root.right.left.right = new TreeNode(8);
+        root.right.right = new TreeNode(13);
+
+        int[] rnt = new int[1];
+        int diff = Integer.MAX_VALUE;
+	    getCloest(root, 7, diff, rnt);
+        System.out.println(rnt[0]);
+	}
+	
+	public static void getCloest(TreeNode root, int k, int diff, int[] rnt){
+		if(root==null) return;
+		if(Math.abs(root.val-k) < diff){
+			rnt[0] = root.val;
+			diff = Math.abs(root.val-k);
+		}
+		
+		if(root.val <= k) getCloest(root.right, k, diff, rnt);
+		else getCloest(root.left, k, diff, rnt);
+	}
+	
+
 }
 
 class TreeNode{
