@@ -2,7 +2,7 @@
 
 
 ### Code
-```
+```java
 import java.util.Comparator;
 
 public class MyComparator implements Comparator<Integer>
