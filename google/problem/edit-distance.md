@@ -17,7 +17,7 @@ return 3
 - time complexity O(len1 len2)
 
 ### Code
-```
+```java
 public class Solution {
     /**
      * @param word1 & word2: Two string.
