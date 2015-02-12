@@ -1,6 +1,9 @@
 ### Problem
 - find the kth element in binary search tree
 
+### Analysis
+- using inorder traverse, and keep track of current visited count
+
 ### Code
 ```java
 /* package whatever; // don't place package name! */
