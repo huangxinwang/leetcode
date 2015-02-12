@@ -1,9 +1,9 @@
 ### Problem
-
+Return maximum depth of a binary search tree
 
 ### Code
 - Recursive
-```
+``` java
 /**
  * Definition of TreeNode:
  * public class TreeNode {
