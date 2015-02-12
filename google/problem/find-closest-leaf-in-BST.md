@@ -69,7 +69,7 @@ class TreeNode{
 
 ### Code 
 - return target value
-```
+```java
 /* package whatever; // don't place package name! */
 
 import java.util.*;
