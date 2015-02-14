@@ -24,7 +24,7 @@
 - [heapify](http://lintcode.com/en/problem/heapify/): [[sol]](./code/heapify.java)
 - [merge sorted array ii](http://lintcode.com/en/problem/merge-sorted-array-ii/): [[sol]](./code/merge-sorted-array-ii.java)
 - [interleaving positive and negative numbers](http://lintcode.com/en/problem/interleaving-positive-and-negative-numbers/): [[sol]](./code/interleaving-positive-and-negative-numbers.java)
-
+- [remove rotated sorted array](http://lintcode.com/en/problem/recover-rotated-sorted-array/): [[sol]](./code/remove-rotated-sorted-array.java)
 
 ### Sort
 - [Anagrams](http://lintcode.com/en/problem/anagrams/): [[sol]](./code/anagrams.java)
