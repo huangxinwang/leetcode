@@ -26,6 +26,7 @@
 - [interleaving positive and negative numbers](http://lintcode.com/en/problem/interleaving-positive-and-negative-numbers/): [[sol]](./code/interleaving-positive-and-negative-numbers.java)
 - [remove rotated sorted array](http://lintcode.com/en/problem/recover-rotated-sorted-array/): [[sol]](./code/remove-rotated-sorted-array.java)
 - [set matrix zero](http://lintcode.com/en/problem/set-matrix-zeroes/): [[sol]](./code/set-matrix-zero.java)
+- [median of two sorted array](http://lintcode.com/en/problem/median-of-two-sorted-arrays/): [[sol]](./code/median-of-two-sorted-array.java) **has bug**
 
 ### Sort
 - [Anagrams](http://lintcode.com/en/problem/anagrams/): [[sol]](./code/anagrams.java)
