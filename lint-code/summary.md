@@ -92,6 +92,7 @@
 - [combination sum](http://lintcode.com/en/problem/combination-sum/): [[sol]](./code/combination-sum.java)
 - [combination sum ii](http://lintcode.com/en/problem/combination-sum-ii/): [[sol]](./code/combination-sum-ii.java)
 - [combinations](http://lintcode.com/en/problem/combinations/): [[sol]](./code/combinations.java)
+- [palindrome partition](http://lintcode.com/en/problem/palindrome-partitioning/): [[sol]](./code/palindrome-partition.java)
 
 ### BFS
 - [clone graph](http://lintcode.com/en/problem/clone-graph/): [[sol]](./code/clone-graph.java)
