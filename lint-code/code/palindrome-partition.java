@@ -18,8 +18,7 @@ public class Solution {
             rnt.add(new ArrayList<String>(tmp));
             return;
         }
-        
-      
+
         for(int j= start+1; j<=s.length(); j++){
             String str = s.substring(start,j);
             //enumerate all possible palindrone start at index "start"
@@ -32,12 +31,12 @@ public class Solution {
        
     }
     
+    //check if string s is palindrome
     public boolean valid(String s){
         for(int i=0; i<=s.length()/2; i++){
             if(s.charAt(i) != s.charAt(s.length()-1-i))
                 return false;
         }
-        
         return true;
     }
 }
