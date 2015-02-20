@@ -27,6 +27,7 @@
 - [remove rotated sorted array](http://lintcode.com/en/problem/recover-rotated-sorted-array/): [[sol]](./code/remove-rotated-sorted-array.java)
 - [set matrix zero](http://lintcode.com/en/problem/set-matrix-zeroes/): [[sol]](./code/set-matrix-zero.java)
 - [median of two sorted array](http://lintcode.com/en/problem/median-of-two-sorted-arrays/): [[sol]](./code/median-of-two-sorted-array.java) 
+- [rotate image](http://lintcode.com/en/problem/rotate-image/): [[sol]](./code/rotated-image.java)
 
 ### Sort
 - [Anagrams](http://lintcode.com/en/problem/anagrams/): [[sol]](./code/anagrams.java)
