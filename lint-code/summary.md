@@ -96,6 +96,7 @@
 - [combinations](http://lintcode.com/en/problem/combinations/): [[sol]](./code/combinations.java)
 - [palindrome partition](http://lintcode.com/en/problem/palindrome-partitioning/): [[sol]](./code/palindrome-partition.java)
 - [word-search](http://lintcode.com/en/problem/word-search/):[[sol]](./code/word-search.java)
+- [product of array exclude itself](http://lintcode.com/en/problem/product-of-array-exclude-itself/): [[sol]](./code/product-of-array-exclude-itself.java)
 
 ### BFS
 - [clone graph](http://lintcode.com/en/problem/clone-graph/): [[sol]](./code/clone-graph.java)
