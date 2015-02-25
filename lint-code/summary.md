@@ -100,6 +100,7 @@
 
 ### BFS
 - [clone graph](http://lintcode.com/en/problem/clone-graph/): [[sol]](./code/clone-graph.java)
+- [word ladder](http://lintcode.com/en/problem/word-ladder/): [[sol]](./code/word-ladder.java)
 
 ### LinkedList
 - [linked list cycle](http://lintcode.com/en/problem/linked-list-cycle/): [[sol]](./code/linked-list-cycle.java)
