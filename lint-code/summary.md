@@ -60,6 +60,7 @@
 - [rotate string](http://lintcode.com/en/problem/rotate-string/): [[sol]](./code/rotate-string.java)
 - [min stack](http://lintcode.com/en/problem/min-stack/): [[sol]](./code/min-stack.java)
 - [search a 2D matrix](http://lintcode.com/en/problem/search-a-2d-matrix-ii/): [[sol]](./code/search-a-2D-matrix-II.java)
+- [check power of 2](http://lintcode.com/en/problem/o1-check-power-of-2/):[[sol]](./code/check-power-of-two.java)
 
 ### Greedy
 - [best time to buy and sell stocks II](): [[sol]](./code/best-time-to-buy-and-sell-stocks.java)
