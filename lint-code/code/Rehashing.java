@@ -1,4 +1,4 @@
-//Hint: build two tables (head and tail) to avoid traverse from beginning when attend to add elements to tail
+//Hint: build two tables (head and tail) to avoid traversing from beginning when attempt to add elements to tail
 
 /**
  * Definition for ListNode
