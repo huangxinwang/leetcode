@@ -1,4 +1,3 @@
-//Problem: exceed time limits
 /**
  * Definition for ListNode
  * public class ListNode {
@@ -23,48 +22,28 @@ public class Solution {
         
         //double capacity
         cap = cap*2;
+
         
-        //build map to record the key value pairs
-        HashMap<Integer, ArrayList<Integer>> map = new HashMap<Integer, ArrayList<Integer>>();
+        ListNode[] head = new ListNode[cap];
+        ListNode[] tail = new ListNode[cap];
         for(int i=0; i<hashTable.length; i++){
-            ListNode node = hashTable[i];
-            if(node==null) continue;
-            while(node!=null){
-                int val = node.val;
-                int idx = (val%cap + cap)%cap;
-                ArrayList<Integer> list = new ArrayList<Integer>();
-                if(map.containsKey(idx)) list = map.get(idx);
-                list.add(val);
-                map.put(idx,list);
-                node = node.next;
-            }
-           
+           ListNode node = hashTable[i];
+           if(node==null) continue;
+           while(node!=null){
+               int val = node.val;
+               int idx = (val%cap+cap)%cap;
+               if(head[idx]==null){
+                   head[idx] = new ListNode(val);
+                   tail[idx] = head[idx];
+               }else{
+                   tail[idx].next = new ListNode(val);
+                   tail[idx] = tail[idx].next;
+               }
+               node = node.next;
+           }
         }
         
-        
-        
-        ListNode[] newTable = new ListNode[cap];
-        for(int i=0; i<newTable.length; i++){
-            if(map.containsKey(i)){
-                ArrayList<Integer> list = map.get(i);
-                ListNode dummyHead = new ListNode(-1);
-                ListNode head = dummyHead;
-                for(int j=0; j<list.size(); j++){
-                    head.next = new ListNode(list.get(j));
-                    head = head.next;
-                }
-                newTable[i] = dummyHead.next;
-            }
-        }
-        
-        
-        return newTable;
-        
-        
-       
-        
-        
-        
+        return head;
     }
     
     public boolean CheckConflict(ListNode[] hashTable){
