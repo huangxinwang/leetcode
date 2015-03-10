@@ -1,3 +1,5 @@
+//Hint: build two tables (head and tail) to avoid traverse from beginning when attend to add elements to tail
+
 /**
  * Definition for ListNode
  * public class ListNode {
