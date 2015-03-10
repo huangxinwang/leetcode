@@ -7,6 +7,7 @@
 - [reverse words in a string](http://lintcode.com/en/problem/reverse-words-in-a-string/): [[sol]](./code/reverse-words-in-a-string.java)
 - [fizz buzz](http://lintcode.com/en/problem/fizz-buzz/): [[sol]](./code/fizz-buzz.java)
 - [merge sorted array](http://lintcode.com/en/problem/merge-sorted-array/): [[sol]](./code/merge-sorted-array.java)
+- [rehashing](http://lintcode.com/en/problem/rehashing/): [[sol]](./code/Rehashing.java)
 
 ### Bits
 - [Convert Integer A to Integer B](http://lintcode.com/en/problem/convert-integer-a-to-integer-b/): [[sol]](./code/convert-integer-a-to-integer-b.java)
