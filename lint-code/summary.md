@@ -16,6 +16,7 @@
 
 ### Hashtable
 - [longest consecutive sequence](http://lintcode.com/en/problem/longest-consecutive-sequence/): [[sol]](./code/longest-consecutive-sequence.java)
+- [minimum window substring](http://lintcode.com/en/problem/minimum-window-substring/): [[sol]](./code/minimum-window-substring.java)
 
 ### Overflow
 - [hash function](http://lintcode.com/en/problem/hash-function/): [[sol]](./code/hash-function.java)
