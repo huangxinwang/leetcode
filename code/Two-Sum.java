@@ -27,3 +27,24 @@ public class Solution {
         return rnt;
     }
 }
+
+
+//Naive approach 2015-10-03
+//Time complexity O(n^2)
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] rnt = new int[2];
+        for(int i=0; i<nums.length; i++){
+            int remain = target - nums[i];
+            for(int j=i+1; j<nums.length; j++){
+                if(nums[j]==remain){
+                    rnt[0] = i+1;
+                    rnt[1] = j+1;
+                    return rnt;
+                }
+            }
+        }
+        return rnt;
+        
+    }
+}
