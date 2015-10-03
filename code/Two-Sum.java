@@ -48,3 +48,28 @@ public class Solution {
         
     }
 }
+
+
+//HashMap 
+//Time complexity: O(n)
+public class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> maps = new HashMap<Integer, Integer>();
+        for(int i=0; i<nums.length; i++){
+            maps.put(nums[i],i+1);
+        }
+        
+        int[] rnt = new int[2];
+        for(int i=0; i<nums.length; i++){
+            int remain = target - nums[i];
+            if(maps.containsKey(remain) && maps.get(remain)!=i+1){
+                rnt[0] = i+1;
+                rnt[1] = maps.get(remain);
+                break;
+            }
+        }
+        
+        return rnt;
+        
+    }
+}
