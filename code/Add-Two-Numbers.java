@@ -119,3 +119,48 @@ public class Solution {
         
     }
 }
+
+
+///////////////////////////////////////////////////
+// 2015-10-03 
+// Highlight: deal with whether l1 or l2 are null
+// Time complexity: O(n)
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0;
+        ListNode dummyhead = new ListNode(0);
+        ListNode pre = dummyhead;
+        while(l1!=null && l2!=null){
+            int val = l1.val+l2.val+carry;
+            carry = val/10;
+            val = val%10;
+            pre.next = new ListNode(val);
+            l1 = l1.next;
+            l2 = l2.next;
+            pre = pre.next;
+        }
+        ListNode remain = l1==null?l2:l1;
+        while(remain!=null){
+            int val = remain.val + carry;
+            carry = val/10;
+            val = val%10;
+            pre.next = new ListNode(val);
+            pre = pre.next;
+            remain = remain.next;
+        }
+        if(carry!=0){
+            pre.next = new ListNode(carry);
+            pre = pre.next;
+        }
+        return dummyhead.next;
+    }
+}
