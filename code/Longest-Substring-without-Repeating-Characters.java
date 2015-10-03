@@ -72,3 +72,35 @@ public class Solution {
         return max;
     }
 }
+
+
+////////////////////////////////////////////////////////////////////
+//10/03/2015
+//Time complexity: best O(n)； worst O(n)? because one element will only be scanned at most twice??
+public class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        HashSet<Character> set = new HashSet<Character>();
+        int max_len = 0;
+        int curr_start = 0;
+        int curr_len = 0;
+        for(int i=0; i<s.length(); i++){
+            char c = s.charAt(i);
+            if(set.contains(c)){
+                if(curr_len > max_len) max_len = curr_len;
+                for(int j=curr_start; j<i;j++){
+                    curr_len --;
+                    if(s.charAt(j)==c){
+                        curr_start = j+1;
+                        break;
+                    }else{
+                        set.remove(s.charAt(j));
+                    }
+                }
+            }else{
+                set.add(c);
+            }
+            curr_len++;
+        }
+        return max_len>curr_len? max_len: curr_len;
+    }
+}
