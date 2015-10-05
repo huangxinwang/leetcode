@@ -95,3 +95,50 @@ public class Solution {
         return s.substring(maxStart, maxStart+maxLen);
     }
 }
+
+
+///////////////////////////////////////////////////////////////////
+//10/05/2015
+//Highlight: the palindrome string is supposed to be continuous
+public class Solution {
+    public String longestPalindrome(String s) {
+        if(s==null || s.length()<=1) return s;
+        int n = s.length();
+        boolean[][] isPar = new boolean[n][n];
+        
+        int max = 0;
+        String maxStr = new String();
+        
+        for(int i=0; i<n; i++){
+            isPar[i][i] = true;
+        }
+        
+        for(int i=0; i<n-1; i++){
+            if(s.charAt(i)==s.charAt(i+1)){
+                isPar[i][i+1] = true;
+                if(max<2){
+                    max = 2;
+                    maxStr = s.substring(i,i+2);
+                }
+            }
+        }
+        int start = 0;
+        
+        for(int step=3; step<=n; step++){
+            for(int i=0; i<=n-step; i++){
+                if(s.charAt(i)==s.charAt(i+step-1) && isPar[i+1][i+step-2]){
+                    isPar[i][i+step-1] = true;
+                    
+                    if(max<step){
+                        max = step;
+                        maxStr = s.substring(i, i+step);
+                    }
+                    
+                }
+            }
+           
+        }
+        
+        return maxStr;
+    }
+}
