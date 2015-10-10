@@ -51,3 +51,24 @@ public class Solution {
         return (int)rnt;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////
+// 10/09/2015
+// Highlight: corner case, larger than max or less than min
+public class Solution {
+    public int reverse(int x) {
+        long rnt = 0;
+        long remain = 0;
+        
+        while(x!=0){
+            remain = x%10;
+            rnt = rnt*10+remain;
+            x = x/10;
+        }
+        
+        if(rnt<=Integer.MIN_VALUE || rnt>=Integer.MAX_VALUE)
+            return 0;
+        else return (int)rnt;
+    }
+}
