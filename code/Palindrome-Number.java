@@ -38,3 +38,24 @@ public class Solution {
         
     }
 }
+
+////////////////////////////////////////
+//10/09/2015
+//Highlight: corner case (negative value)
+public class Solution {
+    public boolean isPalindrome(int x) {
+        //corner case!
+        if(x<0) return false;
+        
+        int y = 0;
+        int rnt = x;
+        int remain = 0;
+        while(x!=0){
+            remain = x%10;
+            y = y*10+remain;
+            x = x/10;
+        }
+        if(rnt==y) return true;
+        else return false;
+    }
+}
