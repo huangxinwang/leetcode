@@ -84,3 +84,52 @@ public class Solution {
         return (int)rnt;
     }
 }
+
+
+////////////////////////////////////////////////////////////
+// 10/09/2015
+// Highlight: corner case
+public class Solution {
+    public int myAtoi(String str) {
+        if(str==null || str.length()==0) return 0;
+        boolean positive = true;
+        boolean symbol = false;
+        int idx = 0;
+        
+        //preprocessing
+        while(true){
+            char c = str.charAt(idx);
+            if(c=='-'){
+                if(symbol) return 0;
+                positive = positive==true? false: true;
+            }else if(c=='+'){
+                if(symbol) return 0;
+            }else if(c==' '){
+                if(symbol) return 0;
+            }else break;
+            
+            if(c=='-' || c=='+'){
+                if(symbol) return 0;
+                symbol = true;
+            }
+            idx++;
+        }
+       
+        //parse string to int, note range
+        long rnt = 0; 
+        while(idx<str.length()){
+            char c = str.charAt(idx);
+            if(c<'0' || c>'9' ||c==' '||c=='+'||c=='-') break;
+            rnt = rnt*10 + (c-'0');
+            idx++;
+            if(rnt<Integer.MIN_VALUE || rnt>Integer.MAX_VALUE) break;
+        }
+        
+        //process symbol and value range
+        if(!positive) rnt = -rnt;
+        if(rnt<Integer.MIN_VALUE) rnt = Integer.MIN_VALUE;
+        else if(rnt>Integer.MAX_VALUE) rnt = Integer.MAX_VALUE;
+       
+        return (int)rnt;
+    }
+}
