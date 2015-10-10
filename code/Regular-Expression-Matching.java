@@ -90,3 +90,31 @@ public class Solution {
         }
     }
 }
+
+///////////////////////////////////////////////////////////////////////
+// 10/10/2015
+// Highlight: check whether the next next char is '*'
+public class Solution {
+    public boolean isMatch(String s, String p) {
+        
+        //special case
+        if(p.length()==0) return s.length()==0;
+        if(s.length()!=0 && p.length()==0) return false;
+        
+        //next char not '*'
+        if(p.length()==1 || p.charAt(1)!='*'){
+            if(s.length()==0) return false;
+            if((s.charAt(0)==p.charAt(0)) || p.charAt(0)=='.') return isMatch(s.substring(1,s.length()),p.substring(1,p.length()));
+            else return false;
+        }
+          
+        //next char is '*'
+        //brute force check whether match or not by advancing char in s.
+        while( (s.length()>0 && s.charAt(0)==p.charAt(0)) || (s.length()>0 && p.charAt(0)=='.')){
+            if(isMatch(s, p.substring(2,p.length()))) return true;
+            s = s.substring(1,s.length());
+        }
+        
+        return isMatch(s, p.substring(2,p.length()));
+    }
+}
