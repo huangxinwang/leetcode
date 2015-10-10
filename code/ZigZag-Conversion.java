@@ -89,3 +89,40 @@ public class Solution {
         return rntstr;
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////////
+// 10/09/2015
+// Highlight: deal with change of current row
+public class Solution {
+    public String convert(String s, int numRows) {
+        int row = 0;
+        String[] strs = new String[numRows];
+        int idx = 0;
+        boolean down = true;
+        
+        if(numRows==1) return s;
+        
+        while(idx<s.length()){
+            if(strs[row]==null) strs[row] = new String();
+            strs[row] = strs[row] + s.charAt(idx);
+            if(down) row++;
+            else row--;
+            if(row==numRows){
+                row = row-2;
+                down = false;
+            }
+            if(row==-1){
+                row = row+2;
+                down = true;
+            }
+            idx++;
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<strs.length; i++){
+            if(strs[i]!=null)
+                sb.append(strs[i]);
+        }
+        return sb.toString();
+    }
+}
