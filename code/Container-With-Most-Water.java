@@ -55,3 +55,25 @@ public class Solution {
         return max;
     }
 }
+
+
+/////////////////////////////////////////////////////
+// 2015-10-10
+// Highlight: advance left or right pointer
+public class Solution {
+    public int maxArea(int[] height) {
+        int left = 0;
+        int right = height.length-1;
+        int max = 0;
+        while(left<right){
+            int curr_height = Math.min(height[left], height[right]);
+            int area = (right-left)*curr_height;
+            max = max > area ? max : area;
+            //advance left or right pointer
+            if(height[left]<height[right]){
+                left++;
+            }else right--;
+        }
+        return max;
+    }
+}
