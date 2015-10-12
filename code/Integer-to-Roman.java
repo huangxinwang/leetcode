@@ -97,3 +97,46 @@ public class Solution {
         }
         
 }
+
+///////////////////////////////////////////////////////////////////////////////////////
+//2015-10-11
+//Highlight
+public class Solution {
+    public String intToRoman(int num) {
+        char[] symbols = new char[] {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+        int[] vals = new int[]{1,5,10,50,100,500,1000};
+        String rnt = "";
+        int scale = 1000;
+        
+        for(int i=symbols.length-1; i>=0; i-=2){
+            int digit = num/scale;
+            if(digit<=3){
+                for(int i=0; i<digit; i++){
+                    rnt = rnt + symbols[i];
+                }
+            }
+            
+            if(digit==4){
+                rnt += symbols[i];
+                rnt += symbols[i+1];
+            }
+            
+            if(digit>=5 && digit<=8){
+                rnt += symbols[i+1];
+                for(int i=5; i<digit; i++){
+                    rnt += symbols[i];
+                }
+            }
+            
+            if(digit==9){
+                rnt += symbols[i];
+                rnt += symbols[i+2];
+            }
+            
+            num = num%scale;
+            scale = scale/10;
+        }
+        
+        return rnt;
+    }
+}
