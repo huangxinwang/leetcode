@@ -100,7 +100,7 @@ public class Solution {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 //2015-10-11
-//Highlight
+//Highlight: put left for minus; put right for add. Distinguish <=3, 4, 5<= <=8, 9
 public class Solution {
     public String intToRoman(int num) {
         char[] symbols = new char[] {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
