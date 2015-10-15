@@ -113,3 +113,52 @@ public class Solution {
     return rnt;
     }
 }
+
+
+//////////////////////////////////////////
+// 2015-10-15
+// Highlight: 4sum + hashmap
+public class Solution {
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        
+        Arrays.sort(nums);
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        ArrayList<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        
+        for(int i=0; i<nums.length; i++){
+            if(map.containsKey(nums[i])) map.put(nums[i], map.get(nums[i])+1);
+            else map.put(nums[i],1);
+        }
+        
+        //O(n^3) + hashmap
+        for(int i=0; i<nums.length-3; i++){
+            if(i>0 && nums[i]==nums[i-1]) continue;
+            //if(nums[i]>target) break;
+            for(int j=i+1; j<nums.length-2; j++){
+                if(j!=i+1 && nums[j] == nums[j-1]) continue;
+                int twoSum = nums[i]+nums[j];
+                //if(twoSum>target) break;
+                for(int k=j+1; k<nums.length-1; k++){
+                    if(k!=j+1 && nums[k]==nums[k-1]) continue;
+                    int threeSum = nums[k]+twoSum;
+                    //if(threeSum>target) break;
+                    int remain = target - threeSum;
+                    if(remain<nums[k]) break;
+                    if(map.containsKey(remain)){
+                        if(remain==nums[k] && map.get(remain)<2) continue;
+                        if(remain==nums[k] && remain==nums[j] && map.get(remain)<3) continue;
+                        if(remain==nums[k] && remain ==nums[j] && remain==nums[i] && map.get(remain)<4) continue;
+                        ArrayList<Integer> currList = new ArrayList<Integer>();
+                        currList.add(nums[i]);
+                        currList.add(nums[j]);
+                        currList.add(nums[k]);
+                        currList.add(remain);
+                        rnt.add(currList);
+                    }
+                }
+            }
+        }
+        
+        return rnt;
+    }
+}
