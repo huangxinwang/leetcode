@@ -71,3 +71,31 @@ public class Solution {
         return s1.substring(0,len);
     }
 }
+
+
+//////////////////////////////////////////
+//2015-10-15 
+//Highlight: assume common prefix has length k, then it takes time k*n
+public class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if(strs ==null || strs.length==0) return new String();
+        int idx = 0;
+        boolean error = false;
+        
+        //compare current char of each string
+        while(true){
+            if(strs[0].length() < (idx+1)) {error= true; break;}
+            char curr = strs[0].charAt(idx);
+            for(int i=1; i<strs.length; i++){
+                if(strs[i].length()<(idx+1)) {error= true; break;}
+                char other = strs[i].charAt(idx);
+                if(other!=curr) {error= true; break;}
+            }
+            if(error) break;
+            idx++;
+        }
+        
+        return strs[0].substring(0,idx);
+       
+    }
+}
