@@ -110,3 +110,37 @@ public class Solution {
         return rnt;
     }
 }
+
+
+//////////////////////////////////////////
+// 2015-10-15
+// Highlight: set solution
+public class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        
+        Set<Integer> setOne = new HashSet<Integer>();
+        Set<Integer> setTwo = new HashSet<Integer>();
+        int rnt_sum = Integer.MAX_VALUE;
+        int diff = Integer.MAX_VALUE;
+        
+        for(int i=0 ; i<nums.length; i++){
+            for(Integer d: setTwo){
+                int sum = d+nums[i];
+                int curr_diff = Math.abs(sum-target);
+                if(curr_diff<diff){
+                    diff = curr_diff;
+                    rnt_sum = sum;
+                    if(diff==0) return sum;
+                }
+            }
+            
+            for(Integer d: setOne){
+                setTwo.add(d+nums[i]);
+            }
+            
+            setOne.add(nums[i]);
+        }
+        
+        return rnt_sum;
+    }
+}
