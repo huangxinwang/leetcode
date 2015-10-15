@@ -118,3 +118,43 @@ public class Solution {
         return rnt;
     }
 }
+
+
+///////////////////////////////////////////////
+// 2015-10-15
+// Highlight: sort array, assisted with Hashmap
+public class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        
+        Arrays.sort(nums);
+        ArrayList<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for(int i=0 ;i<nums.length; i++){
+            if(map.containsKey(nums[i])) map.put(nums[i], map.get(nums[i])+1);
+            else map.put(nums[i],1);
+        }
+        
+        for(int i=0; i<nums.length-2; i++){
+            if(i>=1 && nums[i]==nums[i-1]) continue;
+            for(int j=i+1; j<nums.length-1; j++){
+                if(j!=i+1 && nums[j]==nums[j-1]) continue;
+                int sum = nums[i]+nums[j];
+                if(sum>0) break;
+                int remain = 0-sum;
+                if(remain<nums[j]) break;
+                if(map.containsKey(remain)){
+                    if(remain==nums[j]&&map.get(remain)<2) continue;
+                    if(remain==nums[j] && remain==nums[i] && map.get(remain)<3) continue;
+                    ArrayList<Integer> curr = new ArrayList<Integer>();
+                    curr.add(nums[i]);
+                    curr.add(nums[j]);
+                    curr.add(remain);
+                    rnt.add(curr);
+                    continue;
+                }
+            }
+        }
+        
+        return rnt;
+    }
+}
