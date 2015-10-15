@@ -117,7 +117,7 @@ public class Solution {
 
 //////////////////////////////////////////
 // 2015-10-15
-// Highlight: 4sum + hashmap
+// Highlight: O(n^3) + hashmap
 public class Solution {
     public List<List<Integer>> fourSum(int[] nums, int target) {
         
