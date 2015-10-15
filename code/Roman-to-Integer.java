@@ -75,3 +75,39 @@ public class Solution {
         }
     }
 }
+
+
+//////////////////////////////////////////
+// 2015-10-15
+public class Solution {
+    public int romanToInt(String s) {
+        int rnt = 0;
+        if(s.length()==0) return 0;
+        rnt = getValue(s.charAt(0));
+        
+        //if in increasing order: += (current - 2*last)
+        for(int i=1; i<s.length(); i++){
+            int last = getValue(s.charAt(i-1));
+            int current = getValue(s.charAt(i));
+            if(current>last){
+                rnt += (current-2*last);
+            }
+            else rnt += current;
+        }
+        
+        return rnt;
+    }
+    
+    public int getValue(char c){
+        switch(c){
+            case 'I': return 1; 
+            case 'V': return 5; 
+            case 'X': return 10; 
+            case 'L': return 50; 
+            case 'C': return 100; 
+            case 'D': return 500; 
+            case 'M': return 1000; 
+            default: return 0;
+        }
+    }
+}
