@@ -100,3 +100,43 @@ public class Solution {
         return dummyhead.next;
     }
 }
+
+
+/////////////////////////////////////////////////////////
+// 2015-10-15
+// Highlight: use two pointers; use dummyhead
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        
+        // use dummyhead to avoid case 1->null and 1 need to be removed
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = head;
+        ListNode p1 = dummyhead;
+        ListNode p2 = dummyhead;
+        
+        //use two pointers to decide when it is n from end
+        for(int i=0 ;i<n; i++){
+            p1 = p1.next;
+        }
+        
+        while(p1.next!=null){
+            p1 = p1.next; 
+            p2 = p2.next;
+        }
+        
+        //remove the target node
+        if(p2.next!=null)
+            p2.next = p2.next.next;
+        else p2.next = null;
+        
+        return dummyhead.next;
+    }
+}
