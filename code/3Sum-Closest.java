@@ -77,3 +77,36 @@ public class Solution {
         return val;
     }
 }
+
+
+/////////////////////////////////////////////////////
+// 2015-10-15
+// Highlight: naive approach, might be better to use set
+public class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int max_error = Integer.MAX_VALUE;
+        int rnt = 0;
+        
+        for(int i=0; i<nums.length-2; i++){
+            //if(nums[i]>=target && Math.abs(nums[i]-target)>=max_error) break;
+            if(i>0 && nums[i]==nums[i-1]) continue;
+            for(int j=i+1; j<nums.length-1; j++){
+                if(j!=i+1 && nums[j]==nums[j-1]) continue;
+                int sum = nums[i] + nums[j]; 
+                //if(sum>=target && Math.abs(sum-target)>=max_error) break;
+                for(int k=j+1; k<nums.length; k++){
+                    int three_sum = sum+nums[k];
+                    if(three_sum>=target && Math.abs(three_sum-target)>=max_error) break;
+                    else{
+                        max_error = Math.abs(three_sum-target);
+                        rnt = nums[i]+nums[j]+nums[k];
+                        if(max_error==0) return rnt;
+                    }
+                }
+            }
+        }
+        
+        return rnt;
+    }
+}
