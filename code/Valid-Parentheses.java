@@ -76,3 +76,34 @@ public class Solution {
         return stack.isEmpty();
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+// 2015/10/25
+// Highlight: stack operation
+public class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<Character>();
+        for(int i=0; i<s.length(); i++){
+            char c = s.charAt(i);
+            //if it is left side, push
+            if(c=='(' || c=='[' || c=='{')
+                stack.push(c);
+            // otherwise, pop if the element on top of the stack is correct
+            else{
+                if(stack.isEmpty())
+                    return false;
+                char peekc = stack.peek();
+                if( (c==')' && peekc=='(') || (c==']' && peekc =='[') || (c=='}' && peekc =='{')){
+                    stack.pop();
+                }else{
+                    return false;
+                }
+                
+            }
+        }
+        
+        if(stack.isEmpty()) return true;
+        return false;
+    }
+}
