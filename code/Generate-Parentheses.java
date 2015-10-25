@@ -82,3 +82,33 @@ public class Solution {
         }
     }
 }
+
+
+///////////////////////////////////////////////////////////
+// 2015/10/25
+// Highlight: use dfs
+public class Solution {
+    public List<String> generateParenthesis(int n) {
+        int left = 0;
+        int right = 0;
+        ArrayList<String> rnt = new ArrayList<String>();
+        dfs(left, right, "", n, rnt);
+        return rnt;
+    }
+    
+    public void dfs(int left, int right, String tmp, int n, ArrayList<String> rnt){
+        if(left+right==2*n){
+            rnt.add(tmp);
+            return;
+        }
+        
+        if(right<left){
+            dfs(left, right+1, tmp+")", n, rnt);
+        }
+        
+        if(left<n){
+            dfs(left+1, right, tmp+"(", n, rnt);
+        }
+        
+    }
+}
