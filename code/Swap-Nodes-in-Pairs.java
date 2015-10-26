@@ -95,3 +95,41 @@ public class Solution {
         
     }
 }
+
+
+/////////////////////////////////////////////////////////
+// 2015/10/25
+// Highlight: swap two nodes, need to have two pointers to identify first and second node to swap, and a pointer current to traverse the list
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode swapPairs(ListNode head) {
+        if(head==null || head.next==null) return head;
+        
+        ListNode dummyHead = new ListNode(-1);
+        dummyHead.next = head;
+        ListNode curr = dummyHead;
+        ListNode first = head;
+        ListNode second = head.next;
+        
+        while(first!=null && second!=null){
+            curr.next = second;
+            first.next = second.next;
+            second.next = first;
+            curr=first;
+            first = first.next;
+            if(first!=null){
+                second = first.next;
+            }else second = null;
+            
+        }
+        
+        return dummyHead.next;
+    }
+}
