@@ -61,3 +61,32 @@ public class Solution {
         return index;
     }
 }
+
+
+/////////////////////////////////////////////////////////////
+// 2015/10/29
+// Highlight: logic
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+        int idx = 0;
+        if(nums==null || nums.length==0) return 0;
+        int lastNum = nums[0];
+        int i=0;
+        while(i<nums.length){
+            //write last value when meet new value
+            if(lastNum!=nums[i]){
+                nums[idx] = lastNum;
+                lastNum = nums[i];
+                idx++;
+            }
+            //write last value in the array
+            if(i==nums.length-1){
+                nums[idx] = nums[i];
+                idx++;
+            }
+            i++;
+        }
+        
+        return idx;
+    }
+}
