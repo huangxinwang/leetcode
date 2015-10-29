@@ -128,3 +128,72 @@ public class Solution {
         return last;
     }
 }
+
+
+//////////////////////////////////////////////////////////////
+// 2015/10/29
+// Highlight: revers list and pointer
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode dummyhead = new ListNode(-1);
+        ListNode curr = dummyhead;
+        dummyhead.next = head;
+        
+        if(head==null) return head;
+        
+        ListNode first = head;
+        ListNode second = head;
+        int i = 0;
+        
+        while(i<k-1 && first!=null && second!=null){
+            second = second.next;
+            i++;
+            // find k list, reverse and continue
+            if(i==k-1 && second!=null){
+                ListNode nextFirst = second.next;
+                second.next = null;
+                ListNode tail = reverseList(first);
+                curr.next = second;
+                tail.next = nextFirst;
+                first = nextFirst;
+                second = nextFirst;
+                curr = tail;
+                i = 0;
+            }
+            
+        }
+        
+        return dummyhead.next;
+       
+    }
+    
+    // Reverse a k-list, and return tail
+    public ListNode reverseList(ListNode first){
+       ListNode tail = first;
+       ListNode tmp1 = first.next;
+       ListNode tmp2 = null;
+       if(tmp1!=null){
+           tmp2 = tmp1.next;
+       }
+       
+       while(first!=null && tmp1!=null){
+           tmp1.next = first;
+           first = tmp1;
+           tmp1 = tmp2;
+           if(tmp2!=null)
+            tmp2 = tmp2.next;
+           else tmp2 = null;
+       }
+       return tail;
+    }
+    
+    
+}
