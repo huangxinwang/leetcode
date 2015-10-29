@@ -18,3 +18,19 @@ public class Solution {
         return index;
     }
 }
+
+//////////////////////////////////////////////////////////////////////////////
+// 2015/10/29
+public class Solution {
+    public int removeElement(int[] nums, int val) {
+        
+        //use an index to keep track of current valid position in the array to write 
+        int idx = 0;
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]==val) continue;
+            else nums[idx] = nums[i];
+            idx++;
+        }
+        return idx;
+    }
+}
