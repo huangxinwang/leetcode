@@ -54,3 +54,35 @@ public class Solution {
         return -1;
     }
 }
+
+
+//////////////////////////////////////////////////////
+// 2015/10/30
+// Highlight: bruteforce
+// Time complexity: O(m*n)
+public class Solution {
+    public int strStr(String haystack, String needle) {
+        if(needle.length()==0 && haystack!=null) return 0;
+        int validLen = 0;
+        int currIdx = 0;
+        for(int i=0; i<haystack.length(); i++){
+            char hc = haystack.charAt(i);
+            char nc = needle.charAt(currIdx);
+            // if match
+            if(hc==nc){
+                currIdx++;
+                validLen++;
+                if(validLen==needle.length())
+                    return i-validLen+1;
+            }
+            // if not match
+            else{
+                // rollback i
+                i = i-validLen;
+                validLen = 0;
+                currIdx = 0;
+            }
+        }
+        return -1;
+    }
+}
