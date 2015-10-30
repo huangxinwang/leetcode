@@ -90,3 +90,37 @@ public class Solution {
         
     }
 }
+
+
+////////////////////////////////////////////////////////////////////
+// 2015/10/30
+public class Solution {
+    public int divide(int dividend, int divisor) {
+        
+        
+        if(divisor==0) return Integer.MAX_VALUE;
+        
+        //Note: need to put long before taking negative
+        long p = dividend < 0? - (long)dividend : dividend;
+        long q = divisor <0 ? - (long)divisor: divisor;
+        
+        long rnt = 0;
+        
+        //use bit operation, cool!
+        while(p>=q){
+            int count = 0;
+            while(p>=q << count){
+                count++;
+            }
+            
+            rnt += 1L << (count-1);
+            p -= q << (count-1);
+        }
+        
+        if(dividend<0 && divisor>0) rnt = -rnt;
+        if(dividend>0 && divisor<0) rnt = -rnt;
+        
+        if(rnt>Integer.MAX_VALUE) rnt = Integer.MAX_VALUE;
+        return (int)rnt;
+    }
+}
