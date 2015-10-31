@@ -158,3 +158,81 @@ public class Solution {
         return rnt;
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////////////
+// 2015/10/31
+// Highlight: hashmap, keep track of current window
+public class Solution {
+    public List<Integer> findSubstring(String s, String[] words) {
+        ArrayList<Integer> rnt = new ArrayList<Integer>();
+        int len = words[0].length();
+        
+        
+        // Hashmap for words 
+        HashMap<String, Integer> dict = new HashMap<String, Integer>();
+        for(String word: words){
+            if(dict.containsKey(word)){
+                dict.put(word, dict.get(word)+1);
+            }else{
+                dict.put(word, 1);
+            }
+        }
+        
+        // There are # len ways to start the string
+        for(int i=0; i<len; i++){
+            int count = 0;
+            int start = i;
+            HashMap<String, Integer> currMap = new HashMap<String, Integer>();
+            
+            //traverse the string
+            for(int j=i; j<=s.length()-len; j+=len){
+                String currword = s.substring(j, j+len);
+                
+                //use hashmap to keep track of current word count in current window
+                if(dict.containsKey(currword)){
+                    if(currMap.containsKey(currword)){
+                        int val = currMap.get(currword);
+                        if(val==dict.get(currword)){
+                            while(true){
+                                String wordHead = s.substring(start, start+len);
+                                if(wordHead.equals(currword)){
+                                    start += len;
+                                    break;
+                                }else{
+                                    currMap.put(wordHead, currMap.get(wordHead)-1);
+                                    count--;
+                                    start += len;
+                                }
+                            }
+                        }else{
+                            currMap.put(currword, val+1);
+                            count++;
+                        }
+                    }else{
+                        currMap.put(currword,1);
+                        count++;
+                    }
+                    
+                    // advance head by 1 word
+                    if(count == words.length){
+                        
+                        rnt.add(start);
+                        String wordHead = s.substring(start, start+len);
+                        currMap.put(wordHead, currMap.get(wordHead)-1);
+                        count--;
+                        start += len;
+                    }
+                    
+                }else{
+                    start = (j+len);
+                    currMap.clear();
+                    count = 0;
+                }
+            }
+        }
+        
+        
+        return rnt;
+    }
+}
