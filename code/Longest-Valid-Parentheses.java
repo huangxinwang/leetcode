@@ -87,3 +87,41 @@ public class Solution {
         return maxLen;
     }
 }
+
+
+
+/////////////////////////////////////////////////////////////////////
+//2015/11/01
+// Highlight: stack, one time traverse, different from longest valid palindrome (continuous v.s. discontinuous)
+public class Solution {
+    public int longestValidParentheses(String s) {
+        
+        Stack<Integer> stack = new Stack<Integer>();
+        int start = 0;
+        int max = 0;
+        
+        for(int i=0; i<s.length(); i++){
+            char c = s.charAt(i);
+            if(c=='('){
+                stack.push(i);
+            }else{
+                if(!stack.isEmpty()){
+                    
+                    stack.pop();
+                    // if I replace "stack.size()==0" with stack.isEmpty(), then time limit exceeds
+                    if(stack.size()==0){
+                          //only when the stack size is zero can we sum up all the length between (Start, i)
+                          // otherwise, we cannot ensure all the symbols between (Start, i) will be matched by ')'
+                          max = Math.max(max, i-start+1);
+                    }else{
+                        max = Math.max(max, i-stack.peek());
+                    }
+                }else{
+                    start = i+1;
+                }
+            }
+        }
+        
+        return max;
+    }
+}
