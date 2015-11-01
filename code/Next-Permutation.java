@@ -100,3 +100,50 @@ public class Solution {
         
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// 2015/10/31
+// Highlight: logic
+public class Solution {
+    public void nextPermutation(int[] nums) {
+        boolean found = false;
+        
+        int currmax = nums[nums.length-1];
+        
+        //from right to left, find the first element that is less than max value seen, denoted the index as i
+        int i=nums.length-1;
+        for(; i>=0; i--){
+            int val = nums[i];
+            if(val >= currmax){
+                currmax = val;
+            }else{
+                found = true;
+                break;
+            }
+        }
+        
+        //from right to left, find the first element that is larger than the value found in last step, denoted the index as k
+        int k = nums.length-1;
+        
+        //if such value exit, exchange i and k value
+        if(i>=0){
+            for(; k>i; k--){
+                if(nums[k]>nums[i])
+                    break;
+            }
+            
+            int tmp = nums[i];
+            nums[i] = nums[k];
+            nums[k] = tmp;
+        }
+        
+        
+        // reverse the values in the right of i, since all the numbers in the right of i is in decreasing order, reverse the list make it in increasing order so as to satisfy the property of next permutation
+        for(int m=nums.length-1; m>(i+nums.length-1)/2; m--){
+            int tmp = nums[m];
+            nums[m] = nums[i+nums.length-m];
+            nums[i+nums.length-m] = tmp;
+        }
+    }
+}
