@@ -107,7 +107,6 @@ public class Solution {
 // Highlight: logic
 public class Solution {
     public void nextPermutation(int[] nums) {
-        boolean found = false;
         
         int currmax = nums[nums.length-1];
         
@@ -118,7 +117,6 @@ public class Solution {
             if(val >= currmax){
                 currmax = val;
             }else{
-                found = true;
                 break;
             }
         }
