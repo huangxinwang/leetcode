@@ -130,3 +130,57 @@ public class Solution {
         }
     }
 }
+
+
+//////////////////////////////////////////////////////////////////////
+// 2015/11/01
+// Highlight: distinguish rotate and unrotate
+public class Solution {
+    public int search(int[] nums, int target) {
+        return helper(nums,0, nums.length-1, target);
+    }
+    
+    public int helper(int[] nums, int left, int right, int target){
+        
+        //special condition
+        if(left+1 == right){
+            if(nums[left]==target) return left;
+            if(nums[right] == target) return right;
+            return -1;
+        }
+        if(left>=right){
+            if(nums[left]==target) return left;
+            else return -1;
+        }else{
+            int mid = (left+right)/2;
+            int leftval = nums[left];
+            int midval = nums[mid];
+            int rightval = nums[right];
+            if(target==midval) return mid;
+            
+            //without rotation
+            if(leftval<midval && midval <rightval){
+                if(target>midval) return helper(nums, mid+1, right, target);
+                else return helper(nums, left, mid-1, target);
+            }
+            //with rotation
+            else{
+                
+                if(leftval < midval && midval > rightval){
+                    if(target<midval && target>= leftval){
+                        return helper(nums, left, mid-1, target);
+                    }else{
+                        return helper(nums, mid+1, right, target);
+                    }
+                }
+                //if(leftval > midval && midval < rightval){
+                else{
+                    if(midval<target && target <=rightval)
+                      return helper(nums, mid+1, right, target);
+                    else 
+                     return helper(nums, left, mid-1, target);
+                }
+            }
+        }
+    }
+}
