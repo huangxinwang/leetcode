@@ -77,3 +77,64 @@ public class Solution {
             return binarySearch(A, target, mid+1, right);
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 2015/11/02
+// Highlight: discuss by cases
+public class Solution {
+    
+    public int[] searchRange(int[] nums, int target) {
+        int[] rnt = new int[2];
+    
+        return helper(nums, 0, nums.length-1, target);
+        
+    }
+    
+    public int[] helper(int[] nums, int left, int right, int target){
+        
+        int[] rnt = new int[2];
+        rnt[0] = -1;
+        rnt[1] = -1;
+        
+         if(left>=right){
+            
+            if(nums[left]==target){
+                rnt[0] = left;
+                rnt[1] = left;
+                if(right>=0 && nums[right]==target) rnt[1] = right;
+                return rnt;
+                
+            }
+            return rnt;
+        }
+        
+        if(nums[left]==target && nums[right]==target){
+            rnt[0] = left;
+            rnt[1] = right;
+            return rnt;
+        }
+       
+        
+        int mid = (left+right)/2;
+        //Case 1: go to left
+        if(nums[mid]>target){
+            return helper(nums, left, mid-1,  target);
+        }
+        //Case 2: go to right
+        else if(nums[mid]<target){
+             return helper(nums, mid+1, right,  target);
+        }
+        //Case 3: go to both sides, and combine the results
+        else{
+            int[] tmp1 = helper(nums, left, mid-1, target);
+            int[] tmp2 = helper(nums, mid+1, right,  target);
+          
+            rnt[0] = mid;
+            rnt[1] = mid;
+            if(tmp1[0]!=-1) rnt[0] = tmp1[0];
+            if(tmp2[1]!=-1) rnt[1] = tmp2[1];
+            return rnt;
+        }
+    }
+}
