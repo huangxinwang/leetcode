@@ -47,3 +47,29 @@ public class Solution {
             return binarySearch(A, target, mid+1, right);
     }
 }
+
+///////////////////////////////////////////////////////////
+// 11/04/2015
+// Highlight: recursive search
+public class Solution {
+    public int searchInsert(int[] nums, int target) {
+        return help(nums, target, 0, nums.length-1);
+    }
+    
+    public int help(int[] nums, int target, int left, int right){
+        //decide return index
+        if(left>=right){
+            if(nums[left] >= target) return left;
+            else return left+1;
+        }
+        
+        //recursive explore
+        int mid = (left+right)/2;
+        if(nums[mid] > target)
+            return help(nums, target, left, mid-1);
+        else if(nums[mid] < target)
+            return help(nums, target, mid+1, right);
+        //if nums[mid]==target, recursive search left side
+        else return help(nums, target, left, mid);
+    }
+}
