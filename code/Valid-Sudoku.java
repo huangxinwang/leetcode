@@ -111,3 +111,67 @@ public class Solution {
         return true;
     }
 }
+
+
+///////////////////////////////////////////////////////////
+// 2015/11/04
+// Highlight: check in order
+public class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        int row = board.length;
+        int col = board[0].length;
+        
+        //check column
+        for(int k=0; k<row; k++){
+            HashSet<Character> map = new HashSet<Character>();
+            for(int i=0; i<col; i++){
+                char val = board[k][i];
+                if(val=='.') continue;
+                else if(map.contains(val)) return false;
+                else map.add(val);
+            }
+        }
+        
+        //check row
+        for(int k=0; k<col; k++){
+            HashSet<Character> map = new HashSet<Character>();
+            for(int i=0; i<row; i++){
+                char val = board[i][k];
+                if(val=='.') continue;
+                else if(map.contains(val)) return false;
+                else  map.add(val);
+            }
+        }
+        
+        //check 3*3 box
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                if(!isValid(board,i,j)) return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    
+    //check validity at a curtain location of 3*3 box
+    public boolean isValid(char[][] board, int x, int y){
+        int row = board.length;
+        int col = board[0].length;
+
+        int x_idx = x/3;
+        int y_idx = y/3;
+        
+        HashSet<Character> map = new HashSet<Character>();
+        for(int i=3*x_idx; i<3*(x_idx+1); i++){
+            for(int j=3*y_idx; j<3*(y_idx+1); j++){
+                char val = board[i][j];
+                if(val=='.') continue;
+                else if(map.contains(val)) return false;
+                else  map.add(val);
+            }
+        }
+        
+        return true;
+    }
+}
