@@ -126,3 +126,67 @@ public class Solution {
         return true;
     }
 }
+
+
+/////////////////////////////////////////////////////////
+// 2015/11/03
+// Highlight: dfs
+public class Solution {
+    public void solveSudoku(char[][] board) {
+        int row = board.length;
+        int col = board[0].length;
+        dfs(board, 0, 0);
+        
+    }
+    
+    public boolean dfs(char[][] board, int x, int y){
+        if(x==board.length) return true;
+        if(y==board[0].length) return dfs(board, x+1, 0);
+        
+        if(board[x][y]=='.'){
+            for(int k=1; k<=9; k++){
+                board[x][y] = (char)('0'+k);
+                if(isValid(board, x,y)){
+                    if(dfs(board, x, y+1)) return true;
+                }
+            }
+            
+            //discuss about this line
+            //dfs, reset for other branch
+            board[x][y] = '.';
+        }
+       
+        
+        else return dfs(board, x, y+1);
+        return false;
+    }
+    
+    //check valid
+    public boolean isValid(char[][] board, int x, int y){
+        int row = board.length;
+        int col = board[0].length;
+        for(int i=0; i<col; i++){
+            if(i!=y && board[x][i]!='.'){
+                if(board[x][i]==board[x][y]) return false;
+            }
+        }
+        
+        for(int i=0; i<row; i++){
+            if(i!=x && board[i][y]!='.'){
+                if(board[i][y]==board[x][y]) return false;
+            }
+        }
+        
+        int x_idx = x/3;
+        int y_idx = y/3;
+        for(int i=x_idx*3; i<3*(x_idx+1); i++){
+            for(int j=y_idx*3; j<3*(y_idx+1); j++){
+                if(board[i][j]!='.' && (i!=x && j!=y)){
+                    if(board[i][j] == board[x][y]) return false;
+                }
+            }
+        }
+        
+        return true;
+    }
+}
