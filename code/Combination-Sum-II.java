@@ -95,3 +95,49 @@ public class Solution {
         }
     }
 }
+
+
+////////////////////////////////////////////////////////
+// 2015/11/04
+// Highlight: keep track of whether a number is used or not
+public class Solution {
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        ArrayList<Integer> curr = new ArrayList<Integer>();
+        int sum = 0;
+        int depth = 0;
+        boolean[] used = new boolean[candidates.length];
+        dfs(candidates,used, target, sum, depth, rnt, curr);
+        return rnt;
+    }
+    
+    public void dfs(int[] candidates,boolean[] used, int target, int sum, int depth, List<List<Integer>> rnt, ArrayList<Integer> curr){
+        if(sum==target){
+            ArrayList<Integer> newList = new ArrayList<Integer>(curr);
+            rnt.add(newList);
+            return;
+        }
+        if(depth>=candidates.length || sum > target) return;
+        
+        //skip current number
+        dfs(candidates, used, target, sum, depth+1, rnt, curr);
+         
+        //not skip current number
+        //Case 1: same number has not be used, have to skip :(
+        if(depth>0 && (candidates[depth]==candidates[depth-1]) && used[depth-1]==false){
+            
+        }
+        
+        //Case 2: no need to skip
+        else{
+            used[depth] = true;
+            curr.add(candidates[depth]);
+            dfs(candidates, used, target, sum + candidates[depth], depth+1, rnt, curr);
+            curr.remove(curr.size()-1);
+            used[depth] = false;
+            
+        }
+       
+    }
+}
