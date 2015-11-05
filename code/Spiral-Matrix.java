@@ -54,4 +54,38 @@ public class Solution {
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
-//Round 2: 12/29/2014
+// 2015/11/04
+// Highlight: corner cases, avoid repete traverse
+public class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        ArrayList<Integer> rnt = new ArrayList<Integer>();
+        if(matrix.length==0) return rnt;
+        int m = matrix.length;
+        int n = matrix[0].length;
+       
+       
+        
+        for(int k=0; k<=Math.min(m,n)/2; k++){
+          
+           for(int j=k; j<n-k; j++)
+                rnt.add(matrix[k][j]);
+                
+           for(int i=k+1; i<m-k-1; i++)
+                rnt.add(matrix[i][n-k-1]);
+                
+           if(k!=m-k-1){
+               for(int j=n-k-1; j>=k; j--)
+                    rnt.add(matrix[m-k-1][j]);
+           }
+               
+           if(k!=n-k-1){ 
+            for(int i=m-k-2; i>=k+1; i--)
+                rnt.add(matrix[i][k]);
+           }
+           
+           if(rnt.size() == m*n) break;
+        }
+        
+        return rnt;
+    }
+}
