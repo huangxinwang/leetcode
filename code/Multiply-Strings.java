@@ -74,23 +74,23 @@ public class Solution {
         //multiple each char in two strings correspondingly, 
         int i,j;
         int carry = 0;
+        int product = 0;
         for( i=len1-1; i>=0; i--){
             carry = 0;
             for( j=len2-1; j>=0; j--){
                 int val1 = Character.getNumericValue(num1.charAt(i));
                 int val2 = Character.getNumericValue(num2.charAt(j));
-                int product = val1*val2+carry+rnt[i+j+1];
-                int val = product%10;
-                rnt[i+j+1] = val;
-                carry = val/10;
-               
+                product = val1*val2+carry+rnt[i+j+1];
+                rnt[i+j+1] =product%10;
+                carry = product/10;
             }
             
+            //note that j  has already --
             rnt[i+j+1] = carry;
         }
         
 
-        
+        // skip precreeding 0
         i = 0;
         while(i<rnt.length && rnt[i]==0){
             i++;
