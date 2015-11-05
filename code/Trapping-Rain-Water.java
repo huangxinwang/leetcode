@@ -110,3 +110,53 @@ public class Solution {
         return sum;
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////
+// 2015/11/04
+// Highlight: logic
+public class Solution {
+    public int trap(int[] height) {
+        //special case
+        if(height==null || height.length<=1) return 0;
+        
+        int sum = 0;
+        int leftmax = height[0];
+        int leftidx = 0;
+        int tmp = 0;
+        
+        //collect water from leftside
+        for(int i=1; i<height.length; i++){
+            //if current height is less than leftmax, then collect water
+            if(height[i]<leftmax){
+                tmp += (leftmax-height[i]);
+                continue;
+            }
+            //sum up water when meet a height no less than rightmax
+            else{
+                sum += tmp;
+                leftmax = height[i];
+                leftidx = i;
+                tmp = 0;
+            }
+        }
+        
+        //collect water from right side
+        int rightmax = height[height.length-1];
+        int rightidx = height.length-1;
+        tmp = 0;
+        for(int i=height.length-2; i>=leftidx; i--){
+            if(height[i]<rightmax) {
+                tmp += (rightmax-height[i]);
+            }
+            else if(height[i]>=rightmax){
+                sum += tmp;
+                rightmax = height[i];
+                rightidx = i;
+                tmp = 0;
+            }
+        }
+        
+        return sum;
+    }
+}
