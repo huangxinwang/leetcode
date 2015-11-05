@@ -99,3 +99,36 @@ public class Solution {
         return laststr;
     }
 }
+
+//////////////////////////////////////////////////////////////
+// 2015/11/03
+// Highlight: recursive
+public class Solution {
+    public String countAndSay(int n) {
+        String in = "1";
+        int i = 1;
+        while(i<n){
+            in = read(in);
+            i++;
+        }
+        
+        return in;
+    }
+    
+    public String read(String in){
+        StringBuilder out = new StringBuilder();
+        for(int i=0; i<in.length(); i++){a
+            char c = in.charAt(i);
+   
+            int count = 1;
+            while(i<in.length()-1 && in.charAt(i+1)==c){
+                count++;
+                i++;
+            }
+            //be careful about (int + char)
+            out.append(count+""+c);
+           
+        }
+        return out.toString();
+    }
+}
