@@ -57,3 +57,22 @@ public class Solution {
         return max;
     }
 }
+
+
+////////////////////////////////////////////
+// 2015/11/05
+// Highlight: logic
+public class Solution {
+    public int maxSubArray(int[] nums) {
+        int max = nums[0];
+        int curr = nums[0]<0? 0: nums[0];
+        for(int i=1; i<nums.length; i++){
+            curr = curr + nums[i];
+            if(max<curr) max = curr;
+            //discard previous traversed, if curr <0
+            if(curr<0) curr = 0;
+        }
+        
+        return max;
+    }
+}
