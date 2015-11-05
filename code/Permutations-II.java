@@ -82,3 +82,36 @@ public class Solution {
         }
     }
 }
+
+
+//////////////////////////////////////////////////////////////
+// 2015/11/04
+// Highlight: dfs, use an array to keep track of whether a number is used
+public class Solution {
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        ArrayList<Integer> curr = new ArrayList<Integer>();
+        int depth = 0;
+        boolean[] used = new boolean[nums.length];
+        dfs(nums, used, depth, rnt ,curr);
+        return rnt;
+    }
+    
+    public void dfs(int[] nums, boolean[] used, int depth, List<List<Integer>> rnt, ArrayList<Integer> curr){
+        if(depth == nums.length){
+            rnt.add(new ArrayList<Integer>(curr));
+            return;
+        }
+        
+        for(int i=0; i<nums.length; i++){
+            if(used[i]) continue;
+            if(i>0 && nums[i]==nums[i-1] && used[i-1]==false) continue;
+            used[i] = true;
+            curr.add(nums[i]);
+            dfs(nums, used, depth+1, rnt, curr);
+            curr.remove(curr.size()-1);
+            used[i] = false;
+        }
+    }
+}
