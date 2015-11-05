@@ -60,3 +60,37 @@ public class Solution {
         return Long.toString(rnt);
     }
 }
+
+
+///////////////////////////////////////////////////////////////////
+// 2015/11/05
+//Highlight: use map, and use string sort
+public class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        HashMap<String, List<String>> map = new HashMap<String, List<String>>();
+        List<List<String>> rnt = new ArrayList<List<String>>();
+        
+        //use map to group strings
+        for(int i=0; i<strs.length; i++){
+            String curr = strs[i];
+            char[] array = curr.toCharArray();
+            Arrays.sort(array);
+            String sorted = new String(array);
+            List<String> list = new ArrayList<String>();
+            if(map.containsKey(sorted)){
+                list = map.get(sorted);
+            }
+            list.add(strs[i]);
+            map.put(sorted, list);
+        }
+        
+        //sort strings in list
+        for(String key: map.keySet()){
+            List<String> list = map.get(key);
+            java.util.Collections.sort(list);
+            rnt.add(list);
+        }
+        
+        return rnt;
+    }
+}
