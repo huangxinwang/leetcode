@@ -95,3 +95,39 @@ public class Solution {
         }
     }
 }
+
+
+//////////////////////////////////////////////////////////
+// 2015/11/03
+// Highlight: dfs
+public class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        ArrayList<Integer> curr = new ArrayList<Integer>();
+        int sum = 0;
+        int depth = 0;
+        dfs(candidates, target, sum, rnt, curr, depth);
+        return rnt;
+    }
+    
+    public void dfs(int[] candidates, int target, int sum, ArrayList<List<Integer>> rnt, List<Integer> curr, int depth){
+        if(sum==target){
+            ArrayList<Integer> newLsit = new ArrayList<Integer>(curr);
+            rnt.add(newList);
+            return;
+        }
+        if(depth>=candidates.length || sum>target){
+            return;
+        }
+        
+        dfs(candidates, target, sum, rnt, curr.add(candidates[depth]), depth);
+        curr.remove(curr.size()-1);
+        
+        int lastVal = candidates[depth];
+        while(depth<candidates.length-1 && candidates[depth+1]==lastVal){
+           depth++;
+        }
+        dfs(candidates, target, sum, rnt, curr, depth);
+    }
+}
