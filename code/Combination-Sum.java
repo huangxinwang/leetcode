@@ -111,23 +111,27 @@ public class Solution {
         return rnt;
     }
     
-    public void dfs(int[] candidates, int target, int sum, ArrayList<List<Integer>> rnt, List<Integer> curr, int depth){
+    public void dfs(int[] candidates, int target, int sum, List<List<Integer>> rnt, ArrayList<Integer> curr, int depth){
         if(sum==target){
             ArrayList<Integer> newLsit = new ArrayList<Integer>(curr);
-            rnt.add(newList);
+            rnt.add(newLsit);
             return;
         }
         if(depth>=candidates.length || sum>target){
             return;
         }
         
-        dfs(candidates, target, sum, rnt, curr.add(candidates[depth]), depth);
+        //add current value at index depth
+        curr.add(candidates[depth]);
+        dfs(candidates, target, sum+candidates[depth], rnt, curr, depth);
         curr.remove(curr.size()-1);
         
+        //not add current value at depth
         int lastVal = candidates[depth];
         while(depth<candidates.length-1 && candidates[depth+1]==lastVal){
            depth++;
         }
+        depth++;
         dfs(candidates, target, sum, rnt, curr, depth);
     }
 }
