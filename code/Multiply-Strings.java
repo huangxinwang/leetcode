@@ -60,3 +60,50 @@ public class Solution {
     
    
 }
+
+////////////////////////////////////////////////////////////
+// 2015/11/04
+// Highlight: multiple each two character, put num1[i]*nums[j] in rnt[i+j+1], take care of product and carry
+public class Solution {
+    public String multiply(String num1, String num2) {
+        int len1 = num1.length();
+        int len2 = num2.length();
+        int len3 = len1 + len2;
+        int[] rnt = new int[len3];
+        
+        //multiple each char in two strings correspondingly, 
+        int i,j;
+        int carry = 0;
+        for( i=len1-1; i>=0; i--){
+            carry = 0;
+            for( j=len2-1; j>=0; j--){
+                int val1 = Character.getNumericValue(num1.charAt(i));
+                int val2 = Character.getNumericValue(num2.charAt(j));
+                int product = val1*val2+carry+rnt[i+j+1];
+                int val = product%10;
+                rnt[i+j+1] = val;
+                carry = val/10;
+               
+            }
+            
+            rnt[i+j+1] = carry;
+        }
+        
+
+        
+        i = 0;
+        while(i<rnt.length && rnt[i]==0){
+            i++;
+        }
+        
+        if(i==rnt.length) return "0";
+        
+        StringBuilder sb = new StringBuilder();
+        while(i<rnt.length){
+            sb.append(rnt[i]);
+            i++;
+        }
+        
+        return sb.toString();
+    }
+}
