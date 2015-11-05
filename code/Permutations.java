@@ -81,3 +81,37 @@ public class Solution {
         }
     }
 }
+
+
+
+///////////////////////////////////////////////////////////////
+// 2015/11/04
+// Hilight: dfs
+public class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        ArrayList<Integer> curr = new ArrayList<Integer>();
+        boolean[] used = new boolean[nums.length];
+        int depth = 0;
+        
+        dfs(nums, used, depth, rnt, curr);
+        
+        return rnt;
+    }
+    
+    public void dfs(int[] nums, boolean[] used, int depth, List<List<Integer>> rnt, ArrayList<Integer> curr){
+        if(depth==nums.length){
+            rnt.add(new ArrayList<Integer>(curr));
+        }
+        
+        for(int i=0; i<used.length; i++){
+            if(used[i]) continue;
+            
+            curr.add(nums[i]);
+            used[i] = true;
+            dfs(nums, used, depth+1, rnt, curr);
+            used[i] = false;
+            curr.remove(curr.size()-1);
+        }
+    }
+}
