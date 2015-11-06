@@ -204,3 +204,45 @@ public class Solution {
         }
     }
 }
+
+
+///////////////////////////////////////////////
+// 2015/11/05
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+public class Solution {
+    public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+        List<Interval> rnt = new ArrayList<Interval>();
+        if(intervals.size()==0){
+            rnt.add(newInterval);
+            return rnt;
+        }
+        
+        //compare v1 with newInterval
+        for(int i=0; i<intervals.size(); i++){
+            Interval v1 = intervals.get(i);
+            
+            if(newInterval.end<v1.start){
+                rnt.add(newInterval);
+                newInterval = v1;
+            }else{
+                if(v1.end<newInterval.start){
+                    rnt.add(v1);
+                }else {
+                    int minstart = Math.min(v1.start, newInterval.start);
+                    int maxend = Math.max(v1.end, newInterval.end);
+                    newInterval = new Interval(minstart,maxend );
+                }
+            }
+        }
+        rnt.add(newInterval);
+        return rnt;
+    }
+}
