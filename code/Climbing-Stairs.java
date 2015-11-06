@@ -48,3 +48,23 @@ public class Solution {
         return second;
     }
 }
+
+
+/////////////////////////////////////////////////////
+// 2015/11/06
+// Highlight: 1D DP
+public class Solution {
+    public int climbStairs(int n) {
+        int[] rnt = new int[n+1];
+        rnt[0] = 0;
+        rnt[1] = 1;
+        if(n>=2) rnt[2] = 2;
+        for(int i=3; i<=n; i++){
+            rnt[i] = rnt[i-1] + rnt[i-2];
+        }
+        
+        return rnt[n];
+    }
+    
+    
+}
