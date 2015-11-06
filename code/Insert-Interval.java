@@ -116,3 +116,91 @@ public class Solution {
         
     }
 }
+
+
+////////////////////////////////////////////////
+// 2015/11/05
+// Comment: ugly
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+public class Solution {
+    public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+        List<Interval> rnt = new ArrayList<Interval>();
+        Collections.sort(intervals, new IntervalComparator());
+        
+        if(intervals.size()==0){
+            rnt.add(newInterval);
+            return rnt;
+        }
+        
+        int idx = 0;
+        while(idx<intervals.size()){
+            Interval v1 = intervals.get(idx);
+            if(v1.end<newInterval.start){
+                rnt.add(v1);
+            }else break;
+            idx++;
+        }
+        
+        if(idx>=intervals.size()){
+            rnt.add(newInterval);
+            return rnt;
+        }
+        
+        //5 conditions
+        int i = 0;
+        for(i = idx; i<intervals.size(); i++){
+            Interval v1 = intervals.get(i);
+            if(newInterval.end<v1.start){
+                rnt.add(newInterval);
+                break;
+            }
+            else if(newInterval.end<=v1.end){
+               if(v1.start<=newInterval.start){
+                   Interval v2 = new Interval(v1.start, v1.end);
+                   rnt.add(v2);
+                   i++;
+                   break;
+               }else{
+                   Interval v2 = new Interval(newInterval.start, v1.end);
+                   newInterval = v2;
+                   
+               }
+            }else{
+                if(v1.start<newInterval.start){
+                    Interval v2 = new Interval(v1.start, newInterval.end);
+                    newInterval = v2;
+                }
+            }
+            
+            if(i==intervals.size()-1){
+                rnt.add(newInterval);
+            }
+        }
+        
+        //add the rest of intervals
+        while(i<=intervals.size()-1){
+            rnt.add(intervals.get(i));
+            i++;
+        }
+        
+        return rnt;
+    }
+    
+    //interval comparator
+    public class IntervalComparator implements Comparator<Interval>{
+        @Override
+        public int compare(Interval v1, Interval v2){
+            if(v1.start!=v2.start)
+                return v1.start - v2.start;
+            else return v1.end - v2.end;
+        }
+    }
+}
