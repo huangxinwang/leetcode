@@ -104,3 +104,56 @@ public class Solution {
         }
     }
 }
+
+
+//////////////////////////////////////////////////////////////////
+//2015/11/05
+// Highlight: comparator
+/**
+ * Definition for an interval.
+ * public class Interval {
+ *     int start;
+ *     int end;
+ *     Interval() { start = 0; end = 0; }
+ *     Interval(int s, int e) { start = s; end = e; }
+ * }
+ */
+public class Solution {
+    public List<Interval> merge(List<Interval> intervals){
+        Collections.sort(intervals, new IntervalComparator());
+        
+        ArrayList<Interval> rnt = new ArrayList<Interval>();
+        
+        if(intervals.size()==0) return rnt;
+        
+        //merge intervals one by one
+        Interval v1 = intervals.get(0);
+        for(int i=1; i<intervals.size(); i++){
+            Interval v2 = intervals.get(i);
+            if(v1.end<v2.start){
+                rnt.add(v1);
+                v1 = v2;
+            }else if(v1.end >= v2.end){
+                Interval newInterval = new Interval(v1.start, v1.end);
+                v1 = newInterval;
+            }else{
+                Interval newInterval = new Interval(v1.start, v2.end);
+                v1 = newInterval;
+            }
+        }
+        rnt.add(v1);
+        return rnt;
+    }
+    
+    //implement comparator
+    public class IntervalComparator implements Comparator<Interval>{
+        @Override
+        public int compare(Interval v1, Interval v2){
+            if(v1.start!=v2.start){
+                return v1.start-v2.start;
+            }else
+                return v1.end-v2.end;
+        }
+    }
+}
+
