@@ -107,3 +107,96 @@ public class Solution {
         return true;
     }
 }
+
+
+/////////////////////////////////////////////////////
+// 2015/11/05
+// Highlight: dfs
+// Time complexity: O(n^3)
+public class Solution {
+    public int totalNQueens(int n) {
+        char[][] board = new char[n][n];
+        List<List<String>> rnt = new ArrayList<List<String>>();
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                board[i][j] = '.';
+            }
+        }
+        
+        int depth = 0;
+        dfs(board, depth, rnt, 0);
+        return rnt.size();
+    }
+    
+     //for each line, for each colume try to put a queen there
+    public void dfs(char[][] board, int depth, List<List<String>> rnt, int x){
+        int row = board.length;
+        int col = board[0].length;
+        if(depth==row){
+            rnt.add(readBoard(board));
+            return;
+        }
+        
+        if(x>=row){
+            return;
+        }
+        
+        //for each column, try to put queen there
+        for(int i=0; i<board.length; i++){
+             if(board[x][i]=='.'){
+            
+                board[x][i] = 'Q';
+                
+                if(validBoard(board, x, i)){
+                  dfs(board, depth+1, rnt, x+1);
+                }
+               
+                board[x][i] = '.';
+               
+            }
+        }
+
+
+    }
+
+    
+    //print board
+    public ArrayList<String> readBoard(char[][] board){
+        ArrayList<String> rnt = new ArrayList<String>();
+        for(int i=0; i<board.length; i++){
+            String currline = "";
+            for(int j=0; j<board[0].length; j++){
+                currline +=board[i][j];
+            }
+            rnt.add(currline);
+        }
+        
+        return rnt;
+    }
+    
+    //check if valid
+    public boolean validBoard(char[][] board, int x, int y){
+        int row = board.length;
+        int col = board[0].length;
+        for(int j=0; j<col; j++){
+            if(board[x][j]=='Q' && (j!=y)) return false;
+        }
+        
+        for(int i=0; i<row; i++){
+            if(i!=x && board[i][y] == 'Q') return false;
+        }
+        
+        for(int i=0; i<row; i++){
+            for(int j=0; j<col; j++){
+                
+                if(i==x && j==y) continue;
+                if(board[i][j] == 'Q'){
+                    if(Math.abs(i-x) == Math.abs(j-y)) return false;
+                }
+                
+            }
+        }
+        
+        return true;
+    }
+}
