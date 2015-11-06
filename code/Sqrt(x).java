@@ -48,3 +48,28 @@ public class Solution {
         else return bs(low, mid, x);
     }
 }
+
+///////////////////////////////////////////////////////////////
+// 2015/11/06
+// Highlight: long and int
+public class Solution {
+    public int mySqrt(int x) {
+        return (int)help(0,x,x);
+    }
+    
+    //left and right has to be in long type
+    public long help(long left, long right, int x){
+        if(left>=right) return left;
+        
+        long mid = left + (right-left)/2;
+        
+        if(mid*mid==x) return mid;
+        
+        else if(mid*mid<x){
+            if((mid+1)*(mid+1)>x) return mid;
+            else return help(mid+1, right, x);
+        }
+        
+        else return help(left,mid, x);
+    }
+}
