@@ -58,3 +58,33 @@ public class Solution {
         return rnt;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////
+// 2015/11/06
+// Highlight: logic
+public class Solution {
+    public int[] plusOne(int[] digits) {
+        int[] rnt = new int[digits.length+1];
+        
+        //sum from the right hand side
+        int carry = 1;
+        for(int i=0; i<digits.length; i++){
+            int sum = digits[digits.length-1-i] + carry;
+            rnt[rnt.length-1-i] = sum%10;
+            carry = sum/10;
+        }
+        
+        if(carry!=0) rnt[0] = carry;
+        
+        int len = rnt[0]==0? rnt.length-1: rnt.length;
+        if(len==rnt.length) return rnt;
+        else{
+            int[] adjustrnt = new int[len];
+            for(int i=1; i<rnt.length; i++){
+                adjustrnt[i-1] = rnt[i];
+            }
+            return adjustrnt;
+        }
+    }
+}
