@@ -193,3 +193,88 @@ public class Solution {
        return rnt;
     }
 }
+
+
+//////////////////////////////////////////////////////////////////
+// 2015/11/06
+// Highlight: corner case
+public class Solution {
+    public List<String> fullJustify(String[] words, int maxWidth) {
+        List<String> rnt = new ArrayList<String>();
+        
+        int currspace = 0;
+        int lastidx = 0;
+        int idx = 0;
+        int count = 0;
+        int currlen = 0;
+        while(idx<words.length){
+            
+            //reach last words
+            if(idx==words.length-1){
+                //deal with last string
+                String str = new String();
+                for(int i=lastidx; i<=idx; i++){
+                    str += words[i];
+                    if(i!=idx)
+                        str += " ";
+                }
+                while(str.length()<maxWidth){
+                    str += " ";
+                }
+                rnt.add(str);
+                
+            }
+            //not last words
+            else{
+                if(lastidx!=idx)
+                    currspace++;
+                count++;
+                currlen += words[idx].length();
+                
+                //reach length
+                if(currlen + words[idx+1].length() + currspace>=maxWidth){
+                    //array current string
+                    rnt.add(getString(words, lastidx, idx, currlen, count, maxWidth));
+                    count = 0;
+                    currlen = 0;
+                    currspace = 0;
+                    lastidx = idx+1;
+                }
+            }
+            
+            idx++;
+        }
+        
+        return rnt;
+    }
+    
+    //construct a line of string
+    public String getString(String[] words, int lastidx, int idx, int currlen, int count, int maxWidth){
+        String rnt = new String();
+        if(count==1){
+            rnt += words[lastidx];
+            while(rnt.length()<maxWidth){
+                rnt += " ";
+            }
+            return rnt;
+        }
+        
+        int spaceCount = (maxWidth - currlen)/(count-1);
+        int firstspace = maxWidth - currlen - (spaceCount)*(count-1);
+        for(int i = lastidx; i<=idx; i++){
+            
+                rnt += words[i];
+                if(i!=idx){
+                    for(int j=0; j<spaceCount; j++){
+                        rnt += " ";
+                    }
+                    if(firstspace>0){
+                        rnt += " ";
+                        firstspace--;
+                    }
+                }
+            }
+        
+        return rnt;
+    }
+}
