@@ -112,3 +112,58 @@ public class Solution {
         return nexthead;
     }
 }
+
+
+////////////////////////////////////////////////////////////////
+// 2015/11/05
+// Highlight: split and rotate
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode rotateRight(ListNode head, int k) {
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = head;
+        ListNode first = dummyhead.next;
+        int len = 0;
+        
+        while(first!=null){
+            len++;
+            first = first.next;
+        }
+        if(len==0) return head;
+        
+        k = k%len;
+        //to the right, so it is len - k
+        k = len - k;
+        if(k==0) return head;
+        
+        //split first part and second part
+        first = dummyhead.next;
+        while(k>0){
+            first = first.next;
+            k--;
+        }
+        if(first==null) return head;
+        
+        //connect two parts
+        ListNode second = dummyhead.next;
+        ListNode rnt = first;
+ 
+        while(first.next!=null){
+            first = first.next;
+        }
+        first.next = second;
+        while(second.next!=rnt){
+            second = second.next;
+        }
+        second.next = null;
+        
+        return rnt;
+    }
+}
