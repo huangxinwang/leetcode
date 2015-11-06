@@ -57,3 +57,29 @@ public class Solution {
         return len;
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////
+// 2015/11/05
+// Highlight: keep track of last non-empty
+public class Solution {
+    public int lengthOfLastWord(String s) {
+        boolean exist = false;
+        int lastLen = 0;
+        int currLen = 0;
+        
+        //keep track of length of last non-empty string
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i)==' '){
+                if(currLen!=0) lastLen = currLen;
+                currLen = 0;
+            }else{
+                exist = true;
+                currLen++;
+            } 
+        }
+        
+        if(exist && currLen==0) return lastLen;
+        return currLen;
+    }
+}
