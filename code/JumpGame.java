@@ -50,3 +50,23 @@ public class Solution {
         return false;
     }
 }
+
+
+////////////////////////////////////////////////////////
+// 2015/11/05
+// Highlight: logic
+public class Solution {
+    public boolean canJump(int[] nums) {
+        
+        int max = 0;
+        
+        //use max to indicate the longest distance to go
+        for(int i=0; i<nums.length && i<=max; i++){
+            int curr = nums[i]+i;
+            if(max<curr) max = curr;
+            if(max>=nums.length-1) return true;
+        }
+        
+        return false;
+    }
+}
