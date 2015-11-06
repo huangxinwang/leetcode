@@ -112,3 +112,44 @@ public class Solution {
         return rnt;
     }
 }
+
+
+//////////////////////////////////////////////////////
+//2015/11/05
+// Highlight: corner cases
+public class Solution {
+    public int[][] generateMatrix(int n) {
+        
+        int[][] rnt = new int[n][n];
+        
+        int val = 1;
+        for(int k=0; k<=n/2; k++){
+            for(int j=k; j<=n-k-1; j++){
+                rnt[k][j] = val;
+                val++;
+            }
+            
+            for(int i=k+1; i<=n-k-2; i++){
+                rnt[i][n-k-1] = val;
+                val++;
+            }
+            
+            //check to avoid writtig the same row, col
+            if(k!=n-k-1){
+                for(int j=n-k-1; j>=k; j--){
+                    rnt[n-k-1][j] = val;
+                    val++;
+                }
+                
+                for(int i=n-k-2; i>=k+1; i--){
+                    rnt[i][k] = val;
+                    val++;
+                }
+            }
+            
+            if(val==n) break; 
+        }
+        
+        return rnt;
+    }
+}
