@@ -83,3 +83,23 @@ public class Solution {
         return currLen;
     }
 }
+
+
+///////////////////////////////////////////////////////
+// 2015/11/05
+// Highlight: traverse from the end
+public class Solution {
+    public int lengthOfLastWord(String s) {
+        int len = 0;
+        for(int i=s.length()-1; i>=0; i--){
+            char c = s.charAt(i);
+            if(c!=' '){
+                len++;
+            }else{
+                if(len!=0) break;
+            }
+        }
+        
+        return len;
+    }
+}
