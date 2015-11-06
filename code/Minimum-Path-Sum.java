@@ -63,3 +63,34 @@ public class Solution {
         return dist[row-1][col-1];
     }
 }
+
+
+////////////////////////////////////////////////////////////
+// 2015/11/06
+// Highlight: 2D DP
+public class Solution {
+    public int minPathSum(int[][] grid) {
+        if(grid.length==0) return 0;
+        
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] sum = new int[m][n];
+        
+        for(int i=0; i<m; i++){
+            if(i==0) sum[i][0] = grid[i][0];
+            else sum[i][0] = sum[i-1][0] + grid[i][0];
+        }
+        
+        for(int j=1; j<n; j++){
+            sum[0][j] = sum[0][j-1] + grid[0][j];
+        }
+        
+        for(int i=1; i<m; i++){
+            for(int j=1; j<n; j++){
+                sum[i][j] = grid[i][j] + Math.min(sum[i-1][j], sum[i][j-1]);
+            }
+        }
+        
+        return sum[m-1][n-1];
+    }
+}
