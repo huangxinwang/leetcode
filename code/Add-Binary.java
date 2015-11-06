@@ -116,3 +116,46 @@ public class Solution {
         else return "1"+curr;
     }
 }
+
+
+//////////////////////////////////////////////////////
+//2015/11/06
+// Highlight: note to add from right side
+public class Solution {
+    public String addBinary(String a, String b) {
+        int alen = a.length();
+        int blen = b.length();
+        String rnt = new String();
+        
+        //Add from right side
+        int i=0;
+        int j =0;
+        int carry = 0;
+        while(i<alen && j<blen){
+            int val1 = a.charAt(alen-1-i)-'0';
+            int val2 = b.charAt(blen-1-j)-'0';
+            int sum = val1+val2+carry;
+            int prod = sum%2;
+            carry = sum/2;
+            rnt = prod+""+rnt;
+            i++;
+            j++;
+        }
+        
+        String str = i<alen? a: b;
+        int limit = i<alen? alen: blen;
+        int k = i<alen? i: j;
+        while(k<limit){
+            int val1 = str.charAt(limit-1-k)-'0';
+            int sum = val1+carry;
+            int prod = sum%2;
+            carry = sum/2;
+            rnt = prod +""+ rnt;
+            k++;
+        }
+        
+        if(carry!=0) rnt = carry+rnt;
+        
+        return rnt;
+    }
+}
