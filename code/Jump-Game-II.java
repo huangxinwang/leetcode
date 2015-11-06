@@ -88,3 +88,33 @@ public class Solution {
     return Integer.MAX_VALUE;
     }
 }
+
+
+////////////////////////////////////////////////////////////
+// 2015/11/05
+// Highlight: keep track of maxCovered length, and update the min-step correspondingly
+public class Solution {
+    public int jump(int[] nums) {
+        
+        int[] min = new int[nums.length];
+        for(int i=0; i<min.length; i++)
+            min[i] = i;
+        
+        min[0] = 0;
+        int maxCover = 0;
+        for(int i=0; i<min.length; i++){
+            int curr = i+nums[i];
+            //update all the length covered
+            if(curr>maxCover){
+                maxCover = curr;
+                for(int j=i+1; j<=maxCover && j<=nums.length-1; j++){
+                    min[j] = Math.min(min[j],min[i]+1);
+                }
+            }
+            if(maxCover>=nums.length-1) return min[nums.length-1];
+        }
+        
+        return nums.length-1;
+      
+    }
+}
