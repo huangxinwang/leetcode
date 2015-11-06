@@ -14,3 +14,6 @@ Record the source code for solutions of Leetcode problems. File is named using t
 #### Reference
 - [http://answer.ninechapter.com/](http://answer.ninechapter.com/)
 - [fisherlei.blogspot](http://fisherlei.blogspot.com/)
+
+### Records
+- [2015-memo](./analysis/memo2015.md)
