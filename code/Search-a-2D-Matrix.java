@@ -108,3 +108,49 @@ public class Solution {
         else return searchCol(matrix, row, left, mid-1, target);
     }
 }
+
+
+/////////////////////////////////////////////////
+//2015/1107
+// Highlight: row and column binary search
+public class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix.length==0) return false;
+        int row = getRow(matrix, 0, matrix.length, target);
+        if(row==-1) return false;
+        return getCol(matrix, 0, matrix[0].length, row, target);
+    }
+    
+    public int getRow(int[][] matrix, int low, int high, int target){
+        if(low>=high){
+            if(low<=matrix.length-1) return low;
+            return -1;
+        }
+        
+        int mid = (low+high)/2;
+        int midval = matrix[mid][0];
+        if(midval == target) return mid;
+        
+        //current row head < target, decide whether to jump to next row, or to return current row
+        else if(midval < target){
+            if(matrix[mid][matrix[0].length-1] < target) return getRow(matrix, mid+1, high, target);
+            else  return mid;
+        }
+        
+        else return getRow(matrix, low, mid-1, target);
+    }
+    
+    //get col
+    public boolean getCol(int[][] matrix, int low, int high, int row, int target){
+        if(low>=high){
+            if(low>=matrix[row].length) return false;
+            if(matrix[row][low]==target) return true;
+            return false;
+        }
+        int mid = (low+high)/2;
+        int midval = matrix[row][mid];
+        if(midval==target) return true;
+        else if(midval < target) return getCol(matrix, mid+1, high, row, target);
+        else return getCol(matrix, low, mid-1, row, target);
+    }
+}
