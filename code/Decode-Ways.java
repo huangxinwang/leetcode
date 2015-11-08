@@ -83,3 +83,34 @@ public class Solution {
         return ways[s.length()];
     }
 }
+
+
+//////////////////////////////////////////////
+// 2015/11/08
+// Failed version: DFS, time complexity O(2^n), runtime exceed
+public class Solution {
+    public int numDecodings(String s) {
+        int[] count = new int[1];
+        int idx = 0;
+        dfs(count, idx, s);
+        return count[0];
+    }
+    
+    public void dfs(int[] count, int idx, String s){
+        if(idx>=s.length()){
+            count[0] ++;
+            return;
+        }
+        
+        for(int i=1; i<=2 && idx+i<=s.length(); i++){
+            String substr = s.substring(idx, idx+i);
+            int num = Integer.parseInt(substr);
+            if(num>=1 && num<=26){
+                dfs(count, idx+i, s);
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////
+// 2015/11/08
