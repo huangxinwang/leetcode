@@ -75,3 +75,32 @@ public class Solution {
         
     }
 }
+
+
+////////////////////////////////////////////////////
+// 2015/11/08
+// Highlight: logic
+// Hardness: ****
+public class Solution {
+    public int largestRectangleArea(int[] height) {
+        
+        //append 0 at the end of array, so that with stack, we can evaluate the last part
+        height = Arrays.copyOf(height, height.length+1);
+        
+        Stack<Integer> stack = new Stack<Integer>();
+        
+        int max = 0;
+        
+        for(int i=0; i<height.length; i++){
+            if(stack.isEmpty() || height[i] > height[stack.peek()]){
+                stack.push(i);
+            }else{
+                int idx = stack.pop();
+                max = Math.max(max, stack.isEmpty()? height[idx]*i: height[idx]*(i-stack.peek()-1));
+                i--;
+            }
+        }
+        
+        return max;
+    }
+}
