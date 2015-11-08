@@ -75,3 +75,46 @@ public class Solution {
         return head;
     }
 }
+
+
+///////////////////////////////////////////////////////////
+// 2015/11/08
+// Highlight: corner case
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if(head==null || head.next==null) return head;
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = head;
+        ListNode last = dummyhead;
+        ListNode curr = head;
+        int val = curr.val;
+        
+        //if next element is different from current element, then add it
+        while(curr.next!=null){
+            if(curr.next.val==val) {
+                curr = curr.next;
+                continue;
+            }
+            else{
+                last.next = curr;
+                last = curr;
+                curr = curr.next;
+                val = curr.val;
+            }
+        }
+        
+        //deal with last element
+        last.next = curr;
+        last.next.next = null;
+
+        return dummyhead.next;
+    }
+}
