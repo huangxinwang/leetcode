@@ -73,3 +73,37 @@ public class Solution {
         }
     }
 }
+
+
+///////////////////////////////////////////////////////////////
+// 2015/11/07
+// Highlight: dfs
+public class Solution {
+    public List<List<Integer>> combine(int n, int k) {
+        int[] nums = new int[n];
+        for(int i=0; i<n; i++)
+            nums[i] = i+1;
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        ArrayList<Integer> curr = new ArrayList<Integer>();
+        int idx = 0;
+        dfs(rnt, curr, k, nums, idx);
+        
+        return rnt;
+    }
+    
+    //dfs find all combinations
+    public void dfs(List<List<Integer>> rnt, ArrayList<Integer> curr, int depth, int[] nums, int idx){
+        if(depth==0){
+            rnt.add(new ArrayList<Integer>(curr));
+            return;
+        }
+        
+        if(idx>=nums.length) return;
+        
+        for(int i=idx; i<nums.length; i++){
+            curr.add(nums[i]);
+            dfs(rnt, curr, depth-1, nums, i+1);
+            curr.remove(curr.size()-1);
+        }
+    }
+}
