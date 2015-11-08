@@ -142,3 +142,41 @@ public class Solution {
         
     }
 }
+
+
+//////////////////////////////////////
+//2015/11/08
+// Highlight: 2D Programming , time comlexity O(n^3)
+public class Solution {
+    public int maximalRectangle(char[][] matrix) {
+        int m = matrix.length;
+        if(m<=0) return 0;
+        int n = matrix[0].length;
+        int max = 0;
+        
+        //keep track of maximum ones in row i end at j
+        int[][] ones = new int[m][n];
+        
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(j==0) ones[i][j] = matrix[i][j]=='0'? 0: 1;
+                else ones[i][j] = matrix[i][j]== '0'? 0: ones[i][j-1] + 1;
+            }
+        }
+        
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                int len = n;
+                
+                //keep track of current max-len of '1' from row i to k
+                for(int k=i; k<m && len>0; k++){
+                    len = Math.min(len, ones[k][j]);
+                    max = Math.max(max, len*(k-i+1));
+                }
+            }
+        }
+        
+        return max;
+        
+    }
+}
