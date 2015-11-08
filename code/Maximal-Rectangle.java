@@ -92,3 +92,53 @@ public class Solution {
         return rnt;
     }
 }
+
+
+//////////////////////////////////////////////////////
+//2015/11/08
+// Failed version: 4D DP, runtime exceed
+public class Solution {
+    public int maximalRectangle(char[][] matrix) {
+        int m = matrix.length;
+        if(m==0) return 0;
+        
+        int n = matrix[0].length;
+        int max = 0;
+        
+        boolean[][][][] allone = new boolean[m][n][m][n];
+        for(int i=0; i<m; i++){
+            if(matrix[i][0]=='1'){
+                allone[i][0][i][0] = true;
+                max = 1;
+            } 
+            else allone[i][0][i][0] = false;
+        }
+        
+         for(int j=0; j<n; j++){
+            if(matrix[0][j]==1){ 
+                allone[0][j][0][j] = true;
+                max = 1;
+            }
+            else allone[0][j][0][j] = false;
+        }
+        
+        for(int i=0; i<m; i++){
+             for(int j=0; j<n; j++){
+                for(int r=i; r<m; r++){
+                    for(int c=j; c<n; c++){
+                        if( (r==0 && c>0 && allone[i][j][r][c-1] && matrix[r][c]=='1') ||
+                            (c==0 && r>0 &&  allone[i][j][r-1][c] && matrix[r][c]=='1') ||
+                            (c>0  && r>0 && allone[i][j][r-1][c] && allone[i][j][r][c-1] && matrix[r][c]=='1'))
+                        {
+                            allone[i][j][r][c] = true;
+                            max = Math.max((r-i+1)*(c-j+1),max);
+                        }
+                    }
+                }
+            }
+        }
+        
+        return max;
+        
+    }
+}
