@@ -117,3 +117,55 @@ public class Solution {
         return dummyHead.next;
     }
 }
+
+
+///////////////////////////////////////////////
+// 2015/11/08
+// Highlight: keep track if a number duplicates
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        
+        if(head==null || head.next==null) return head;
+        
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = head;
+        ListNode curr = head;
+        ListNode last = dummyhead;
+        //keep track if a number is duplicate
+        boolean add = true;
+        int val = curr.val;
+        
+        while(curr.next!=null){
+            if(curr.next.val==val){
+                add = false;
+                curr = curr.next;
+                continue;
+            }else{
+                if(add){
+                    last.next = curr;
+                    last = curr;
+                }
+                curr = curr.next;
+                val = curr.val;
+                add = true;
+            }
+        }
+        
+        if(add){
+            last.next = curr;
+            last.next.next = null;
+        }else{
+            last.next = null;
+        }
+        
+        return dummyhead.next;
+    }
+}
