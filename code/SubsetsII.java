@@ -97,3 +97,46 @@ public class Solution {
         }
     }
 }
+
+
+/////////////////////////////////////////////////////////////
+//2015/11/07
+// Highlight: use an array to keep track of whether an element is used or not
+public class Solution {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        ArrayList<Integer> curr =new ArrayList<Integer>();
+        
+        //keep track of whether an element is used
+        boolean[] used = new boolean[nums.length];
+        Arrays.sort(nums);
+        
+        int idx = 0;
+        dfs(rnt, curr, nums, used, idx);
+        
+        rnt.add(new ArrayList<Integer>());
+        
+        return rnt;
+    }
+    
+    public void dfs(List<List<Integer>> rnt, ArrayList<Integer> curr, int[] nums, boolean[] used, int idx){
+        if(curr.size()!=0){
+            rnt.add(new ArrayList<Integer>(curr));
+        }
+        if(idx>=nums.length){
+            return;
+        }
+        
+        for(int i=idx; i<nums.length; i++){
+            if(i>0 && nums[i] == nums[i-1] && used[i-1]==false){
+                continue;
+            }else{
+                curr.add(nums[i]);
+                used[i] = true;
+                dfs(rnt, curr, nums, used, i+1);
+                curr.remove(curr.size()-1);
+                used[i] = false;
+            }
+        }
+    }
+}
