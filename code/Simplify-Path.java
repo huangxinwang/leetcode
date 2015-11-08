@@ -98,3 +98,54 @@ public class Solution {
         
     }
 }
+
+
+//////////////////////////////////////////////
+// 2015/11/07
+// Highlight: find string between two successive "/"
+public class Solution {
+    public String simplifyPath(String path) {
+        int start = 0;
+        Stack<String> stack = new Stack<String>();
+        
+        int idx = 0;
+        while(idx<path.length()){
+            
+            //find first "/"
+            while(idx<path.length() && path.charAt(idx)=='/')
+                idx++;
+            
+            if(idx==path.length()) break;
+            
+            start = idx;
+            
+            
+            //find second "/"
+            while(idx<path.length() && path.charAt(idx)!='/')
+                idx++;
+                
+            int end = idx;
+            String str = path.substring(start,end);
+            
+            //if string between the first and second "/" is ".", continue
+            if(str.equals(".")) continue;
+            
+            //else
+            if(str.equals("..")){
+                if(!stack.isEmpty())
+                    stack.pop();
+            }else {
+                stack.push(str);
+            }
+        }
+        
+        String rnt = new String();
+        for(int i=0; i<stack.size(); i++){
+            rnt += "/" + stack.get(i);
+        }
+        
+        if(rnt.length()==0) return "/";
+        
+        return rnt;
+    }
+}
