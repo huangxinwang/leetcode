@@ -81,3 +81,29 @@ public class Solution {
     
     
 }
+
+
+/////////////////////////////////////////////////////////////
+// 2015/11/08
+// Comment: need to discuss to reduce time complexity to O(lgn), currently, the time complexity is O(n)
+public class Solution {
+    public boolean search(int[] nums, int target) {
+        return bs(nums, 0, nums.length-1, target);
+        
+    }
+    
+    public boolean bs(int[] nums, int left, int right, int target){
+        if(left>=right){
+            if(left<nums.length && nums[left]==target) return true;
+             if(right>0 && nums[right]==target) return true;
+            return false;
+        }
+        
+        int mid = (left+right)/2;
+        
+        if(nums[mid]==target) return true;
+        if(bs(nums,left,mid-1,target)) return true;
+        if(bs(nums,mid+1,right, target)) return true;
+        return false;
+    }
+}
