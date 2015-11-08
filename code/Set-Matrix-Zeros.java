@@ -74,3 +74,36 @@ public class Solution {
         }
     }
 }
+
+
+////////////////////////////////////////
+// 2015/1107
+// Highlight: use set to track
+public class Solution {
+    public void setZeroes(int[][] matrix) {
+        
+        //record col and row to reset
+        HashSet<Integer> col = new HashSet<Integer>();
+        HashSet<Integer> row = new HashSet<Integer>();
+        
+        for(int i=0; i<matrix.length; i++){
+            for(int j=0; j<matrix[0].length; j++){
+                if(matrix[i][j]==0){
+                    col.add(j);
+                    row.add(i);
+                }
+            }
+        }
+        
+        for(Integer t: row){
+            for(int j=0; j<matrix[0].length; j++){
+                matrix[t][j] = 0;
+            }
+        }
+        
+        for(Integer t: col){
+            for(int i=0; i<matrix.length; i++)
+                matrix[i][t] = 0;
+        }
+    }
+}
