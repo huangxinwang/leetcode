@@ -113,6 +113,7 @@ public class Solution {
 /////////////////////////////////////////////////
 //2015/1107
 // Highlight: row and column binary search
+// Time complexity: O(log n + log m)
 public class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         if(matrix.length==0) return false;
