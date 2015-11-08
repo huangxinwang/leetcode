@@ -90,3 +90,44 @@ public class Solution {
         return index;
     }
 }
+
+
+////////////////////////////////////////////////////////
+//2015/11/07
+// Highlight: keep track of duplicate numbers, and when meet new numbers, deal with old numbers
+public class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums.length==0) return 0;
+        
+        int curr = nums[0];
+        int count = 1;
+        int i =0;
+        int idx = 0;
+        
+        //keep track of the count of duplicate number
+        //when meet new number, deal with the set of nums meet last
+        for(i=1; i<nums.length; i++){
+            if(nums[i]==curr){ 
+                count++;
+                continue;
+            }
+            else{
+                nums[idx] = curr;
+                idx++;
+                if(count>1){
+                    nums[idx] = curr;
+                    idx++;
+                }
+                curr = nums[i];
+                count  = 1;
+            }
+        }
+        nums[idx] = curr;
+        if(count>1){
+            idx++;
+            nums[idx] = curr;
+        }
+        
+        return idx+1;
+    }
+}
