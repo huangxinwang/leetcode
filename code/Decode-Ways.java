@@ -114,3 +114,32 @@ public class Solution {
 
 ////////////////////////////////////////////////////////
 // 2015/11/08
+// Highlight: 1D DP, like climb stairs
+public class Solution {
+    public int numDecodings(String s) {
+        if(s.length()==0) return 0;
+        
+        int[] ways = new int[s.length()+1];
+        ways[0] = 1;
+        
+        //like climb stair, each time can climb one step or two steps
+        for(int i=0; i<s.length(); i++){
+            if(i==0){
+                if(s.charAt(i) <='9' && s.charAt(i)>='1') ways[i+1] = 1;
+            }else{
+                char c1 = s.charAt(i-1);
+                char c2 = s.charAt(i);
+                int sum = (c1-'0')*10 + (c2-'0');
+                if(c1!='0' && sum>=1 && sum<=26)
+                    ways[i+1] += ways[i-1];
+                    
+                sum = c2-'0';
+                if(sum>=1 && sum<=9){
+                    ways[i+1] += ways[i];
+                }
+            }
+        }
+        
+        return ways[s.length()];
+    }
+}
