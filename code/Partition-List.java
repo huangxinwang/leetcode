@@ -96,3 +96,41 @@ public class Solution {
         
     }
 }
+
+
+/////////////////////////////////////////////////
+// 2015/11/08
+// Highlight: use two lists
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode partition(ListNode head, int x) {
+        ListNode head1 = new ListNode(-1);
+        ListNode head2 = new ListNode(-2);
+        ListNode curr1 = head1;
+        ListNode curr2 = head2;
+        
+        ListNode curr = head;
+        while(curr!=null){
+            if(curr.val<x){
+                curr1.next = curr;
+                curr1 = curr1.next;
+            }else{
+                curr2.next = curr;
+                curr2 = curr2.next;
+            }
+            curr = curr.next;
+        }
+        
+        curr1.next = head2.next;
+        curr2.next = null;
+        
+        return head1.next;
+    }
+}
