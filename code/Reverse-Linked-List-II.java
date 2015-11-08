@@ -119,3 +119,63 @@ public class Solution {
         return dummyHead.next;
     }
 }
+
+
+///////////////////////////////////////////////////////////
+// 2015/11/08
+// Highlight: find sublist to be reversed
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode reverseBetween(ListNode head, int m, int n) {
+        ListNode dummyhead = new ListNode(-1);
+        dummyhead.next = head;
+        ListNode last = dummyhead;
+        ListNode curr = head;
+        int k = m;
+        while(k>1 && curr!=null){
+            last = curr;
+            curr = curr.next;
+            k--;
+        }
+        
+        //find the list to be reversed
+        ListNode firsthead = curr;
+        ListNode firsttail = curr;
+        k = 0;
+        while(k<(n-m)){
+            firsttail = firsttail.next;
+            k++;
+        }
+        
+        ListNode secondhead = firsttail.next;
+        reverse(firsthead, firsttail);
+        
+        last.next = firsttail;
+        firsthead.next = secondhead;
+        return dummyhead.next;
+        
+    }
+    
+    //reverse a linked list
+    public void reverse(ListNode head, ListNode tail){
+        if(head==tail) return;
+        ListNode first = head;
+        ListNode second = first.next;
+        while(second!=tail){
+            ListNode tmp = second.next;
+            second.next= first;
+            first = second;
+            second = tmp;
+        }
+        second.next = first;
+    }
+    
+    
+}
