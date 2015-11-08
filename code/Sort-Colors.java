@@ -60,3 +60,37 @@ public class Solution {
             A[i] = 2;
     }
 }
+
+/////////////////////////////////////////////////////
+// 2015/11/07
+// Highlight: in place exchange
+public class Solution {
+    public void sortColors(int[] nums) {
+        
+        int end = nums.length-1;
+        int start = 0;
+        //put 0 in the first part of the array
+        start = help(nums, start, end, 0);
+        //put 1 in second part
+        help(nums, start, end, 1);
+    }
+    
+    //in place clean array to put target value in the first part of the array
+    public int help(int[] nums, int start, int end, int target){
+         int i = start;
+         for(; i<nums.length && i<end; i++){
+            if(nums[i]==target) continue;
+            else{
+                while(nums[end]!=target && end>i){
+                    end--;
+                }
+                if(i!=end){
+
+                    nums[end] = nums[i];
+                    nums[i] = target;
+                }else break;
+            }
+        }
+        return i;
+    }
+}
