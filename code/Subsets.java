@@ -67,3 +67,41 @@ public class Solution {
         return rnt;
     }
 }
+
+
+///////////////////////////////////////////////////////
+// 2015/11/07
+// Highlight: dfs, find combinations
+public class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        Arrays.sort(nums);
+        int idx = 0;
+        
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        ArrayList<Integer> curr = new ArrayList<Integer>();
+        
+        dfs(rnt, curr, idx, nums);
+        rnt.add(new ArrayList<Integer>());
+        return rnt;
+    }
+    
+    //dfs to find all combinations
+    public void dfs(List<List<Integer>> rnt, ArrayList<Integer> curr, int idx, int[] nums){
+        
+        //even not reach idx, current subset could be added to rnt
+        if(curr.size()!=0){
+                rnt.add(new ArrayList<Integer>(curr));
+        }
+            
+        if(idx>=nums.length){
+            
+            return;
+        }
+        
+        for(int i = idx; i<nums.length; i++){
+            curr.add(nums[i]);
+            dfs(rnt, curr, i+1, nums);
+            curr.remove(curr.size()-1);
+        }
+    }
+}
