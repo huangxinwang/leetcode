@@ -79,7 +79,7 @@ public class Solution {
 
 ///////////////////////////////////////////////////////////
 // 2015/11/08
-// Highlight: corner case
+// Highlight: corner case, the implementation is too complicated
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -116,5 +116,29 @@ public class Solution {
         last.next.next = null;
 
         return dummyhead.next;
+    }
+}
+
+//////////////////////////////////////////
+// 2015/11/08
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode curr = head;
+        while(curr!=null){
+            if(curr.next==null) return head;
+            if(curr.val == curr.next.val)
+                curr.next = curr.next.next;
+            else curr = curr.next;
+        }
+        
+        return head;
     }
 }
