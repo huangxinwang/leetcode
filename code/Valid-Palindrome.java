@@ -56,3 +56,37 @@ public class Solution {
         return left==right;
     }
 }
+
+
+//////////////////////////////////////////////////////
+// 2015/11/09
+// Highlight: to lower case
+public class Solution {
+    public boolean isPalindrome(String s) {
+        int start = 0;
+        int end = s.length()-1;
+        while(start<end){
+            
+            char c1 = s.charAt(start);
+            char c2 = s.charAt(end);
+            c1 = Character.toLowerCase(c1);
+            c2 = Character.toLowerCase(c2);
+            
+            if( !(c1>='0' && c1<='9') && !(c1>='a' && c1<='z')){
+                start++;
+                continue;
+            }
+            if(!(c2>='0' && c2<='9') && !(c2>='a' && c2<='z')){
+                end--;
+                continue;
+            }
+            
+           
+            if(c1!=c2) return false;
+            start++;
+            end--;
+        }
+        
+        return true;
+    }
+}
