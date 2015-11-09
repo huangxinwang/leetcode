@@ -100,3 +100,49 @@ public class Solution {
         return rnt;
     }
 }
+
+
+///////////////////////////////////////////////////////
+// 2015/11/09
+// Highlight: dfs, maintain results in rnt
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public List<TreeNode> generateTrees(int n) {
+        ArrayList<TreeNode> rnt = dfs(1,n);
+        return rnt;
+    }
+    
+    public ArrayList<TreeNode> dfs(int left, int right){
+        
+        //maintain result in rnt
+        ArrayList<TreeNode> rnt = new ArrayList<TreeNode>();
+        
+        if(left>right){
+            rnt.add(null);
+            return rnt;
+        }
+        
+        for(int i=0; i<=right-left; i++){
+            ArrayList<TreeNode> lefts = dfs(left, i+left-1);
+            ArrayList<TreeNode> rights = dfs(i+left+1, right);
+            for(TreeNode l: lefts){
+                for(TreeNode r: rights){
+                    TreeNode node = new TreeNode(i+left);
+                    node.left = l;
+                    node.right = r;
+                    rnt.add(node);
+                }
+            }
+        }
+        
+        return rnt;
+    }
+}
