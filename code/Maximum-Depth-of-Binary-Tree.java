@@ -135,3 +135,30 @@ public class Solution {
         
     }
 }
+
+
+/////////////////////////////////////////////////////
+// 2015/11/09
+// Highlight: recursive
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root==null) return 0;
+        int sum = 0;
+        
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        
+        sum = 1 + Math.max(left, right);
+        
+        return sum;
+    }
+}
