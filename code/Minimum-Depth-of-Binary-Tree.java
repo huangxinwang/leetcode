@@ -51,3 +51,31 @@ public class Solution {
     
     
 }
+
+
+////////////////////////////////////////////////////////
+// 2015/11/09
+// Recursive: take care of whether root.left or root.right is null
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int minDepth(TreeNode root) {
+        if(root==null) return 0;
+        int sum = 0;
+        
+        int left = minDepth(root.left);
+        int right = minDepth(root.right);
+        if(root.left==null) return 1+right;
+        if(root.right==null) return 1+left;
+        sum = 1 + Math.min(left, right);
+        
+        return sum;
+    }
+}
