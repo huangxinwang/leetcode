@@ -62,3 +62,32 @@ public class Solution {
     }
 
 }
+
+
+/////////////////////////////////////////////////////////////
+// 2015/11/09
+// Highlight: recursive
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        ArrayList<Integer> rnt = new ArrayList<Integer>();
+        postorder(rnt, root);
+        return rnt;
+    }
+    
+    public void postorder(ArrayList<Integer> rnt, TreeNode root){
+        if(root==null) return;
+        
+        postorder(rnt, root.left);
+        postorder(rnt, root.right);
+        rnt.add(root.val);
+    }
+}
