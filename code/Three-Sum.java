@@ -158,3 +158,43 @@ public class Solution {
         return rnt;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////////
+// 2015/11/09
+// Timecomplexity: O(n^2)
+public class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        if(nums.length<=2) return rnt;
+        
+        Arrays.sort(nums);
+        
+        for(int i=0; i<nums.length-2; i++){
+            //skip similar
+            if(i!=0 && nums[i]==nums[i-1]) continue;
+            int start = i+1;
+            int end = nums.length-1;
+            while(start<end){
+                int sum = nums[start]+nums[end]+nums[i];
+                if(sum==0){
+                    ArrayList<Integer> tmp = new ArrayList<Integer>();
+                    tmp.add(nums[i]);
+                    tmp.add(nums[start]);
+                    tmp.add(nums[end]);
+                    rnt.add(tmp);
+                    start++;
+                    end--;
+                    while(start<end && nums[start]==nums[start-1]) start++;
+                    while(start<end && nums[end] == nums[end+1]) end--;
+                }
+                else if(sum<0){
+                    start++;
+                }
+                else end--;
+            }
+        }
+        
+        return rnt;
+    }
+}
