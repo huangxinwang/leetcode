@@ -92,3 +92,52 @@ public class Solution {
             dfs(root.right, curr+root.right.val, rnt);
     }
 }
+
+
+////////////////////////////////////////////////////////////////////////
+// 2015/11/09
+// Highlight: find all path
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public int sumNumbers(TreeNode root) {
+        ArrayList<String> rnt = dfs(root);
+        int sum = 0;
+        for(int i=0; i<rnt.size(); i++){
+            String str = rnt.get(i);
+            int num = Integer.parseInt(str);
+            sum += num;
+        }
+        
+        return sum;
+    }
+    
+    public ArrayList<String> dfs(TreeNode root){
+        ArrayList<String> rnt = new ArrayList<String>();
+        if(root==null) return rnt;
+        
+        if(root.left==null && root.right==null){
+            rnt.add(root.val+"");
+            return rnt;
+        }
+        ArrayList<String> left = dfs(root.left);
+        ArrayList<String> right = dfs(root.right);
+        
+        for(String l:left){
+            rnt.add(root.val+l);
+        }
+        
+        for(String r:right){
+            rnt.add(root.val+r);
+        }
+        
+        return rnt;
+    }
+}
