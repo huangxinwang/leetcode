@@ -21,6 +21,11 @@
 *     TreeNode(int x) { val = x; }
 * }
 */
+
+/**
+ * Highlight: recursion
+ */
+ 
 public class Solution {
    public List<String> binaryTreePaths(TreeNode root) {
        List<String> rnt = new ArrayList<String>();
