@@ -21,6 +21,8 @@ public class Solution {
         HashMap<Character, ArrayList<Integer>> map = new HashMap<Character, ArrayList<Integer>>();
         
         //use a hashmap to record each character
+        //e.g., <a, <the index of a>>
+        //      <b, <the index of b>>
         for(int i=0; i<pattern.length(); i++){
             char c = pattern.charAt(i);
             ArrayList<Integer> list = new ArrayList<Integer>();
