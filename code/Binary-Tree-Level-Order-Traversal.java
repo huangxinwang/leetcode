@@ -92,3 +92,41 @@ public class Solution {
         return rnt;
     }
 }
+
+
+/////////////////////////////////////////////
+// 2015/11/11
+// Highlight: inter-play of two arraylist
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        if(root==null) return rnt;
+        
+        ArrayList<TreeNode> curr = new ArrayList<TreeNode>();
+        curr.add(root);
+        ArrayList<TreeNode> next = new ArrayList<TreeNode>();
+        
+        while(curr.size()!=0){
+            next = new ArrayList<TreeNode>();
+            ArrayList<Integer> vals = new ArrayList<Integer>();
+            for(TreeNode t : curr){
+                vals.add(t.val);
+                if(t.left!=null) next.add(t.left);
+                if(t.right!=null) next.add(t.right);
+            }
+            curr = new ArrayList<TreeNode>(next);
+            if(vals.size()!=0) rnt.add(vals);
+        }
+        
+        return rnt;
+    }
+}
