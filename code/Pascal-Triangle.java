@@ -84,3 +84,32 @@ public class Solution {
         
     }
 }
+
+///////////////////////////////////////////////////////////////////////
+// 2015/11/11
+// Highlight: inter-play two arraylists
+public class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        ArrayList<Integer> curr = new ArrayList<Integer>();
+        if(numRows<1) return rnt;
+        
+        curr.add(1);
+        rnt.add(curr);
+        int count = numRows;
+        
+        while(count>1){
+            ArrayList<Integer> next = new ArrayList<Integer>();
+            next.add(1);
+            for(int i=0; i<=curr.size()-2; i++){
+                next.add(curr.get(i)+curr.get(i+1));
+            }
+            next.add(1);
+            curr = new ArrayList<Integer>(next);
+            rnt.add(curr);
+            count--;
+        }
+        
+        return rnt;
+    }
+}
