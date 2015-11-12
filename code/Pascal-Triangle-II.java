@@ -64,3 +64,30 @@ public class Solution {
         return curr;
     }
 }
+
+
+/////////////////////////////////////////////////////
+// 2015/11/11
+// Highlight: inter-play of two arrays
+public class Solution {
+    public List<Integer> getRow(int rowIndex) {
+        List<Integer> curr = new ArrayList<Integer>();
+        if(rowIndex<0) return curr;
+        curr.add(1);
+        
+        int count = rowIndex;
+        while(count>0){
+            List<Integer> next = new ArrayList<Integer>();
+            next.add(1);
+            for(int i=0; i<curr.size()-1; i++){
+                next.add(curr.get(i)+curr.get(i+1));
+            }
+            next.add(1);
+            curr = new ArrayList<Integer>(next);
+            next = new ArrayList<Integer>();
+            count--;
+        }
+        
+        return curr;
+    }
+}
