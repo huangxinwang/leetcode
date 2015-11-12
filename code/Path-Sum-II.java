@@ -120,3 +120,49 @@ public class Solution {
     
    
 }
+
+
+////////////////////////////////////////////////////////////////////////
+// 2015/11/11
+// Highlight: recursive 
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        
+        if(root==null) return rnt;
+        
+        //special case
+        if(root.left==null && root.right==null && sum - root.val==0){
+            ArrayList<Integer> curr = new ArrayList<Integer>();
+            curr.add(root.val);
+            rnt.add(curr);
+            return rnt;
+        }
+        
+        //recursive add the list that sum up to "sum"
+        List<List<Integer>> left = pathSum(root.left, sum-root.val);
+        List<List<Integer>> right = pathSum(root.right, sum - root.val);
+        
+        for(List<Integer> list: left){
+            list.add(0,root.val);
+            rnt.add(list);
+        }
+        
+        for(List<Integer> list: right){
+            list.add(0, root.val);
+            rnt.add(list);
+        }
+        
+        return rnt;
+    }
+    
+}
