@@ -20,7 +20,7 @@ public class Solution {
     public boolean wordPattern(String pattern, String str) {
         HashMap<Character, ArrayList<Integer>> map = new HashMap<Character, ArrayList<Integer>>();
         
-       
+        //use a hashmap to record each character
         for(int i=0; i<pattern.length(); i++){
             char c = pattern.charAt(i);
             ArrayList<Integer> list = new ArrayList<Integer>();
@@ -36,6 +36,7 @@ public class Solution {
         
         HashSet<String> set = new HashSet<String>();
         
+        //check if the index for the same character match same string in the given string
         for(Character key : map.keySet()){
             ArrayList<Integer> list = map.get(key);
             if(list.size()==0) continue;
