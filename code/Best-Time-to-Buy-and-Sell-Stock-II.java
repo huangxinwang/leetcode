@@ -46,3 +46,23 @@ public class Solution {
         
     }
 }
+
+/////////////////////////////////////////////////////////
+// 2015/11/12
+// Highlight: keep track of current min value
+public class Solution {
+    public int maxProfit(int[] prices) {
+        if(prices.length<=1) return 0;
+        int profit = 0;
+        int currmin = prices[0];
+        
+        for(int i=1; i<prices.length; i++){
+            if(prices[i]>currmin){
+                profit += (prices[i]-currmin);
+            }
+            currmin = prices[i];
+        }
+        
+        return profit;
+    }
+}
