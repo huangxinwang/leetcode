@@ -113,3 +113,49 @@ public class Solution {
         return rnt;
     }
 }
+
+
+//////////////////////////////////////////////////////////
+// 2015/11/12
+// Highlight: inter-play of two arraylists
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        if(root==null) return rnt;
+        
+        ArrayList<TreeNode> curr = new ArrayList<TreeNode>();
+        ArrayList<TreeNode> next = new ArrayList<TreeNode>();
+        curr.add(root);
+        
+        boolean reverse = false;
+        while(curr.size()>0){
+            ArrayList<Integer> vals = new ArrayList<Integer>();
+            for(TreeNode t: curr){
+                vals.add(t.val);
+                if(t.left!=null) next.add(t.left);
+                if(t.right!=null) next.add(t.right);
+            }
+            
+            //reverse listsa
+            if(reverse){
+                Collections.reverse(vals);
+            }
+            reverse = !reverse;
+            rnt.add(vals);
+            curr= new ArrayList<TreeNode>(next);
+            next = new ArrayList<TreeNode>();
+        }
+        
+        return rnt;
+        
+    }
+}
