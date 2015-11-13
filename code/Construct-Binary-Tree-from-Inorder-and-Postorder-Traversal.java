@@ -94,3 +94,38 @@ public class Solution {
         
     }
 }
+
+
+/////////////////////////////////////////////
+// 2015/11/12
+// Highlight: recursive, deal with corner by using simple example such as [1 2 3]
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        if(inorder.length==0) return null;
+        return help(inorder, 0, inorder.length-1, postorder, 0, postorder.length-1);
+    }
+    
+    public TreeNode help(int[] inorder, int ileft, int iright, int[] postorder, int pleft, int pright){
+        if(ileft>iright) return null;
+        TreeNode root = new TreeNode(postorder[pright]);
+        int count = 0;
+        while(inorder[ileft+count]!=postorder[pright]){
+            count++;
+        }
+        
+        TreeNode left = help(inorder, ileft, ileft+count-1, postorder, pleft, pleft+count-1);
+        TreeNode right = help(inorder, ileft+count+1,iright, postorder, pleft+count, pright-1);
+        root.left = left;
+        root.right = right;
+        return root;
+    }
+}
