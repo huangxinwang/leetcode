@@ -74,3 +74,32 @@ public class Solution {
         return root;
     }
 }
+
+
+////////////////////////////////////////////////
+// 2015/11/12
+// Highlight: recursive build the tree
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode sortedArrayToBST(int[] nums) {
+        return help(nums, 0, nums.length-1);
+    }
+    
+    public TreeNode help(int[] nums, int left, int right){
+        if(left>right) return null;
+        int mid = (left+right)/2;
+        if( (left+right)%2==1) mid+=1;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = help(nums, left, mid-1);
+        root.right = help(nums, mid+1, right);
+        return root;
+    }
+}
