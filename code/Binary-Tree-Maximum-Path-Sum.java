@@ -92,3 +92,43 @@ public class Solution {
         return curr;
     }
 }
+
+
+//////////////////////////////////////////////
+// 2015/11/12
+// Highlight: maintain a global variable to keep track of the max-path value
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    
+    //maintain a global value to keep track of max-path
+    int max = Integer.MIN_VALUE;
+    public int maxPathSum(TreeNode root) {
+        help(root);
+        return max;
+    }
+    
+    public int help(TreeNode root){
+        if(root==null) return 0;
+        if(root!=null && root.left==null && root.right==null){
+            if(max< root.val) max = root.val;
+            return root.val;
+        } 
+        
+        int left = help(root.left);
+        int right = help(root.right);
+        int rnt = root.val;
+        if(root.val+left > rnt) rnt = root.val+left;
+        if(root.val+right > rnt) rnt = root.val + right;
+        if(max< rnt) max = rnt;
+        if(max < (root.val+left+right)) max = root.val + left + right;
+        return rnt;
+    }
+}
