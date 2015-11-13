@@ -83,3 +83,34 @@ public class Solution {
         }
     }
 }
+
+
+///////////////////////////////////////////
+//2015/11/12
+// Highlight: inter-play between two arraylists
+/**
+ * Definition for binary tree with next pointer.
+ * public class TreeLinkNode {
+ *     int val;
+ *     TreeLinkNode left, right, next;
+ *     TreeLinkNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void connect(TreeLinkNode root) {
+        ArrayList<TreeLinkNode> curr = new ArrayList<TreeLinkNode>();
+        ArrayList<TreeLinkNode> next = new ArrayList<TreeLinkNode>();
+        if(root==null) return;
+        curr.add(root);
+        while(curr.size()!=0){
+            for(int i=0; i<curr.size(); i++){
+                if(i!=curr.size()-1) curr.get(i).next = curr.get(i+1);
+                if(curr.get(i).left!=null) next.add(curr.get(i).left);
+                if(curr.get(i).right!=null) next.add(curr.get(i).right);
+            }
+            curr.get(curr.size()-1).next = null;
+            curr = new ArrayList<TreeLinkNode>(next);
+            next = new ArrayList<TreeLinkNode>();
+        }
+    }
+}
