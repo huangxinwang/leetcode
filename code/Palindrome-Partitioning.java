@@ -109,3 +109,42 @@ public class Solution {
         return true;
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////////////////
+// 2015/11/12
+// Highlight: dfs
+// Time complexity: O(2^n)
+public class Solution {
+    public List<List<String>> partition(String s) {
+        List<List<String>> rnt = new ArrayList<List<String>>();
+        List<String> curr = new ArrayList<String>();
+        dfs(s, rnt, curr, 0);
+        return rnt;
+    }
+    
+    //dfs find all possible partition
+    public void dfs(String s, List<List<String>> rnt, List<String> curr, int start){
+        if(start>=s.length()){
+            rnt.add(new ArrayList<String>(curr));
+            return;
+        }
+        
+        for(int i=start+1; i<=s.length(); i++){
+            String str = s.substring(start,i);
+            if(isPalindrome(str)){
+                curr.add(str);
+                dfs(s, rnt, curr, i);
+                curr.remove(curr.size()-1);
+            }
+        }
+    }
+    
+    //check if palindrome
+    public boolean isPalindrome(String s){
+        for(int i=0; i<s.length()/2; i++){
+            if(s.charAt(i)!=s.charAt(s.length()-i-1)) return false;
+        }
+        return true;
+    }
+}
