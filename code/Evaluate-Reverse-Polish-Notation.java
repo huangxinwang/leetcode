@@ -94,3 +94,46 @@ public class Solution {
         return (int)stack.pop();
     }
 }
+
+
+//////////////////////////////////////////////////////////////////
+// 2015/11/14
+// Highlight: stack
+public class Solution {
+    public int evalRPN(String[] tokens) {
+        if(tokens.length==0) return 0;
+        Stack<Integer> stack = new Stack<Integer>();
+        for(int i=0; i<tokens.length; i++){
+            String str = tokens[i];
+            if(str.equals("+")){
+                Integer i1 = stack.pop();
+                Integer i2 = stack.pop();
+                Integer i3 = i2 + i1;
+                stack.push(i3);
+            }
+            else if(str.equals("/")){
+                Integer i1 = stack.pop();
+                Integer i2 = stack.pop();
+                Integer i3 = i2 / i1;
+                stack.push(i3);
+            }
+            else if(str.equals("*")){
+                Integer i1 = stack.pop();
+                Integer i2 = stack.pop();
+                Integer i3 = i2 * i1;
+                stack.push(i3);
+            }
+            else if(str.equals("-")){
+                Integer i1 = stack.pop();
+                Integer i2 = stack.pop();
+                Integer i3 = i2 - i1;
+                stack.push(i3);
+            }else{
+                Integer i3 = Integer.parseInt(str);
+                stack.push(i3);
+            }
+        }
+        
+        return stack.pop();
+    }
+}
