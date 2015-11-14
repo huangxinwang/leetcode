@@ -89,3 +89,42 @@ public class Solution {
         return minnum[s.length()];
     }
 }
+
+
+//////////////////////////////////////////////////
+//2015/11/13
+// Failed version: time complexity O(n^3)
+// Reason: repeated check whether a substring is a palindrome, instead we should keep a table to maintain it by dynamic programming
+
+public class Solution {
+    public int minCut(String s) {
+        int[] count = new int[s.length()];
+        for(int i=1; i<count.length; i++){
+            count[i] = i;
+        }
+        
+        for(int i=1; i<s.length(); i++){
+            if(isPalindrome(s.substring(0,i+1))){
+                count[i] = 0;
+                continue;
+            }
+            for(int j=0; j<i; j++){
+                String str = s.substring(j,i+1);
+                if(isPalindrome(str)){
+                    if(count[i] > count[j] + 1){
+                        count[i] = count[j]+1;
+                    }
+                }
+            }
+        }
+        
+        return count[s.length()-1];
+    }
+    
+    public boolean isPalindrome(String str){
+        for(int i=0; i<str.length()/2; i++){
+            if(str.charAt(i) != str.charAt(str.length()-1-i)) return false;
+        }
+        return true;
+    }
+}
