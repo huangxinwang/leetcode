@@ -113,3 +113,39 @@ public class Solution {
         return map.get(node);
     }
 }
+
+
+///////////////////////////////////////////////////////
+// 2015/11/13
+// Highlight: recursive
+/**
+ * Definition for undirected graph.
+ * class UndirectedGraphNode {
+ *     int label;
+ *     List<UndirectedGraphNode> neighbors;
+ *     UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
+ * };
+ */
+public class Solution {
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        if(node==null) return node;
+        
+        HashMap<Integer, UndirectedGraphNode> map = new HashMap<Integer, UndirectedGraphNode>();
+        help(node, map);
+        return map.get(node.label);
+    }
+    
+    public void help(UndirectedGraphNode node, HashMap<Integer, UndirectedGraphNode> map){
+        if(!map.containsKey(node.label)){
+            UndirectedGraphNode nodecp = new UndirectedGraphNode(node.label);
+            map.put(nodecp.label, nodecp);
+            List<UndirectedGraphNode> list = node.neighbors;
+            List<UndirectedGraphNode> listcp = new ArrayList<UndirectedGraphNode>();
+            for(int i=0; i<list.size(); i++){
+                help(list.get(i), map);
+                listcp.add(map.get(list.get(i).label));
+            }
+            map.get(nodecp.label).neighbors = listcp;
+        }
+    }
+}
