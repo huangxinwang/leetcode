@@ -134,7 +134,7 @@ public class Solution {
 
 ///////////////////////////////////////////////////////////////////
 // 2015/11/13
-// Highlight: merge two sorted list, get mid node by using two pointer
+// Highlight: merge two sorted list, get mid node by using two pointer, recursive
 /**
  * Definition for singly-linked list.
  * public class ListNode {
