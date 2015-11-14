@@ -128,3 +128,41 @@ public class Solution {
         return true;
     }
 }
+
+
+//////////////////////////////////////////////////////////////////
+//2015/11/13
+// Highlight: mix DP, use DP to keep track of min-cut of substring(0..i) and whether a substring is palindrome
+// Time complexity: O(n^2)
+// Space complexity: O(n^2)
+public class Solution {
+    public int minCut(String s) {
+        int[] count = new int[s.length()];
+        for(int i=1; i<s.length(); i++){
+            count[i] = i;
+        }
+        
+        //keep track of whether a substring is palindrome
+        boolean[][] isPal= new boolean[s.length()][s.length()];
+        
+        for(int i=0; i<s.length(); i++){
+            isPal[i][i] = true;
+        }
+        
+        for(int i=1; i<s.length(); i++){
+            
+            //find palindrome end with i
+            for(int j=i-1; j>=0; j--){
+                if( (s.charAt(i)==s.charAt(j)) && (i-j<=2 || isPal[j+1][i-1])){
+                    if(j==0) count[i] = 0;
+                    else count[i] = count[i] > count[j-1]+1 ? count[j-1]+1 : count[i] ;
+                    isPal[j][i] = true;
+                }
+            }
+            //no new palindrom end with i
+            count[i] = Math.min(count[i],count[i-1]+1);
+        }
+        
+        return count[s.length()-1];
+    }
+}
