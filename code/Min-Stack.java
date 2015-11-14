@@ -78,3 +78,32 @@ class MinStack {
          return minStack.peek();
     }
 }
+
+
+//////////////////////////////////////////////////
+// 2015/11/14
+// Hilight: logic, maintain a minstack to keep track of the number that could be a min value
+class MinStack {
+    
+    //maintain a minstack to keep track of the number that could be a min value
+    Stack<Integer> stack = new Stack<Integer>();
+    Stack<Integer> minstack = new Stack<Integer>();
+    
+    public void push(int x) {
+        stack.push(x);
+        if( minstack.isEmpty() || x<=minstack.peek()) minstack.push(x);
+    }
+
+    public void pop() {
+        int n = stack.pop();
+        if(n==minstack.peek()) minstack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int getMin() {
+        return minstack.peek();
+    }
+}
