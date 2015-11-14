@@ -56,3 +56,27 @@ public class Solution {
         return rnt;
     }
 }
+
+
+/////////////////////////////////////
+//2015/11/13
+// Highlight: logic, bit operation
+public class Solution {
+    public int singleNumber(int[] nums) {
+        int rnt = 0;
+        int mask = 1;
+        
+        //sum up the ith bit of each number, if mod 3 not equals to 0, then it is the bit of the single number
+        for(int i=0; i<32; i++){
+            mask = 1 << i;
+            int sum = 0;
+            for(int j=0; j<nums.length; j++){
+                if( (nums[j] & mask) !=0) sum ++;
+            }
+            
+            if(sum%3!=0) rnt = rnt | mask;
+        }
+        
+        return rnt;
+    }
+}
