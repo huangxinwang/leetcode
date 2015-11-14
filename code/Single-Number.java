@@ -38,3 +38,21 @@ public class Solution {
         return rnt;
     }
 }
+
+
+/////////////////////////////////////////
+// 2015/11/13
+// Highlight: xor
+public class Solution {
+    public int singleNumber(int[] nums) {
+        
+        int rnt = nums[0];
+        
+        //(a ^ b) ^ b = a
+        for(int i=1; i<nums.length; i++){
+            rnt = rnt ^ nums[i];
+        }
+        
+        return rnt;
+    }
+}
