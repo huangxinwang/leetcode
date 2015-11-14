@@ -130,3 +130,59 @@ public class Solution {
         return dummyHead.next;
     }
 }
+
+
+///////////////////////////////////////////////////////////////////
+// 2015/11/13
+// Highlight: merge two sorted list, get mid node by using two pointer
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode sortList(ListNode head) {
+        if(head==null || head.next == null) return head;
+        
+        ListNode mid = getMid(head);
+        ListNode second = mid.next;
+        mid.next = null;
+       
+        return merge(sortList(head),sortList(second));
+    }
+    
+    //get mid node
+    public ListNode getMid(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast.next!=null && fast.next.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    
+    //merge two sorted list
+    public ListNode merge(ListNode list1, ListNode list2){
+        if(list1==null) return list2;
+        if(list2==null) return list1;
+        ListNode dummyhead = new ListNode(-1);
+        ListNode curr = dummyhead;
+        while(list1!=null && list2!=null){
+            if(list1.val < list2.val){
+                curr.next = list1;
+                list1 = list1.next;
+            }else{
+                curr.next = list2;
+                list2 = list2.next;
+            }
+            curr = curr.next;
+        }
+        if(list1!=null) curr.next = list1;
+        if(list2!=null) curr.next = list2;
+        return dummyhead.next;
+    }
+}
