@@ -91,3 +91,34 @@ public class Solution {
         }
     }
 }
+
+
+//////////////////////////////////////////////////////////////
+// 2015/11/13
+// Highlight: logic
+public class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        
+       //if gas is less than cost, return -1
+       int gassum = 0;
+       int costsum = 0;
+       for(Integer i : gas) gassum += i;
+       for(Integer i: cost) costsum += i;
+       if(gassum < costsum) return -1;
+       
+       //if cumulative left gas is less than 0, then reset start
+       int start = 0;
+       int idx = 0;
+       int left = 0;
+       while(idx<gas.length){
+           left += (gas[idx]-cost[idx]);
+           if(left<0){
+               start = (idx+1);
+               left = 0;
+           }
+           idx++;
+       }
+       if(left>=0) return start;
+       return -1;
+    }
+}
