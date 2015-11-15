@@ -29,3 +29,28 @@ public class Solution {
         return new StringBuilder(rnt).reverse().toString();
     }
 }
+
+
+//////////////////////////////////////////////
+// 2015/11/14
+// Highlight: deal with the case when the mod result equals 26, this happens since the index start from 1
+public class Solution {
+    public String convertToTitle(int n) {
+        String rnt = new String();
+        
+        //deal with the case when mod result equals to 26
+        //this happens since the index start from 1
+        while(n>0){
+            int val = n%26;
+            if(val==0){
+                rnt = 'Z'+rnt;
+                n = n/26-1;
+            }else{
+                rnt = (char)((val-1)+'A') + rnt;
+                n = n/26;
+            }
+        }
+        
+        return rnt;
+    }
+}
