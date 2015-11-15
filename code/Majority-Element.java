@@ -27,3 +27,28 @@ public class Solution {
         return curr;
     }
 }
+
+
+//////////////////////////////////////////////////////////////
+// 2015/11/14
+// Highlight: keep track of current value and its count; change current value when the count runs less than 1
+public class Solution {
+    public int majorityElement(int[] nums) {
+        
+        //keep track of current value and its count
+        //change of current value if count runs less than 1
+        int rnt = nums[0];
+        int count = 1;
+        for(int i=1; i<nums.length; i++){
+            if(nums[i]!=rnt){
+                if(count>=1) count--;
+                else{
+                    rnt = nums[i];
+                    count = 1;
+                }
+            }else count++;
+        }
+        
+        return rnt;
+    }
+}
