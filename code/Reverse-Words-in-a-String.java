@@ -61,3 +61,27 @@ public class Solution {
        
        }
 }
+
+
+///////////////////////////////////////////////
+//2015/11/14
+// Highlight: reverse from end to head, skip "" 
+public class Solution {
+    public String reverseWords(String s) {
+        if(s.length()==0 || s.equals(" ")) return "";
+        
+        //split
+        String[] str = s.split(" ");
+        
+        //traverse from end to head, skip ""
+        StringBuilder sb = new StringBuilder();
+        for(int i=str.length-1; i>=0; i--){
+            if(str[i].equals("")) continue;
+            sb.append(str[i]);
+            sb.append(" ");
+        }
+        
+        if(sb.length()==0) return sb.toString();
+        else return sb.substring(0, sb.length()-1);
+    }
+}
