@@ -73,3 +73,26 @@ public class Solution {
             return binarySearch(left, mid, num);
     }
 }
+
+
+///////////////////////////////////////////////////
+// 2015/11/14
+// Highlight: discuss cases
+public class Solution {
+    public int findMin(int[] nums) {
+        return help(nums, 0, nums.length-1);
+    }
+    
+    //there are 3 cases
+    // l<m<r
+    // l<m, m>r, l>r
+    // l>m, m>r, l>r
+    public int help(int[] nums, int left, int right){
+        if(left>=right) return nums[Math.min(left, right)];
+        int mid = (left+right)/2;
+        if(nums[left] <= nums[mid] && nums[mid] >= nums[right] && nums[left] > nums[right]){
+            return help(nums, mid+1, right);
+        }
+        else return help(nums, left, mid);
+    }
+}
