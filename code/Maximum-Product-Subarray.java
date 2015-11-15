@@ -82,3 +82,38 @@ public class Solution {
         return globalMax;
     }
 }
+
+
+////////////////////////////////////////////////////////////////
+// 2015/11/14
+// Highlight: maintain a current min and current max value
+public class Solution {
+    public int maxProduct(int[] nums) {
+        if(nums.length==1) return nums[0];
+        
+        //maintain a current min and current max value
+        int currmin = nums[0];
+        int currmax = nums[0];
+        int max = currmax;
+        for(int i=1; i<nums.length; i++){
+            int val1 = currmin * nums[i];
+            int val2 = currmax * nums[i];
+            
+            currmax = Math.max(val1, val2);
+            if(currmax < nums[i]){
+                currmax = nums[i];
+            }
+        
+            
+            currmin = Math.min(val1, val2);
+            if(currmin > nums[i]){
+                currmin = nums[i];
+            }
+            
+            //update global max
+            if(max<currmax) max = currmax;
+        }
+        
+        return max;
+    }
+}
