@@ -67,3 +67,31 @@ public class Solution {
             Math.min( binarySearch(left, mid, num), binarySearch(mid, right, num));
     }
 }
+
+
+////////////////////////////////////////////////////////////
+// 2015/11/14
+// Highlight: when nums[mid] == nums[right], it is not sure whether to go left or right parts, so we advance only one step (by right--)
+// Time complexity: worst-case O(n)
+public class Solution {
+    public int findMin(int[] nums) {
+        return help(nums, 0, nums.length-1);
+    }
+    
+    public int help(int[] nums, int left, int right){
+        if(left>=right){
+            if(left<nums.length) return nums[left];
+            else return nums[right];
+        }
+        
+        int mid = (left+right)/2;
+        //note that the right end is mid, e.g., [3 ,1 ,3], if use mid-1, then 1 will be ignored
+        if(nums[mid]<nums[right]){
+            return help(nums, left, mid);
+        }
+        else if(nums[mid]>nums[right]){
+            return help(nums, mid+1, right);
+        }
+        else return help(nums, left, right-1);
+    }
+}
