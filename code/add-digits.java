@@ -26,3 +26,13 @@ public class Solution {
         return addDigits(rnt);
     }
 }
+
+/////////////////////////////////////
+// 2015/11/15
+// Highlight: list the input from 0 to 20, and find the rules
+public class Solution {
+    public int addDigits(int num) {
+        if(num==0) return num;
+        else return (num-1)%9 +1;
+    }
+}
