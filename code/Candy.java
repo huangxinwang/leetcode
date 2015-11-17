@@ -97,3 +97,44 @@ public class Solution {
         return sum;
     }
 }
+
+
+/////////////////////////////////////////////////////////////////////
+// 2015/11/16
+// Highlight: logic, go from left to right, and then go from right to left
+// Time complexity: O(n)
+// Space complexity: O(n)
+public class Solution {
+    public int candy(int[] ratings) {
+  
+        int[] count = new int[ratings.length];
+        
+        //go from left to right, if increase, assign more
+        for(int i=0; i<ratings.length; i++){
+            if(i==0){
+                count[i] = 1;
+                continue;
+            }
+            if(ratings[i] > ratings[i-1]){
+                count[i] = count[i-1]+1;
+            }
+            else{
+                count[i] = 1;
+            }
+        }
+        
+        //go from right to left, adjust 
+        for(int i=ratings.length-1; i>=1; i--){
+            if(ratings[i] < ratings[i-1] && count[i] >= count[i-1]){
+                count[i-1] = count[i]+1;
+            }
+        }
+        
+        int rnt = 0;
+        for(int i=0; i<count.length; i++){
+            rnt += count[i];
+        }
+        
+        return rnt;
+    }
+}
