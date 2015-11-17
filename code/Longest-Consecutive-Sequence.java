@@ -102,3 +102,47 @@ public class Solution {
         return maxLen;
     }
 }
+
+
+
+
+
+
+///////////////////////////////////////////////
+//2015/11/16
+// Highlight: amorized cost O(n)
+public class Solution {
+    public int longestConsecutive(int[] nums) {
+        
+        HashSet<Integer> set = new HashSet<Integer>();
+        for(int i=0; i<nums.length; i++){
+            set.add(nums[i]);
+        }
+        
+        int max = 0;
+        //for each value
+        for(int i=0; i<nums.length; i++){
+            //if not removed yet
+            //check its continous numbers
+            if(set.contains(nums[i])){
+                int curr = 1;
+                int val = nums[i];
+                set.remove(val);
+                int increaseVal = val;
+                while(set.contains(increaseVal+1)){
+                    curr++;
+                    increaseVal++;
+                    set.remove(increaseVal);
+                }
+                while(set.contains(val-1)){
+                    curr++;
+                    val--;
+                    set.remove(val);
+                }
+                if(curr>max) max = curr;
+            }
+        }
+
+        return max;
+    }
+}
