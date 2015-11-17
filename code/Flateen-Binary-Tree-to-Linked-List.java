@@ -70,3 +70,41 @@ public class Solution {
         newHead.right = currRight;
     }
 }
+
+
+///////////////////////////////////////////////
+// 2015/11/15
+// Highlight: recursive flat tree
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void flatten(TreeNode root) {
+        if(root==null) return;
+        if(root.left==null && root.right==null) return;
+        
+        //recursive flatten tree
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        flatten(left);
+        flatten(right);
+        if(left==null) return;
+        
+        //put left sub-tree to right
+        root.right = left;
+        root.left = null;
+        while(left.right!=null){
+            left.left = null;
+            left = left.right;
+        }
+        //put right sub-tree 
+        left.right = right;
+        left.left = null;
+    }
+}
