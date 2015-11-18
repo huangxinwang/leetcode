@@ -106,3 +106,33 @@ public class Solution {
         }
     }
 }
+
+
+///////////////////////////////////////////////////
+// 2015/11/8
+// Highlight: 2D DP, for matching s[0..i] with t[0..j], consider whether s[i] match t[j]
+public class Solution {
+    public int numDistinct(String s, String t) {
+        if(s.length()==0 && t.length()==0) return 1;
+        if(s.length()==0 || t.length()==0) return 0;
+        int[][] count = new int[s.length()+1][t.length()+1];
+        
+        for(int i=0; i<=s.length(); i++){
+            count[i][0] = 1;
+        }
+        
+        for(int i=0; i<s.length(); i++){
+            for(int j=0; j<t.length(); j++){
+                    //match s[0..i] with t[0..j]
+                    if(s.charAt(i) == t.charAt(j)){
+                        // (not use current mapping) + (use current mapping)
+                        count[i+1][j+1] = count[i][j+1] + count[i][j];
+                    }else{
+                        count[i+1][j+1] = count[i][j+1];
+                    }
+                }
+            }
+        
+        return count[s.length()][t.length()];
+    }
+}
