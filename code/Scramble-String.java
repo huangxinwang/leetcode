@@ -78,3 +78,39 @@ public class Solution {
         return match[0][0][len];
     }
 }
+
+
+/////////////////////////////////////////////////////
+//2015/11/18
+// Highlight: dynamic programming, a[i][j][len] indicates whether str1[i..i+len] str2[j..j+len] scramble
+public class Solution {
+    public boolean isScramble(String s1, String s2) {
+        int n = s1.length();
+        if(n!=s2.length()) return false;
+        boolean[][][] scramble = new boolean[n][n][n+1];
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                if(s1.charAt(i)==s2.charAt(j))
+                    scramble[i][j][1] = true;
+            }
+        }
+        
+        //Base case
+        scramble[0][0][0] = true;
+        
+        for(int len=2; len<=n; len++){
+            for(int m = 1; m<len; m++){
+            for(int i=0; i<=n-len; i++){
+                for(int j=0; j<=n-len; j++){
+                    //Case 1: ab with ab
+                    //Case 2: ab with ba
+                    scramble[i][j][len] |= (scramble[i][j][m] && scramble[i+m][j+m][len-m]) 
+                                           || (scramble[i][j+len-m][m] && scramble[i+m][j][len-m]);
+                }
+            }
+            }
+        }
+        
+        return scramble[0][0][n];
+    }
+}
