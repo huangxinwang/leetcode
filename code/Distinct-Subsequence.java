@@ -79,3 +79,30 @@ public class Solution {
         return num[S.length()][T.length()];
     }
 }
+
+//////////////////////////////////////////////////////
+// 2015/11/18
+// Highlight: dfs, timeout!
+public class Solution {
+    public int numDistinct(String s, String t) {
+        int sidx = 0;
+        int tidx = 0;
+        int[] count = new int[1];
+        dfs(sidx, tidx, count, s, t);
+        return count[0];
+    }
+    
+    public void dfs(int sidx, int tidx, int[] count, String s, String t){
+        if(tidx>=t.length()){
+            count[0]++;
+            return;
+        }
+        if(sidx >= s.length()) return;
+        
+        for(int i = sidx; i<s.length(); i++){
+            if(s.charAt(i)==t.charAt(tidx)){
+                dfs(i+1, tidx+1, count, s, t);
+            }
+        }
+    }
+}
