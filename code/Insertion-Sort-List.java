@@ -153,3 +153,62 @@ public class Solution {
         return dummyhead.next;
     }
 }
+
+
+////////////////////////////////////////////////////////////
+//2015/11/18
+// Highlight: let the longer one advance the diff steps first
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int alen = 0;
+        int blen = 0;
+        ListNode currA = headA;
+        ListNode currB = headB;
+        while(currA!=null){
+            currA = currA.next;
+            alen++;
+        }
+        while(currB!=null){
+            currB = currB.next;
+            blen++;
+        }
+        
+        //let the longer one advance the diff steps first
+        int diff = alen-blen;
+        currA = headA;
+        currB = headB;
+        if(diff>0){
+            while(diff>0){
+                currA = currA.next;
+                diff--;
+            }
+        }else{
+            diff = -diff;
+            while(diff>0){
+                currB = currB.next;
+                diff--;
+            }
+        }
+        
+        while(currA!=null && currB!=null){
+            if(currA==currB) return currA;
+            else{
+                currA = currA.next;
+                currB = currB.next;
+            }
+        }
+        
+        return null;
+    }
+}
