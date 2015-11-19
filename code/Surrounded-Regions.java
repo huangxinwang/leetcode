@@ -187,3 +187,92 @@ public class Solution {
         return true;
     }
 }
+
+
+///////////////////////////////////////////////////
+// 2015/11/18
+// Highlight: propogate, start from boarder
+public class Solution {
+    public void solve(char[][] board) {
+        
+        //special case
+        if(board.length==0) return;
+        
+        int col = board[0].length;
+        
+        //set boarder as 'Y' if it is 'O'
+        for(int i=0; i<board.length; i++){
+            if(board[i][0]=='O'){
+                board[i][0] = 'Y';
+            }
+            if(board[i][col-1]=='O'){
+                board[i][col-1] = 'Y';
+            }
+        }
+        
+        for(int j=0; j<col; j++){
+            if(board[0][j]=='O'){
+                board[0][j] = 'Y';
+            }
+            if(board[board.length-1][j]=='O'){
+                board[board.length-1][j]= 'Y';
+            }
+        }
+        
+         //propogate
+        for(int i=0; i<board.length; i++){
+            if(board[i][0]=='Y'){
+               propogate(board, i, 0);
+            }
+            if(board[i][col-1]=='Y'){
+                 propogate(board, i, col-1);
+            }
+        }
+        
+        for(int j=0; j<col; j++){
+            if(board[0][j]=='Y'){
+                 propogate(board, 0, j);
+            }
+            if(board[board.length-1][j]=='Y'){
+                 propogate(board, board.length-1, j);
+            }
+        }
+        
+        //set 'O' as 'X'
+        for(int i=0; i<board.length; i++){
+            for(int j=0; j<board[0].length; j++){
+                if(board[i][j]=='O'){
+                    board[i][j] = 'X';
+                }
+            }
+        }
+        
+        //set 'Y' back to 'O'
+         for(int i=0; i<board.length; i++){
+            for(int j=0; j<board[0].length; j++){
+                if(board[i][j]=='Y'){
+                    board[i][j] = 'O';
+                }
+            }
+        }
+        
+        
+    }
+    
+    //recursive propogate to set neighbour of 'Y' as 'Y'
+    public void propogate(char[][] board, int x, int y){
+        int[] px = new int[]{0,0,-1,1};
+        int[] py = new int[]{1,-1,0,0};
+       
+            for(int i=0; i<px.length; i++){
+                if(x+px[i]>=0 && x+px[i] < board.length){
+                    if(y+py[i]>=0 && y+py[i]<board[0].length){
+                        if(board[x+px[i]][y+py[i]]=='O'){
+                            board[x+px[i]][y+py[i]]='Y';
+                            propogate(board, x+px[i],y+py[i] );
+                        }
+                    }
+                }
+            }
+        }
+}
