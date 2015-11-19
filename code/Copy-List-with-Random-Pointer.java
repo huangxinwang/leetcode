@@ -155,3 +155,60 @@ public class Solution {
     
     
 }
+
+
+///////////////////////////////////////////////////////////////
+// 2015/11/18
+// Highlight: copy linked list in place, split list
+/**
+ * Definition for singly-linked list with a random pointer.
+ * class RandomListNode {
+ *     int label;
+ *     RandomListNode next, random;
+ *     RandomListNode(int x) { this.label = x; }
+ * };
+ */
+public class Solution {
+    public RandomListNode copyRandomList(RandomListNode head) {
+        if(head==null) return null;
+        RandomListNode curr = head;
+        
+        //copy list
+        //origin: a-b-c
+        //copiedL a-a'-b-b;
+        while(curr!=null){
+            RandomListNode node = new RandomListNode(curr.label);
+            node.next = curr.next;
+            curr.next = node;
+            curr = curr.next.next;
+        }
+        
+        
+        //set random pointer
+        //if a random pointer is r
+        //then a' has random pointer r'
+        curr = head;
+        while(curr!=null){
+            if(curr.random!=null){
+                RandomListNode currRand = curr.random;
+                curr.next.random = currRand.next;
+            }
+            curr = curr.next.next;
+        }
+        
+        //split list
+        curr = head;
+        RandomListNode rntHead = curr.next;
+        RandomListNode rnt = curr.next;
+        while(curr!=null){
+            curr.next = rnt.next;
+            curr = curr.next;
+            if(curr!=null){
+                rnt.next = curr.next;
+            }
+            rnt = rnt.next;
+        }
+        
+        return rntHead;
+    }
+}
