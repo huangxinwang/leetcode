@@ -110,3 +110,46 @@ public class Solution {
         return dummyHead.next;
     }
 }
+
+
+////////////////////////////////////////////////////////
+//2015/11/18
+// Reference: http://bxucode.blogspot.com/2014/05/insertion-sort-list.html
+// Space complexity: O(1)
+// Time complexity: O(n^2)
+// Highlight: seperate the linked list into two parts; one with the head dummyhead; the other with the head curr
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode insertionSortList(ListNode head) {
+        if(head==null) return null;
+        
+        //use a dummyhead, in fact we seperate the whole linked list into two lists
+        // one is the sorted list, whose head is the dummyhead
+        // the other is the remaining list (unsorted), whose head is curr
+        ListNode dummyhead = new ListNode(-1);
+        
+        ListNode pre = dummyhead;
+        ListNode curr = head;
+        
+        while(curr!=null){
+            ListNode next = curr.next;
+            pre = dummyhead;
+            while(pre.next!=null && pre.next.val < curr.val){
+                pre = pre.next;
+            }
+            
+            curr.next = pre.next;
+            pre.next = curr;
+            curr = next;
+        }
+        
+        return dummyhead.next;
+    }
+}
