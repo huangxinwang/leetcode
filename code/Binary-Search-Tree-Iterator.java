@@ -74,3 +74,55 @@ public class BSTIterator {
  * BSTIterator i = new BSTIterator(root);
  * while (i.hasNext()) v[f()] = i.next();
  */
+
+
+///////////////////////////////////////////////////////////////
+// 2015/11/19
+// Highlight: use a stack to store the left branch of the tree, when a node is pop out, put its right branch in (left nodes in right branch)
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+
+public class BSTIterator {
+    //use a stack to store the nodes in the left branch, when a node is pop put, store its right branch (left nodes in right branch) in
+    Stack<TreeNode> stack = new Stack<TreeNode>();
+    
+    public BSTIterator(TreeNode root) {
+       
+        TreeNode tmp = root;
+        while(tmp!=null){
+            stack.push(tmp);
+            tmp = tmp.left;
+        }
+    }
+
+    /** @return whether we have a next smallest number */
+    public boolean hasNext() {
+        if(stack.isEmpty()) return false;
+        return true;
+    }
+
+    /** @return the next smallest number */
+    public int next() {
+        TreeNode curr = stack.pop();
+        int rnt = curr.val;
+        TreeNode node = curr.right;
+        while(node!=null){
+            stack.push(node);
+            node = node.left;
+        }
+        return rnt;
+    }
+}
+
+/**
+ * Your BSTIterator will be called like this:
+ * BSTIterator i = new BSTIterator(root);
+ * while (i.hasNext()) v[f()] = i.next();
+ */
