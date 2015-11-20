@@ -79,6 +79,8 @@ public class BSTIterator {
 ///////////////////////////////////////////////////////////////
 // 2015/11/19
 // Highlight: use a stack to store the left branch of the tree, when a node is pop out, put its right branch in (left nodes in right branch)
+// Space complexity; O(h) where h the height of the tree
+
 /**
  * Definition for binary tree
  * public class TreeNode {
