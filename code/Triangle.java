@@ -68,3 +68,34 @@ public class Solution {
         return total[0];
     }
 }
+
+
+///////////////////////////////////////////////
+// 2015/11/19
+// Highlight: need only to remember last line
+public class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        if(triangle.size()==0) return 0;
+        
+        ArrayList<Integer> last = new ArrayList<Integer>();
+        last.add(triangle.get(0).get(0));
+        
+        //need only to remember last line
+        for(int i=1; i<triangle.size(); i++){
+            List<Integer> curr = triangle.get(i);
+            ArrayList<Integer> tmp = new ArrayList<Integer>();
+            tmp.add(last.get(0)+curr.get(0));
+            for(int j=1; j<curr.size()-1; j++){
+                tmp.add(curr.get(j)+Math.min(last.get(j-1), last.get(j)));
+            }
+            tmp.add(curr.get(curr.size()-1) + last.get(last.size()-1));
+            last = new ArrayList<Integer>(tmp);
+        }
+        
+        int sum = Integer.MAX_VALUE;
+        for(int i=0; i<last.size(); i++){
+            if(sum>last.get(i)) sum = last.get(i);
+        }
+        return sum;
+    }
+}
