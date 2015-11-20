@@ -58,3 +58,24 @@ public class Solution {
         return rnt;
     }
 }
+
+//////////////////////////////////////////////////////
+// 2015/11/19
+// Highlight: new number is generated using base (1<<i) + existing number in the list
+public class Solution {
+    public List<Integer> grayCode(int n) {
+        
+        List<Integer> rnt = new ArrayList<Integer>();
+        rnt.add(0);
+        
+        for(int i=0; i<n; i++){
+            int base = 1<<i;
+            //new number is generated using: base + number already in the return list
+            for(int j=rnt.size()-1; j>=0; j--){
+                rnt.add(base + rnt.get(j));
+            }
+        }
+        
+        return rnt;
+    }
+}
