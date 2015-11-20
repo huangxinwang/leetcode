@@ -137,3 +137,65 @@ public class Solution {
         }
     }
 }
+
+//////////////////////////////////////////////////////////
+//2015/11/19
+// Highlight: get mid, reverse list, inter-leave two lists
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void reorderList(ListNode head) {
+        if(head==null || head.next==null) return;
+        
+        
+        //get mid node, break list into two parts
+        ListNode mid = getMid(head);
+        ListNode second = mid.next;
+        mid.next = null;
+        
+        //reverse second part
+        ListNode curr2 = reverse(second);
+        ListNode curr1 = head;
+        
+        //interleave first and second part
+        while(curr1!=null && curr2!=null){
+            ListNode tmp2 = curr2.next;
+            curr2.next = curr1.next;
+            curr1.next = curr2;
+            curr2 = tmp2;
+            curr1 = curr1.next.next;
+        }
+    }
+    
+    //Get mid node
+    public ListNode getMid(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    
+    //reverse and return tail
+    public ListNode reverse(ListNode head){
+        if(head==null || head.next==null) return head;
+        ListNode curr = head;
+        ListNode next = curr.next;
+        while(next!=null){
+            ListNode tmp = next.next;
+            next.next = curr;
+            curr = next;
+            next = tmp;
+        }
+        head.next = null;
+        return curr;
+    }
+}
