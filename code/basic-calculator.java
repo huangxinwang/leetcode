@@ -16,6 +16,7 @@
 ///////////////////////////////////////
 // 2015/11/21
 // Highlight: since there are only +,- operation, we can maintain a stack to keep track of the sign
+// Ref: http://www.cnblogs.com/grandyang/p/4570699.html
 public class Solution {
     public int calculate(String s) {
         Stack<Integer> stack = new Stack<Integer>();
