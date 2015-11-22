@@ -109,3 +109,51 @@ public class Solution {
         }
     }
 }
+
+
+///////////////////////////////////////////////////////
+// 2015/11/21
+// Highlight: first use DP to check whether can be break, then use DFS to check all possible breaks
+public class Solution {
+    public List<String> wordBreak(String s, Set<String> wordDict) {
+        
+       List<String> rnt = new ArrayList<String>();
+       //first determine if the word can be break
+        boolean[] canbreak = new boolean[s.length()+1];
+        canbreak[0] = true;
+        for(int i=1; i<=s.length(); i++){
+            for(int j=0; j<i; j++){
+                String word = s.substring(j,i);
+                if(wordDict.contains(word) && canbreak[j]){
+                    canbreak[i] = true;
+                    break;
+                }
+            }
+        }
+        
+        if(!canbreak[s.length()]) return rnt;
+     
+     
+       //then break the string
+       String curr = new String();
+       dfs(rnt, s, wordDict, 0, curr);
+       return rnt;
+    }
+    
+    
+    //dfs to find all solutions
+    public void dfs(List<String> rnt, String s, Set<String> wordDict, int idx, String curr){
+        if(idx>=s.length()){
+            rnt.add(curr);
+            return;
+        }
+        
+        for(int i=idx; i<s.length(); i++){
+            String str = s.substring(idx, i+1);
+            if(wordDict.contains(str)){
+                String newcurr = curr.length()==0? str: curr+" "+str;
+                dfs(rnt, s, wordDict, i+1, newcurr);
+            }
+        }
+    }
+}
