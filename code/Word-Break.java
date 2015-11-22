@@ -85,3 +85,34 @@ public class Solution {
         return false;
     }
 }
+
+
+///////////////////////////////////
+//2015/11/12
+// Highlight: 1D DP, O(n^2) running time
+public class Solution {
+    public boolean wordBreak(String s, Set<String> wordDict) {
+        if(s==null || s.length()==0) return true;
+        
+        boolean[] check = new boolean[s.length()];
+        
+        for(int i=1; i<=s.length(); i++){
+            for(int j=0; j<i; j++){
+                String curr = s.substring(j,i);
+                if(wordDict.contains(curr)){
+                    if(j==0){
+                        check[i-1] = true;
+                        break;
+                    }else{
+                        if(check[j-1]){
+                            check[i-1] = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
+        return check[s.length()-1];
+    }
+}
