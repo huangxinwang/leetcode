@@ -63,3 +63,25 @@ public class Solution {
         return f[s.length()];
     }
 }
+
+
+/////////////////////////////////////////////
+// 2015/11/12
+// Highlight: dfs, exceed time limit
+public class Solution {
+    public boolean wordBreak(String s, Set<String> wordDict) {
+        if(s==null || s.length()==0) return true;
+        return dfs(s, 0, wordDict);
+    }
+    
+    public boolean dfs(String s, int idx, Set<String> wordDict){
+        if(idx>=s.length()) return true;
+        for(int i = idx; i<s.length(); i++){
+            String curr = s.substring(idx, i+1);
+            if(wordDict.contains(curr)){
+                if(dfs(s, i+1, wordDict)) return true;
+            }
+        }
+        return false;
+    }
+}
