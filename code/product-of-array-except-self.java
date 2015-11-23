@@ -34,3 +34,28 @@ public class Solution {
         return rnt;
     }
 }
+
+
+///////////////////////////////////////////////
+// 2015/11/13
+// Highlight: constant space (except output)
+public class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        
+        //rnt[i] = nums[0]*...*nums[i-1]
+        int[] rnt = new int[nums.length];
+        for(int i=0; i<rnt.length; i++){
+            if(i==0) rnt[i] = 1;
+            else rnt[i] = rnt[i-1]*nums[i-1];
+        }
+        
+        //fill the prod from i+1 to n
+        int prod = 1;
+        for(int i=nums.length-1; i>=0; i--){
+            rnt[i] = rnt[i]*prod;
+            prod = prod * nums[i];
+        }
+        
+        return rnt;
+    }
+}
