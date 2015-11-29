@@ -133,54 +133,27 @@ public class Solution {
 
 
 //////////////////////////////////////////////////////////////////////
-// 2015/11/01
-// Highlight: distinguish rotate and unrotate
+// 2015/11/28
 public class Solution {
     public int search(int[] nums, int target) {
-        return helper(nums,0, nums.length-1, target);
+        if(nums==null || nums.length==0) return -1;
+        return bs(nums, target, 0, nums.length-1);
     }
     
-    public int helper(int[] nums, int left, int right, int target){
+    public int bs(int[] nums, int target, int left, int right){
+        if(left>right) return -1;
+        int mid = left + (right-left)/2;
         
-        //special condition
-        if(left+1 == right){
-            if(nums[left]==target) return left;
-            if(nums[right] == target) return right;
-            return -1;
-        }
-        if(left>=right){
-            if(nums[left]==target) return left;
-            else return -1;
+        if(nums[mid] == target) return mid;
+        //corner case: <=, rather than <
+        if(nums[left]<=nums[mid]){
+            if(nums[left]<=target && target<nums[mid])
+                return bs(nums, target, left, mid-1);
+            else return bs(nums, target, mid+1, right);
         }else{
-            int mid = (left+right)/2;
-            int leftval = nums[left];
-            int midval = nums[mid];
-            int rightval = nums[right];
-            if(target==midval) return mid;
-            
-            //without rotation
-            if(leftval<midval && midval <rightval){
-                if(target>midval) return helper(nums, mid+1, right, target);
-                else return helper(nums, left, mid-1, target);
-            }
-            //with rotation
-            else{
-                
-                if(leftval < midval && midval > rightval){
-                    if(target<midval && target>= leftval){
-                        return helper(nums, left, mid-1, target);
-                    }else{
-                        return helper(nums, mid+1, right, target);
-                    }
-                }
-                //if(leftval > midval && midval < rightval){
-                else{
-                    if(midval<target && target <=rightval)
-                      return helper(nums, mid+1, right, target);
-                    else 
-                     return helper(nums, left, mid-1, target);
-                }
-            }
+            if(nums[mid]<target && target <= nums[right])
+                return bs(nums, target, mid+1, right);
+            else return bs(nums, target, left, mid-1);
         }
     }
 }
