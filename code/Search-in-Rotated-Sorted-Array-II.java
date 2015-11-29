@@ -13,6 +13,7 @@
 // 2015/11/28
 // Highlight: if leftval == midval, then we can only advance the leftpointer by 1
 // Ref: http://blog.csdn.net/linhuanmars/article/details/20588511
+// 假设原数组是{1,2,3,3,3,3,3}，那么旋转之后有可能是{3,3,3,3,3,1,2}，或者{3,1,2,3,3,3,3}, 这样的我们判断左边缘和中心的时候都是3，如果// 我们要寻找1或者2，我们并不知道应该跳向哪一半。
 public class Solution {
     public boolean search(int[] nums, int target) {
         return bs(nums, target, 0, nums.length-1);
