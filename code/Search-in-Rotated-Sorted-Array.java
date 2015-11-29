@@ -13,6 +13,7 @@
 
 //////////////////////////////////////////////////////////////////////
 // 2015/11/28
+// Recursive
 // Highlight: discuss left < mid (further discuss left<target<mid); otherwise further discuss (mid<target<right)
 public class Solution {
     public int search(int[] nums, int target) {
@@ -35,5 +36,35 @@ public class Solution {
                 return bs(nums, target, mid+1, right);
             else return bs(nums, target, left, mid-1);
         }
+    }
+}
+
+
+//////////////////////////////////////////////////////////////////////
+// 2015/11/28
+// Iterative
+public class Solution {
+    public int search(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length-1;
+        
+        while(left<=right){
+            int mid = left + (right-left)/2;
+            if(nums[mid]==target) return mid;
+            
+            if(nums[left]<=nums[mid]){
+                if(nums[left]<=target && target<nums[mid]){
+                    right = mid-1;
+                }else{
+                    left = mid+1;
+                }
+            }else{
+                if(nums[mid]<target && target<=nums[right]){
+                    left = mid+1;
+                }else right = mid-1;
+            }
+        }
+        
+        return -1;
     }
 }
