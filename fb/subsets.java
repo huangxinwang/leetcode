@@ -1,5 +1,6 @@
 /**
 * Problem Statement: Subsets
+* Requirement: Iterative approach
 * Ref: http://www.mitbbs.com/article_t/JobHunting/33101531.html
 *
 */
