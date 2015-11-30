@@ -54,3 +54,24 @@ public class Solution {
         return rnt;
     }
 }
+
+//////////////////////////////////////////////////////
+// 2015/11/30
+// Highlight: recursive process, take care of corner case
+public class Solution {
+    public String convertToTitle(int n) {
+        String rnt = "";
+        //special case
+        if(n<=0) return rnt;
+        
+        //recursive process
+        int m = n%26;
+        if(m==0) m =26;
+      
+        rnt = (char)((m-1)+'A') + rnt;
+        
+        n = (n%26==0)?n/26-1: n/26;
+        
+        return convertToTitle(n)+rnt;
+    }
+}
