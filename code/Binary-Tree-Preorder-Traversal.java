@@ -88,3 +88,40 @@ public class Solution {
         preorder(rnt, root.right);
     }
 }
+
+/////////////////////////////////////////////
+// 2015/11/30
+// Preorder, iterative
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> rnt = new ArrayList<Integer>();
+        if(root==null) return rnt;
+        
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root);
+        
+        while(!stack.isEmpty()){
+            TreeNode node = stack.pop();
+            //current node
+            rnt.add(node.val);
+            
+            //push right
+            if(node.right!=null)
+                stack.push(node.right);
+            //push left
+            if(node.left!=null)
+                stack.push(node.left);
+        }
+        
+        return rnt;
+    }
+}
