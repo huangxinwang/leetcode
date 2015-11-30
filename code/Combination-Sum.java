@@ -86,6 +86,7 @@ public class Solution {
         curr.remove(curr.size()-1);
         
         //not add current value at depth
+        //skip same value
         int lastVal = candidates[depth];
         while(depth<candidates.length-1 && candidates[depth+1]==lastVal){
            depth++;
