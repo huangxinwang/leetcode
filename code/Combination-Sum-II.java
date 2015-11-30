@@ -10,47 +10,6 @@
  */
 
 
-public class Solution {
-    public ArrayList<ArrayList<Integer>> combinationSum2(int[] num, int target) {
-       
-        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
-        //special case
-        if(num.length<1) return rnt;
-         
-        ArrayList<Integer> tmp = new ArrayList<Integer>();
-        Arrays.sort(num);
-        int start = 0;
-        
-        //dfs find all combinations
-        dfs(num, target, start, tmp, rnt);
-        
-        return rnt;
-    }
-    
-    public void dfs(int[] num, int sum, int start, ArrayList<Integer> tmp, ArrayList<ArrayList<Integer>> rnt){
-        
-        //terminate condition
-        if(sum==0){
-            rnt.add(new ArrayList<Integer>(tmp));
-        }
-        if(start==num.length || sum<0)
-            return;
-        
-        //TODO: discuss with Hua  
-        int prev = -1;
-        for(int i=start; i<num.length; i++){
-            if(num[i]!=prev){
-                tmp.add(num[i]);
-                dfs(num, sum-num[i], i+1, tmp, rnt);
-                prev = num[i];
-                tmp.remove(tmp.size()-1);
-            }
-        }
-       
-    }
-}
-
-
 ////////////////////////////////////////////////////////
 //Round 2: 12/31/2014
 public class Solution {
