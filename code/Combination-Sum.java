@@ -54,47 +54,6 @@ public class Solution {
     }
 }
 
-///////////////////////////////////////////////////////////////////////////
-//Round 2: 12/31/2014
-public class Solution {
-    public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
-        
-        //sort array
-        Arrays.sort(candidates);
-        
-        //dfs find all solutions
-        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
-        ArrayList<Integer> tmp = new ArrayList<Integer>();
-        int sum = 0;
-        int index = 0;
-        findCombination(candidates, target, index, sum, tmp, rnt);
-        return rnt;
-    }
-    
-    //dfs
-    public void findCombination(int[] candidates, int target, int index, int sum, ArrayList<Integer> tmp,
-    ArrayList<ArrayList<Integer>> rnt){
-        
-        //Terminate condition
-        if(sum==target){
-            rnt.add(new ArrayList<Integer>(tmp));
-            return;
-        }
-        if(index==candidates.length) return;
-        
-        
-        //add elements to list
-        //update current index accordingly
-        ArrayList<Integer> currlist = new ArrayList<Integer>(tmp);
-        while(true){
-            
-            findCombination(candidates, target, index+1, sum, currlist, rnt);
-            currlist.add(candidates[index]);
-            sum += candidates[index];
-            if(sum>target) break;
-        }
-    }
-}
 
 
 //////////////////////////////////////////////////////////
