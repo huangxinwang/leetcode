@@ -135,3 +135,57 @@ public class Solution {
         return rnt;
     }
 }
+
+
+//////////////////////////////////////////////////
+// 2015/11/30
+// Highlight: find mid value
+// Time complexity: O(n^2), not good solution since need to repeatedly find mid
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode sortedListToBST(ListNode head) {
+        if(head==null) return null;
+        if(head.next==null){
+            TreeNode node = new TreeNode(head.val);
+            return node;
+        }
+        
+        //find mid
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        //break list into two parts
+        //mid node acts as root
+        ListNode second = slow.next;
+        slow.next = null;
+        TreeNode node = new TreeNode(slow.val);
+        ListNode curr = head;
+        while(curr.next!=slow){
+            curr = curr.next;
+        }
+        curr.next = null;
+        node.left = sortedListToBST(head);
+        node.right = sortedListToBST(second);
+        return node;
+    }
+}
