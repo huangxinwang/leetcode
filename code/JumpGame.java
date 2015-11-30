@@ -13,56 +13,16 @@
  */
 
 
-public class Solution {
-    public boolean canJump(int[] A) {
-       
-    //let maxCover denote the maximum distance can go
-    int maxCover = A[0];
-    for(int start = 0; start<A.length && start<=maxCover; start++){
-       //update maxCover if current step allow going a further distance
-       if(start+A[start] > maxCover)
-            maxCover = start + A[start];
-       //will reach end
-       if(maxCover >= A.length-1) return true;
-    }
-    
-    return false;
-    }
-}
-
-//////////////////////////////////////////////////////////////////////////
-//Round 2; 12/29/2014
-public class Solution {
-    public boolean canJump(int[] A) {
-        
-        //define max-cover
-        int maxCover = A[0];
-        
-        //traverse A constrainted by maxCover
-        for(int start=0; start<A.length && start<=maxCover; start++){
-            //update maxCover if further distance can be reached
-            if(start+A[start] > maxCover)
-                maxCover = start+A[start];
-                
-            //check terminate condition
-            if(maxCover>=A.length-1) return true;
-        }
-        return false;
-    }
-}
-
-
-////////////////////////////////////////////////////////
-// 2015/11/05
+/////////////////////////////////
+// 2015/11/29
 // Highlight: logic
+//            keep track of the maximum idx can jump to
 public class Solution {
     public boolean canJump(int[] nums) {
-        
         int max = 0;
-        
-        //use max to indicate the longest distance to go
         for(int i=0; i<nums.length && i<=max; i++){
-            int curr = nums[i]+i;
+            int curr = i+nums[i];
+            //update current maximum idx can jump to
             if(max<curr) max = curr;
             if(max>=nums.length-1) return true;
         }
