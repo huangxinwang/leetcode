@@ -64,29 +64,28 @@ public class Solution {
 
 
 /////////////////////////////////////////////////////////////
-// 2015/10/29
-// Highlight: logic
+// 2015/11/29
+// Highlight: use an indx to keep current position to write to
 public class Solution {
     public int removeDuplicates(int[] nums) {
-        int idx = 0;
         if(nums==null || nums.length==0) return 0;
-        int lastNum = nums[0];
-        int i=0;
-        while(i<nums.length){
-            //write last value when meet new value
-            if(lastNum!=nums[i]){
-                nums[idx] = lastNum;
-                lastNum = nums[i];
+        int idx = 0;
+        int curr = nums[0];
+        
+        //when nums[i]!=curr, write curr into the array
+        //use idx to keep the position to write to
+        for(int i=1; i<nums.length; i++){
+            if(nums[i]==curr) continue;
+            else{
+                nums[idx] = curr;
+                curr = nums[i];
                 idx++;
             }
-            //write last value in the array
-            if(i==nums.length-1){
-                nums[idx] = nums[i];
-                idx++;
-            }
-            i++;
         }
         
+        //deal with last element
+        nums[idx] = curr;
+        idx++;
         return idx;
     }
 }
