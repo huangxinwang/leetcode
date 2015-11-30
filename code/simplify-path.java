@@ -14,6 +14,7 @@
 /////////////////////////////////////
 // 2015/11/29
 // Highlight: use a stack to maintain the elements between each two "/".
+//            then constitute the path using elements from the stack
 public class Solution {
     public String simplifyPath(String path) {
         Stack<String> stack = new Stack<String>();
