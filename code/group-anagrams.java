@@ -84,6 +84,7 @@ public class Solution {
         for(int i=0; i<strs.length; i++){
             String curr = strs[i];
             char[] array = curr.toCharArray();
+            //get sorted version of current string
             Arrays.sort(array);
             String sorted = new String(array);
             List<String> list = new ArrayList<String>();
