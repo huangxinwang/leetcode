@@ -88,7 +88,7 @@ public class Solution {
     //dfs to find all combinations
     public void dfs(List<List<Integer>> rnt, ArrayList<Integer> curr, int idx, int[] nums){
         
-        //even not reach idx, current subset could be added to rnt
+        //even not reach idx, current subset could be added to rnt !!
         if(curr.size()!=0){
                 rnt.add(new ArrayList<Integer>(curr));
         }
