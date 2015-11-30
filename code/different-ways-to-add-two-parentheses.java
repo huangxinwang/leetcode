@@ -8,7 +8,7 @@
 // 2015/11/30
 // Highlight: for each operation sign, there are vairous ways to get its left and right parts
 //Ref: http://codechen.blogspot.com/2015/07/leetcode-different-ways-to-add.html
-
+// Time complexity: O(n!) ?
 public class Solution {
     public List<Integer> diffWaysToCompute(String input) {
         List<Integer> rnt = new ArrayList<Integer>();
