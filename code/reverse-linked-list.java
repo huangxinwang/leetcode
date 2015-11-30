@@ -28,6 +28,8 @@ public class Solution {
         while(next!=null){
             ListNode tmp = next.next;
             next.next = curr;
+            
+            //update curr and next
             curr = next;
             next = tmp;
         }
