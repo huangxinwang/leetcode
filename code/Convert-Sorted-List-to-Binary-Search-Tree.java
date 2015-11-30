@@ -26,65 +26,22 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
-    //use to construct root in the recursive process
-    static ListNode h;
-    
-    public TreeNode sortedListToBST(ListNode head) {
-        //special case
-        if(head==null) return null;
-        //initialize
-        int len = getLength(head);
-        h = head;
-        return helperSortedListToBST(0, len-1);
-        
-    }
-    
-    //get length of ListNode
-    public int getLength(ListNode head){
-        int len = 0;
-        ListNode p = head;
-        while(p!=null){
-            len++;
-            p = p.next;
-        }
-        return len;
-    }
-    
-    //recursive build BST
-    public TreeNode helperSortedListToBST(int start, int end){
-        //terminate case
-        if(start>end)
-            return null;
-            
-        int mid = (start+end)/2;
-        
-        //resursive build left
-        TreeNode left = helperSortedListToBST(start, mid-1);
-        //build root
-        TreeNode root = new TreeNode(h.val);
-        h = h.next;
-        //recursive build right
-        TreeNode right = helperSortedListToBST(mid+1, end);
-        
-        root.left = left;
-        root.right = right;
-        return root;
-    }
-}
 
-//////////////////////////////////////////////////////////////////////////////////////////
-//Round 2: 12/13/2014
+///////////////////////////////////////////////
+// 2015/11/30
+// Highlight: global pointer
+//            recursive build the tree
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; next = null; }
+ *     ListNode(int x) { val = x; }
  * }
  */
 /**
- * Definition for binary tree
+ * Definition for a binary tree node.
  * public class TreeNode {
  *     int val;
  *     TreeNode left;
@@ -93,49 +50,38 @@ public class Solution {
  * }
  */
 public class Solution {
+    ListNode h;
     public TreeNode sortedListToBST(ListNode head) {
-        
-        if(head==null) return null;
-        if(head.next==null) return new TreeNode(head.val);
-        
-        //count total length
-        int len = 1;
-        ListNode countnode = head;
-        while(countnode.next!=null){
-            len++;
-            countnode = countnode.next;
+        //maitain a global pointer to pint to current front element in the list
+        h = head;
+        int count = 0;
+        ListNode curr = head;
+        while(curr!=null){
+            curr = curr.next;
+            count++;
         }
         
-        //find mid
-        ListNode midnode = head;
-        int mid = len/2;
-        while(mid>0){
-            midnode = midnode.next;
-            mid--;
-        }
+        return help(head, 0, count-1);
+    }
+    
+    public TreeNode help(ListNode head, int min, int max){
+        if(min>max) return null;
+     
+        int mid = (min+max)/2;
+        //get eft tree
+        TreeNode left = help(head, min, mid-1);
         
-        //split to firsthead and secondhead
-        TreeNode rnt = new TreeNode(midnode.val);
-        mid = len/2;
-        ListNode firstHead = head;
-        while(mid>1){
-            firstHead = firstHead.next;
-            mid--;
-        }
-        firstHead.next=null;
+        //get root
+        TreeNode node = new TreeNode(h.val);
+        h = h.next;
         
-        //left subtree exist only when there are more than 2 elements in the list
-        //recursive convert left and right subtree
-        if(len>=2)
-            rnt.left = sortedListToBST(head);
-        ListNode secondHead = midnode.next;
-        rnt.right = sortedListToBST(secondHead);
-        
-        
-        return rnt;
+        //get right
+        TreeNode right = help(head, mid+1, max);
+        node.left = left;
+        node.right = right;
+        return node;
     }
 }
-
 
 //////////////////////////////////////////////////
 // 2015/11/30
