@@ -75,32 +75,33 @@ public class Solution {
 
 
 ////////////////////////////////////////////////////////////////////
-//10/03/2015
+//11/29/2015
 //Time complexity: best O(n)； worst O(n)? because one element will only be scanned at most twice??
 public class Solution {
     public int lengthOfLongestSubstring(String s) {
-        HashSet<Character> set = new HashSet<Character>();
-        int max_len = 0;
-        int curr_start = 0;
-        int curr_len = 0;
+        int max = 0;
+        
+        Set<Character> map = new HashSet<Character>();
+        int start = 0;
         for(int i=0; i<s.length(); i++){
             char c = s.charAt(i);
-            if(set.contains(c)){
-                if(curr_len > max_len) max_len = curr_len;
-                for(int j=curr_start; j<i;j++){
-                    curr_len --;
-                    if(s.charAt(j)==c){
-                        curr_start = j+1;
-                        break;
-                    }else{
-                        set.remove(s.charAt(j));
-                    }
+            
+            //if c is already in the set, remove all the chars upto the first c (inclusive)
+            if(map.contains(c)){
+                int currlen = i-start;
+                if(max<currlen) max = currlen;
+                while(s.charAt(start)!=c){
+                    map.remove(s.charAt(start));
+                    start++;
                 }
-            }else{
-                set.add(c);
+                map.remove(s.charAt(start));
+                start++;
             }
-            curr_len++;
+            map.add(c);
         }
-        return max_len>curr_len? max_len: curr_len;
+        
+        if(max<s.length()-start) max = s.length()-start;
+        
+        return max;
     }
 }
