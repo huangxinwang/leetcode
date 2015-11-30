@@ -7,6 +7,8 @@
 // 2015/11/29
 // Highlight: binary search
 //            compare root value to find out whether least common ancestor is in the left tree or right tree
+// Time: O(h) where h is height of BST
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
