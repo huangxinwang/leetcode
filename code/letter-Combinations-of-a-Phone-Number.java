@@ -78,6 +78,7 @@ public class Solution {
             return;
         }
         
+        // add each possible inerpretation of current digit
         int num = (int)(digits.charAt(i)-'0');
         for(int j=0; j<strs[num].length(); j++){
             String newcurr = curr + strs[num].charAt(j);
