@@ -144,3 +144,16 @@ public class Solution {
         
     }
 }
+
+
+/////////////////////////////////////////
+//　2015/12/04
+// Highlight: regex
+public class Solution {
+    public boolean isNumber(String s) {
+
+        //regex expression
+        String regex = "[-+]?(\\d+\\.?|\\.\\d+)\\d*(e[-+]?\\d+)?";
+        return s.trim().matches(regex);
+    }
+}
