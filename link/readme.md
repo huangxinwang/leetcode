@@ -4,3 +4,6 @@
 
 ### TODO
 - [bounded blocking queue](./file/bounded-blocking-queue.java)
+
+### Discuss
+- [iterate through k-dimensional array](./file/iterate-k-multidimensional.java)
