@@ -11,27 +11,35 @@
 
 
 ///////////////////////////////////////
-// 2015/11/19
+// 2015/12/04
 // Highlight: hashmap
+//Time complexity: O(n)
+//Space complexity: O(2n)
+
 public class Solution {
     public boolean isIsomorphic(String s, String t) {
-        if(s.length()==0) return t.length()==0;
+        if(s==null) return t==null;
         if(s.length()!=t.length()) return false;
-        
         HashMap<Character, Integer> smap = new HashMap<Character, Integer>();
         HashMap<Character, Integer> tmap = new HashMap<Character, Integer>();
         
-        //make sure: index with same char in s, must also have same char in t, and vice vesa
         for(int i=0; i<s.length(); i++){
             char sc = s.charAt(i);
             char tc = t.charAt(i);
+            
+            //If s has
             if(smap.containsKey(sc)){
+                int sidx = smap.get(sc);
+                //t must has
                 if(!tmap.containsKey(tc)) return false;
-                int idx = smap.get(sc);
-                if(t.charAt(idx)!=t.charAt(i)) return false;
-            }else{ 
+                //and must be the same
+                if(t.charAt(sidx)!= tc) return false;
+            }
+            //If s has not
+            else{
+                //t cannot have
                 if(tmap.containsKey(tc)) return false;
-                smap.put(sc, i);
+                smap.put(sc,i);
                 tmap.put(tc,i);
             }
         }
