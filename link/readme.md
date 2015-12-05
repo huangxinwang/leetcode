@@ -5,6 +5,7 @@
 ### TODO
 - [bounded blocking queue](./file/bounded-blocking-queue.java)
 - searching a string
+- [nested arraylist](./file/nested-arraylist.java)
 
 ### Discuss
 - [iterate through k-dimensional array](./file/iterate-k-multidimensional.java)
