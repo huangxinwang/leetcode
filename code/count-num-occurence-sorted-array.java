@@ -27,6 +27,7 @@ class Ideone
 		while(low < high){
 			int mid = low + (high-low)/2;
 			
+			//advance low when <
 			if(arr[mid] < num){
 				low = mid+1;
 			}
@@ -41,8 +42,9 @@ class Ideone
 		//get the index of last occurence + 1
 		high = arr.length;
 		while(low<high){
-			//biased middle value toward high
+			
 			int mid = low + (high-low)/2;
+			//try to advance lower when <=
 			if(arr[mid]>num){
 				high = mid;
 			}
