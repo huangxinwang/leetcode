@@ -1,6 +1,7 @@
 ## Problems
 
 - [insert-get-contains-random-O(1)](./file/write_get_contain_random.java)
+- [count number of triangles](./file/triangle.java)
 
 ### Concurrency Programming
 - [bounded buffer](./file/bounded_buffer.java), [bound buffer monitor](./file/bounded_buffer_monitor_sc.java)
