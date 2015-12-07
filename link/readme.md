@@ -4,7 +4,7 @@
 
 ### Concurrency Programming
 - [bounded buffer](./file/bounded_buffer.java), [bound buffer monitor](./file/bounded_buffer_monitor_sc.java)
-- [reader-writer](./file/reader_writer_R1.java)
+- [reader-writer](./file/reader_writer_R1.java), [monitor version](./file/reader_writer_R1_monitor.java)
 - [reader-writer (leading reader)](./file/reader_writer_R2.java)
 
 ### TODO
