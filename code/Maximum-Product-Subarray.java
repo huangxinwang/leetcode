@@ -9,6 +9,45 @@
  * the contiguous subarray [2,3] has the largest product = 6.
  */
 
+
+///////////////////////////////////////////////////////////////////
+// 2015/12/07
+// Highlight: maintain current max and min value
+public class Solution {
+    public int maxProduct(int[] nums) {
+        if(nums==null) return 0;
+        int rnt = nums[0];
+        int currmin = nums[0];
+        int currmax = nums[0];
+        
+        for(int i=1; i<nums.length; i++){
+            //avoid overwriting
+           int tmpmax = currmax;
+           int tmpmin = currmin;
+           //computer currentmax and min
+           if(nums[i]>0){
+               tmpmax = Math.max(nums[i], currmax*nums[i]);
+               tmpmin = Math.min(nums[i], currmin*nums[i]);
+           }else{
+               tmpmax = Math.max(nums[i], currmin*nums[i]);
+               tmpmin = Math.min(nums[i], currmax*nums[i]);
+           }
+           currmax = tmpmax;
+           currmin = tmpmin;
+           
+           if(rnt<currmax) rnt = currmax;
+        }
+        
+        return rnt;
+        
+    }
+    
+    
+}
+
+
+///////////////////////////////////////////////////////////////////
+
 public class Solution {
     public int maxProduct(int[] A) {
 		if(A.length==0) return 0;
