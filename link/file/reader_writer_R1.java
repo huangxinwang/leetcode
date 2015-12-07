@@ -55,6 +55,7 @@ public class Writer{
       mutex.V();
       writer_q.P();
     }
+    //being waked up
     activeWriters++;
     mutex.V();
   }
@@ -66,7 +67,9 @@ public class Writer{
     if(waitReaders>0){
       waitReaders--;
       reader_q.V();
-    }else if(waitWriters>0){
+    }
+    //some writering is waiting
+    else if(waitWriters>0){
       waitWriters--;
       writer_q.V();
     }
