@@ -15,6 +15,7 @@ You may assume that word1 does not equal to word2, and word1 and word2 are both 
 public class Solution{
   HashMap<String, List<Integer>> map = new HashMap<String, List<Integer>>();
   
+  //put words and their index in hashmap
   public void getWords(String[] words){
     for(int i=0; i<words.length; i++){
       List<Integer> list = new ArrayList<Integer>();
@@ -26,6 +27,7 @@ public class Solution{
     }
   }
   
+  //count the distance
   public int getMinDist(String word1, String word2){
     int min = Integer.MAX_VALUE;
     List<Integer> list1 = map.get(word1);
