@@ -32,6 +32,8 @@ public class Writer(){
     writer_reader_q.P();
   }
   
+  public void abstract write();
+  
   public void endWrite(){
     writer_reader_q.V();
   }
