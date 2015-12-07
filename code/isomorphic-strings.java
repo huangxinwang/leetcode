@@ -86,3 +86,44 @@ public class Solution {
         
     }
 }
+
+
+////////////////////////////////////////////////////////
+// 2015/12/07
+// Time: O(n^2), since need to search key by value
+// Space: O(n)
+public class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if(s==null) return t==null;
+        if(s.length()!=t.length()) return false;
+        
+        HashMap<Character, Character> map = new HashMap<Character, Character>();
+        
+        for(int i=0; i<s.length(); i++){
+            char sc = s.charAt(i);
+            char tc = t.charAt(i);
+            
+            //if <x,tc>, x exits and x is not sc; return false
+            Character key = getKey(map, tc);
+             if(key!=null && key!=sc) return false;
+             
+            //if <sc,x> exists, x is not tc, return false
+            if(map.containsKey(sc)){
+                if(map.get(sc)!=tc) return false;
+            }
+            //store the mapping
+            else{
+                map.put(sc, tc);
+            }
+        }
+        
+        return true;
+    }
+    
+    public Character getKey(HashMap<Character, Character> map, char tc){
+        for(Character key: map.keySet()){
+            if(map.get(key)==tc) return key;
+        }
+        return null;
+    }
+}
