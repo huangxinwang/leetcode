@@ -10,105 +10,39 @@
  */
 
 
-public class Solution {
-    public List<String> generateParenthesis(int n) {
-        
-        int left = 0;
-        int right = 0;
-        ArrayList<String> rnt = new ArrayList<String>();
-        String tmp ="";
-        
-        dfs(left, right, n, tmp, rnt);
-        
-        return rnt;
-    }
-    
-    //dfs find all solutions
-    public void dfs(int left, int right, int n, String tmp, ArrayList<String> rnt){
-        //terminate condition
-        if(left+right==n*2){
-            rnt.add(tmp);
-            return;
-        }
-        
-        //recusive condition
-        if(right<left){
-            String newTmp = tmp+")";
-            dfs(left, right+1, n, newTmp, rnt);
-        }
-        
-        if(left<n){
-            String newTmp = tmp+"(";
-            dfs(left+1,right, n, newTmp, rnt);
-        }
-      
-    }
-}
+//////////////////////////////////////////////////
+// 2015/12/07
+// Highlight: dfs
 
-
-/////////////////////////////////////////////////////////////////////////////
-//Round 2: 1/5/2015
 public class Solution {
+    /**
+     * @param n n pairs
+     * @return All combinations of well-formed parentheses
+     */
     public ArrayList<String> generateParenthesis(int n) {
-        
-        ArrayList<String> rnt = new ArrayList<String>();
+        // Write your code here
         int left = 0;
         int right = 0;
-        String tmp = new String();
-        dfs(left, right, n,rnt, tmp);
-        
+        String curr = new String();
+        ArrayList<String> rnt = new ArrayList<String>();
+        dfs(rnt, curr, left, right,n);
         return rnt;
     }
     
-    public void dfs(int left, int right, int n, ArrayList<String> rnt, String tmp){
-        
-        if(left+right==2*n)
-        {
-            rnt.add(tmp);
+    public void dfs(ArrayList<String> rnt, String curr, int left, int right, int n){
+        if(curr.length()==n*2){
+            rnt.add(curr);
             return;
         }
         
-        //add right
-        if(right<left){
-            String newTmp = tmp + ")";
-            dfs(left, right+1, n, rnt, newTmp);
-        }
-        
-        //add left
-        if(left<n)
-        {
-            String newTmp = tmp + "(";
-            dfs(left+1, right, n, rnt, newTmp);
-        }
-    }
-}
-
-
-///////////////////////////////////////////////////////////
-// 2015/10/25
-// Highlight: use dfs
-public class Solution {
-    public List<String> generateParenthesis(int n) {
-        int left = 0;
-        int right = 0;
-        ArrayList<String> rnt = new ArrayList<String>();
-        dfs(left, right, "", n, rnt);
-        return rnt;
-    }
-    
-    public void dfs(int left, int right, String tmp, int n, ArrayList<String> rnt){
-        if(left+right==2*n){
-            rnt.add(tmp);
-            return;
-        }
-        
-        if(right<left){
-            dfs(left, right+1, tmp+")", n, rnt);
-        }
-        
+        //generate left "("
         if(left<n){
-            dfs(left+1, right, tmp+"(", n, rnt);
+            dfs(rnt, curr+"(", left+1, right, n);
         }
         
+        //genegrate right ")"
+        if(right<left){
+            dfs(rnt, curr+")", left, right+1,n);
+        }
     }
 }
