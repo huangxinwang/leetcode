@@ -25,8 +25,9 @@ public class reader_writer extends Monitor{
   public void beginWrite(){
     while(isWriting || readCount>0 ||signaledReader>0 || reader_q.length()>0){
       writer_q.wait();
-      isWriting = true;
     }
+    
+    isWriting = true;
   }
   
   public void endWrite(){
