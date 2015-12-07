@@ -16,6 +16,7 @@
 // 2015/12/07
 // Highlight: DFS
 // Time compexity; O(n!), need to investigate
+// As this is an NP hard problem, the time complexity is exponential
 
 public class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
