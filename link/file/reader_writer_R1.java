@@ -10,6 +10,7 @@ binarySemaphore reader_q = new binarySemaphore(0);
 binarySemaphore writer_q = new binarySemaphore(0);
 
 public class Reader{
+  
   public void beginRead(){
     mutex.P();
     //wait for to writer 
@@ -30,6 +31,8 @@ public class Reader{
       mutex.V();
   }
   
+  public abstract void read();
+  
   public void endRead(){
     mutex.P();
     activeReader--;
@@ -40,4 +43,35 @@ public class Reader{
     else
       mutex.V();
   }
+}
+
+
+public class Writer{
+  
+  public void beginWrite(){
+    mutex.P();
+    if(activeReaders>0 || activeWriters>0){
+      waitWriters++;
+      mutex.V();
+      writer_q.P();
+    }
+    activeWriters++;
+    mutex.V();
+  }
+  
+  public void endWrite(){
+    mutex.P();
+    activeWriter--;
+    //some reader is waiting
+    if(waitReaders>0){
+      waitReaders--;
+      reader_q.V();
+    }else if(waitWriters>0){
+      waitWriters--;
+      writer_q.V();
+    }
+    else
+      mutex.V();
+  }
+  
 }
