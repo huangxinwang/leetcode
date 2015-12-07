@@ -4,6 +4,8 @@
 
 ### Concurrency Programming
 - [bounded buffer](./file/bounded_buffer.java)
+- [reader-writer](./file/reader_writer.java)
+- [reader-writer (leading reader)](./file/reader_writer_R2.java)
 
 ### TODO
 - [bounded blocking queue](./file/bounded-blocking-queue.java)
