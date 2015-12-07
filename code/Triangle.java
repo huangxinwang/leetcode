@@ -48,6 +48,7 @@ public class Solution {
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //Round 2: 12/07/2014
 //Space complexity O(n)
+// bottom up
 public class Solution {
     public int minimumTotal(List<List<Integer>> triangle) {
         
