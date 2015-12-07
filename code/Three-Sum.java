@@ -10,191 +10,48 @@
  * A solution set is: (-1, 0, 1) (-1, -1, 2)
  */
  
+ //////////////////////////////////////////////////
+ // 2015/12/07
+ // Time complexity: O(n^2)
+ 
  public class Solution {
-    public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
-        
-        //init
+    /**
+     * @param numbers : Give an array numbers of n integer
+     * @return : Find all unique triplets in the array which gives the sum of zero.
+     */
+    public ArrayList<ArrayList<Integer>> threeSum(int[] nums) {
+        // write your code here
         ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
-        
-        if(num.length < 3) return rnt;
-        
-        //sort array, could save time when enumerating
-        Arrays.sort(num);
-        
-        //3 sum
-        for(int i=0; i<num.length-2;i++){
-            
-            //avoid duplication
-            if(i==0 || num[i]>num[i-1]){
-                
-                //find remain + num[i] == 0
-                int remain = -num[i];
-                
-                int start = i+1;
-                int end = num.length-1;
-                
-                while(start < end){
-                    
-                    //case 1
-                    if(num[start]+num[end]==remain)
-                    {
-                        ArrayList<Integer> tmp = new ArrayList<Integer>();
-                        tmp.add(num[i]);
-                        tmp.add(num[start]);
-                        tmp.add(num[end]);
-                        rnt.add(tmp);
-                        
-                        start++;
-                        end--;
-                        //avoid duplication
-                        while(start < end && num[end+1]==num[end]) end--;
-                        while(start < end && num[start-1]==num[start]) start++;
-                        
-                        
-                    }
-                    //case 2
-                    else if(num[start]+num[end] > remain)
-                    {
-                        end--;
-                    }
-                    //case 3
-                    else if(num[start]+num[end] < remain)
-                    {
-                        start++;
-                    }
-                }
-                
-            }
-        }
-        
-        return rnt;
-        
-        
-    }
-        
-      
-}
-
-
-////////////////////////////////////////////////////////////////////////
-//Round 2: 1/1/2015
-public class Solution {
-    public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
-        
-        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
-        if(num.length<3) return rnt;
-        
-        Arrays.sort(num);
-        
-        for(int i=0; i<num.length-2; i++){
-            
-            //avoid duplication
-            if(i==0 || num[i]>num[i-1]){
-                
-            //sort array and find combinations that sums up to remain
-            int remain = -num[i];
-            int start = i+1;
-            int end = num.length-1;
-            while(start<end){
-                int currSum = num[start]+num[end];
-                if(currSum==remain){
-                    ArrayList<Integer> tmp = new ArrayList<Integer>();
-                    tmp.add(num[i]);
-                    tmp.add(num[start]);
-                    tmp.add(num[end]);
-                    rnt.add(tmp);
-                    start++;
-                    end--;
-                    while(start<=end && num[start-1]==num[start]) start++;
-                    while(start<=end && num[end] == num[end+1]) end--;
-                }
-                else if(currSum < remain)
-                    start++;
-                else end--;
-            }
-            }
-        }
-        
-        return rnt;
-    }
-}
-
-
-///////////////////////////////////////////////
-// 2015-10-15
-// Highlight: sort array, assisted with Hashmap
-public class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
-        
-        Arrays.sort(nums);
-        ArrayList<List<Integer>> rnt = new ArrayList<List<Integer>>();
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        for(int i=0 ;i<nums.length; i++){
-            if(map.containsKey(nums[i])) map.put(nums[i], map.get(nums[i])+1);
-            else map.put(nums[i],1);
-        }
-        
-        for(int i=0; i<nums.length-2; i++){
-            if(i>=1 && nums[i]==nums[i-1]) continue;
-            for(int j=i+1; j<nums.length-1; j++){
-                if(j!=i+1 && nums[j]==nums[j-1]) continue;
-                int sum = nums[i]+nums[j];
-                if(sum>0) break;
-                int remain = 0-sum;
-                if(remain<nums[j]) break;
-                if(map.containsKey(remain)){
-                    if(remain==nums[j]&&map.get(remain)<2) continue;
-                    if(remain==nums[j] && remain==nums[i] && map.get(remain)<3) continue;
-                    ArrayList<Integer> curr = new ArrayList<Integer>();
-                    curr.add(nums[i]);
-                    curr.add(nums[j]);
-                    curr.add(remain);
-                    rnt.add(curr);
-                    continue;
-                }
-            }
-        }
-        
-        return rnt;
-    }
-}
-
-
-///////////////////////////////////////////////////////////////////////
-// 2015/11/09
-// Timecomplexity: O(n^2)
-public class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
-        if(nums.length<=2) return rnt;
         
         Arrays.sort(nums);
         
+        //first number
         for(int i=0; i<nums.length-2; i++){
-            //skip similar
             if(i!=0 && nums[i]==nums[i-1]) continue;
+            int remain = 0 - nums[i];
             int start = i+1;
             int end = nums.length-1;
+            
+            //second and thrid number
             while(start<end){
-                int sum = nums[start]+nums[end]+nums[i];
-                if(sum==0){
-                    ArrayList<Integer> tmp = new ArrayList<Integer>();
-                    tmp.add(nums[i]);
-                    tmp.add(nums[start]);
-                    tmp.add(nums[end]);
-                    rnt.add(tmp);
+                int sum = nums[start]+nums[end];
+                if(sum<remain) start++;
+                else if(sum>remain) end--;
+                else{
+                    ArrayList<Integer> curr = new ArrayList<Integer>();
+                    curr.add(nums[i]);
+                    curr.add(nums[start]);
+                    curr.add(nums[end]);
+                    rnt.add(curr);
+                    while(start<end && nums[start]==nums[start+1]) start++;
+                    while(start<end && nums[end-1] == nums[end]) end--;
                     start++;
                     end--;
-                    while(start<end && nums[start]==nums[start-1]) start++;
-                    while(start<end && nums[end] == nums[end+1]) end--;
                 }
-                else if(sum<0){
-                    start++;
-                }
-                else end--;
             }
         }
-        
         return rnt;
+        
+        
     }
 }
