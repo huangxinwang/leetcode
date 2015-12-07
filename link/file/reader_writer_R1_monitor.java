@@ -35,5 +35,6 @@ public class reader_writer extends Monitor{
       singledReader = reader_q.length();
       reader_q.singalAll();
     }
+    else writer_q.signal();
   }
 }
