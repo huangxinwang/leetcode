@@ -21,7 +21,9 @@ public class Solution{
     int min = words.length;
     
     for(int i=0; i<words.length; i++){
+      //update word 1
       if(words[i].equals(word1) idx1= i;
+      //update word 2
       else if(words[i].equals(words2) idx2= i;
       if(idx1!=-1 && idx2!=-1){
         min = Math.min(min, Math.abs(idx1-idx2));
