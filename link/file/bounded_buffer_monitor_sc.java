@@ -19,7 +19,7 @@ public class BoundedBuffer extends Monitor{
       notFull.wait();
     }
     buffer[in] = val;
-    in = (in+1)%n;
+    in = (in+1)%capacity;
     fullSlots++;
     //not empty now!
     notEmpty.signal();
@@ -31,7 +31,7 @@ public class BoundedBuffer extends Monitor{
       notEmpty.wait();
     }
     int rnt = buffer[out];
-    out = (out+1)%n;
+    out = (out+1)%capacity;
     fullSlots--;
     //not full now!
     notFull.signal();
