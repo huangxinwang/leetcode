@@ -2,6 +2,7 @@
 
 - [insert-get-contains-random-O(1)](./file/write_get_contain_random.java)
 - [count number of triangles](./file/triangle.java)
+- [nested arraylist](./file/nested-arraylist.java)
 
 ### Concurrency Programming
 - [bounded buffer](./file/bounded_buffer.java), [bound buffer monitor](./file/bounded_buffer_monitor_sc.java)
@@ -11,7 +12,6 @@
 ### TODO
 - [bounded blocking queue](./file/bounded-blocking-queue.java)
 - searching a string
-- [nested arraylist](./file/nested-arraylist.java)
 - [raise double to int](./file/raise-double-to-int.java)
 
 ### Discuss
