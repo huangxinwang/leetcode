@@ -11,92 +11,48 @@
 
 
 ////////////////////////////////////////////////////////
-//Round 2: 12/31/2014
+// 2015/12/07 
+// Highlight: DFS
+// Time: O(2^n)
+
 public class Solution {
-    public ArrayList<ArrayList<Integer>> combinationSum2(int[] num, int target) {
-        
-        Arrays.sort(num);
-        
-        ArrayList<ArrayList<Integer>> rnt = new ArrayList<ArrayList<Integer>>();
-        ArrayList<Integer> tmp = new ArrayList<Integer>();
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
+        Arrays.sort(candidates);
+        boolean[] used = new boolean[candidates.length];
+        List<Integer> curr = new ArrayList<Integer>();
+        int idx = 0;
         int sum = 0;
-        int index = 0;
-        int[] used = new int[num.length];
-        findCombination(num, used,target,sum, index, tmp, rnt);
+        dfs(rnt, curr, candidates, used, idx, sum, target);
         return rnt;
     }
     
-    //dfs find all solutions
-    public void findCombination(int[] num, int[] used, int target, int sum, int index, ArrayList<Integer> tmp, 
-    ArrayList<ArrayList<Integer>> rnt){
+    public void dfs(List<List<Integer>> rnt, List<Integer> curr, int[] candidates, boolean[] used, int idx, int sum, int target){
         
         //terminate cases
         if(sum==target){
-            rnt.add(new ArrayList<Integer>(tmp));
+            rnt.add(new ArrayList<Integer>(curr));
             return;
         }
-        if(index==num.length || sum>target) return;
+        if(sum>target) return;
+        if(idx>=candidates.length) return;
         
-        
-        for(int i=index; i<num.length; i++){
+       
             
-            //case1: has duplicate numbers, and previous number is not used
-            if(i>0 && num[i-1]==num[i] && used[i-1]==0){
-            }
-            //Case 2:dfs
-            else{
-                used[i] = 1;
-                tmp.add(num[i]);
-                findCombination(num, used, target, sum+num[i],i+1, tmp, rnt);
-                used[i] = 0;
-                tmp.remove(tmp.size()-1);
-            }
+        //skip current due to repeated value
+        if(idx!=0 && candidates[idx-1]==candidates[idx] && used[idx-1]==false)
+            dfs(rnt, curr, candidates, used, idx+1, sum, target);
+        else{
+            //add current
+            curr.add(candidates[idx]);
+            used[idx] = true;
+            dfs(rnt, curr, candidates, used, idx+1, sum+candidates[idx], target);
+            used[idx] = false;
+            curr.remove(curr.size()-1);
+           
+            //jump to next
+            dfs(rnt, curr, candidates, used, idx+1, sum, target);
         }
-    }
-}
-
-
-////////////////////////////////////////////////////////
-// 2015/11/04
-// Highlight: keep track of whether a number is used or not
-public class Solution {
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        Arrays.sort(candidates);
-        List<List<Integer>> rnt = new ArrayList<List<Integer>>();
-        ArrayList<Integer> curr = new ArrayList<Integer>();
-        int sum = 0;
-        int depth = 0;
-        boolean[] used = new boolean[candidates.length];
-        dfs(candidates,used, target, sum, depth, rnt, curr);
-        return rnt;
     }
     
-    public void dfs(int[] candidates,boolean[] used, int target, int sum, int depth, List<List<Integer>> rnt, ArrayList<Integer> curr){
-        if(sum==target){
-            ArrayList<Integer> newList = new ArrayList<Integer>(curr);
-            rnt.add(newList);
-            return;
-        }
-        if(depth>=candidates.length || sum > target) return;
-        
-        //skip current number
-        dfs(candidates, used, target, sum, depth+1, rnt, curr);
-         
-        //not skip current number
-        //Case 1: same number has not be used, have to skip :(
-        if(depth>0 && (candidates[depth]==candidates[depth-1]) && used[depth-1]==false){
-            
-        }
-        
-        //Case 2: no need to skip
-        else{
-            used[depth] = true;
-            curr.add(candidates[depth]);
-            dfs(candidates, used, target, sum + candidates[depth], depth+1, rnt, curr);
-            curr.remove(curr.size()-1);
-            used[depth] = false;
-            
-        }
-       
-    }
 }
