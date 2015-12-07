@@ -47,3 +47,42 @@ public class Solution {
         return true;
     }
 }
+
+
+////////////////////////////////////////////////////////////
+public class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        
+        if(s==null) return t==null;
+        if(s.length()!=t.length()) return false;
+        HashMap<Character, Integer> smap = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> tmap = new HashMap<Character, Integer>();
+        
+        for(int i=0; i<s.length(); i++){
+            char sc = s.charAt(i);
+            char tc = t.charAt(i);
+            
+            //if s has
+            if(smap.containsKey(sc)){
+                //t must have
+                if(!tmap.containsKey(tc)) return false;
+                //and should be the same
+                int idx = smap.get(sc);
+                if(t.charAt(idx)!=tc) return false;
+                idx = tmap.get(tc);
+                if(s.charAt(idx)!=sc) return false;
+            }
+            // if s has not
+            else{
+                //t must not have
+                if(tmap.containsKey(tc)) return false;
+                tmap.put(tc,i);
+                smap.put(sc,i);
+            }
+        }
+        
+        return true;
+        
+        
+    }
+}
