@@ -15,6 +15,7 @@
 //////////////////////////////////////////////////////
 // 2015/12/07
 // Highlight: DFS
+// Time compexity; O(n!), need to investigate
 
 public class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
