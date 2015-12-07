@@ -13,6 +13,8 @@
 //////////////////////////////////////////////////
 // 2015/12/07
 // Highlight: dfs
+// Time complexity: O(n!)
+// I am thinking: C(2n,n) while guarantee the number of left "(" is always larger than right ")"
 
 public class Solution {
     /**
