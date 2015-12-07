@@ -15,6 +15,8 @@
 /////////////////////////////////////////////////////////
 // 2015/12/07
 // Highlight: use a stack to keep track of characters
+// Time: O(n)
+// Space: O(n)
 
 public class Solution {
     /**
