@@ -16,7 +16,7 @@
 //////////////////////////////////////////////
 // 2015/12/09
 // Highlight: dfs
-// Time: 
+// Time: seems exponential, since it enumerate all possible dividings.
 
 public class Solution {
     public boolean isAdditiveNumber(String num) {
