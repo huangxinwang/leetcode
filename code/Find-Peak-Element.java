@@ -5,19 +5,18 @@
  */
 
 public class Solution {
-    public int findPeakElement(int[] num) {
+    public int findPeakElement(int[] nums) {
+        if(nums.length==1) return 0;
         
-        //special conditions
-        if(num.length==1) return 0;
-        if(num[0]>num[1]) return 0;
-        if(num[num.length-1]>num[num.length-2]) return num.length-1;
+        //corner cases
+        if(nums[0]>nums[1]) return 0;
+        int len = nums.length;
+        if(nums[len-1]>nums[len-2]) return len-1;
         
-        //traverse array
-        for(int i=1; i<num.length-1; i++){
-            if(num[i-1]<num[i] && num[i]>num[i+1]) 
-                return i;
+        //find peak
+        for(int i=1; i<len-1; i++){
+            if(nums[i]>nums[i-1] && nums[i]>nums[i+1]) return i;
         }
-        
-        return 0;
+        return -1;
     }
 }
