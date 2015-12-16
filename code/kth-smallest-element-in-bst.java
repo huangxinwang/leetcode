@@ -3,7 +3,7 @@
 /////////////////////////////////////////////////
 // 2015/12/16
 // Highlight: stack, tree in-order traverse
-
+// Time: O(h)
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -43,3 +43,11 @@ public class Solution {
         return -1;
     }
 }
+
+
+///////////////////////////////
+// What if need to find the kth smallest frequency
+// We can maintain the left-child count of each node
+// Case 1: left-count+1 < k, k-= (leftcount+1), node = node.right
+// Case 2: leftcount + 1 ==k , return node
+// Case 3: leftcount + 1 > k, node = node.left
