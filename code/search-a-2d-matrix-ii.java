@@ -1,5 +1,31 @@
 // Search a 2d matrix ii
 
+
+/////////////////////////////////////////
+// 2015/12/15
+// Highlight: logic
+// Time: O(m+n)
+public class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix==null || matrix.length==0) return false;
+        int i = 0;
+        int j = matrix[0].length-1;
+        
+        //search from top right
+        while(i<matrix.length && j>=0){
+            int val = matrix[i][j];
+            if(target==val) return true;
+            //current val larger than target, elements in current col should be discarded, so j--
+            if(target<val) j--;
+            //current val smaller than target, elements in current row should be discarded, so i++
+            else i++;
+        }
+        
+        return false;
+    }
+}
+
+
 /////////////////////////////////////
 // 2015/12/15
 // Highlight: for each row, binary search
