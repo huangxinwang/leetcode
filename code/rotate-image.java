@@ -18,7 +18,7 @@ public class Solution {
         int n = matrix.length;
         
         //use the logic of matrix[i][j] = matrix[n-1-j][i]
-        for(int i=0; i<(n+1)/2; i++){
+        for(int i=0; i<n/2; i++){
             //rotate by each layer
             for(int j=i; j<n-i-1; j++){
                 int tmp = matrix[i][j];
