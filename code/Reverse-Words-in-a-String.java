@@ -9,8 +9,11 @@
 
 public class Solution {
     public String reverseWords(String s) {
+       //split string
         String[] words = s.split(" ");
         StringBuilder sb = new StringBuilder();
+        
+        //append in reverse order
         for(int i=words.length-1; i>=0; i--){
             if(words[i].equals("")) continue;
             if(sb.length()!=0) sb.append(" ");
