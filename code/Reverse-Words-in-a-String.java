@@ -3,85 +3,20 @@
  * Given an input string, reverse the string word by word.
  */
  
-public class Solution {
-    
-    
-	public String reverseWords(String s) {
-	    
-	    //special case
-		if (s == null || s.length() == 0) {
-			return "";
-		}
-        
-        //split string
-		String[] splitS = s.split(" ");
-	
-	    //reverse string
-		String rnt = new String();
-		for (int i = splitS.length - 1; i >= 0; --i) {
-			if (!splitS[i].equals("")) {
-			rnt += splitS[i] + " ";
-			}
-		}
-		
-		if(rnt.length()==0) return "";
-		//substract last appended " "
-		return rnt.substring(0,rnt.length()-1);
-
-	}
-
-    
-}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Round 2, 11/25/2014
-//complexity: one pass
+//////////////////////////////
+// 2015/12/25
+// Highlight: string split
 
 public class Solution {
     public String reverseWords(String s) {
-        
-       if(s==null || s.length() ==0) return s;
-       
-       String[] items = s.split(" ");
-       
-       //split by " "
-       //scan from tail to front
-       //use StringBuilder to maintain
-       StringBuilder sb = new StringBuilder();
-       for(int i=items.length-1; i>=0; i--){
-           if(!items[i].equals("")){
-               sb.append(items[i]).append(" ");
-           }
-       }
-       
-       if(sb.length()==0) return "";
-       //skip last " "
-       else return sb.substring(0, sb.length()-1);
-       
-       }
-}
-
-
-///////////////////////////////////////////////
-//2015/11/14
-// Highlight: reverse from end to head, skip "" 
-public class Solution {
-    public String reverseWords(String s) {
-        if(s.length()==0 || s.equals(" ")) return "";
-        
-        //split
-        String[] str = s.split(" ");
-        
-        //traverse from end to head, skip ""
+        String[] words = s.split(" ");
         StringBuilder sb = new StringBuilder();
-        for(int i=str.length-1; i>=0; i--){
-            if(str[i].equals("")) continue;
-            sb.append(str[i]);
-            sb.append(" ");
+        for(int i=words.length-1; i>=0; i--){
+            if(words[i].equals("")) continue;
+            if(sb.length()!=0) sb.append(" ");
+            sb.append(words[i]);
         }
         
-        if(sb.length()==0) return sb.toString();
-        else return sb.substring(0, sb.length()-1);
+        return sb.toString();
     }
 }
