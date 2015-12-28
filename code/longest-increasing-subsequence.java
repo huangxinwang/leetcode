@@ -40,29 +40,32 @@ public class Solution {
 public class Solution {
     public int lengthOfLIS(int[] nums) {
         if(nums==null || nums.length==0) return 0;
-        int len = 1;
-        int[] tails = new int[nums.length];
-        tails[0] = nums[0];
-        
+        int[] valid = new int[nums.length];
+        int idx = 1;
+        valid[0] = nums[0];
         for(int i=1; i<nums.length; i++){
-            //Case 1: replace minimum with current value
-            if(nums[i]<tails[0]) tails[0] = nums[i];
-            //Case 2: append current value
-            else if(nums[i]>tails[len-1]){
-                tails[len++] = nums[i];
+            //Case 1: larger than the tail, append
+            if(nums[i]>valid[idx-1]){
+                valid[idx++] = nums[i];
+            //Case 2: smaller than head, repace head
+            }else if(nums[i]<valid[0]){
+                valid[0] = nums[i];
             }
-            //Case 3: find idx to insert current value
-            else tails[findIdx(tails, 0,len, nums[i])] = nums[i];
+            //Case 3: otherwise, repace the first number that equal or larger than x
+            else{
+                int replaceidx = findIdx(valid, nums[i], 0, idx);
+                valid[replaceidx] = nums[i];
+            }
         }
-        return len;
+        return idx;
     }
     
-    //find idx to insert value target
-    public int findIdx(int[] nums, int left, int right, int target){
+    //binary search to find the idx of the first number that is equal or larger than target
+    public int findIdx(int[] valid, int target, int left, int right){
         if(right-left<1) return left;
         int mid = left + (right-left)/2;
-        if(nums[mid]<target){
-            return findIdx(nums, mid+1, right, target);
-        }else return findIdx(nums, left, mid, target);
+        if(valid[mid]<target)
+            return findIdx(valid, target, mid+1, right);
+        else return findIdx(valid, target, left, mid);
     }
 }
