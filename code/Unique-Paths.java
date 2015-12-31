@@ -8,76 +8,20 @@
  * How many possible unique paths are there?
  */
 
-
-public class Solution {
-    public int uniquePaths(int m, int n) {
-        
-        //special case
-        if(m==0 || n==0) return 0;
-        
-        //num[i][j] stands for the number of ways to reach (i,j)
-        int[][] num = new int[m][n];
-        
-        //initial condition
-        for(int i=0; i<m; i++)
-            num[i][0] = 1;
-        
-        for(int i=0; i<n; i++)
-            num[0][i] = 1;
-        
-        //dynamic programming approach to compute number of path to new position
-        for(int i=1; i<m; i++){
-            for(int j=1; j<n; j++)
-                num[i][j] = num[i-1][j] + num[i][j-1];
-        }
-        
-        return num[m-1][n-1];
-    }
-}
-
-////////////////////////////////////////////////////////
-//Round 2: 12/24/2014
-public class Solution {
-    public int uniquePaths(int m, int n) {
-        
-        //define dynamic table, path[i][j] denotes the number of ways to go from start to (i+1)(j+1)
-        int[][] path = new int[m][n];
-        
-        //initialize the table
-        for(int i=0; i<m; i++)
-            path[i][0] = 1;
-        for(int i=0; i<n; i++)
-            path[0][i] = 1;
-            
-        //dynamic build the table
-        for(int i=1; i<m; i++){
-            for(int j=1; j<n; j++)
-                path[i][j] = path[i-1][j] + path[i][j-1];
-        }
-        
-        return path[m-1][n-1];
-    }
-}
-
-
-//////////////////////////////////////////////////
-// 2015/11/06
+///////////////////////////////////
+// 2015/12/30
 // Highlight: 2D DP
+
 public class Solution {
     public int uniquePaths(int m, int n) {
-        
+        //count[i][j] represents the number of ways to reach grid[i][j]
         int[][] count = new int[m][n];
-        for(int i=0; i<m; i++){
-            count[i][0] = 1;
-        }
-        for(int j=0; j<n; j++){
-            count[0][j] = 1;
-        }
         
-        for(int i=1; i<m; i++){
-            for(int j=1; j<n; j++){
-                //two ways to reach current box
-                count[i][j] = count[i-1][j] + count[i][j-1];
+        //for each grid, we can reach it by each from left-side or top-side
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(i==0 || j==0) count[i][j] = 1;
+                else count[i][j] = count[i-1][j] + count[i][j-1];
             }
         }
         
