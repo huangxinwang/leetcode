@@ -9,6 +9,7 @@
 /////////////////////////////////////////////
 // 2015/11/18
 // Highlight: use two pointers, reverse at each step
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -20,21 +21,25 @@
 public class Solution {
     public ListNode reverseList(ListNode head) {
         if(head==null || head.next==null) return head;
-        ListNode curr = head;
-        ListNode next = curr.next;
         
-        //use a current pointer, and next pointer
-        //reverse at each step
-        while(next!=null){
-            ListNode tmp = next.next;
-            next.next = curr;
+        //use two nodes to keep track of two nodes
+        ListNode prev = head;
+        ListNode curr = head.next;
+        
+        while(curr!=null){
+            //keep track of next node of curr, since we are going to change its next to prev
+            ListNode tmp = curr.next;
             
-            //update curr and next
-            curr = next;
-            next = tmp;
+            //reverse 
+            curr.next = prev;
+            
+            //shift right by one position
+            prev = curr;
+            curr = tmp;
         }
         
+        //set tail
         head.next = null;
-        return curr;
+        return prev;
     }
 }
