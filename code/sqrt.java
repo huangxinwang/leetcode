@@ -33,3 +33,28 @@ public class Solution {
     
     
 }
+
+//////////////////////////////////////////
+//2015/12/31
+public class Solution {
+    public int mySqrt(int x) {
+        return (int)help(0,x,x);
+    }
+    
+    public long help(long left, long right, int x){
+        if(left==right) return left;
+        long mid = left + (right-left)/2;
+        
+        if(mid*mid==x) return mid;
+        //go left
+        if(mid*mid>x)
+            return help(left, mid-1, x);
+        //
+        else{
+            //mid is the solution
+            if( (mid+1)*(mid+1) > x ) return mid;
+            //go right
+            else return help(mid+1, right, x);
+        }
+    }
+}
