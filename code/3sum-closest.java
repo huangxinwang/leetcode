@@ -144,3 +144,32 @@ public class Solution {
         return rnt_sum;
     }
 }
+
+
+///////////////////////////////
+// 2016/01/03
+// Naive approach
+public class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+        Arrays.sort(nums);
+        int rnt = 0;
+        int diff = Integer.MAX_VALUE;
+        
+        for(int i=0; i<nums.length-2; i++){
+            if(i!=0 && nums[i]==nums[i-1]) continue;
+            for(int j=i+1; j<nums.length-1; j++){
+                if(j!=i+1 && nums[j]==nums[j-1]) continue;
+                int k = j+1;
+                while(k<nums.length){
+                    if(Math.abs(nums[i]+nums[j]+nums[k]-target)<diff){
+                        diff = Math.abs(nums[i]+nums[j]+nums[k]-target);
+                        rnt = nums[i]+nums[j]+nums[k];
+                    }
+                    k++;
+                }
+            }
+        }
+        
+        return rnt;
+    }
+}
